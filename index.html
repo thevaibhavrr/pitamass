@@ -43,37 +43,45 @@
         }
         
         section {
-            padding: 80px 0;
+            padding: 100px 0;
         }
         
         .section-title {
             text-align: center;
-            margin-bottom: 50px;
+            margin-bottom: 60px;
             position: relative;
         }
         
         .section-title h2 {
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             margin-bottom: 15px;
             color: var(--primary);
             text-transform: uppercase;
             letter-spacing: 2px;
         }
         
+        .section-title p {
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            color: #ccc;
+        }
+        
         .section-title::after {
             content: '';
             position: absolute;
-            bottom: -10px;
+            bottom: -15px;
             left: 50%;
             transform: translateX(-50%);
-            width: 80px;
-            height: 3px;
+            width: 100px;
+            height: 4px;
             background-color: var(--primary);
+            border-radius: 2px;
         }
         
         .btn {
             display: inline-block;
-            padding: 12px 30px;
+            padding: 14px 35px;
             background-color: var(--primary);
             color: var(--dark);
             text-decoration: none;
@@ -87,6 +95,8 @@
             position: relative;
             overflow: hidden;
             z-index: 1;
+            font-size: 1rem;
+            box-shadow: 0 5px 15px rgba(163, 235, 23, 0.3);
         }
         
         .btn::before {
@@ -103,10 +113,24 @@
         
         .btn:hover {
             color: var(--primary);
+            box-shadow: 0 8px 20px rgba(163, 235, 23, 0.4);
         }
         
         .btn:hover::before {
             left: 0;
+        }
+        
+        .btn-outline {
+            background: transparent;
+            color: var(--primary);
+        }
+        
+        .btn-outline::before {
+            background: var(--primary);
+        }
+        
+        .btn-outline:hover {
+            color: var(--dark);
         }
         
         /* Loading Animation */
@@ -125,8 +149,8 @@
         }
         
         .loader {
-            width: 50px;
-            height: 50px;
+            width: 60px;
+            height: 60px;
             position: relative;
         }
         
@@ -168,6 +192,7 @@
             padding: 20px 0;
             background-color: rgba(0, 0, 0, 0.9);
             transition: var(--transition);
+            backdrop-filter: blur(10px);
         }
         
         header.sticky {
@@ -182,10 +207,7 @@
         }
         
         .logo {
-            font-size: 2rem;
-            font-weight: 800;
-            color: var(--primary);
-            text-decoration: none;
+            height: 50px;
             transition: var(--transition);
         }
         
@@ -271,19 +293,20 @@
         }
         
         .hero-content h1 {
-            font-size: 4rem;
+            font-size: 4.5rem;
             margin-bottom: 20px;
             color: var(--primary);
             text-transform: uppercase;
             opacity: 0;
             transform: translateY(30px);
             animation: fadeInUp 1s forwards 0.5s;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
         }
         
         .hero-content p {
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             max-width: 700px;
-            margin: 0 auto 30px;
+            margin: 0 auto 40px;
             opacity: 0;
             transform: translateY(30px);
             animation: fadeInUp 1s forwards 0.8s;
@@ -293,6 +316,13 @@
             opacity: 0;
             transform: translateY(30px);
             animation: fadeInUp 1s forwards 1.1s;
+            margin: 0 10px;
+        }
+        
+        .hero-btns {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
         }
         
         @keyframes fadeInUp {
@@ -324,7 +354,7 @@
         }
         
         .about-text h3 {
-            font-size: 2rem;
+            font-size: 2.2rem;
             margin-bottom: 20px;
             color: var(--primary);
         }
@@ -338,6 +368,7 @@
             opacity: 0;
             transform: translateX(50px);
             transition: all 0.8s ease;
+            box-shadow: 0 10px 30px rgba(163, 235, 23, 0.2);
         }
         
         .about-image.visible {
@@ -365,13 +396,14 @@
         
         .service-card {
             background-color: var(--light-dark);
-            padding: 30px;
-            border-radius: 10px;
+            padding: 40px 30px;
+            border-radius: 15px;
             text-align: center;
             transition: var(--transition);
             border-bottom: 4px solid var(--primary);
             opacity: 0;
             transform: translateY(50px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
         }
         
         .service-card.visible {
@@ -380,14 +412,14 @@
         }
         
         .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 20px rgba(163, 235, 23, 0.2);
+            transform: translateY(-15px);
+            box-shadow: 0 15px 30px rgba(163, 235, 23, 0.3);
         }
         
         .service-icon {
-            font-size: 3rem;
+            font-size: 3.5rem;
             color: var(--primary);
-            margin-bottom: 20px;
+            margin-bottom: 25px;
             transition: var(--transition);
         }
         
@@ -396,7 +428,7 @@
         }
         
         .service-card h3 {
-            font-size: 1.5rem;
+            font-size: 1.6rem;
             margin-bottom: 15px;
         }
         
@@ -405,12 +437,12 @@
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
-            margin-bottom: 30px;
+            margin-bottom: 40px;
             gap: 10px;
         }
         
         .filter-btn {
-            padding: 8px 20px;
+            padding: 10px 25px;
             background: transparent;
             border: 2px solid var(--primary);
             color: var(--secondary);
@@ -418,6 +450,7 @@
             border-radius: 30px;
             transition: var(--transition);
             font-weight: 500;
+            font-size: 1rem;
         }
         
         .filter-btn.active, .filter-btn:hover {
@@ -427,15 +460,15 @@
         
         .portfolio-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 30px;
         }
         
         .portfolio-item {
-            border-radius: 10px;
+            border-radius: 15px;
             overflow: hidden;
             position: relative;
-            height: 250px;
+            height: 280px;
             opacity: 0;
             transform: scale(0.8);
             transition: all 0.8s ease;
@@ -459,7 +492,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.8);
+            background: rgba(0, 0, 0, 0.85);
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -481,7 +514,7 @@
         .portfolio-overlay h3 {
             color: var(--primary);
             margin-bottom: 10px;
-            font-size: 1.5rem;
+            font-size: 1.6rem;
             transform: translateY(-20px);
             transition: var(--transition);
             transition-delay: 0.1s;
@@ -491,28 +524,40 @@
             transform: translateY(20px);
             transition: var(--transition);
             transition-delay: 0.2s;
+            margin-bottom: 20px;
+        }
+        
+        .portfolio-overlay a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            transform: translateY(20px);
+            transition: var(--transition);
+            transition-delay: 0.3s;
         }
         
         .portfolio-item:hover .portfolio-overlay h3,
-        .portfolio-item:hover .portfolio-overlay p {
+        .portfolio-item:hover .portfolio-overlay p,
+        .portfolio-item:hover .portfolio-overlay a {
             transform: translateY(0);
         }
         
         /* Team Section */
         .team-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
             gap: 30px;
         }
         
         .team-member {
             background-color: var(--light-dark);
-            border-radius: 10px;
+            border-radius: 15px;
             overflow: hidden;
             text-align: center;
             transition: var(--transition);
             opacity: 0;
             transform: translateY(50px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
         }
         
         .team-member.visible {
@@ -521,13 +566,13 @@
         }
         
         .team-member:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 20px rgba(163, 235, 23, 0.2);
+            transform: translateY(-15px);
+            box-shadow: 0 15px 30px rgba(163, 235, 23, 0.2);
         }
         
         .team-img {
             width: 100%;
-            height: 300px;
+            height: 320px;
             object-fit: cover;
             transition: var(--transition);
         }
@@ -537,7 +582,7 @@
         }
         
         .team-info {
-            padding: 20px;
+            padding: 25px;
             position: relative;
             overflow: hidden;
         }
@@ -560,7 +605,7 @@
         .team-info h3 {
             color: var(--primary);
             margin-bottom: 5px;
-            font-size: 1.5rem;
+            font-size: 1.6rem;
         }
         
         .team-role {
@@ -586,7 +631,7 @@
         .team-social a {
             color: var(--secondary);
             transition: var(--transition);
-            font-size: 1.2rem;
+            font-size: 1.3rem;
         }
         
         .team-social a:hover {
@@ -624,27 +669,28 @@
             top: 50%;
             transform: translateY(-50%);
             color: var(--primary);
-            font-size: 2rem;
+            font-size: 2.5rem;
             transition: var(--transition);
         }
         
         .process-step:hover:not(:last-child)::after {
-            transform: translateY(-50%) translateX(5px);
+            transform: translateY(-50%) translateX(10px);
         }
         
         .step-number {
-            width: 60px;
-            height: 60px;
+            width: 70px;
+            height: 70px;
             background-color: var(--primary);
             color: var(--dark);
             border-radius: 50%;
             display: flex;
             justify-content: center;
             align-items: center;
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             font-weight: 700;
-            margin: 0 auto 20px;
+            margin: 0 auto 25px;
             transition: var(--transition);
+            box-shadow: 0 5px 15px rgba(163, 235, 23, 0.3);
         }
         
         .process-step:hover .step-number {
@@ -654,7 +700,7 @@
         .process-step h3 {
             color: var(--primary);
             margin-bottom: 15px;
-            font-size: 1.5rem;
+            font-size: 1.6rem;
         }
         
         /* Stats Section */
@@ -670,9 +716,13 @@
         }
         
         .stat-item {
-            padding: 30px;
+            padding: 40px 30px;
             opacity: 0;
             transform: translateY(50px);
+            background: rgba(26, 26, 26, 0.7);
+            border-radius: 15px;
+            backdrop-filter: blur(5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
         }
         
         .stat-item.visible {
@@ -681,32 +731,33 @@
         }
         
         .stat-number {
-            font-size: 3rem;
+            font-size: 3.5rem;
             font-weight: 700;
             color: var(--primary);
             margin-bottom: 10px;
         }
         
         .stat-text {
-            font-size: 1.2rem;
+            font-size: 1.3rem;
         }
         
         /* Testimonials Section */
         .testimonials-container {
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
             position: relative;
         }
         
         .testimonial {
             background-color: var(--light-dark);
-            padding: 30px;
-            border-radius: 10px;
+            padding: 40px;
+            border-radius: 15px;
             text-align: center;
             display: none;
             opacity: 0;
             transform: translateY(30px);
             transition: all 0.5s ease;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
         }
         
         .testimonial.active {
@@ -716,13 +767,14 @@
         }
         
         .client-img {
-            width: 80px;
-            height: 80px;
+            width: 90px;
+            height: 90px;
             border-radius: 50%;
             object-fit: cover;
-            margin: 0 auto 15px;
+            margin: 0 auto 20px;
             border: 3px solid var(--primary);
             transition: var(--transition);
+            box-shadow: 0 5px 15px rgba(163, 235, 23, 0.3);
         }
         
         .testimonial:hover .client-img {
@@ -731,26 +783,38 @@
         
         .testimonial-text {
             font-style: italic;
-            margin-bottom: 20px;
-            font-size: 1.1rem;
+            margin-bottom: 25px;
+            font-size: 1.2rem;
+            line-height: 1.8;
+        }
+        
+        .testimonial-rating {
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-size: 1.2rem;
         }
         
         .client-name {
             color: var(--primary);
             font-weight: 600;
-            font-size: 1.2rem;
+            font-size: 1.3rem;
+        }
+        
+        .client-position {
+            color: #ccc;
+            font-size: 1rem;
         }
         
         .testimonial-nav {
             display: flex;
             justify-content: center;
-            margin-top: 30px;
+            margin-top: 40px;
             gap: 10px;
         }
         
         .testimonial-btn {
-            width: 12px;
-            height: 12px;
+            width: 15px;
+            height: 15px;
             border-radius: 50%;
             background-color: #444;
             cursor: pointer;
@@ -766,7 +830,7 @@
         .clients-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 30px;
+            gap: 40px;
             align-items: center;
         }
         
@@ -778,6 +842,7 @@
             height: auto;
             opacity: 0;
             transform: translateY(30px);
+            padding: 15px;
         }
         
         .client-logo.visible {
@@ -791,20 +856,66 @@
             transform: scale(1.1);
         }
         
-        /* Blog Section */
-        .blog-grid {
+        /* Why Choose Us Section */
+        .features-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
         }
         
+        .feature-item {
+            background-color: var(--light-dark);
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            transition: var(--transition);
+            opacity: 0;
+            transform: translateY(50px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        .feature-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .feature-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(163, 235, 23, 0.2);
+        }
+        
+        .feature-icon {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+            transition: var(--transition);
+        }
+        
+        .feature-item:hover .feature-icon {
+            transform: scale(1.2) rotate(5deg);
+        }
+        
+        .feature-item h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+        
+        /* Blog Section */
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
         .blog-card {
             background-color: var(--light-dark);
-            border-radius: 10px;
+            border-radius: 15px;
             overflow: hidden;
             transition: var(--transition);
             opacity: 0;
             transform: translateY(50px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
         }
         
         .blog-card.visible {
@@ -813,13 +924,13 @@
         }
         
         .blog-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 20px rgba(163, 235, 23, 0.2);
+            transform: translateY(-15px);
+            box-shadow: 0 15px 30px rgba(163, 235, 23, 0.2);
         }
         
         .blog-img {
             width: 100%;
-            height: 200px;
+            height: 220px;
             object-fit: cover;
             transition: var(--transition);
         }
@@ -829,19 +940,28 @@
         }
         
         .blog-content {
-            padding: 20px;
+            padding: 25px;
+        }
+        
+        .blog-meta {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            color: #ccc;
+            font-size: 0.9rem;
         }
         
         .blog-date {
             color: var(--primary);
-            font-size: 0.9rem;
-            margin-bottom: 10px;
+            font-weight: 600;
+            margin-right: 15px;
         }
         
         .blog-content h3 {
-            font-size: 1.3rem;
-            margin-bottom: 10px;
+            font-size: 1.4rem;
+            margin-bottom: 15px;
             transition: var(--transition);
+            line-height: 1.4;
         }
         
         .blog-card:hover .blog-content h3 {
@@ -852,13 +972,80 @@
             color: var(--primary);
             text-decoration: none;
             font-weight: 600;
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
             margin-top: 15px;
+            transition: var(--transition);
+        }
+        
+        .blog-content a i {
+            margin-left: 5px;
             transition: var(--transition);
         }
         
         .blog-content a:hover {
             transform: translateX(5px);
+        }
+        
+        .blog-content a:hover i {
+            transform: translateX(5px);
+        }
+        
+        /* FAQ Section */
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .faq-item {
+            background-color: var(--light-dark);
+            border-radius: 10px;
+            margin-bottom: 20px;
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .faq-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .faq-question {
+            padding: 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: var(--transition);
+        }
+        
+        .faq-question:hover {
+            color: var(--primary);
+        }
+        
+        .faq-question i {
+            transition: var(--transition);
+        }
+        
+        .faq-answer {
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .faq-item.active .faq-answer {
+            padding: 20px;
+            max-height: 500px;
+        }
+        
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
         }
         
         /* CTA Section */
@@ -868,7 +1055,7 @@
         }
         
         .cta-content h2 {
-            font-size: 2.5rem;
+            font-size: 3rem;
             margin-bottom: 20px;
             color: var(--primary);
             opacity: 0;
@@ -883,8 +1070,8 @@
         
         .cta-content p {
             max-width: 700px;
-            margin: 0 auto 30px;
-            font-size: 1.2rem;
+            margin: 0 auto 40px;
+            font-size: 1.3rem;
             opacity: 0;
             transform: translateY(30px);
             transition: all 0.8s ease 0.2s;
@@ -928,8 +1115,8 @@
         
         .contact-info h3 {
             color: var(--primary);
-            font-size: 1.8rem;
-            margin-bottom: 20px;
+            font-size: 2rem;
+            margin-bottom: 25px;
         }
         
         .contact-details {
@@ -937,7 +1124,7 @@
         }
         
         .contact-details li {
-            margin-bottom: 15px;
+            margin-bottom: 20px;
             display: flex;
             align-items: center;
             gap: 15px;
@@ -952,6 +1139,7 @@
             color: var(--primary);
             font-size: 1.5rem;
             transition: var(--transition);
+            min-width: 25px;
         }
         
         .contact-details li:hover .contact-icon {
@@ -972,16 +1160,16 @@
         }
         
         .form-group {
-            margin-bottom: 20px;
+            margin-bottom: 25px;
             position: relative;
         }
         
         .form-input {
             width: 100%;
-            padding: 12px 15px;
+            padding: 15px 20px;
             background-color: var(--light-dark);
             border: 1px solid #444;
-            border-radius: 5px;
+            border-radius: 8px;
             color: var(--secondary);
             font-size: 1rem;
             transition: var(--transition);
@@ -990,18 +1178,18 @@
         .form-input:focus {
             outline: none;
             border-color: var(--primary);
-            box-shadow: 0 0 10px rgba(163, 235, 23, 0.3);
+            box-shadow: 0 0 15px rgba(163, 235, 23, 0.3);
         }
         
         textarea.form-input {
-            min-height: 150px;
+            min-height: 180px;
             resize: vertical;
         }
         
         /* Footer */
         footer {
             background-color: var(--light-dark);
-            padding: 60px 0 30px;
+            padding: 80px 0 30px;
         }
         
         .footer-container {
@@ -1023,10 +1211,10 @@
         
         .footer-col h4 {
             color: var(--primary);
-            font-size: 1.3rem;
-            margin-bottom: 20px;
+            font-size: 1.4rem;
+            margin-bottom: 25px;
             position: relative;
-            padding-bottom: 10px;
+            padding-bottom: 15px;
         }
         
         .footer-col h4::after {
@@ -1035,7 +1223,7 @@
             bottom: 0;
             left: 0;
             width: 50px;
-            height: 2px;
+            height: 3px;
             background-color: var(--primary);
             transition: var(--transition);
         }
@@ -1049,7 +1237,7 @@
         }
         
         .footer-links li {
-            margin-bottom: 10px;
+            margin-bottom: 12px;
         }
         
         .footer-links a {
@@ -1067,20 +1255,20 @@
         .footer-social {
             display: flex;
             gap: 15px;
-            margin-top: 20px;
+            margin-top: 25px;
         }
         
         .footer-social a {
             display: inline-flex;
             justify-content: center;
             align-items: center;
-            width: 40px;
-            height: 40px;
+            width: 45px;
+            height: 45px;
             background-color: #333;
             color: var(--secondary);
             border-radius: 50%;
             transition: var(--transition);
-            font-size: 1.2rem;
+            font-size: 1.3rem;
         }
         
         .footer-social a:hover {
@@ -1089,25 +1277,100 @@
             transform: translateY(-5px);
         }
         
+        .footer-newsletter p {
+            margin-bottom: 20px;
+        }
+        
+        .footer-newsletter form {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .footer-newsletter input {
+            flex: 1;
+            padding: 12px 15px;
+            background-color: #333;
+            border: none;
+            border-radius: 30px;
+            color: var(--secondary);
+        }
+        
+        .footer-newsletter button {
+            padding: 12px 20px;
+            background-color: var(--primary);
+            color: var(--dark);
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 600;
+        }
+        
+        .footer-newsletter button:hover {
+            background-color: var(--secondary);
+        }
+        
         .copyright {
             text-align: center;
-            margin-top: 40px;
-            padding-top: 20px;
+            margin-top: 60px;
+            padding-top: 30px;
             border-top: 1px solid #444;
             color: #ccc;
         }
         
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary);
+            color: var(--dark);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: var(--transition);
+            opacity: 0;
+            visibility: hidden;
+            z-index: 999;
+            box-shadow: 0 5px 15px rgba(163, 235, 23, 0.3);
+        }
+        
+        .back-to-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .back-to-top:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(163, 235, 23, 0.4);
+        }
+        
         /* Responsive Styles */
+        @media (max-width: 1200px) {
+            .process-step:not(:last-child)::after {
+                font-size: 2rem;
+                right: -5px;
+            }
+        }
+        
         @media (max-width: 992px) {
             .hero-content h1 {
-                font-size: 3rem;
+                font-size: 3.5rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2.5rem;
             }
             
             .nav-links {
                 position: fixed;
                 top: 0;
                 right: -100%;
-                width: 250px;
+                width: 280px;
                 height: 100vh;
                 background-color: var(--light-dark);
                 flex-direction: column;
@@ -1115,6 +1378,7 @@
                 justify-content: center;
                 transition: var(--transition);
                 z-index: 1001;
+                padding: 50px 0;
             }
             
             .nav-links.active {
@@ -1122,7 +1386,7 @@
             }
             
             .nav-links li {
-                margin: 15px 0;
+                margin: 20px 0;
             }
             
             .hamburger {
@@ -1131,36 +1395,98 @@
             }
             
             .hamburger i {
-                font-size: 1.8rem;
+                font-size: 2rem;
                 color: var(--secondary);
             }
             
             .process-step:not(:last-child)::after {
                 display: none;
             }
+            
+            .process-step {
+                margin-bottom: 40px;
+            }
+            
+            .footer-newsletter form {
+                flex-direction: column;
+            }
+            
+            .footer-newsletter button {
+                width: 100%;
+            }
         }
         
         @media (max-width: 768px) {
+            section {
+                padding: 80px 0;
+            }
+            
             .hero-content h1 {
+                font-size: 2.8rem;
+            }
+            
+            .hero-content p {
+                font-size: 1.1rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2.2rem;
+            }
+            
+            .hero-btns {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .btn {
+                width: 100%;
+                text-align: center;
+            }
+            
+            .stat-number {
+                font-size: 2.8rem;
+            }
+            
+            .cta-content h2 {
                 font-size: 2.5rem;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero-content h1 {
+                font-size: 2.2rem;
             }
             
             .section-title h2 {
                 font-size: 2rem;
             }
             
-            section {
-                padding: 60px 0;
-            }
-        }
-        
-        @media (max-width: 576px) {
-            .hero-content h1 {
-                font-size: 2rem;
+            .section-title p {
+                font-size: 1rem;
             }
             
             .btn {
-                padding: 10px 25px;
+                padding: 12px 25px;
+                font-size: 0.9rem;
+            }
+            
+            .stat-number {
+                font-size: 2.5rem;
+            }
+            
+            .cta-content h2 {
+                font-size: 2rem;
+            }
+            
+            .cta-content p {
+                font-size: 1.1rem;
+            }
+            
+            .back-to-top {
+                bottom: 20px;
+                right: 20px;
+                width: 45px;
+                height: 45px;
             }
         }
     </style>
@@ -1174,7 +1500,7 @@
     <!-- Header -->
     <header>
         <div class="container header-container">
-            <a href="#" class="logo">PITAMAAS</a>
+            <a href="#" class="logo"><img src="https://www.pitamaas.com/logo-dark-mobile.png" alt="Pitamaas" class="logo"></a>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
@@ -1196,7 +1522,10 @@
         <div class="container hero-content">
             <h1>Creative Solutions For Your Business</h1>
             <p>We are Pitamaas, a creative agency specialized in branding, digital marketing, web design and much more. Let's create something amazing together.</p>
-            <a href="#contact" class="btn">Get Started</a>
+            <div class="hero-btns">
+                <a href="#portfolio" class="btn">View Our Work</a>
+                <a href="#contact" class="btn btn-outline">Get Started</a>
+            </div>
         </div>
     </section>
 
@@ -1205,6 +1534,7 @@
         <div class="container">
             <div class="section-title">
                 <h2>About Us</h2>
+                <p>Learn more about our story, mission, and the team behind our success</p>
             </div>
             <div class="about-content">
                 <div class="about-text">
@@ -1215,7 +1545,7 @@
                     <a href="#services" class="btn">Our Services</a>
                 </div>
                 <div class="about-image">
-                    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Team Meeting">
+                    <img src="https://www.pitamaas.com/Home/2.jpg" alt="Pitamaas Team">
                 </div>
             </div>
         </div>
@@ -1226,6 +1556,7 @@
         <div class="container">
             <div class="section-title">
                 <h2>Our Services</h2>
+                <p>Comprehensive creative solutions to help your business stand out</p>
             </div>
             <div class="services-grid">
                 <div class="service-card">
@@ -1279,6 +1610,7 @@
         <div class="container">
             <div class="section-title">
                 <h2>Our Work</h2>
+                <p>Explore our portfolio of successful projects and creative solutions</p>
             </div>
             <div class="portfolio-filters">
                 <button class="filter-btn active" data-filter="all">All</button>
@@ -1295,6 +1627,7 @@
                     <div class="portfolio-overlay">
                         <h3>Organic Skincare Line</h3>
                         <p>Packaging Design</p>
+                        <a href="#">View Project</a>
                     </div>
                 </div>
                 <div class="portfolio-item" data-category="digital">
@@ -1302,6 +1635,7 @@
                     <div class="portfolio-overlay">
                         <h3>Social Media Campaign</h3>
                         <p>Digital Marketing</p>
+                        <a href="#">View Project</a>
                     </div>
                 </div>
                 <div class="portfolio-item" data-category="graphic">
@@ -1309,6 +1643,7 @@
                     <div class="portfolio-overlay">
                         <h3>Brand Identity</h3>
                         <p>Graphic Design</p>
+                        <a href="#">View Project</a>
                     </div>
                 </div>
                 <div class="portfolio-item" data-category="photography">
@@ -1316,6 +1651,7 @@
                     <div class="portfolio-overlay">
                         <h3>Fashion Collection</h3>
                         <p>Product Photography</p>
+                        <a href="#">View Project</a>
                     </div>
                 </div>
                 <div class="portfolio-item" data-category="web">
@@ -1323,6 +1659,7 @@
                     <div class="portfolio-overlay">
                         <h3>E-commerce Platform</h3>
                         <p>Web Design</p>
+                        <a href="#">View Project</a>
                     </div>
                 </div>
                 <div class="portfolio-item" data-category="video">
@@ -1330,6 +1667,7 @@
                     <div class="portfolio-overlay">
                         <h3>Product Launch</h3>
                         <p>Video Ads</p>
+                        <a href="#">View Project</a>
                     </div>
                 </div>
             </div>
@@ -1341,10 +1679,11 @@
         <div class="container">
             <div class="section-title">
                 <h2>Our Team</h2>
+                <p>Meet the talented professionals behind our creative agency</p>
             </div>
             <div class="team-grid">
                 <div class="team-member">
-                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Team Member" class="team-img">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSe_rLQmEkskOsDIAPWgMzazQHoqGUM2YoYHg&s" alt="Team Member" class="team-img">
                     <div class="team-info">
                         <h3>Michael Johnson</h3>
                         <p class="team-role">Creative Director</p>
@@ -1357,7 +1696,7 @@
                     </div>
                 </div>
                 <div class="team-member">
-                    <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Team Member" class="team-img">
+                    <img src="https://images.jdmagicbox.com/comp/ludhiana/l5/0161px161.x161.160618161712.v6l5/catalogue/pitamaas-haibowal-kalan-ludhiana-graphic-designing-for-logo-roglchzshd.jpg" alt="Team Member" class="team-img">
                     <div class="team-info">
                         <h3>Sarah Williams</h3>
                         <p class="team-role">Art Director</p>
@@ -1370,7 +1709,7 @@
                     </div>
                 </div>
                 <div class="team-member">
-                    <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Team Member" class="team-img">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSgLW5MwwNSQrkpllY3eZfeGJ7bz0SiNGlH2w&s" alt="Team Member" class="team-img">
                     <div class="team-info">
                         <h3>David Chen</h3>
                         <p class="team-role">Lead Developer</p>
@@ -1383,7 +1722,7 @@
                     </div>
                 </div>
                 <div class="team-member">
-                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Team Member" class="team-img">
+                    <img src="https://www.pitamaas.com/Catimages/74616346-2fa2-473b-a2b8-8d7b7983b87c.jpg" alt="Team Member" class="team-img">
                     <div class="team-info">
                         <h3>Emily Rodriguez</h3>
                         <p class="team-role">Marketing Strategist</p>
@@ -1399,11 +1738,52 @@
         </div>
     </section>
 
+    <!-- Why Choose Us Section -->
+    <section id="features">
+        <div class="container">
+            <div class="section-title">
+                <h2>Why Choose Us</h2>
+                <p>Discover what makes our creative agency stand out from the competition</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3>Innovative Solutions</h3>
+                    <p>We stay ahead of industry trends to deliver cutting-edge creative solutions that give you a competitive advantage.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <h3>Quality Assurance</h3>
+                    <p>Our rigorous quality control process ensures that every project meets the highest standards of excellence.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3>Dedicated Support</h3>
+                    <p>We provide ongoing support and maintenance to ensure your solutions continue to perform optimally.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h3>Fast Delivery</h3>
+                    <p>We understand the importance of timelines and deliver projects efficiently without compromising on quality.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Process Section -->
     <section id="process">
         <div class="container">
             <div class="section-title">
                 <h2>Our Process</h2>
+                <p>Our structured approach to delivering exceptional creative solutions</p>
             </div>
             <div class="process-container">
                 <div class="process-step">
@@ -1459,22 +1839,47 @@
         <div class="container">
             <div class="section-title">
                 <h2>Client Reviews</h2>
+                <p>What our clients say about working with our creative agency</p>
             </div>
             <div class="testimonials-container">
                 <div class="testimonial active">
                     <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Client" class="client-img">
                     <p class="testimonial-text">"Pitamaas transformed our brand identity completely. The new packaging design has increased our sales by 40% in just three months. Their team is professional, creative, and delivered beyond our expectations."</p>
-                    <p class="client-name">James Anderson, CEO of NaturalSkincare</p>
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="client-name">James Anderson</p>
+                    <p class="client-position">CEO of NaturalSkincare</p>
                 </div>
                 <div class="testimonial">
                     <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Client" class="client-img">
                     <p class="testimonial-text">"The website designed by Pitamaas has significantly improved our online presence. It's not only beautiful but also highly functional. Our bounce rate decreased by 60% and conversions increased dramatically."</p>
-                    <p class="client-name">Lisa Thompson, Marketing Director at TechSolutions</p>
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="client-name">Lisa Thompson</p>
+                    <p class="client-position">Marketing Director at TechSolutions</p>
                 </div>
                 <div class="testimonial">
                     <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Client" class="client-img">
                     <p class="testimonial-text">"The digital marketing campaign created by Pitamaas helped us reach a much wider audience. Their strategic approach and creative solutions resulted in a 300% ROI. I highly recommend their services."</p>
-                    <p class="client-name">Robert Martinez, Founder of FitLife</p>
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="client-name">Robert Martinez</p>
+                    <p class="client-position">Founder of FitLife</p>
                 </div>
                 <div class="testimonial-nav">
                     <div class="testimonial-btn active" data-index="0"></div>
@@ -1485,11 +1890,60 @@
         </div>
     </section>
 
+    <!-- FAQ Section -->
+    <section id="faq">
+        <div class="container">
+            <div class="section-title">
+                <h2>Frequently Asked Questions</h2>
+                <p>Find answers to common questions about our services and process</p>
+            </div>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>How long does a typical project take to complete?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>The timeline for each project varies depending on its scope and complexity. A simple branding project might take 2-3 weeks, while a comprehensive website redesign could take 8-12 weeks. During our initial consultation, we'll provide a detailed timeline based on your specific requirements.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>What is your pricing structure?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We offer customized pricing based on the specific needs of each project. We can work with fixed project fees, hourly rates, or retainer agreements depending on what works best for your business. We'll provide a detailed proposal with transparent pricing before starting any work.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Do you provide ongoing support after project completion?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, we offer various support and maintenance packages to ensure your solutions continue to perform optimally. This includes technical support, content updates, performance monitoring, and regular improvements to keep your digital presence current and effective.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>How involved do we need to be in the process?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We believe collaboration is key to success. While we handle the heavy lifting, we'll need your input at key stages such as discovery, strategy approval, and review milestones. The level of involvement can be tailored to your availability and preferences.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Clients Section -->
     <section>
         <div class="container">
             <div class="section-title">
                 <h2>Our Clients</h2>
+                <p>We've had the privilege of working with these amazing brands</p>
             </div>
             <div class="clients-grid">
                 <img src="https://via.placeholder.com/150x80/333333/cccccc?text=Client+1" alt="Client Logo" class="client-logo">
@@ -1507,33 +1961,43 @@
         <div class="container">
             <div class="section-title">
                 <h2>Latest News</h2>
+                <p>Insights, tips, and trends from the world of creative design and marketing</p>
             </div>
             <div class="blog-grid">
                 <div class="blog-card">
                     <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Blog Post" class="blog-img">
                     <div class="blog-content">
-                        <div class="blog-date">June 15, 2023</div>
+                        <div class="blog-meta">
+                            <span class="blog-date">June 15, 2023</span>
+                            <span>• 5 min read</span>
+                        </div>
                         <h3>The Future of Digital Marketing in 2023</h3>
                         <p>Explore the latest trends and strategies that are shaping the digital marketing landscape this year.</p>
-                        <a href="#">Read More →</a>
+                        <a href="#">Read More <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
                 <div class="blog-card">
                     <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Blog Post" class="blog-img">
                     <div class="blog-content">
-                        <div class="blog-date">May 28, 2023</div>
+                        <div class="blog-meta">
+                            <span class="blog-date">May 28, 2023</span>
+                            <span>• 7 min read</span>
+                        </div>
                         <h3>How Packaging Design Influences Buying Decisions</h3>
                         <p>Discover how effective packaging design can significantly impact consumer behavior and sales.</p>
-                        <a href="#">Read More →</a>
+                        <a href="#">Read More <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
                 <div class="blog-card">
                     <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Blog Post" class="blog-img">
                     <div class="blog-content">
-                        <div class="blog-date">April 12, 2023</div>
+                        <div class="blog-meta">
+                            <span class="blog-date">April 12, 2023</span>
+                            <span>• 6 min read</span>
+                        </div>
                         <h3>Essential Elements of a High-Converting Website</h3>
                         <p>Learn what makes a website not just visually appealing but also effective at converting visitors.</p>
-                        <a href="#">Read More →</a>
+                        <a href="#">Read More <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
             </div>
@@ -1556,6 +2020,7 @@
         <div class="container">
             <div class="section-title">
                 <h2>Contact Us</h2>
+                <p>Get in touch with us to discuss your project or request a quote</p>
             </div>
             <div class="contact-container">
                 <div class="contact-info">
@@ -1563,11 +2028,11 @@
                     <ul class="contact-details">
                         <li>
                             <span class="contact-icon"><i class="fas fa-map-marker-alt"></i></span>
-                            <span>123 Creative Street, Design District, New York, NY 10001</span>
+                            <span>Pitamaas, Scf-61, Main Market, opp. CFC School, F Block, Bhai Randhir Singh Nagar, Ludhiana, Punjab 141012</span>
                         </li>
                         <li>
                             <span class="contact-icon"><i class="fas fa-phone"></i></span>
-                            <span>+1 (555) 123-4567</span>
+                            <span>070877 24552</span>
                         </li>
                         <li>
                             <span class="contact-icon"><i class="fas fa-envelope"></i></span>
@@ -1578,6 +2043,12 @@
                             <span>Mon - Fri: 9AM - 6PM</span>
                         </li>
                     </ul>
+                    <div class="footer-social" style="margin-top: 30px;">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
                 </div>
                 <div class="contact-form">
                     <form>
@@ -1639,11 +2110,9 @@
                 <div class="footer-col">
                     <h4>Newsletter</h4>
                     <p>Subscribe to our newsletter to receive updates on our latest work and special offers.</p>
-                    <form>
-                        <div class="form-group">
-                            <input type="email" class="form-input" placeholder="Your Email" required>
-                        </div>
-                        <button type="submit" class="btn">Subscribe</button>
+                    <form class="footer-newsletter">
+                        <input type="email" placeholder="Your Email" required>
+                        <button type="submit">Subscribe</button>
                     </form>
                 </div>
             </div>
@@ -1652,6 +2121,11 @@
             </div>
         </div>
     </footer>
+
+    <!-- Back to Top Button -->
+    <div class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </div>
 
     <script>
         // Loading Animation
@@ -1669,6 +2143,18 @@
         window.addEventListener('scroll', function() {
             const header = document.querySelector('header');
             header.classList.toggle('sticky', window.scrollY > 0);
+            
+            // Back to top button
+            const backToTop = document.querySelector('.back-to-top');
+            backToTop.classList.toggle('active', window.scrollY > 500);
+        });
+
+        // Back to top functionality
+        document.querySelector('.back-to-top').addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
         });
 
         // Mobile Menu Toggle
@@ -1732,6 +2218,25 @@
             });
         });
 
+        // FAQ Accordion
+        const faqItems = document.querySelectorAll('.faq-item');
+        
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            
+            question.addEventListener('click', () => {
+                // Close all other items
+                faqItems.forEach(otherItem => {
+                    if (otherItem !== item) {
+                        otherItem.classList.remove('active');
+                    }
+                });
+                
+                // Toggle current item
+                item.classList.toggle('active');
+            });
+        });
+
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
@@ -1778,7 +2283,7 @@
 
         // While in view animations
         function checkVisibility() {
-            const elements = document.querySelectorAll('.about-text, .about-image, .service-card, .portfolio-item, .team-member, .process-step, .stat-item, .client-logo, .blog-card, .footer-col');
+            const elements = document.querySelectorAll('.about-text, .about-image, .service-card, .portfolio-item, .team-member, .feature-item, .process-step, .stat-item, .client-logo, .blog-card, .faq-item, .footer-col');
             
             elements.forEach(element => {
                 const position = element.getBoundingClientRect();
