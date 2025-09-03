@@ -70,7 +70,8 @@
 //     return () => el?.removeEventListener("touchend", handleDoubleTap)
 //   }, [])
 
-//   const items = React.useMemo(() => makeInfiniteGrid(20, 20, baseProjects), [])
+//   // Create a much larger grid (50x50 = 2500 items) for a more expansive infinite feel
+//   const items = React.useMemo(() => makeInfiniteGrid(50, 50, baseProjects), [])
 
 //   return (
 //     <main className="relative min-h-screen bg-neutral-950 text-white">
@@ -80,7 +81,7 @@
 //           <img
 //             src="https://www.pitamaas.com/logo-dark-mobile.png"
 //             alt="Pitamaas Logo"
-//             className="h-10 w-auto"
+//             className="h-30 w-auto"
 //           />
 //         </Link>
 //       </header>
@@ -96,14 +97,17 @@
 //           ref={contentRef}
 //           className={cn(
 //             "pointer-events-auto absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2",
-//             "min-h-[300vh] min-w-[300vw] select-none"
+//             "min-h-[900vh] min-w-[900vw] select-none" // Increased container size to accommodate larger grid
 //           )}
 //         >
 //           <div
 //             className={cn(
-//               "grid grid-cols-2 gap-3 px-4 py-6", // mobile: 2 cols
+//               "grid grid-cols-2 px-4 py-6 gap-1", // Added gap-6 for spacing between cards
 //               "sm:grid-cols-4 md:grid-cols-8 lg:grid-cols-12 xl:grid-cols-20"
 //             )}
+//             style={{
+//               gridTemplateColumns: 'repeat(50, minmax(0, 1fr))'
+//             }}
 //           >
 //             {items.map((p, i) => (
 //               <ProjectCard
@@ -111,6 +115,7 @@
 //                 title={p.title}
 //                 categories={p.categories}
 //                 imgSrc={p.imgSrc}
+//                 className="w-full h-full" // Increased image size
 //               />
 //             ))}
 //           </div>
@@ -130,9 +135,6 @@
 //     </main>
 //   )
 // }
-
-
-
 "use client"
 
 import * as React from "react"
@@ -158,13 +160,35 @@ const baseProjects: Project[] = [
   { id: 10, title: "Studio Suite", categories: ["SaaS", "Design"], imgSrc: "/saas-ui-kit-preview.png" },
 ]
 
-// Utility: make infinite tiling by repeating items in a grid
-function makeInfiniteGrid(rows: number, cols: number, projects: Project[]) {
-  const grid: Project[] = []
-  for (let i = 0; i < rows * cols; i++) {
-    grid.push(projects[i % projects.length])
+// Fisher-Yates shuffle algorithm for randomizing array
+function shuffleArray<T>(array: T[]): T[] {
+  const shuffled = [...array];
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
   }
-  return grid
+  return shuffled;
+}
+
+// Utility: make infinite tiling with randomized projects
+function makeInfiniteGrid(rows: number, cols: number, projects: Project[]) {
+  const grid: Project[] = [];
+  const totalItems = rows * cols;
+  
+  // Create multiple shuffled copies of the projects to ensure randomness
+  const shuffledProjects = [];
+  const copiesNeeded = Math.ceil(totalItems / projects.length);
+  
+  for (let i = 0; i < copiesNeeded; i++) {
+    shuffledProjects.push(...shuffleArray([...projects]));
+  }
+  
+  // Take only the number of items we need
+  for (let i = 0; i < totalItems; i++) {
+    grid.push(shuffledProjects[i % shuffledProjects.length]);
+  }
+  
+  return grid;
 }
 
 export default function Page() {
@@ -205,8 +229,8 @@ export default function Page() {
     return () => el?.removeEventListener("touchend", handleDoubleTap)
   }, [])
 
-  // Create a very large grid (100x100 = 10,000 items) for infinite feel
-  const items = React.useMemo(() => makeInfiniteGrid(20, 20, baseProjects), [])
+  // Create a much larger grid (50x50 = 2500 items) for a more expansive infinite feel
+  const items = React.useMemo(() => makeInfiniteGrid(50, 50, baseProjects), [])
 
   return (
     <main className="relative min-h-screen bg-neutral-950 text-white">
@@ -216,7 +240,7 @@ export default function Page() {
           <img
             src="https://www.pitamaas.com/logo-dark-mobile.png"
             alt="Pitamaas Logo"
-            className="h-10 w-auto"
+            className="h-30 w-auto"
           />
         </Link>
       </header>
@@ -232,21 +256,25 @@ export default function Page() {
           ref={contentRef}
           className={cn(
             "pointer-events-auto absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2",
-            "min-h-[300vh] min-w-[300vw] select-none"
+            "min-h-[900vh] min-w-[900vw] select-none" // Increased container size to accommodate larger grid
           )}
         >
           <div
             className={cn(
-              "grid grid-cols-2 gap-3 px-4 py-6", // mobile: 2 cols
+              "grid grid-cols-2 px-4 py-6 gap-2", // Added gap-6 for spacing between cards
               "sm:grid-cols-4 md:grid-cols-8 lg:grid-cols-12 xl:grid-cols-20"
             )}
+            style={{
+              gridTemplateColumns: 'repeat(50, minmax(0, 1fr))'
+            }}
           >
             {items.map((p, i) => (
               <ProjectCard
-                key={`${p.title}-${i}`}
+                key={`${p.title}-${i}-${Math.random()}`} // Added random value to key for better uniqueness
                 title={p.title}
                 categories={p.categories}
                 imgSrc={p.imgSrc}
+                className="w-full h-full" // Increased image size
               />
             ))}
           </div>

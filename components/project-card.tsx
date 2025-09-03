@@ -21,7 +21,8 @@ export function ProjectCard({ title, categories, imgSrc, className }: ProjectCar
       <img
         src={imgSrc || "/placeholder.svg"}
         alt={title}
-        className="h-full w-full object-cover opacity-95 transition-opacity duration-300 group-hover:opacity-100"
+        className="h-full w-full object-cover opacity-95 transition-opacity duration-300 group-hover:opacity-100 select-none"
+        draggable={false}
         crossOrigin="anonymous"
       />
 
