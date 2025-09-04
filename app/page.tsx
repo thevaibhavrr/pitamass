@@ -287,10 +287,7 @@ export default function Page() {
       {/* bottom separator */}
       <div className="pointer-events-none fixed inset-x-0 bottom-[84px] z-30 h-px bg-neutral-800/60" />
       
-      {/* Left-click drag hint */}
-      <div className="pointer-events-none fixed bottom-6 right-6 z-30 text-xs text-neutral-400 bg-neutral-900/80 px-3 py-2 rounded-md backdrop-blur-sm">
-        Left-click + drag to pan (fast like Google Maps)
-      </div>
+      
     </main>
   )
 }
