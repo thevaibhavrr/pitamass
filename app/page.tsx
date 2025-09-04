@@ -372,7 +372,7 @@ export default function Page() {
         >
           <motion.div
             className={cn(
-              "grid grid-cols-2 px-4 py-6 gap-4",
+              "grid grid-cols-2 px-4 py-6 gap-1",
               "sm:grid-cols-4 md:grid-cols-8 lg:grid-cols-12 xl:grid-cols-20"
             )}
             style={{
