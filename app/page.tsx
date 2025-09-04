@@ -319,7 +319,7 @@ export default function Page() {
             src="https://www.pitamaas.com/logo-dark-mobile.png"
             alt="Pitamaas Logo"
             className="h-30 w-auto"
-            whileHover={{ scale: 1.05 }}
+            // whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           />
         </Link>
@@ -388,7 +388,7 @@ export default function Page() {
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: i * 0.001, duration: 0.5 }}
-                whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
+                // whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
               >
                 <ProjectCard
                   title={p.title}
@@ -412,7 +412,7 @@ export default function Page() {
       <motion.button
         className="fixed right-6 bottom-6 z-40 bg-neutral-800 text-white px-4 py-2 rounded-full text-sm"
         onClick={resetPosition}
-        whileHover={{ scale: 1.05, backgroundColor: "#404040" }}
+        // whileHover={{ scale: 1.05, backgroundColor: "#404040" }}
         whileTap={{ scale: 0.95 }}
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}

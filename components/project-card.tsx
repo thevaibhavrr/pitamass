@@ -26,7 +26,7 @@ export function ProjectCard({ title, categories, imgSrc, className }: ProjectCar
         crossOrigin="anonymous"
       />
 
-      <div
+      {/* <div
         className={cn(
           "pointer-events-none absolute inset-0 bg-black/0 opacity-0 transition-opacity duration-300",
           "group-hover:bg-black/50 group-hover:opacity-100",
@@ -48,7 +48,7 @@ export function ProjectCard({ title, categories, imgSrc, className }: ProjectCar
             View
           </span>
         </div>
-      </div>
+      </div> */}
 
       {/* subtle brutalist dots */}
       <span className="pointer-events-none absolute left-2 top-2 block h-1 w-1 rounded-full bg-cyan-400" />
