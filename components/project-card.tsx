@@ -13,15 +13,15 @@ export function ProjectCard({ title, categories, imgSrc, className }: ProjectCar
   return (
     <div
       className={cn(
-        "group relative overflow-hidden rounded-md border border-neutral-800 bg-neutral-950",
-        "transition-transform duration-300 hover:-translate-y-0.5 select-none",
+        "group relative overflow-hidden rounded-none border border-neutral-800 bg-neutral-950",
+        "transition-transform duration-300 select-none",
         className,
       )}
     >
       <img
         src={imgSrc || "/placeholder.svg"}
         alt={title}
-        className="h-full w-full object-cover opacity-95 transition-opacity duration-300 group-hover:opacity-100 select-none"
+        className="h-full w-full object-cover opacity-95 select-none"
         draggable={false}
         crossOrigin="anonymous"
       />

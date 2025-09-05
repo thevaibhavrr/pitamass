@@ -163,6 +163,7 @@ import Link from "next/link"
 import { motion, useMotionValue, useTransform, useAnimation, PanInfo } from "framer-motion"
 import { FloatingUI } from "@/components/floating-ui"
 import { ProjectCard } from "@/components/project-card"
+import { Loader } from "@/components/loader"
 import { cn } from "@/lib/utils"
 
 // Define project type
@@ -284,7 +285,7 @@ export default function Page() {
       controls.start({
         x: -tapX + rect.width / 2,
         y: -tapY + rect.height / 2,
-        transition: { type: "spring", damping: 30, stiffness: 300 }
+        // transition: { type: "spring", damping: 30, stiffness: 300 }
       })
       
       // Update motion values to match the new position
@@ -301,12 +302,14 @@ export default function Page() {
   }
 
   return (
-    <motion.main 
-      className="relative min-h-screen bg-neutral-950 text-white overflow-hidden"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.5 }}
-    >
+    <>
+      <Loader />
+      <motion.main 
+        className="relative min-h-screen bg-neutral-950 text-white overflow-hidden"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5 }}
+      >
       {/* Website Logo at top-left */}
       <motion.header 
         className="pointer-events-none fixed left-6 top-6 z-40"
@@ -340,7 +343,7 @@ export default function Page() {
             "min-h-[900vh] min-w-[900vw] select-none"
           )}
           drag
-          dragElastic={0.5}
+          dragElastic={0}
           dragConstraints={{
             left: -4000,
             right: 4000,
@@ -356,8 +359,7 @@ export default function Page() {
           animate={controls}
           style={{ x, y }}
           whileDrag={{ 
-            cursor: "grabbing",
-            scale: 1.02
+            cursor: "grabbing"
           }}
           dragMomentum={true}
           dragPropagation={false}
@@ -372,7 +374,7 @@ export default function Page() {
         >
           <motion.div
             className={cn(
-              "grid grid-cols-2 px-4 py-6 gap-1",
+              "grid grid-cols-2 px-4 py-6 gap-0",
               "sm:grid-cols-4 md:grid-cols-8 lg:grid-cols-12 xl:grid-cols-20"
             )}
             style={{
@@ -385,8 +387,8 @@ export default function Page() {
             {items.map((p, i) => (
               <motion.div
                 key={`${p.title}-${i}-${Math.random()}`}
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
                 transition={{ delay: i * 0.001, duration: 0.5 }}
                 // whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
               >
@@ -408,18 +410,8 @@ export default function Page() {
       {/* bottom separator */}
       <div className="pointer-events-none fixed inset-x-0 bottom-[84px] z-30 h-px bg-neutral-800/60" />
       
-      {/* Reset position button */}
-      <motion.button
-        className="fixed right-6 bottom-6 z-40 bg-neutral-800 text-white px-4 py-2 rounded-full text-sm"
-        onClick={resetPosition}
-        // whileHover={{ scale: 1.05, backgroundColor: "#404040" }}
-        whileTap={{ scale: 0.95 }}
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.6, duration: 0.5 }}
-      >
-        Reset View
-      </motion.button>
+   
     </motion.main>
+    </>
   )
 }
