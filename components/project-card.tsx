@@ -37,7 +37,8 @@ export function ProjectCard({ title, categories, imgSrc, className }: ProjectCar
   return (
     <motion.div
       className={cn(
-        "group relative overflow-hidden rounded-none border border-gray-500 bg-black p-9",
+        "group relative overflow-hidden rounded-none border border-gray-500 bg-black p-6",
+        "sm:p-6 md:p-9",
         "select-none cursor-pointer",
         className,
       )}
@@ -67,8 +68,8 @@ export function ProjectCard({ title, categories, imgSrc, className }: ProjectCar
       />
 
       {/* subtle brutalist dots */}
-      <span className="pointer-events-none absolute left-5 top-5 z-20 block h-1 w-1 rounded-full bg-cyan-400" />
-      <span className="pointer-events-none absolute bottom-5 right-5 z-20 block h-1 w-1 rounded-full bg-neutral-600" />
+      <span className="pointer-events-none absolute left-3 top-3 sm:left-3 sm:top-3 md:left-5 md:top-5 z-20 block h-1 w-1 rounded-full bg-cyan-400" />
+      <span className="pointer-events-none absolute bottom-3 right-3 sm:bottom-3 sm:right-3 md:bottom-5 md:right-5 z-20 block h-1 w-1 rounded-full bg-neutral-600" />
     </motion.div>
   )
 }

@@ -71,7 +71,7 @@ export default function Page() {
     const handleTouchEnd = (e: TouchEvent) => {
       const now = Date.now();
       const timeSince = now - lastTap;
-      if (timeSince < 300 && timeSince > 0) {
+      if (timeSince < 400 && timeSince > 0) {
         // Convert touch event to a synthetic event for handleDoubleTap
         const syntheticEvent = {
           touches: e.touches,
@@ -85,7 +85,7 @@ export default function Page() {
 
     const container = containerRef.current;
     if (container) {
-      container.addEventListener('touchend', handleTouchEnd);
+      container.addEventListener('touchend', handleTouchEnd, { passive: true });
       return () => container.removeEventListener('touchend', handleTouchEnd);
     }
   }, []);
@@ -155,7 +155,7 @@ export default function Page() {
       >
       {/* Website Logo at top-left */}
       <motion.header 
-        className="pointer-events-none fixed left-6 top-6 z-40"
+        className="pointer-events-none fixed left-3 top-3 sm:left-6 sm:top-6 z-40"
         initial={{ y: -20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ delay: 0.2, duration: 0.5 }}
@@ -164,7 +164,7 @@ export default function Page() {
           <motion.img
             src="https://www.pitamaas.com/logo-dark-mobile.png"
             alt="Pitamaas Logo"
-            className="h-30 w-auto"
+            className="h-16 w-auto sm:h-20 md:h-24 lg:h-30"
             // whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           />
@@ -173,10 +173,10 @@ export default function Page() {
 
       <FloatingUI />
 
-      <motion.section
+              <motion.section
         ref={containerRef}
         aria-label="Infinite project grid"
-        className={cn("relative z-10 h-screen w-screen overflow-hidden", "cursor-none md:cursor-grab select-none")}
+        className={cn("relative z-10 h-screen w-screen overflow-hidden", "cursor-none md:cursor-grab select-none touch-pan-x touch-pan-y")}
         style={{ cursor: "grab" }}
         whileTap={{ cursor: "grabbing" }}
       >
@@ -194,8 +194,8 @@ export default function Page() {
             bottom: 4000
           }}
           dragTransition={{ 
-            power: 0.8, 
-            timeConstant: 400,
+            power: 0.6, 
+            timeConstant: 300,
             restDelta: 0.01
           }}
           onDoubleClick={handleDoubleTap}
@@ -217,8 +217,9 @@ export default function Page() {
         >
           <motion.div
             className={cn(
-              "grid grid-cols-2 px-4 py-6 gap-0",
-              "sm:grid-cols-4 md:grid-cols-8 lg:grid-cols-12 xl:grid-cols-20"
+              "grid grid-cols-3 px-2 py-4 gap-0",
+              "sm:grid-cols-4 sm:px-4 sm:py-6",
+              "md:grid-cols-8 lg:grid-cols-12 xl:grid-cols-20"
             )}
             style={{
               gridTemplateColumns: 'repeat(50, minmax(0, 1fr))'
@@ -251,7 +252,7 @@ export default function Page() {
       </motion.section>
 
       {/* bottom separator */}
-      <div className="pointer-events-none fixed inset-x-0 bottom-[84px] z-30 h-px bg-neutral-800/60" />
+      <div className="pointer-events-none fixed inset-x-0 bottom-[60px] sm:bottom-[84px] z-30 h-px bg-neutral-800/60" />
       
    
     </motion.main>
