@@ -1,14 +1,20 @@
 "use client"
 
 import { cn } from "@/lib/utils"
-import { useRouter } from "next/navigation"
+import { useRouter, usePathname } from "next/navigation"
 
 export function FloatingUI() {
   const router = useRouter()
+  const pathname = usePathname()
 
   const handleRouting = (path: string) => {
     // Example: Navigate to "/work", "/about", "/careers"
     router.push(`/${path}`)
+  }
+
+  const isActive = (path: string) => {
+    if (path === "work" && pathname === "/") return true
+    return pathname === `/${path}`
   }
 
   return (
@@ -34,14 +40,23 @@ export function FloatingUI() {
         className="pointer-events-none fixed inset-x-0 bottom-3 sm:bottom-6 z-50 flex items-center justify-center"
       >
         <div className="pointer-events-auto flex items-center gap-1 rounded-full border border-neutral-800 bg-neutral-900/70 px-1 py-1 backdrop-blur sm:gap-2 sm:px-2 sm:py-2">
-          {["Work", "About", "Careers"].map((label) => (
+          {[
+            { label: "Work", path: "work" },
+            { label: "Services", path: "services" },
+            { label: "Pitmans Lab", path: "pitmans-lab" },
+            { label: "About", path: "about" },
+            { label: "Careers", path: "careers" }
+          ].map(({ label, path }) => (
             <button
               key={label}
-              onClick={() => handleRouting(label.toLowerCase())}
+              onClick={() => handleRouting(path)}
               className={cn(
                 "rounded-full px-3 py-1.5 text-xs font-semibold",
                 "sm:px-5 sm:py-2 sm:text-sm",
-                "text-white/90 transition-colors hover:bg-neutral-800 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-fuchsia-500",
+                "transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-fuchsia-500",
+                isActive(path)
+                  ? "bg-white text-neutral-900"
+                  : "text-white/90 hover:bg-neutral-800 hover:text-white"
               )}
             >
               {label}
