@@ -10,7 +10,7 @@
 // import { cn } from "@/lib/utils"
 
 // // Define project type
-// type Project = { id: number; title: string; categories: string[]; imgSrc: string }
+// type Project = { id: number; title: string; categories: string[]; imgSrc: string; isVideo?: boolean }
 
 // const baseProjects: Project[] = [
 //   { id: 1, title: "Phantom Reference", categories: ["Agency", "Grid"], imgSrc: "/images/phantom-reference.png" },
@@ -23,6 +23,7 @@
 //   { id: 8, title: "Sonic Off", categories: ["Interactive", "WebGL"], imgSrc: "/webgl-interactive-tile.png" },
 //   { id: 9, title: "Midnight Drop", categories: ["E-commerce", "Launch"], imgSrc: "/ecommerce-campaign-tile.png" },
 //   { id: 10, title: "Studio Suite", categories: ["SaaS", "Design"], imgSrc: "/saas-ui-kit-preview.png" },
+//   { id: 11, title: "Sample Video", categories: ["Video", "Demo"], imgSrc: "/sample 2.mp4", isVideo: true },
 // ]
 
 // // Fisher-Yates shuffle algorithm for randomizing array
@@ -240,6 +241,7 @@
 //                     title={p.title}
 //                     categories={p.categories}
 //                     imgSrc={p.imgSrc}
+//                     isVideo={p.isVideo}
 //                     className="w-full h-full"
 //                   />
 //                 </motion.div>
@@ -274,7 +276,7 @@ import { Loader } from "@/components/loader"
 import { cn } from "@/lib/utils"
 
 // Define project type
-type Project = { id: number; title: string; categories: string[]; imgSrc: string }
+type Project = { id: number; title: string; categories: string[]; imgSrc: string; isVideo?: boolean }
 
 const baseProjects: Project[] = [
   { id: 1, title: "Phantom Reference", categories: ["Agency", "Grid"], imgSrc: "/images/phantom-reference.png" },
@@ -287,6 +289,8 @@ const baseProjects: Project[] = [
   { id: 8, title: "Sonic Off", categories: ["Interactive", "WebGL"], imgSrc: "/webgl-interactive-tile.png" },
   { id: 9, title: "Midnight Drop", categories: ["E-commerce", "Launch"], imgSrc: "/ecommerce-campaign-tile.png" },
   { id: 10, title: "Studio Suite", categories: ["SaaS", "Design"], imgSrc: "/saas-ui-kit-preview.png" },
+  { id: 11, title: "Sample Video", categories: ["Video", "Demo"], imgSrc: "/sam.mp4", isVideo: true },
+
 ]
 
 // Fisher-Yates shuffle algorithm for randomizing array
@@ -498,12 +502,13 @@ export default function Page() {
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ delay: i * 0.001, duration: 0.5 }}
-                  className="h-[25vh] sm:h-auto" // Added mobile-specific height
+                  className="h-[25vh] sm:h-auto" 
                 >
                   <ProjectCard
                     title={p.title}
                     categories={p.categories}
                     imgSrc={p.imgSrc}
+                    isVideo={p.isVideo}
                     className="w-full h-full"
                   />
                 </motion.div>
@@ -523,4 +528,3 @@ export default function Page() {
     </>
   )
 }
-
