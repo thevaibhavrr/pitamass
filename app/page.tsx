@@ -63,8 +63,8 @@ export default function Page() {
   const y = useMotionValue(0)
   const controls = useAnimation()
 
-  // Create a much larger grid (50x50 = 2500 items) for a more expansive infinite feel
-  const items = React.useMemo(() => makeInfiniteGrid(50, 50, baseProjects), [])
+  // Create a much larger grid (30x30 = 900 items) for a more expansive infinite feel
+  const items = React.useMemo(() => makeInfiniteGrid(30, 30, baseProjects), [])
 
   // Add touch event handling for double-tap on mobile
   React.useEffect(() => {

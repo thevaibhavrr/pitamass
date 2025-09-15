@@ -409,7 +409,7 @@ export default function ProductDetails() {
   const fadeInUp = {
     initial: { opacity: 0, y: 60 },
     animate: { opacity: 1, y: 0 },
-    transition: { duration: 0.8, ease: "easeOut" },
+    transition: { duration: 0.8, ease: "easeOut" as const },
   }
 
   const staggerContainer = {
@@ -428,8 +428,8 @@ export default function ProductDetails() {
       scale: 1,
       transition: {
         duration: 1.2,
-        ease: "easeOut",
-        type: "spring",
+        ease: "easeOut" as const,
+        type: "spring" as const,
         stiffness: 100,
       },
     },
@@ -438,23 +438,23 @@ export default function ProductDetails() {
   const slideInFromLeft = {
     initial: { opacity: 0, x: -100 },
     animate: { opacity: 1, x: 0 },
-    transition: { duration: 0.8, ease: "easeOut" }
+    transition: { duration: 0.8, ease: "easeOut" as const }
   }
 
   const slideInFromRight = {
     initial: { opacity: 0, x: 100 },
     animate: { opacity: 1, x: 0 },
-    transition: { duration: 0.8, ease: "easeOut" }
+    transition: { duration: 0.8, ease: "easeOut" as const }
   }
 
   const scaleUp = {
     initial: { opacity: 0, scale: 0.8 },
     animate: { opacity: 1, scale: 1 },
-    transition: { duration: 0.7, ease: "easeOut" }
+    transition: { duration: 0.7, ease: "easeOut" as const }
   }
 
   return (
-    <div className="min-h-screen bg-red-600 text-white">
+    <div className="min-h-screen bg-black text-white">
 
       {/* Hero Section */}
       <motion.section
@@ -474,14 +474,16 @@ export default function ProductDetails() {
           BEANIES
         </motion.h1>
 
-        {/* 4. Increased video width */}
+        {/* Hero Video with proper dimensions */}
         <motion.div className="mb-16" variants={fadeInUp}>
-          <video className="w-full max-w-8xl mx-auto rounded-lg shadow-2xl" autoPlay muted loop playsInline>
-            <source
-              src="https://phantom-ldn-website-videos.storage.googleapis.com/caseStudiesVideos/Sundays%20Beanies%20/sundays-beanies-1.webm"
-              type="video/webm"
-            />
-          </video>
+          <div className="aspect-video max-w-7xl mx-auto overflow-hidden rounded-lg shadow-2xl">
+            <video className="w-full h-full object-cover" autoPlay muted loop playsInline>
+              <source
+                src="https://phantom-ldn-website-videos.storage.googleapis.com/caseStudiesVideos/Sundays%20Beanies%20/sundays-beanies-1.webm"
+                type="video/webm"
+              />
+            </video>
+          </div>
         </motion.div>
 
         {/* 3. Increased font size for the subtitle */}
@@ -547,18 +549,18 @@ export default function ProductDetails() {
         transition={{ duration: 0.8 }}
         viewport={{ once: true }}
       >
-        {/* 5. Increased image/video width */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-8xl mx-auto">
+        {/* Product Grid with proper dimensions */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-7xl mx-auto">
           {/* First Row */}
           <motion.div
-            className="aspect-square"
+            className="aspect-[4/3] overflow-hidden rounded-lg"
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, delay: 0.1 }}
             viewport={{ once: true }}
             whileHover={{ scale: 1.02 }}
           >
-            <video className="w-full h-full object-cover rounded-lg" autoPlay muted loop playsInline>
+            <video className="w-full h-full object-cover" autoPlay muted loop playsInline>
               <source
                 src="https://phantom-ldn-website-videos.storage.googleapis.com/caseStudiesVideos/Sundays%20Beanies%20/sundays-beanies-2-left.webm"
                 type="video/webm"
@@ -567,7 +569,7 @@ export default function ProductDetails() {
           </motion.div>
 
           <motion.div
-            className="aspect-square"
+            className="aspect-[4/3] overflow-hidden rounded-lg"
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, delay: 0.2 }}
@@ -577,15 +579,15 @@ export default function ProductDetails() {
             <Image
               src="https://images.prismic.io/phantom-land/Z4eiqJbqstJ99fDL_sundays-beanies-2-right.jpg?auto=format,compress?auto=compress,format"
               alt="Beanie texture detail"
-              width={600}
+              width={800}
               height={600}
-              className="w-full h-full object-cover rounded-lg"
+              className="w-full h-full object-cover"
             />
           </motion.div>
 
           {/* Second Row */}
           <motion.div
-            className="aspect-square"
+            className="aspect-[4/3] overflow-hidden rounded-lg"
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, delay: 0.3 }}
@@ -595,21 +597,21 @@ export default function ProductDetails() {
             <Image
               src="https://images.prismic.io/phantom-land/Z4ei15bqstJ99fDX_sundays-beanies-3-right.jpg?auto=format,compress?auto=compress,format"
               alt="Beanie collection"
-              width={600}
+              width={800}
               height={600}
-              className="w-full h-full object-cover rounded-lg"
+              className="w-full h-full object-cover"
             />
           </motion.div>
 
           <motion.div
-            className="aspect-square"
+            className="aspect-[4/3] overflow-hidden rounded-lg"
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, delay: 0.4 }}
             viewport={{ once: true }}
             whileHover={{ scale: 1.02 }}
           >
-            <video className="w-full h-full object-cover rounded-lg" autoPlay muted loop playsInline>
+            <video className="w-full h-full object-cover" autoPlay muted loop playsInline>
               <source
                 src="https://phantom-ldn-website-videos.storage.googleapis.com/caseStudiesVideos/Sundays%20Beanies%20/sundays-beanies-3-left.webm"
                 type="video/webm"
@@ -635,13 +637,15 @@ export default function ProductDetails() {
           viewport={{ once: true }}
           whileHover={{ scale: 1.01 }}
         >
-          <Image
-            src="https://images.prismic.io/phantom-land/Z4ei2ZbqstJ99fDa_sundays-beanies-4.jpg?auto=format,compress?auto=compress,format"
-            alt="Beanie showcase"
-            width={1200}
-            height={800}
-            className="w-full rounded-lg shadow-2xl"
-          />
+          <div className="aspect-[16/10] overflow-hidden rounded-lg shadow-2xl">
+            <Image
+              src="https://images.prismic.io/phantom-land/Z4ei2ZbqstJ99fDa_sundays-beanies-4.jpg?auto=format,compress?auto=compress,format"
+              alt="Beanie showcase"
+              width={1400}
+              height={875}
+              className="w-full h-full object-cover"
+            />
+          </div>
         </motion.div>
       </motion.section>
 
@@ -663,10 +667,10 @@ export default function ProductDetails() {
           Related work
         </motion.h3>
 
-        {/* 6. Fixed video overflow and increased size in related section */}
+        {/* Related Work Videos with proper aspect ratios */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-7xl mx-auto">
           <motion.div
-            className="h-80 overflow-hidden rounded-lg"
+            className="aspect-video overflow-hidden rounded-lg"
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
@@ -682,7 +686,7 @@ export default function ProductDetails() {
           </motion.div>
 
           <motion.div
-            className="h-80 overflow-hidden rounded-lg"
+            className="aspect-video overflow-hidden rounded-lg"
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
@@ -698,7 +702,7 @@ export default function ProductDetails() {
           </motion.div>
 
           <motion.div
-            className="h-80 overflow-hidden rounded-lg"
+            className="aspect-video overflow-hidden rounded-lg"
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
@@ -734,45 +738,6 @@ export default function ProductDetails() {
             See all work
           </motion.h2>
 
-          <div className="flex justify-center space-x-4">
-            {/* 7. Changed hover color to cream and increased font size */}
-            <motion.button
-              className="bg-white text-black px-8 py-4 rounded-full font-semibold transition-all duration-300 text-lg"
-              whileHover={{
-                scale: 1.05,
-                backgroundColor: "#FEF3C7",
-                color: "#000000",
-                boxShadow: "0 10px 25px rgba(254, 243, 199, 0.4)",
-              }}
-              whileTap={{ scale: 0.95 }}
-            >
-              Work
-            </motion.button>
-            <motion.button
-              className="border border-white text-white px-8 py-4 rounded-full font-semibold transition-all duration-300 text-lg"
-              whileHover={{
-                scale: 1.05,
-                backgroundColor: "#FEF3C7",
-                color: "#000000",
-                borderColor: "#FEF3C7"
-              }}
-              whileTap={{ scale: 0.95 }}
-            >
-              About
-            </motion.button>
-            <motion.button
-              className="border border-white text-white px-8 py-4 rounded-full font-semibold transition-all duration-300 text-lg"
-              whileHover={{
-                scale: 1.05,
-                backgroundColor: "#FEF3C7",
-                color: "#000000",
-                borderColor: "#FEF3C7"
-              }}
-              whileTap={{ scale: 0.95 }}
-            >
-              Contact
-            </motion.button>
-          </div>
         </div>
       </motion.section>
     </div>
