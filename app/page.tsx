@@ -1,14 +1,277 @@
+// "use client"
+
+// import * as React from "react"
+// import Link from "next/link"
+// import { motion, useMotionValue, useTransform, useAnimation, PanInfo } from "framer-motion"
+// import { FloatingUI } from "@/components/floating-ui"
+// import { ProjectCard } from "@/components/project-card"
+// import { Loader } from "@/components/loader"
+// import { cn } from "@/lib/utils"
+
+// // Define project type
+// type Project = { id: number; title: string; categories: string[]; imgSrc: string; isVideo?: boolean }
+
+// const baseProjects: Project[] = [
+//   { id: 1, title: "Phantom Reference", categories: ["Agency", "Grid"], imgSrc: "/images/phantom-reference.png" },
+//   { id: 2, title: "Travel Hacker", categories: ["Campaign", "Product"], imgSrc: "/travel-hacker-campaign-tile.png" },
+//   { id: 3, title: "Motion Lab", categories: ["3D", "R&D"], imgSrc: "/3d-motion-lab-frame.png" },
+//   { id: 4, title: "Retail OS", categories: ["Platform", "Case Study"], imgSrc: "/retail-dashboard-ui.png" },
+//   { id: 5, title: "Neural Keys", categories: ["Brand", "Industrial"], imgSrc: "/industrial-product-shot.png" },
+//   { id: 6, title: "Drifting", categories: ["Film", "Experimental"], imgSrc: "/film-still-sunset.png" },
+//   { id: 7, title: "Cortex Bank", categories: ["Fintech", "App"], imgSrc: "/fintech-app-ui-screen.png" },
+//   { id: 8, title: "Sonic Off", categories: ["Interactive", "WebGL"], imgSrc: "/webgl-interactive-tile.png" },
+//   { id: 9, title: "Midnight Drop", categories: ["E-commerce", "Launch"], imgSrc: "/ecommerce-campaign-tile.png" },
+//   { id: 10, title: "Studio Suite", categories: ["SaaS", "Design"], imgSrc: "/saas-ui-kit-preview.png" },
+//   { id: 11, title: "Sample Video", categories: ["Video", "Demo"], imgSrc: "/sam.mp4", isVideo: true },
+
+// ]
+
+// // Fisher-Yates shuffle algorithm for randomizing array
+// function shuffleArray<T>(array: T[]): T[] {
+//   const shuffled = [...array];
+//   for (let i = shuffled.length - 1; i > 0; i--) {
+//     const j = Math.floor(Math.random() * (i + 1));
+//     [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+//   }
+//   return shuffled;
+// }
+
+// // Utility: make infinite tiling with randomized projects
+// function makeInfiniteGrid(rows: number, cols: number, projects: Project[]) {
+//   const grid: Project[] = [];
+//   const totalItems = rows * cols;
+
+//   // Create multiple shuffled copies of the projects to ensure randomness
+//   const shuffledProjects = [];
+//   const copiesNeeded = Math.ceil(totalItems / projects.length);
+
+//   for (let i = 0; i < copiesNeeded; i++) {
+//     shuffledProjects.push(...shuffleArray([...projects]));
+//   }
+
+//   // Take only the number of items we need
+//   for (let i = 0; i < totalItems; i++) {
+//     grid.push(shuffledProjects[i % shuffledProjects.length]);
+//   }
+
+//   return grid;
+// }
+
+// export default function Page() {
+//   const containerRef = React.useRef<HTMLDivElement>(null)
+//   const x = useMotionValue(0)
+//   const y = useMotionValue(0)
+//   const controls = useAnimation()
+
+//   // Create a much larger grid (30x30 = 900 items) for a more expansive infinite feel
+//   const items = React.useMemo(() => makeInfiniteGrid(30, 30, baseProjects), [])
+
+//   // Add touch event handling for double-tap on mobile
+//   React.useEffect(() => {
+//     let lastTap = 0;
+//     const handleTouchEnd = (e: TouchEvent) => {
+//       const now = Date.now();
+//       const timeSince = now - lastTap;
+//       if (timeSince < 400 && timeSince > 0) {
+//         // Convert touch event to a synthetic event for handleDoubleTap
+//         const syntheticEvent = {
+//           touches: e.touches,
+//           clientX: e.changedTouches[0].clientX,
+//           clientY: e.changedTouches[0].clientY
+//         } as any;
+//         handleDoubleTap(syntheticEvent);
+//       }
+//       lastTap = now;
+//     };
+
+//     const container = containerRef.current;
+//     if (container) {
+//       container.addEventListener('touchend', handleTouchEnd, { passive: true });
+//       return () => container.removeEventListener('touchend', handleTouchEnd);
+//     }
+//   }, []);
+
+//   // Prevent default scroll behavior for smooth dragging
+//   React.useEffect(() => {
+//     const preventScroll = (e: Event) => {
+//       if (containerRef.current?.contains(e.target as Node)) {
+//         e.preventDefault();
+//       }
+//     };
+
+//     document.addEventListener('wheel', preventScroll, { passive: false });
+//     document.addEventListener('touchmove', preventScroll, { passive: false });
+
+//     return () => {
+//       document.removeEventListener('wheel', preventScroll);
+//       document.removeEventListener('touchmove', preventScroll);
+//     };
+//   }, []);
+
+//   // Double-tap support with smooth animation
+//   const handleDoubleTap = (e: React.MouseEvent | React.TouchEvent) => {
+//     if (containerRef.current) {
+//       const rect = containerRef.current.getBoundingClientRect()
+//       let clientX, clientY;
+
+//       if ('touches' in e) {
+//         clientX = e.touches[0].clientX
+//         clientY = e.touches[0].clientY
+//       } else {
+//         clientX = e.clientX
+//         clientY = e.clientY
+//       }
+
+//       const tapX = clientX - rect.left
+//       const tapY = clientY - rect.top
+
+//       // Animate to center the tapped position
+//       controls.start({
+//         x: -tapX + rect.width / 2,
+//         y: -tapY + rect.height / 2,
+//         // transition: { type: "spring", damping: 30, stiffness: 300 }
+//       })
+
+//       // Update motion values to match the new position
+//       x.set(-tapX + rect.width / 2)
+//       y.set(-tapY + rect.height / 2)
+//     }
+//   }
+
+//   // Reset position with animation
+//   const resetPosition = () => {
+//     controls.start({ x: 0, y: 0, transition: { type: "spring", damping: 30, stiffness: 200 } })
+//     x.set(0)
+//     y.set(0)
+//   }
+
+//   return (
+//     <>
+//       <Loader />
+//       <motion.main
+//         className="relative min-h-screen bg-neutral-950 text-white overflow-hidden"
+//         initial={{ opacity: 0 }}
+//         animate={{ opacity: 1 }}
+//         transition={{ duration: 0.5 }}
+//       >
+//         {/* Website Logo at top-left */}
+//         <motion.header
+//           className="pointer-events-none fixed left-3 top-3 sm:left-6 sm:top-6 z-40"
+//           initial={{ y: -20, opacity: 0 }}
+//           animate={{ y: 0, opacity: 1 }}
+//           transition={{ delay: 0.2, duration: 0.5 }}
+//         >
+//           <Link href="/" className="pointer-events-auto block">
+//             <motion.img
+//               src="https://www.pitamaas.com/logo-dark-mobile.png"
+//               alt="Pitamaas Logo"
+//               className="h-16 w-auto sm:h-20 md:h-24 lg:h-30"
+//               // whileHover={{ scale: 1.05 }}
+//               whileTap={{ scale: 0.95 }}
+//             />
+//           </Link>
+//         </motion.header>
+
+//         <FloatingUI />
+
+//         <motion.section
+//           ref={containerRef}
+//           aria-label="Infinite project grid"
+//           className={cn("relative z-10 h-screen w-screen overflow-hidden", "cursor-none md:cursor-grab select-none touch-pan-x touch-pan-y")}
+//           style={{ cursor: "grab" }}
+//           whileTap={{ cursor: "grabbing" }}
+//         >
+//           <motion.div
+//             className={cn(
+//               "pointer-events-auto absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2",
+//               "min-h-[900vh] min-w-[900vw] select-none"
+//             )}
+//             drag
+//             dragElastic={0}
+//             dragConstraints={{
+//               left: -4000,
+//               right: 4000,
+//               top: -4000,
+//               bottom: 4000
+//             }}
+//             dragTransition={{
+//               power: 0.6,
+//               timeConstant: 300,
+//               restDelta: 0.01
+//             }}
+//             onDoubleClick={handleDoubleTap}
+//             animate={controls}
+//             style={{ x, y }}
+//             whileDrag={{
+//               cursor: "grabbing"
+//             }}
+//             dragMomentum={true}
+//             dragPropagation={false}
+//             onDragStart={() => {
+//               // Ensure smooth start
+//               document.body.style.cursor = "grabbing";
+//             }}
+//             onDragEnd={() => {
+//               // Reset cursor
+//               document.body.style.cursor = "grab";
+//             }}
+//           >
+//             <motion.div
+//               className={cn(
+//                 "grid grid-cols-3 px-2 py-4 gap-0",
+//                 "sm:grid-cols-4 sm:grid-rows-3 sm:px-4 sm:py-6",
+//                 "md:grid-cols-8 lg:grid-cols-12 xl:grid-cols-20"
+//               )}
+//               style={{
+//                 gridTemplateColumns: 'repeat(50, minmax(0, 1fr))'
+//               }}
+//               initial={{ opacity: 0 }}
+//               animate={{ opacity: 1 }}
+//               transition={{ delay: 0.4, duration: 0.7 }}
+//             >
+//               {items.map((p, i) => (
+//                 <motion.div
+//                   key={`${p.title}-${i}-${Math.random()}`}
+//                   initial={{ opacity: 0 }}
+//                   animate={{ opacity: 1 }}
+//                   transition={{ delay: i * 0.001, duration: 0.5 }}
+//                   className="h-[25vh] sm:h-auto" 
+//                 >
+//                   <ProjectCard
+//                     title={p.title}
+//                     categories={p.categories}
+//                     imgSrc={p.imgSrc}
+//                     isVideo={p.isVideo}
+//                     className="w-full h-full"
+//                   />
+//                 </motion.div>
+//               ))}
+//             </motion.div>
+//           </motion.div>
+
+//           {/* subtle frame */}
+//           <div className="pointer-events-none absolute inset-0 border border-neutral-800" />
+//         </motion.section>
+
+//         {/* bottom separator */}
+//         <div className="pointer-events-none fixed inset-x-0 bottom-[60px] sm:bottom-[84px] z-30 h-px bg-neutral-800/60" />
+
+
+//       </motion.main>
+//     </>
+//   )
+// }
+
 "use client"
 
 import * as React from "react"
 import Link from "next/link"
-import { motion, useMotionValue, useTransform, useAnimation, PanInfo } from "framer-motion"
+import { motion, useMotionValue, useAnimation } from "framer-motion"
 import { FloatingUI } from "@/components/floating-ui"
 import { ProjectCard } from "@/components/project-card"
 import { Loader } from "@/components/loader"
 import { cn } from "@/lib/utils"
 
-// Define project type
 type Project = { id: number; title: string; categories: string[]; imgSrc: string; isVideo?: boolean }
 
 const baseProjects: Project[] = [
@@ -23,138 +286,205 @@ const baseProjects: Project[] = [
   { id: 9, title: "Midnight Drop", categories: ["E-commerce", "Launch"], imgSrc: "/ecommerce-campaign-tile.png" },
   { id: 10, title: "Studio Suite", categories: ["SaaS", "Design"], imgSrc: "/saas-ui-kit-preview.png" },
   { id: 11, title: "Sample Video", categories: ["Video", "Demo"], imgSrc: "/sam.mp4", isVideo: true },
-
 ]
 
-// Fisher-Yates shuffle algorithm for randomizing array
-function shuffleArray<T>(array: T[]): T[] {
-  const shuffled = [...array];
-  for (let i = shuffled.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
-  }
-  return shuffled;
-}
-
-// Utility: make infinite tiling with randomized projects
-function makeInfiniteGrid(rows: number, cols: number, projects: Project[]) {
-  const grid: Project[] = [];
-  const totalItems = rows * cols;
-
-  // Create multiple shuffled copies of the projects to ensure randomness
-  const shuffledProjects = [];
-  const copiesNeeded = Math.ceil(totalItems / projects.length);
-
-  for (let i = 0; i < copiesNeeded; i++) {
-    shuffledProjects.push(...shuffleArray([...projects]));
-  }
-
-  // Take only the number of items we need
-  for (let i = 0; i < totalItems; i++) {
-    grid.push(shuffledProjects[i % shuffledProjects.length]);
-  }
-
-  return grid;
-}
+// --- CONFIG: tweak these for size / perf ---
+const CELL_SIZE = 280 // px (card size). increase for larger images, decrease for perf.
+const BUFFER_CELLS = 3 // how many rows/cols extra to render around viewport
+// ------------------------------------------------
 
 export default function Page() {
-  const containerRef = React.useRef<HTMLDivElement>(null)
+  const containerRef = React.useRef<HTMLDivElement | null>(null)
+
+  // motion values that drive the "camera"
   const x = useMotionValue(0)
   const y = useMotionValue(0)
   const controls = useAnimation()
 
-  // Create a much larger grid (30x30 = 900 items) for a more expansive infinite feel
-  const items = React.useMemo(() => makeInfiniteGrid(30, 30, baseProjects), [])
+  // viewport size
+  const [vw, setVw] = React.useState(typeof window !== "undefined" ? window.innerWidth : 1200)
+  const [vh, setVh] = React.useState(typeof window !== "undefined" ? window.innerHeight : 800)
 
-  // Add touch event handling for double-tap on mobile
+  // visible tiles to render (array of { row, col })
+  const [visibleTiles, setVisibleTiles] = React.useState<Array<{ row: number; col: number }>>([])
+
+  // helper: map a grid coordinate to a project index (repeat baseProjects infinitely)
+  const projectForCell = React.useCallback((row: number, col: number) => {
+    // combines row/col into a reproducible integer; keep it within safe integer
+    const combined = ((row & 0xffff) << 16) ^ (col & 0xffff)
+    const idx = Math.abs(combined) % baseProjects.length
+    return baseProjects[idx]
+  }, [])
+
+  // update vw/vh on resize
   React.useEffect(() => {
-    let lastTap = 0;
+    const onResize = () => {
+      setVw(window.innerWidth)
+      setVh(window.innerHeight)
+    }
+    window.addEventListener("resize", onResize)
+    onResize()
+    return () => window.removeEventListener("resize", onResize)
+  }, [])
+
+  // Throttled updater: compute visible range when x or y changes.
+  React.useEffect(() => {
+    let rafId: number | null = null
+
+    const updateVisible = () => {
+      // current camera translation (x,y). The motion.div that moves the grid will be centered at 0,0
+      const camX = x.get() // pixels moved horizontally
+      const camY = y.get()
+
+      // The container is centered (left:50% top:50% translate -50% -50%), so the screen rectangle
+      // in grid coordinates is:
+      const left = -camX - vw / 2
+      const top = -camY - vh / 2
+      const right = left + vw
+      const bottom = top + vh
+
+      // convert to cell indices
+      const startCol = Math.floor(left / CELL_SIZE) - BUFFER_CELLS
+      const endCol = Math.floor(right / CELL_SIZE) + BUFFER_CELLS
+      const startRow = Math.floor(top / CELL_SIZE) - BUFFER_CELLS
+      const endRow = Math.floor(bottom / CELL_SIZE) + BUFFER_CELLS
+
+      const newTiles: Array<{ row: number; col: number }> = []
+      for (let r = startRow; r <= endRow; r++) {
+        for (let c = startCol; c <= endCol; c++) {
+          newTiles.push({ row: r, col: c })
+        }
+      }
+
+      // Very small optimization: only set state when tile count or first tile differs
+      setVisibleTiles(newTiles)
+      rafId = null
+    }
+
+    const unsubX = x.onChange(() => {
+      if (rafId == null) {
+        rafId = requestAnimationFrame(updateVisible)
+      }
+    })
+    const unsubY = y.onChange(() => {
+      if (rafId == null) {
+        rafId = requestAnimationFrame(updateVisible)
+      }
+    })
+
+    // initial compute
+    updateVisible()
+
+    return () => {
+      unsubX()
+      unsubY()
+      if (rafId != null) cancelAnimationFrame(rafId)
+    }
+  }, [x, y, vw, vh])
+
+  // touch double-tap support (kept from your earlier code)
+  React.useEffect(() => {
+    let lastTap = 0
     const handleTouchEnd = (e: TouchEvent) => {
-      const now = Date.now();
-      const timeSince = now - lastTap;
+      const now = Date.now()
+      const timeSince = now - lastTap
       if (timeSince < 400 && timeSince > 0) {
-        // Convert touch event to a synthetic event for handleDoubleTap
         const syntheticEvent = {
           touches: e.touches,
           clientX: e.changedTouches[0].clientX,
-          clientY: e.changedTouches[0].clientY
-        } as any;
-        handleDoubleTap(syntheticEvent);
+          clientY: e.changedTouches[0].clientY,
+        } as any
+        handleDoubleTap(syntheticEvent)
       }
-      lastTap = now;
-    };
+      lastTap = now
+    }
 
-    const container = containerRef.current;
+    const container = containerRef.current
     if (container) {
-      container.addEventListener('touchend', handleTouchEnd, { passive: true });
-      return () => container.removeEventListener('touchend', handleTouchEnd);
+      container.addEventListener("touchend", handleTouchEnd, { passive: true })
+      return () => container.removeEventListener("touchend", handleTouchEnd)
     }
-  }, []);
+    return
+  }, [])
 
-  // Prevent default scroll behavior for smooth dragging
-  React.useEffect(() => {
-    const preventScroll = (e: Event) => {
-      if (containerRef.current?.contains(e.target as Node)) {
-        e.preventDefault();
-      }
-    };
-
-    document.addEventListener('wheel', preventScroll, { passive: false });
-    document.addEventListener('touchmove', preventScroll, { passive: false });
-
-    return () => {
-      document.removeEventListener('wheel', preventScroll);
-      document.removeEventListener('touchmove', preventScroll);
-    };
-  }, []);
-
-  // Double-tap support with smooth animation
-  const handleDoubleTap = (e: React.MouseEvent | React.TouchEvent) => {
-    if (containerRef.current) {
-      const rect = containerRef.current.getBoundingClientRect()
-      let clientX, clientY;
-
-      if ('touches' in e) {
-        clientX = e.touches[0].clientX
-        clientY = e.touches[0].clientY
-      } else {
-        clientX = e.clientX
-        clientY = e.clientY
-      }
-
-      const tapX = clientX - rect.left
-      const tapY = clientY - rect.top
-
-      // Animate to center the tapped position
-      controls.start({
-        x: -tapX + rect.width / 2,
-        y: -tapY + rect.height / 2,
-        // transition: { type: "spring", damping: 30, stiffness: 300 }
-      })
-
-      // Update motion values to match the new position
-      x.set(-tapX + rect.width / 2)
-      y.set(-tapY + rect.height / 2)
+  const handleDoubleTap = (e: React.MouseEvent | { touches?: TouchList; clientX: number; clientY: number }) => {
+    if (!containerRef.current) return
+    const rect = containerRef.current.getBoundingClientRect()
+    let clientX = e.clientX
+    let clientY = e.clientY
+    if ("touches" in e && e.touches && e.touches.length) {
+      clientX = e.touches[0].clientX
+      clientY = e.touches[0].clientY
     }
+
+    const tapX = clientX - rect.left
+    const tapY = clientY - rect.top
+
+    // animate to center the tapped position
+    controls.start({
+      x: -tapX + rect.width / 2,
+      y: -tapY + rect.height / 2,
+      transition: { type: "spring", damping: 30, stiffness: 200 },
+    })
+    x.set(-tapX + rect.width / 2)
+    y.set(-tapY + rect.height / 2)
   }
 
-  // Reset position with animation
+  // quick reset
   const resetPosition = () => {
     controls.start({ x: 0, y: 0, transition: { type: "spring", damping: 30, stiffness: 200 } })
     x.set(0)
     y.set(0)
   }
 
+  // Rendered tile component (memoized to avoid extra renders)
+  const Tile = React.useMemo(() => {
+    return function _Tile({ row, col }: { row: number; col: number }) {
+      const proj = projectForCell(row, col)
+      // position in px relative to centered origin
+      const left = col * CELL_SIZE
+      const top = row * CELL_SIZE
+
+      // For image-heavy projects: use ProjectCard when available; else fallback img.
+      // We pass minimal className and ensure lazy loading.
+      return (
+        <div
+          key={`${row}_${col}`}
+          className="absolute select-none"
+          style={{
+            left: left,
+            top: top,
+            width: CELL_SIZE,
+            height: CELL_SIZE,
+            willChange: "transform, opacity",
+            padding: 8,
+            boxSizing: "border-box",
+          }}
+        >
+          {/* Use your ProjectCard (assumed to support className and imgSrc) */}
+          <ProjectCard
+            title={proj.title}
+            categories={proj.categories}
+            imgSrc={proj.imgSrc}
+            isVideo={proj.isVideo}
+            className="w-full h-full"
+            // You can pass additional props or style via className; ProjectCard should use loading="lazy" internally
+          />
+        </div>
+      )
+    }
+  }, [projectForCell])
+
   return (
     <>
       <Loader />
       <motion.main
+        ref={containerRef}
         className="relative min-h-screen bg-neutral-950 text-white overflow-hidden"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 0.5 }}
+        transition={{ duration: 0.4 }}
       >
-        {/* Website Logo at top-left */}
         <motion.header
           className="pointer-events-none fixed left-3 top-3 sm:left-6 sm:top-6 z-40"
           initial={{ y: -20, opacity: 0 }}
@@ -166,7 +496,6 @@ export default function Page() {
               src="https://www.pitamaas.com/logo-dark-mobile.png"
               alt="Pitamaas Logo"
               className="h-16 w-auto sm:h-20 md:h-24 lg:h-30"
-              // whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             />
           </Link>
@@ -175,78 +504,67 @@ export default function Page() {
         <FloatingUI />
 
         <motion.section
-          ref={containerRef}
-          aria-label="Infinite project grid"
-          className={cn("relative z-10 h-screen w-screen overflow-hidden", "cursor-none md:cursor-grab select-none touch-pan-x touch-pan-y")}
+          aria-label="Infinite virtualized project grid"
+          className={cn(
+            "relative z-10 h-screen w-screen overflow-hidden",
+            "cursor-none md:cursor-grab select-none touch-pan-x touch-pan-y"
+          )}
           style={{ cursor: "grab" }}
           whileTap={{ cursor: "grabbing" }}
         >
+          {/* This div is the "world". It is centered at 50%/50% and we move it with x/y */}
           <motion.div
-            className={cn(
-              "pointer-events-auto absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2",
-              "min-h-[900vh] min-w-[900vw] select-none"
-            )}
+            className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
             drag
-            dragElastic={0}
-            dragConstraints={{
-              left: -4000,
-              right: 4000,
-              top: -4000,
-              bottom: 4000
-            }}
-            dragTransition={{
-              power: 0.6,
-              timeConstant: 300,
-              restDelta: 0.01
-            }}
-            onDoubleClick={handleDoubleTap}
+            dragMomentum={true}
+            dragElastic={0.001}
+            dragTransition={{ power: 0.6, timeConstant: 400, restDelta: 0.05 }}
             animate={controls}
             style={{ x, y }}
-            whileDrag={{
-              cursor: "grabbing"
+            whileDrag={{ cursor: "grabbing" }}
+            onDoubleClick={(e) => {
+              // mouse double click -> center
+              handleDoubleTap(e as any)
             }}
-            dragMomentum={true}
-            dragPropagation={false}
-            onDragStart={() => {
-              // Ensure smooth start
-              document.body.style.cursor = "grabbing";
-            }}
-            onDragEnd={() => {
-              // Reset cursor
-              document.body.style.cursor = "grab";
-            }}
+            onDragStart={() => (document.body.style.cursor = "grabbing")}
+            onDragEnd={() => (document.body.style.cursor = "grab")}
           >
-            <motion.div
-              className={cn(
-                "grid grid-cols-3 px-2 py-4 gap-0",
-                "sm:grid-cols-4 sm:grid-rows-3 sm:px-4 sm:py-6",
-                "md:grid-cols-8 lg:grid-cols-12 xl:grid-cols-20"
-              )}
-              style={{
-                gridTemplateColumns: 'repeat(50, minmax(0, 1fr))'
-              }}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.4, duration: 0.7 }}
-            >
-              {items.map((p, i) => (
-                <motion.div
-                  key={`${p.title}-${i}-${Math.random()}`}
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ delay: i * 0.001, duration: 0.5 }}
-                  className="h-[25vh] sm:h-auto" 
-                >
-                  <ProjectCard
-                    title={p.title}
-                    categories={p.categories}
-                    imgSrc={p.imgSrc}
-                    isVideo={p.isVideo}
-                    className="w-full h-full"
-                  />
-                </motion.div>
-              ))}
-            </motion.div>
+            {/* The visible tiles are positioned absolutely inside this world.
+                We intentionally do not render a giant grid container; only absolute tiles. */}
+            <div style={{ position: "relative", width: 0, height: 0 }}>
+              {visibleTiles.map(({ row, col }) => {
+                // key must be stable
+                const key = `${row}_${col}`
+                const proj = projectForCell(row, col)
+                const left = col * CELL_SIZE
+                const top = row * CELL_SIZE
+
+                return (
+                  <div
+                    key={key}
+                    className="absolute select-none"
+                    style={{
+                      left,
+                      top,
+                      width: CELL_SIZE,
+                      height: CELL_SIZE,
+                      padding: 8,
+                      boxSizing: "border-box",
+                    }}
+                  >
+                    {/* If ProjectCard internally uses <img/>, ensure it sets loading="lazy".
+                        If it doesn't, you can replace below with a simple <img> for speed. */}
+                    <ProjectCard
+                      title={proj.title}
+                      categories={proj.categories}
+                      imgSrc={proj.imgSrc}
+                      isVideo={proj.isVideo}
+                      className="w-full h-full"
+                    />
+                  </div>
+                )
+              })}
+            </div>
           </motion.div>
 
           {/* subtle frame */}
@@ -255,8 +573,6 @@ export default function Page() {
 
         {/* bottom separator */}
         <div className="pointer-events-none fixed inset-x-0 bottom-[60px] sm:bottom-[84px] z-30 h-px bg-neutral-800/60" />
-
-
       </motion.main>
     </>
   )

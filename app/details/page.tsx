@@ -1,397 +1,540 @@
 // "use client"
 
 // import { motion } from "framer-motion"
-// import { Search, User } from "lucide-react"
+// import { ArrowLeft, Play, ExternalLink, Calendar, Tag, Users } from "lucide-react"
 // import Image from "next/image"
+// import Link from "next/link"
 
 // export default function ProductDetails() {
 //   const fadeInUp = {
 //     initial: { opacity: 0, y: 60 },
 //     animate: { opacity: 1, y: 0 },
-//     transition: { duration: 0.8, ease: "easeOut" },
+//     transition: { duration: 0.8, ease: "easeOut" as const },
 //   }
 
 //   const staggerContainer = {
 //     animate: {
 //       transition: {
-//         staggerChildren: 0.2,
+//         staggerChildren: 0.1,
 //       },
 //     },
 //   }
 
-//   const titleAnimation = {
-//     initial: { opacity: 0, y: 100, scale: 0.8 },
-//     animate: {
-//       opacity: 1,
-//       y: 0,
-//       scale: 1,
-//       transition: {
-//         duration: 1.2,
-//         ease: "easeOut",
-//         type: "spring",
-//         stiffness: 100,
-//       },
-//     },
+//   const scaleIn = {
+//     initial: { opacity: 0, scale: 0.8 },
+//     animate: { opacity: 1, scale: 1 },
+//     transition: { duration: 0.6, ease: "easeOut" as const }
+//   }
+
+//   const slideInFromLeft = {
+//     initial: { opacity: 0, x: -100 },
+//     animate: { opacity: 1, x: 0 },
+//     transition: { duration: 0.8, ease: "easeOut" as const }
+//   }
+
+//   const slideInFromRight = {
+//     initial: { opacity: 0, x: 100 },
+//     animate: { opacity: 1, x: 0 },
+//     transition: { duration: 0.8, ease: "easeOut" as const }
 //   }
 
 //   return (
-//     <div className="min-h-screen bg-red-600 text-white">
-//       {/* Header */}
-//       <motion.header
-//         className="flex items-center justify-between p-6 lg:p-8"
+//     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-800 text-white">
+//       {/* Navigation */}
+//       <motion.nav 
+//         className="fixed top-0 left-0 right-0 z-50 bg-black/20 backdrop-blur-md border-b border-white/10"
 //         initial={{ opacity: 0, y: -50 }}
 //         animate={{ opacity: 1, y: 0 }}
 //         transition={{ duration: 0.6 }}
 //       >
-//         <div className="flex items-center space-x-8">
-//           <motion.div
-//             className="text-2xl font-bold"
-//             whileHover={{ scale: 1.05 }}
-//             transition={{ type: "spring", stiffness: 400 }}
-//           >
-//             🔥 PHANTOM
-//           </motion.div>
-//           <nav className="hidden md:flex space-x-6 text-sm">
-//             <motion.a href="#" className="hover:opacity-70 transition-opacity" whileHover={{ y: -2 }}>
-//               WORK
-//             </motion.a>
-//             <motion.a href="#" className="hover:opacity-70 transition-opacity" whileHover={{ y: -2 }}>
-//               ABOUT
-//             </motion.a>
-//             <motion.a href="#" className="hover:opacity-70 transition-opacity" whileHover={{ y: -2 }}>
-//               CONTACT
-//             </motion.a>
-//           </nav>
+//         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+//           <Link href="/" className="flex items-center space-x-2 group">
+//             <motion.div
+//               className="p-2 rounded-full bg-white/10 group-hover:bg-white/20 transition-colors"
+//               whileHover={{ scale: 1.1 }}
+//               whileTap={{ scale: 0.95 }}
+//             >
+//               <ArrowLeft size={20} />
+//             </motion.div>
+//             <span className="text-sm font-medium">Back to Work</span>
+//           </Link>
+          
+//           <div className="flex items-center space-x-4">
+//             <motion.button
+//               className="px-6 py-2 bg-white/10 hover:bg-white/20 rounded-full text-sm font-medium transition-colors backdrop-blur-sm"
+//               whileHover={{ scale: 1.05 }}
+//               whileTap={{ scale: 0.95 }}
+//             >
+//               View Live Site
+//             </motion.button>
+//           </div>
 //         </div>
-//         <div className="flex items-center space-x-4">
-//           <motion.button
-//             className="p-2 hover:bg-white/10 rounded-full transition-colors"
-//             whileHover={{ scale: 1.1 }}
-//             whileTap={{ scale: 0.95 }}
-//           >
-//             <Search size={20} />
-//           </motion.button>
-//           <motion.button
-//             className="p-2 hover:bg-white/10 rounded-full transition-colors"
-//             whileHover={{ scale: 1.1 }}
-//             whileTap={{ scale: 0.95 }}
-//           >
-//             <User size={20} />
-//           </motion.button>
-//           <motion.button
-//             className="bg-white text-red-600 px-6 py-2 rounded-full font-semibold hover:bg-gray-100 transition-colors"
-//             whileHover={{ scale: 1.05, boxShadow: "0 10px 25px rgba(0,0,0,0.2)" }}
-//             whileTap={{ scale: 0.95 }}
-//           >
-//             LET'S GO
-//           </motion.button>
-//         </div>
-//       </motion.header>
+//       </motion.nav>
 
 //       {/* Hero Section */}
 //       <motion.section
-//         className="px-6 lg:px-8 py-12 lg:py-20"
+//         className="pt-24 pb-16 px-6"
 //         variants={staggerContainer}
 //         initial="initial"
 //         animate="animate"
 //       >
-//         <motion.h1 className="text-6xl md:text-8xl lg:text-9xl font-black leading-none mb-8" variants={titleAnimation}>
-//           MONUMENTAL
-//           <br />
-//           BEANIES
-//         </motion.h1>
-
-//         <motion.div className="mb-16" variants={fadeInUp}>
-//           <video className="w-full max-w-4xl mx-auto rounded-lg shadow-2xl" autoPlay muted loop playsInline>
-//             <source
-//               src="https://phantom-ldn-website-videos.storage.googleapis.com/caseStudiesVideos/Sundays%20Beanies%20/sundays-beanies-1.webm"
-//               type="video/webm"
-//             />
-//           </video>
-//         </motion.div>
-
-//         <motion.h2 className="text-3xl md:text-4xl lg:text-5xl font-bold max-w-4xl leading-tight" variants={fadeInUp}>
-//           Iconic landmarks, reimagined with Sundays' signature beanie.
-//         </motion.h2>
-//       </motion.section>
-
-//       {/* Description Section */}
-//       <motion.section
-//         className="px-6 lg:px-8 py-16"
-//         initial={{ opacity: 0 }}
-//         whileInView={{ opacity: 1 }}
-//         transition={{ duration: 0.8 }}
-//         viewport={{ once: true }}
-//       >
-//         <div className="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto">
-//           <motion.div
-//             className="space-y-4"
-//             initial={{ opacity: 0, x: -50 }}
-//             whileInView={{ opacity: 1, x: 0 }}
-//             transition={{ duration: 0.8, delay: 0.2 }}
-//             viewport={{ once: true }}
+//         <div className="max-w-7xl mx-auto">
+//           {/* Project Meta */}
+//           <motion.div 
+//             className="flex flex-wrap items-center gap-6 mb-8 text-sm text-gray-300"
+//             variants={fadeInUp}
 //           >
-//             <p className="text-lg leading-relaxed">
-//               A hybrid project of fashion and digital creativity, Monumental Beanies is a collaboration between Phantom
-//               and Sundays, creating a unique collection that merges the iconic Sundays branded beanie with some of the
-//               world's most famous landmarks through augmented reality.
-//             </p>
-//             <p className="text-lg leading-relaxed">
-//               During Sundays' signature beanie to life in a completely new way, this project showcases how fashion and
-//               technology can work together to create something truly special. Each beanie becomes a canvas for iconic
-//               landmarks, with AR technology bringing these monuments to life in ways never seen before.
-//             </p>
+//             <div className="flex items-center space-x-2">
+//               <Calendar size={16} />
+//               <span>2024</span>
+//             </div>
+//             <div className="flex items-center space-x-2">
+//               <Tag size={16} />
+//               <span>Fashion & AR</span>
+//             </div>
+//             <div className="flex items-center space-x-2">
+//               <Users size={16} />
+//               <span>Phantom × Sundays</span>
+//             </div>
 //           </motion.div>
-//           <motion.div
-//             className="space-y-4"
-//             initial={{ opacity: 0, x: 50 }}
-//             whileInView={{ opacity: 1, x: 0 }}
-//             transition={{ duration: 0.8, delay: 0.4 }}
-//             viewport={{ once: true }}
+
+//           {/* Main Title */}
+//           <motion.h1 
+//             className="text-5xl md:text-7xl lg:text-8xl font-black leading-[0.9] mb-8 bg-gradient-to-r from-white via-gray-200 to-gray-400 bg-clip-text text-transparent"
+//             variants={fadeInUp}
 //           >
-//             <p className="text-lg leading-relaxed">
-//               The campaign's unified creative worldwide with Sundays' signature style, creating a collection that
-//               celebrates both fashion and travel. Each beanie features a different landmark, from the Sydney Tower to
-//               Big Ben, bringing these iconic structures into the world of streetwear fashion.
-//             </p>
-//             <p className="text-lg leading-relaxed">
-//               Highlights include over 12 million Instagram views, widespread social media engagement, and a breakthrough
-//               campaign that successfully bridged the gap between fashion and technology, creating a new standard for how
-//               brands can engage with their audience through innovative storytelling.
-//             </p>
+//             MONUMENTAL
+//             <br />
+//             <span className="text-red-500">BEANIES</span>
+//           </motion.h1>
+
+//           {/* Subtitle */}
+//           <motion.p 
+//             className="text-xl md:text-2xl text-gray-300 max-w-3xl leading-relaxed mb-12"
+//             variants={fadeInUp}
+//           >
+//             Iconic landmarks reimagined through Sundays' signature beanie collection, 
+//             brought to life with cutting-edge augmented reality technology.
+//           </motion.p>
+
+//           {/* Hero Video */}
+//           <motion.div 
+//             className="relative group cursor-pointer"
+//             variants={fadeInUp}
+//             whileHover={{ scale: 1.02 }}
+//             transition={{ duration: 0.3 }}
+//           >
+//             <div className="aspect-video rounded-2xl overflow-hidden bg-gray-900 shadow-2xl">
+//               <video 
+//                 className="w-full h-full object-cover" 
+//                 autoPlay 
+//                 muted 
+//                 loop 
+//                 playsInline
+//               >
+//                 <source
+//                   src="https://phantom-ldn-website-videos.storage.googleapis.com/caseStudiesVideos/Sundays%20Beanies%20/sundays-beanies-1.webm"
+//                   type="video/webm"
+//                 />
+//               </video>
+//               <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors" />
+//               <div className="absolute inset-0 flex items-center justify-center">
+//                 <motion.div
+//                   className="w-20 h-20 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center"
+//                   whileHover={{ scale: 1.1 }}
+//                 >
+//                   <Play size={24} className="ml-1" />
+//                 </motion.div>
+//               </div>
+//             </div>
 //           </motion.div>
 //         </div>
 //       </motion.section>
 
-//       {/* Product Grid Section */}
+//       {/* Project Overview */}
 //       <motion.section
-//         className="px-6 lg:px-8 py-16"
+//         className="py-20 px-6"
 //         initial={{ opacity: 0 }}
 //         whileInView={{ opacity: 1 }}
 //         transition={{ duration: 0.8 }}
 //         viewport={{ once: true }}
 //       >
-//         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-6xl mx-auto">
-//           {/* First Row */}
-//           <motion.div
-//             className="aspect-square"
-//             initial={{ opacity: 0, scale: 0.8 }}
-//             whileInView={{ opacity: 1, scale: 1 }}
-//             transition={{ duration: 0.6, delay: 0.1 }}
-//             viewport={{ once: true }}
-//             whileHover={{ scale: 1.02 }}
-//           >
-//             <video className="w-full h-full object-cover rounded-lg" autoPlay muted loop playsInline>
-//               <source
-//                 src="https://phantom-ldn-website-videos.storage.googleapis.com/caseStudiesVideos/Sundays%20Beanies%20/sundays-beanies-2-left.webm"
-//                 type="video/webm"
-//               />
-//             </video>
-//           </motion.div>
+//         <div className="max-w-7xl mx-auto">
+//           <div className="grid lg:grid-cols-3 gap-12">
+//             {/* Main Description */}
+//             <motion.div 
+//               className="lg:col-span-2 space-y-8"
+//               initial={{ opacity: 0, x: -50 }}
+//               whileInView={{ opacity: 1, x: 0 }}
+//               transition={{ duration: 0.8 }}
+//               viewport={{ once: true }}
+//             >
+//               <div className="space-y-6">
+//                 <h2 className="text-3xl font-bold">Project Overview</h2>
+//                 <div className="space-y-4 text-gray-300 leading-relaxed">
+//                   <p>
+//                     A groundbreaking collaboration between Phantom and Sundays that merges 
+//                     fashion with digital innovation. This project transforms Sundays' iconic 
+//                     beanie into an interactive canvas featuring the world's most famous landmarks.
+//                   </p>
+//                   <p>
+//                     Through cutting-edge augmented reality technology, each beanie becomes a 
+//                     portal to iconic destinations, creating an unprecedented fusion of streetwear 
+//                     and digital storytelling that captivated audiences worldwide.
+//                   </p>
+//                 </div>
+//               </div>
 
-//           <motion.div
-//             className="aspect-square"
-//             initial={{ opacity: 0, scale: 0.8 }}
-//             whileInView={{ opacity: 1, scale: 1 }}
-//             transition={{ duration: 0.6, delay: 0.2 }}
-//             viewport={{ once: true }}
-//             whileHover={{ scale: 1.02 }}
-//           >
-//             <Image
-//               src="https://images.prismic.io/phantom-land/Z4eiqJbqstJ99fDL_sundays-beanies-2-right.jpg?auto=format,compress?auto=compress,format"
-//               alt="Beanie texture detail"
-//               width={600}
-//               height={600}
-//               className="w-full h-full object-cover rounded-lg"
-//             />
-//           </motion.div>
+//               <div className="space-y-6">
+//                 <h3 className="text-2xl font-bold">Impact & Results</h3>
+//                 <div className="grid md:grid-cols-2 gap-6">
+//                   <div className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10">
+//                     <div className="text-3xl font-bold text-red-500 mb-2">12M+</div>
+//                     <div className="text-gray-300">Instagram Views</div>
+//                   </div>
+//                   <div className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10">
+//                     <div className="text-3xl font-bold text-red-500 mb-2">Global</div>
+//                     <div className="text-gray-300">Campaign Reach</div>
+//                   </div>
+//                 </div>
+//               </div>
+//             </motion.div>
 
-//           {/* Second Row */}
-//           <motion.div
-//             className="aspect-square"
-//             initial={{ opacity: 0, scale: 0.8 }}
-//             whileInView={{ opacity: 1, scale: 1 }}
-//             transition={{ duration: 0.6, delay: 0.3 }}
-//             viewport={{ once: true }}
-//             whileHover={{ scale: 1.02 }}
-//           >
-//             <Image
-//               src="https://images.prismic.io/phantom-land/Z4ei15bqstJ99fDX_sundays-beanies-3-right.jpg?auto=format,compress?auto=compress,format"
-//               alt="Beanie collection"
-//               width={600}
-//               height={600}
-//               className="w-full h-full object-cover rounded-lg"
-//             />
-//           </motion.div>
+//             {/* Project Details */}
+//             <motion.div 
+//               className="space-y-8"
+//               initial={{ opacity: 0, x: 50 }}
+//               whileInView={{ opacity: 1, x: 0 }}
+//               transition={{ duration: 0.8 }}
+//               viewport={{ once: true }}
+//             >
+//               <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10">
+//                 <h3 className="text-xl font-bold mb-6">Project Details</h3>
+//                 <div className="space-y-4">
+//                   <div>
+//                     <div className="text-sm text-gray-400 mb-1">Client</div>
+//                     <div className="font-medium">Sundays</div>
+//                   </div>
+//                   <div>
+//                     <div className="text-sm text-gray-400 mb-1">Services</div>
+//                     <div className="font-medium">AR Development, Creative Direction</div>
+//                   </div>
+//                   <div>
+//                     <div className="text-sm text-gray-400 mb-1">Timeline</div>
+//                     <div className="font-medium">6 Months</div>
+//                   </div>
+//                   <div>
+//                     <div className="text-sm text-gray-400 mb-1">Team</div>
+//                     <div className="font-medium">8 Specialists</div>
+//                   </div>
+//                 </div>
+//               </div>
 
-//           <motion.div
-//             className="aspect-square"
-//             initial={{ opacity: 0, scale: 0.8 }}
-//             whileInView={{ opacity: 1, scale: 1 }}
-//             transition={{ duration: 0.6, delay: 0.4 }}
-//             viewport={{ once: true }}
-//             whileHover={{ scale: 1.02 }}
-//           >
-//             <video className="w-full h-full object-cover rounded-lg" autoPlay muted loop playsInline>
-//               <source
-//                 src="https://phantom-ldn-website-videos.storage.googleapis.com/caseStudiesVideos/Sundays%20Beanies%20/sundays-beanies-3-left.webm"
-//                 type="video/webm"
-//               />
-//             </video>
-//           </motion.div>
+//               <div className="bg-gradient-to-br from-red-500/20 to-pink-500/20 backdrop-blur-sm rounded-2xl p-8 border border-red-500/30">
+//                 <h3 className="text-xl font-bold mb-4">Key Features</h3>
+//                 <ul className="space-y-3 text-gray-300">
+//                   <li className="flex items-start space-x-3">
+//                     <div className="w-2 h-2 bg-red-500 rounded-full mt-2 flex-shrink-0" />
+//                     <span>AR-powered landmark visualization</span>
+//                   </li>
+//                   <li className="flex items-start space-x-3">
+//                     <div className="w-2 h-2 bg-red-500 rounded-full mt-2 flex-shrink-0" />
+//                     <span>Interactive beanie collection</span>
+//                   </li>
+//                   <li className="flex items-start space-x-3">
+//                     <div className="w-2 h-2 bg-red-500 rounded-full mt-2 flex-shrink-0" />
+//                     <span>Social media integration</span>
+//                   </li>
+//                   <li className="flex items-start space-x-3">
+//                     <div className="w-2 h-2 bg-red-500 rounded-full mt-2 flex-shrink-0" />
+//                     <span>Global campaign rollout</span>
+//                   </li>
+//                 </ul>
+//               </div>
+//             </motion.div>
+//           </div>
 //         </div>
 //       </motion.section>
 
-//       {/* Additional Image Section */}
+//       {/* Gallery Section */}
 //       <motion.section
-//         className="px-6 lg:px-8 py-16"
+//         className="py-20 px-6"
 //         initial={{ opacity: 0 }}
 //         whileInView={{ opacity: 1 }}
 //         transition={{ duration: 0.8 }}
 //         viewport={{ once: true }}
 //       >
-//         <motion.div
-//           className="max-w-6xl mx-auto"
-//           initial={{ opacity: 0, y: 50 }}
-//           whileInView={{ opacity: 1, y: 0 }}
-//           transition={{ duration: 0.8 }}
-//           viewport={{ once: true }}
-//           whileHover={{ scale: 1.01 }}
-//         >
-//           <Image
-//             src="https://images.prismic.io/phantom-land/Z4ei2ZbqstJ99fDa_sundays-beanies-4.jpg?auto=format,compress?auto=compress,format"
-//             alt="Beanie showcase"
-//             width={1200}
-//             height={800}
-//             className="w-full rounded-lg shadow-2xl"
-//           />
-//         </motion.div>
-//       </motion.section>
-
-//       {/* Related Work Section */}
-//       <motion.section
-//         className="px-6 lg:px-8 py-16 bg-black"
-//         initial={{ opacity: 0 }}
-//         whileInView={{ opacity: 1 }}
-//         transition={{ duration: 0.8 }}
-//         viewport={{ once: true }}
-//       >
-//         <motion.h3
-//           className="text-2xl font-bold mb-8"
-//           initial={{ opacity: 0, y: 30 }}
-//           whileInView={{ opacity: 1, y: 0 }}
-//           transition={{ duration: 0.6 }}
-//           viewport={{ once: true }}
-//         >
-//           Related work
-//         </motion.h3>
-
-//         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
-//           <motion.div
-//             className="aspect-video"
-//             initial={{ opacity: 0, y: 50 }}
+//         <div className="max-w-7xl mx-auto">
+//           <motion.h2 
+//             className="text-4xl font-bold text-center mb-16"
+//             initial={{ opacity: 0, y: 30 }}
 //             whileInView={{ opacity: 1, y: 0 }}
-//             transition={{ duration: 0.6, delay: 0.1 }}
-//             viewport={{ once: true }}
-//             whileHover={{ scale: 1.05 }}
-//           >
-//             <video className="w-full h-full object-cover rounded-lg" autoPlay muted loop playsInline>
-//               <source
-//                 src="https://phantom-ldn-website-videos.storage.googleapis.com/caseStudiesVideos/Aurora/header-aurora-1080p.webm"
-//                 type="video/webm"
-//               />
-//             </video>
-//           </motion.div>
-
-//           <motion.div
-//             className="aspect-video"
-//             initial={{ opacity: 0, y: 50 }}
-//             whileInView={{ opacity: 1, y: 0 }}
-//             transition={{ duration: 0.6, delay: 0.2 }}
-//             viewport={{ once: true }}
-//             whileHover={{ scale: 1.05 }}
-//           >
-//             <video className="w-full h-full object-cover rounded-lg" autoPlay muted loop playsInline>
-//               <source
-//                 src="https://phantom-ldn-website-videos.storage.googleapis.com/caseStudiesVideos/Superdry%20AW23/o-superdry-1_1-q4.webm"
-//                 type="video/webm"
-//               />
-//             </video>
-//           </motion.div>
-
-//           <motion.div
-//             className="aspect-video"
-//             initial={{ opacity: 0, y: 50 }}
-//             whileInView={{ opacity: 1, y: 0 }}
-//             transition={{ duration: 0.6, delay: 0.3 }}
-//             viewport={{ once: true }}
-//             whileHover={{ scale: 1.05 }}
-//           >
-//             <video className="w-full h-full object-cover rounded-lg" autoPlay muted loop playsInline>
-//               <source
-//                 src="https://phantom-ldn-website-videos.storage.googleapis.com/caseStudiesVideos/Ultimate%20Travel%20Hacker%20/ultimate-travel-hacker-1.webm"
-//                 type="video/webm"
-//               />
-//             </video>
-//           </motion.div>
-//         </div>
-//       </motion.section>
-
-//       {/* See All Work Section */}
-//       <motion.section
-//         className="px-6 lg:px-8 py-20 bg-black"
-//         initial={{ opacity: 0 }}
-//         whileInView={{ opacity: 1 }}
-//         transition={{ duration: 0.8 }}
-//         viewport={{ once: true }}
-//       >
-//         <div className="text-center">
-//           <motion.h2
-//             className="text-6xl md:text-8xl lg:text-9xl font-black text-gray-800 mb-8"
-//             initial={{ opacity: 0, scale: 0.8 }}
-//             whileInView={{ opacity: 1, scale: 1 }}
-//             transition={{ duration: 0.8 }}
+//             transition={{ duration: 0.6 }}
 //             viewport={{ once: true }}
 //           >
-//             See all work
+//             Project Gallery
 //           </motion.h2>
 
-//           <div className="flex justify-center space-x-4">
-//             <motion.button
-//               className="bg-white text-black px-8 py-3 rounded-full font-semibold hover:bg-red-600 hover:text-white transition-all duration-300"
-//               whileHover={{
-//                 scale: 1.05,
-//                 backgroundColor: "#dc2626",
-//                 color: "#ffffff",
-//                 boxShadow: "0 10px 25px rgba(220, 38, 38, 0.3)",
-//               }}
-//               whileTap={{ scale: 0.95 }}
+//           {/* Masonry-style Gallery */}
+//           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+//             {/* Large Video */}
+//             <motion.div 
+//               className="md:col-span-2 lg:col-span-2 aspect-video group cursor-pointer"
+//               initial={{ opacity: 0, scale: 0.8 }}
+//               whileInView={{ opacity: 1, scale: 1 }}
+//               transition={{ duration: 0.6, delay: 0.1 }}
+//               viewport={{ once: true }}
+//               whileHover={{ scale: 1.02 }}
 //             >
-//               Work
-//             </motion.button>
-//             <motion.button
-//               className="border border-white text-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-black transition-all duration-300"
-//               whileHover={{
-//                 scale: 1.05,
-//                 backgroundColor: "#ffffff",
-//                 color: "#000000",
-//               }}
-//               whileTap={{ scale: 0.95 }}
+//               <div className="relative h-full rounded-2xl overflow-hidden bg-gray-900">
+//                 <video 
+//                   className="w-full h-full object-cover" 
+//                   autoPlay 
+//                   muted 
+//                   loop 
+//                   playsInline
+//                 >
+//                   <source
+//                     src="https://phantom-ldn-website-videos.storage.googleapis.com/caseStudiesVideos/Sundays%20Beanies%20/sundays-beanies-2-left.webm"
+//                     type="video/webm"
+//                   />
+//                 </video>
+//                 <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors" />
+//                 <div className="absolute inset-0 flex items-center justify-center">
+//                   <motion.div
+//                     className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center"
+//                     whileHover={{ scale: 1.1 }}
+//                   >
+//                     <Play size={20} className="ml-1" />
+//                   </motion.div>
+//                 </div>
+//               </div>
+//             </motion.div>
+
+//             {/* Image 1 */}
+//             <motion.div 
+//               className="aspect-square group cursor-pointer"
+//               initial={{ opacity: 0, scale: 0.8 }}
+//               whileInView={{ opacity: 1, scale: 1 }}
+//               transition={{ duration: 0.6, delay: 0.2 }}
+//               viewport={{ once: true }}
+//               whileHover={{ scale: 1.02 }}
 //             >
-//               About
-//             </motion.button>
-//             <motion.button
-//               className="border border-white text-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-black transition-all duration-300"
-//               whileHover={{
-//                 scale: 1.05,
-//                 backgroundColor: "#ffffff",
-//                 color: "#000000",
-//               }}
-//               whileTap={{ scale: 0.95 }}
+//               <div className="relative h-full rounded-2xl overflow-hidden bg-gray-900">
+//                 <Image
+//                   src="https://images.prismic.io/phantom-land/Z4eiqJbqstJ99fDL_sundays-beanies-2-right.jpg?auto=format,compress?auto=compress,format"
+//                   alt="Beanie texture detail"
+//                   width={600}
+//                   height={600}
+//                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+//                 />
+//                 <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors" />
+//               </div>
+//             </motion.div>
+
+//             {/* Image 2 */}
+//             <motion.div 
+//               className="aspect-square group cursor-pointer"
+//               initial={{ opacity: 0, scale: 0.8 }}
+//               whileInView={{ opacity: 1, scale: 1 }}
+//               transition={{ duration: 0.6, delay: 0.3 }}
+//               viewport={{ once: true }}
+//               whileHover={{ scale: 1.02 }}
 //             >
-//               Contact
-//             </motion.button>
+//               <div className="relative h-full rounded-2xl overflow-hidden bg-gray-900">
+//                 <Image
+//                   src="https://images.prismic.io/phantom-land/Z4ei15bqstJ99fDX_sundays-beanies-3-right.jpg?auto=format,compress?auto=compress,format"
+//                   alt="Beanie collection"
+//                   width={600}
+//                   height={600}
+//                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+//                 />
+//                 <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors" />
+//               </div>
+//             </motion.div>
+
+//             {/* Video 2 */}
+//             <motion.div 
+//               className="aspect-square group cursor-pointer"
+//               initial={{ opacity: 0, scale: 0.8 }}
+//               whileInView={{ opacity: 1, scale: 1 }}
+//               transition={{ duration: 0.6, delay: 0.4 }}
+//               viewport={{ once: true }}
+//               whileHover={{ scale: 1.02 }}
+//             >
+//               <div className="relative h-full rounded-2xl overflow-hidden bg-gray-900">
+//                 <video 
+//                   className="w-full h-full object-cover" 
+//                   autoPlay 
+//                   muted 
+//                   loop 
+//                   playsInline
+//                 >
+//                   <source
+//                     src="https://phantom-ldn-website-videos.storage.googleapis.com/caseStudiesVideos/Sundays%20Beanies%20/sundays-beanies-3-left.webm"
+//                     type="video/webm"
+//                   />
+//                 </video>
+//                 <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors" />
+//                 <div className="absolute inset-0 flex items-center justify-center">
+//                   <motion.div
+//                     className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center"
+//                     whileHover={{ scale: 1.1 }}
+//                   >
+//                     <Play size={20} className="ml-1" />
+//                   </motion.div>
+//                 </div>
+//               </div>
+//             </motion.div>
+
+//             {/* Large Image */}
+//             <motion.div 
+//               className="md:col-span-2 lg:col-span-3 aspect-[16/9] group cursor-pointer"
+//               initial={{ opacity: 0, scale: 0.8 }}
+//               whileInView={{ opacity: 1, scale: 1 }}
+//               transition={{ duration: 0.6, delay: 0.5 }}
+//               viewport={{ once: true }}
+//               whileHover={{ scale: 1.02 }}
+//             >
+//               <div className="relative h-full rounded-2xl overflow-hidden bg-gray-900">
+//                 <Image
+//                   src="https://images.prismic.io/phantom-land/Z4ei2ZbqstJ99fDa_sundays-beanies-4.jpg?auto=format,compress?auto=compress,format"
+//                   alt="Beanie showcase"
+//                   width={1400}
+//                   height={787}
+//                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+//                 />
+//                 <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors" />
+//               </div>
+//             </motion.div>
 //           </div>
+//         </div>
+//       </motion.section>
+
+//       {/* Related Projects */}
+//       <motion.section
+//         className="py-20 px-6 bg-black/50"
+//         initial={{ opacity: 0 }}
+//         whileInView={{ opacity: 1 }}
+//         transition={{ duration: 0.8 }}
+//         viewport={{ once: true }}
+//       >
+//         <div className="max-w-7xl mx-auto">
+//           <motion.h2 
+//             className="text-4xl font-bold text-center mb-16"
+//             initial={{ opacity: 0, y: 30 }}
+//             whileInView={{ opacity: 1, y: 0 }}
+//             transition={{ duration: 0.6 }}
+//             viewport={{ once: true }}
+//           >
+//             Related Projects
+//           </motion.h2>
+
+//           <div className="grid md:grid-cols-3 gap-8">
+//             {[
+//               {
+//                 title: "Aurora Collection",
+//                 video: "https://phantom-ldn-website-videos.storage.googleapis.com/caseStudiesVideos/Aurora/header-aurora-1080p.webm"
+//               },
+//               {
+//                 title: "Superdry AW23",
+//                 video: "https://phantom-ldn-website-videos.storage.googleapis.com/caseStudiesVideos/Superdry%20AW23/o-superdry-1_1-q4.webm"
+//               },
+//               {
+//                 title: "Travel Hacker",
+//                 video: "https://phantom-ldn-website-videos.storage.googleapis.com/caseStudiesVideos/Ultimate%20Travel%20Hacker%20/ultimate-travel-hacker-1.webm"
+//               }
+//             ].map((project, index) => (
+//               <motion.div
+//                 key={project.title}
+//                 className="group cursor-pointer"
+//                 initial={{ opacity: 0, y: 50 }}
+//                 whileInView={{ opacity: 1, y: 0 }}
+//                 transition={{ duration: 0.6, delay: index * 0.1 }}
+//                 viewport={{ once: true }}
+//                 whileHover={{ scale: 1.05 }}
+//               >
+//                 <div className="relative aspect-video rounded-2xl overflow-hidden bg-gray-900 mb-4">
+//                   <video 
+//                     className="w-full h-full object-cover" 
+//                     autoPlay 
+//                     muted 
+//                     loop 
+//                     playsInline
+//                   >
+//                     <source src={project.video} type="video/webm" />
+//                   </video>
+//                   <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors" />
+//                   <div className="absolute inset-0 flex items-center justify-center">
+//                     <motion.div
+//                       className="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center"
+//                       whileHover={{ scale: 1.1 }}
+//                     >
+//                       <Play size={16} className="ml-1" />
+//                     </motion.div>
+//                   </div>
+//                 </div>
+//                 <h3 className="text-xl font-bold group-hover:text-red-500 transition-colors">
+//                   {project.title}
+//                 </h3>
+//               </motion.div>
+//             ))}
+//           </div>
+//         </div>
+//       </motion.section>
+
+//       {/* CTA Section */}
+//       <motion.section
+//         className="py-20 px-6"
+//         initial={{ opacity: 0 }}
+//         whileInView={{ opacity: 1 }}
+//         transition={{ duration: 0.8 }}
+//         viewport={{ once: true }}
+//       >
+//         <div className="max-w-4xl mx-auto text-center">
+//           <motion.h2 
+//             className="text-5xl md:text-6xl font-black mb-8 bg-gradient-to-r from-white via-gray-200 to-gray-400 bg-clip-text text-transparent"
+//             initial={{ opacity: 0, y: 30 }}
+//             whileInView={{ opacity: 1, y: 0 }}
+//             transition={{ duration: 0.6 }}
+//             viewport={{ once: true }}
+//           >
+//             Ready to Create Something Amazing?
+//           </motion.h2>
+          
+//           <motion.p 
+//             className="text-xl text-gray-300 mb-12 max-w-2xl mx-auto"
+//             initial={{ opacity: 0, y: 30 }}
+//             whileInView={{ opacity: 1, y: 0 }}
+//             transition={{ duration: 0.6, delay: 0.1 }}
+//             viewport={{ once: true }}
+//           >
+//             Let's collaborate on your next groundbreaking project that pushes the boundaries 
+//             of creativity and technology.
+//           </motion.p>
+
+//           <motion.div 
+//             className="flex flex-col sm:flex-row gap-4 justify-center"
+//             initial={{ opacity: 0, y: 30 }}
+//             whileInView={{ opacity: 1, y: 0 }}
+//             transition={{ duration: 0.6, delay: 0.2 }}
+//             viewport={{ once: true }}
+//           >
+//             <motion.button
+//               className="px-8 py-4 bg-red-500 hover:bg-red-600 rounded-full font-semibold transition-colors"
+//               whileHover={{ scale: 1.05 }}
+//               whileTap={{ scale: 0.95 }}
+//             >
+//               Start Your Project
+//             </motion.button>
+//             <motion.button
+//               className="px-8 py-4 bg-white/10 hover:bg-white/20 rounded-full font-semibold transition-colors backdrop-blur-sm"
+//               whileHover={{ scale: 1.05 }}
+//               whileTap={{ scale: 0.95 }}
+//             >
+//               View All Work
+//             </motion.button>
+//           </motion.div>
 //         </div>
 //       </motion.section>
 //     </div>
@@ -402,344 +545,456 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { Search, User } from "lucide-react"
+import { ArrowLeft, Play, ExternalLink, Calendar, Tag, Users, ChevronRight } from "lucide-react"
 import Image from "next/image"
+import Link from "next/link"
 
 export default function ProductDetails() {
-  const fadeInUp = {
-    initial: { opacity: 0, y: 60 },
+  const fadeIn = {
+    initial: { opacity: 0 },
+    animate: { opacity: 1 },
+    transition: { duration: 0.6 }
+  }
+
+  const slideUp = {
+    initial: { opacity: 0, y: 30 },
     animate: { opacity: 1, y: 0 },
-    transition: { duration: 0.8, ease: "easeOut" as const },
+    transition: { duration: 0.7 }
   }
 
   const staggerContainer = {
     animate: {
       transition: {
-        staggerChildren: 0.2,
+        staggerChildren: 0.1,
       },
     },
-  }
-
-  const titleAnimation = {
-    initial: { opacity: 0, y: 100, scale: 0.8 },
-    animate: {
-      opacity: 1,
-      y: 0,
-      scale: 1,
-      transition: {
-        duration: 1.2,
-        ease: "easeOut" as const,
-        type: "spring" as const,
-        stiffness: 100,
-      },
-    },
-  }
-
-  const slideInFromLeft = {
-    initial: { opacity: 0, x: -100 },
-    animate: { opacity: 1, x: 0 },
-    transition: { duration: 0.8, ease: "easeOut" as const }
-  }
-
-  const slideInFromRight = {
-    initial: { opacity: 0, x: 100 },
-    animate: { opacity: 1, x: 0 },
-    transition: { duration: 0.8, ease: "easeOut" as const }
-  }
-
-  const scaleUp = {
-    initial: { opacity: 0, scale: 0.8 },
-    animate: { opacity: 1, scale: 1 },
-    transition: { duration: 0.7, ease: "easeOut" as const }
   }
 
   return (
-    <div className="min-h-screen bg-black text-white">
+    <div className="min-h-screen bg-gray-950 text-white">
+      {/* Navigation */}
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-gray-950/90 backdrop-blur-md border-b border-gray-800">
+        <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+          <Link href="/" className="flex items-center space-x-2 group">
+            <div className="p-2 rounded-full bg-gray-800 group-hover:bg-gray-700 transition-colors">
+              <ArrowLeft size={18} />
+            </div>
+            <span className="text-sm font-medium">Back to Work</span>
+          </Link>
+          
+          <div className="flex items-center space-x-4">
+            <button className="px-6 py-2 bg-white text-gray-950 hover:bg-gray-100 rounded-full text-sm font-medium transition-colors flex items-center">
+              View Live Site <ExternalLink size={16} className="ml-2" />
+            </button>
+          </div>
+        </div>
+      </nav>
 
       {/* Hero Section */}
-      <motion.section
-        className="px-6 lg:px-8 py-12 lg:py-20"
-        variants={staggerContainer}
-        initial="initial"
-        animate="animate"
-      >
-        {/* 1. Centered and increased font size for "MONUMENTAL BEANIES" */}
-        <motion.h1 
-          className="text-6xl md:text-8xl lg:text-9xl font-black leading-none mb-8 text-center" 
-          variants={titleAnimation}
-          style={{ fontFamily: "'Helvetica Neue', Arial, sans-serif" }}
-        >
-          MONUMENTAL
-          <br />
-          BEANIES
-        </motion.h1>
+      <section className="pt-28 pb-16 px-6">
+        <div className="max-w-4xl mx-auto">
+          <motion.div 
+            className="flex flex-wrap items-center gap-4 mb-6 text-sm text-gray-400"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.2, duration: 0.6 }}
+          >
+            <div className="flex items-center space-x-2">
+              <Calendar size={14} />
+              <span>2024</span>
+            </div>
+            <div className="flex items-center space-x-2">
+              <Tag size={14} />
+              <span>Fashion & AR</span>
+            </div>
+            <div className="flex items-center space-x-2">
+              <Users size={14} />
+              <span>Phantom × Sundays</span>
+            </div>
+          </motion.div>
 
-        {/* Hero Video with proper dimensions */}
-        <motion.div className="mb-16" variants={fadeInUp}>
-          <div className="aspect-video max-w-7xl mx-auto overflow-hidden rounded-lg shadow-2xl">
-            <video className="w-full h-full object-cover" autoPlay muted loop playsInline>
-              <source
-                src="https://phantom-ldn-website-videos.storage.googleapis.com/caseStudiesVideos/Sundays%20Beanies%20/sundays-beanies-1.webm"
-                type="video/webm"
-              />
-            </video>
+          <motion.h1 
+            className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7 }}
+          >
+            Monumental <span className="text-red-500">Beanies</span>
+          </motion.h1>
+
+          <motion.p 
+            className="text-lg text-gray-300 max-w-3xl leading-relaxed mb-10"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.1, duration: 0.7 }}
+          >
+            Iconic landmarks reimagined through Sundays' signature beanie collection, 
+            brought to life with cutting-edge augmented reality technology.
+          </motion.p>
+
+          <motion.div 
+            className="relative group cursor-pointer rounded-xl overflow-hidden shadow-2xl"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2, duration: 0.7 }}
+          >
+            <div className="aspect-video bg-gray-900">
+              <video 
+                className="w-full h-full object-cover" 
+                autoPlay 
+                muted 
+                loop 
+                playsInline
+              >
+                <source
+                  src="https://phantom-ldn-website-videos.storage.googleapis.com/caseStudiesVideos/Sundays%20Beanies%20/sundays-beanies-1.webm"
+                  type="video/webm"
+                />
+              </video>
+              <div className="absolute inset-0 bg-black/30 group-hover:bg-black/20 transition-colors" />
+              <div className="absolute inset-0 flex items-center justify-center">
+                <motion.div
+                  className="w-16 h-16 bg-white/90 rounded-full flex items-center justify-center shadow-lg"
+                  whileHover={{ scale: 1.1 }}
+                >
+                  <Play size={24} className="ml-1 text-gray-950" />
+                </motion.div>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Project Overview */}
+      <section className="py-16 px-6 bg-gray-900">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid lg:grid-cols-3 gap-10">
+            <div className="lg:col-span-2">
+              <motion.h2 
+                className="text-2xl font-bold mb-8"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
+                viewport={{ once: true }}
+              >
+                Project Overview
+              </motion.h2>
+              
+              <motion.div 
+                className="space-y-6 text-gray-300"
+                variants={staggerContainer}
+                initial="initial"
+                whileInView="animate"
+                viewport={{ once: true }}
+              >
+                <motion.p variants={slideUp}>
+                  A groundbreaking collaboration between Phantom and Sundays that merges 
+                  fashion with digital innovation. This project transforms Sundays' iconic 
+                  beanie into an interactive canvas featuring the world's most famous landmarks.
+                </motion.p>
+                
+                <motion.p variants={slideUp}>
+                  Through cutting-edge augmented reality technology, each beanie becomes a 
+                  portal to iconic destinations, creating an unprecedented fusion of streetwear 
+                  and digital storytelling that captivated audiences worldwide.
+                </motion.p>
+              </motion.div>
+
+              <motion.div 
+                className="mt-12"
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                transition={{ delay: 0.3, duration: 0.6 }}
+                viewport={{ once: true }}
+              >
+                <h3 className="text-xl font-bold mb-6">Impact & Results</h3>
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div className="bg-gray-800 rounded-lg p-6">
+                    <div className="text-2xl font-bold text-red-500 mb-2">12M+</div>
+                    <div className="text-gray-300">Instagram Views</div>
+                  </div>
+                  <div className="bg-gray-800 rounded-lg p-6">
+                    <div className="text-2xl font-bold text-red-500 mb-2">Global</div>
+                    <div className="text-gray-300">Campaign Reach</div>
+                  </div>
+                </div>
+              </motion.div>
+            </div>
+
+            <div className="space-y-8">
+              <motion.div 
+                className="bg-gray-800 rounded-xl p-6"
+                initial={{ opacity: 0, x: 20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6 }}
+                viewport={{ once: true }}
+              >
+                <h3 className="text-xl font-bold mb-6">Project Details</h3>
+                <div className="space-y-5">
+                  <div>
+                    <div className="text-sm text-gray-400 mb-1">Client</div>
+                    <div className="font-medium">Sundays</div>
+                  </div>
+                  <div>
+                    <div className="text-sm text-gray-400 mb-1">Services</div>
+                    <div className="font-medium">AR Development, Creative Direction</div>
+                  </div>
+                  <div>
+                    <div className="text-sm text-gray-400 mb-1">Timeline</div>
+                    <div className="font-medium">6 Months</div>
+                  </div>
+                  <div>
+                    <div className="text-sm text-gray-400 mb-1">Team</div>
+                    <div className="font-medium">8 Specialists</div>
+                  </div>
+                </div>
+              </motion.div>
+
+              <motion.div 
+                className="bg-red-500/10 border border-red-500/20 rounded-xl p-6"
+                initial={{ opacity: 0, x: 20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.2, duration: 0.6 }}
+                viewport={{ once: true }}
+              >
+                <h3 className="text-xl font-bold mb-4">Key Features</h3>
+                <ul className="space-y-3 text-gray-300">
+                  <li className="flex items-start space-x-3">
+                    <ChevronRight size={16} className="text-red-500 mt-0.5 flex-shrink-0" />
+                    <span>AR-powered landmark visualization</span>
+                  </li>
+                  <li className="flex items-start space-x-3">
+                    <ChevronRight size={16} className="text-red-500 mt-0.5 flex-shrink-0" />
+                    <span>Interactive beanie collection</span>
+                  </li>
+                  <li className="flex items-start space-x-3">
+                    <ChevronRight size={16} className="text-red-500 mt-0.5 flex-shrink-0" />
+                    <span>Social media integration</span>
+                  </li>
+                  <li className="flex items-start space-x-3">
+                    <ChevronRight size={16} className="text-red-500 mt-0.5 flex-shrink-0" />
+                    <span>Global campaign rollout</span>
+                  </li>
+                </ul>
+              </motion.div>
+            </div>
           </div>
-        </motion.div>
-
-        {/* 3. Increased font size for the subtitle */}
-        <motion.h2 className="text-4xl md:text-5xl lg:text-6xl font-bold max-w-6xl mx-auto text-center leading-tight" variants={fadeInUp}>
-          Iconic landmarks, reimagined with Sundays' signature beanie.
-        </motion.h2>
-      </motion.section>
-
-      {/* Description Section */}
-      {/* 2. Increased width for the second section */}
-      <motion.section
-        className="px-6 lg:px-8 py-16"
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ duration: 0.8 }}
-        viewport={{ once: true }}
-      >
-        <div className="grid md:grid-cols-2 gap-12 max-w-7xl mx-auto">
-          <motion.div
-            className="space-y-4"
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            viewport={{ once: true }}
-          >
-            <p className="text-lg leading-relaxed">
-              A hybrid project of fashion and digital creativity, Monumental Beanies is a collaboration between Phantom
-              and Sundays, creating a unique collection that merges the iconic Sundays branded beanie with some of the
-              world's most famous landmarks through augmented reality.
-            </p>
-            <p className="text-lg leading-relaxed">
-              During Sundays' signature beanie to life in a completely new way, this project showcases how fashion and
-              technology can work together to create something truly special. Each beanie becomes a canvas for iconic
-              landmarks, with AR technology bringing these monuments to life in ways never seen before.
-            </p>
-          </motion.div>
-          <motion.div
-            className="space-y-4"
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            viewport={{ once: true }}
-          >
-            <p className="text-lg leading-relaxed">
-              The campaign's unified creative worldwide with Sundays' signature style, creating a collection that
-              celebrates both fashion and travel. Each beanie features a different landmark, from the Sydney Tower to
-              Big Ben, bringing these iconic structures into the world of streetwear fashion.
-            </p>
-            <p className="text-lg leading-relaxed">
-              Highlights include over 12 million Instagram views, widespread social media engagement, and a breakthrough
-              campaign that successfully bridged the gap between fashion and technology, creating a new standard for how
-              brands can engage with their audience through innovative storytelling.
-            </p>
-          </motion.div>
         </div>
-      </motion.section>
+      </section>
 
-      {/* Product Grid Section */}
-      <motion.section
-        className="px-6 lg:px-8 py-16"
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ duration: 0.8 }}
-        viewport={{ once: true }}
-      >
-        {/* Product Grid with proper dimensions */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-7xl mx-auto">
-          {/* First Row */}
-          <motion.div
-            className="aspect-[4/3] overflow-hidden rounded-lg"
-            initial={{ opacity: 0, scale: 0.8 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            viewport={{ once: true }}
-            whileHover={{ scale: 1.02 }}
-          >
-            <video className="w-full h-full object-cover" autoPlay muted loop playsInline>
-              <source
-                src="https://phantom-ldn-website-videos.storage.googleapis.com/caseStudiesVideos/Sundays%20Beanies%20/sundays-beanies-2-left.webm"
-                type="video/webm"
-              />
-            </video>
-          </motion.div>
-
-          <motion.div
-            className="aspect-[4/3] overflow-hidden rounded-lg"
-            initial={{ opacity: 0, scale: 0.8 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            viewport={{ once: true }}
-            whileHover={{ scale: 1.02 }}
-          >
-            <Image
-              src="https://images.prismic.io/phantom-land/Z4eiqJbqstJ99fDL_sundays-beanies-2-right.jpg?auto=format,compress?auto=compress,format"
-              alt="Beanie texture detail"
-              width={800}
-              height={600}
-              className="w-full h-full object-cover"
-            />
-          </motion.div>
-
-          {/* Second Row */}
-          <motion.div
-            className="aspect-[4/3] overflow-hidden rounded-lg"
-            initial={{ opacity: 0, scale: 0.8 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            viewport={{ once: true }}
-            whileHover={{ scale: 1.02 }}
-          >
-            <Image
-              src="https://images.prismic.io/phantom-land/Z4ei15bqstJ99fDX_sundays-beanies-3-right.jpg?auto=format,compress?auto=compress,format"
-              alt="Beanie collection"
-              width={800}
-              height={600}
-              className="w-full h-full object-cover"
-            />
-          </motion.div>
-
-          <motion.div
-            className="aspect-[4/3] overflow-hidden rounded-lg"
-            initial={{ opacity: 0, scale: 0.8 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            viewport={{ once: true }}
-            whileHover={{ scale: 1.02 }}
-          >
-            <video className="w-full h-full object-cover" autoPlay muted loop playsInline>
-              <source
-                src="https://phantom-ldn-website-videos.storage.googleapis.com/caseStudiesVideos/Sundays%20Beanies%20/sundays-beanies-3-left.webm"
-                type="video/webm"
-              />
-            </video>
-          </motion.div>
-        </div>
-      </motion.section>
-
-      {/* Additional Image Section */}
-      <motion.section
-        className="px-6 lg:px-8 py-16"
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ duration: 0.8 }}
-        viewport={{ once: true }}
-      >
-        <motion.div
-          className="max-w-7xl mx-auto"
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-          whileHover={{ scale: 1.01 }}
-        >
-          <div className="aspect-[16/10] overflow-hidden rounded-lg shadow-2xl">
-            <Image
-              src="https://images.prismic.io/phantom-land/Z4ei2ZbqstJ99fDa_sundays-beanies-4.jpg?auto=format,compress?auto=compress,format"
-              alt="Beanie showcase"
-              width={1400}
-              height={875}
-              className="w-full h-full object-cover"
-            />
-          </div>
-        </motion.div>
-      </motion.section>
-
-      {/* Related Work Section */}
-      <motion.section
-        className="px-6 lg:px-8 py-16 bg-black"
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ duration: 0.8 }}
-        viewport={{ once: true }}
-      >
-        <motion.h3
-          className="text-2xl font-bold mb-8"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-        >
-          Related work
-        </motion.h3>
-
-        {/* Related Work Videos with proper aspect ratios */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-7xl mx-auto">
-          <motion.div
-            className="aspect-video overflow-hidden rounded-lg"
-            initial={{ opacity: 0, y: 50 }}
+      {/* Gallery Section */}
+      <section className="py-20 px-6">
+        <div className="max-w-7xl mx-auto">
+          <motion.h2 
+            className="text-3xl font-bold text-center mb-12"
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            viewport={{ once: true }}
-            whileHover={{ scale: 1.05 }}
-          >
-            <video className="w-full h-full object-cover" autoPlay muted loop playsInline>
-              <source
-                src="https://phantom-ldn-website-videos.storage.googleapis.com/caseStudiesVideos/Aurora/header-aurora-1080p.webm"
-                type="video/webm"
-              />
-            </video>
-          </motion.div>
-
-          <motion.div
-            className="aspect-video overflow-hidden rounded-lg"
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            viewport={{ once: true }}
-            whileHover={{ scale: 1.05 }}
-          >
-            <video className="w-full h-full object-cover" autoPlay muted loop playsInline>
-              <source
-                src="https://phantom-ldn-website-videos.storage.googleapis.com/caseStudiesVideos/Superdry%20AW23/o-superdry-1_1-q4.webm"
-                type="video/webm"
-              />
-            </video>
-          </motion.div>
-
-          <motion.div
-            className="aspect-video overflow-hidden rounded-lg"
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            viewport={{ once: true }}
-            whileHover={{ scale: 1.05 }}
-          >
-            <video className="w-full h-full object-cover" autoPlay muted loop playsInline>
-              <source
-                src="https://phantom-ldn-website-videos.storage.googleapis.com/caseStudiesVideos/Ultimate%20Travel%20Hacker%20/ultimate-travel-hacker-1.webm"
-                type="video/webm"
-              />
-            </video>
-          </motion.div>
-        </div>
-      </motion.section>
-
-      {/* See All Work Section */}
-      <motion.section
-        className="px-6 lg:px-8 py-20 bg-black"
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ duration: 0.8 }}
-        viewport={{ once: true }}
-      >
-        <div className="text-center">
-          <motion.h2
-            className="text-6xl md:text-8xl lg:text-9xl font-black text-gray-800 mb-8"
-            initial={{ opacity: 0, scale: 0.8 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            See all work
+            Project Gallery
           </motion.h2>
 
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <motion.div 
+              className="group cursor-pointer rounded-lg overflow-hidden"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+            >
+              <div className="relative aspect-video bg-gray-900">
+                <video 
+                  className="w-full h-full object-cover" 
+                  autoPlay 
+                  muted 
+                  loop 
+                  playsInline
+                >
+                  <source
+                    src="https://phantom-ldn-website-videos.storage.googleapis.com/caseStudiesVideos/Sundays%20Beanies%20/sundays-beanies-2-left.webm"
+                    type="video/webm"
+                  />
+                </video>
+                <div className="absolute inset-0 bg-black/30 group-hover:bg-black/20 transition-colors" />
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="w-14 h-14 bg-white/90 rounded-full flex items-center justify-center shadow-lg">
+                    <Play size={20} className="ml-1 text-gray-950" />
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+
+            <motion.div 
+              className="group cursor-pointer rounded-lg overflow-hidden"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.1, duration: 0.6 }}
+              viewport={{ once: true }}
+            >
+              <div className="relative aspect-video bg-gray-900">
+                <Image
+                  src="https://images.prismic.io/phantom-land/Z4eiqJbqstJ99fDL_sundays-beanies-2-right.jpg?auto=format,compress?auto=compress,format"
+                  alt="Beanie texture detail"
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors" />
+              </div>
+            </motion.div>
+
+            <motion.div 
+              className="group cursor-pointer rounded-lg overflow-hidden"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2, duration: 0.6 }}
+              viewport={{ once: true }}
+            >
+              <div className="relative aspect-video bg-gray-900">
+                <Image
+                  src="https://images.prismic.io/phantom-land/Z4ei15bqstJ99fDX_sundays-beanies-3-right.jpg?auto=format,compress?auto=compress,format"
+                  alt="Beanie collection"
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors" />
+              </div>
+            </motion.div>
+
+            <motion.div 
+              className="group cursor-pointer rounded-lg overflow-hidden"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3, duration: 0.6 }}
+              viewport={{ once: true }}
+            >
+              <div className="relative aspect-video bg-gray-900">
+                <video 
+                  className="w-full h-full object-cover" 
+                  autoPlay 
+                  muted 
+                  loop 
+                  playsInline
+                >
+                  <source
+                    src="https://phantom-ldn-website-videos.storage.googleapis.com/caseStudiesVideos/Sundays%20Beanies%20/sundays-beanies-3-left.webm"
+                    type="video/webm"
+                  />
+                </video>
+                <div className="absolute inset-0 bg-black/30 group-hover:bg-black/20 transition-colors" />
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="w-14 h-14 bg-white/90 rounded-full flex items-center justify-center shadow-lg">
+                    <Play size={20} className="ml-1 text-gray-950" />
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </div>
         </div>
-      </motion.section>
+      </section>
+
+      {/* Related Projects */}
+      <section className="py-16 px-6 bg-gray-900">
+        <div className="max-w-7xl mx-auto">
+          <motion.h2 
+            className="text-3xl font-bold text-center mb-12"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+          >
+            Related Projects
+          </motion.h2>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {[
+              {
+                title: "Aurora Collection",
+                video: "https://phantom-ldn-website-videos.storage.googleapis.com/caseStudiesVideos/Aurora/header-aurora-1080p.webm"
+              },
+              {
+                title: "Superdry AW23",
+                video: "https://phantom-ldn-website-videos.storage.googleapis.com/caseStudiesVideos/Superdry%20AW23/o-superdry-1_1-q4.webm"
+              },
+              {
+                title: "Travel Hacker",
+                video: "https://phantom-ldn-website-videos.storage.googleapis.com/caseStudiesVideos/Ultimate%20Travel%20Hacker%20/ultimate-travel-hacker-1.webm"
+              }
+            ].map((project, index) => (
+              <motion.div
+                key={project.title}
+                className="group cursor-pointer"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                viewport={{ once: true }}
+              >
+                <div className="relative aspect-video rounded-lg overflow-hidden bg-gray-800 mb-4">
+                  <video 
+                    className="w-full h-full object-cover" 
+                    autoPlay 
+                    muted 
+                    loop 
+                    playsInline
+                  >
+                    <source src={project.video} type="video/webm" />
+                  </video>
+                  <div className="absolute inset-0 bg-black/30 group-hover:bg-black/20 transition-colors" />
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="w-12 h-12 bg-white/90 rounded-full flex items-center justify-center shadow-lg">
+                      <Play size={16} className="ml-1 text-gray-950" />
+                    </div>
+                  </div>
+                </div>
+                <h3 className="text-lg font-semibold group-hover:text-red-500 transition-colors">
+                  {project.title}
+                </h3>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-20 px-6">
+        <div className="max-w-3xl mx-auto text-center">
+          <motion.h2 
+            className="text-3xl md:text-4xl font-bold mb-6"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+          >
+            Ready to Create Something Amazing?
+          </motion.h2>
+          
+          <motion.p 
+            className="text-lg text-gray-300 mb-10"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.1, duration: 0.6 }}
+            viewport={{ once: true }}
+          >
+            Let's collaborate on your next groundbreaking project that pushes the boundaries 
+            of creativity and technology.
+          </motion.p>
+
+          <motion.div 
+            className="flex flex-col sm:flex-row gap-4 justify-center"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2, duration: 0.6 }}
+            viewport={{ once: true }}
+          >
+            <button className="px-8 py-3 bg-red-500 hover:bg-red-600 rounded-full font-semibold transition-colors">
+              Start Your Project
+            </button>
+            <button className="px-8 py-3 bg-gray-800 hover:bg-gray-700 rounded-full font-semibold transition-colors">
+              View All Work
+            </button>
+          </motion.div>
+        </div>
+      </section>
     </div>
   )
 }
