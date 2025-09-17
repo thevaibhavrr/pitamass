@@ -572,26 +572,9 @@ export default function ProductDetails() {
 
   return (
     <div className="min-h-screen bg-gray-950 text-white">
-      {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-gray-950/90 backdrop-blur-md border-b border-gray-800">
-        <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-          <Link href="/" className="flex items-center space-x-2 group">
-            <div className="p-2 rounded-full bg-gray-800 group-hover:bg-gray-700 transition-colors">
-              <ArrowLeft size={18} />
-            </div>
-            <span className="text-sm font-medium">Back to Work</span>
-          </Link>
-          
-          <div className="flex items-center space-x-4">
-            <button className="px-6 py-2 bg-white text-gray-950 hover:bg-gray-100 rounded-full text-sm font-medium transition-colors flex items-center">
-              View Live Site <ExternalLink size={16} className="ml-2" />
-            </button>
-          </div>
-        </div>
-      </nav>
 
       {/* Hero Section */}
-      <section className="pt-28 pb-16 px-6">
+      <section className="pt-24 pb-16 px-6">
         <div className="max-w-4xl mx-auto">
           <motion.div 
             className="flex flex-wrap items-center gap-4 mb-6 text-sm text-gray-400"

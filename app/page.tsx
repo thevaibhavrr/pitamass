@@ -484,21 +484,6 @@ export default function Page() {
         animate={{ opacity: 1 }}
         transition={{ duration: 0.4 }}
       >
-        <motion.header
-          className="pointer-events-none fixed left-3 top-3 sm:left-6 sm:top-6 z-40"
-          initial={{ y: -20, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ delay: 0.2, duration: 0.5 }}
-        >
-          <Link href="/" className="pointer-events-auto block">
-            <motion.img
-              src="https://www.pitamaas.com/logo-dark-mobile.png"
-              alt="Pitamaas Logo"
-              className="h-16 w-auto sm:h-20 md:h-24 lg:h-30"
-              whileTap={{ scale: 0.95 }}
-            />
-          </Link>
-        </motion.header>
 
         <FloatingUI />
 
