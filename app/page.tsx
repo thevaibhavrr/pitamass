@@ -485,7 +485,6 @@ export default function Page() {
         transition={{ duration: 0.4 }}
       >
 
-        <FloatingUI />
 
         <motion.section
           aria-label="Infinite virtualized project grid"
