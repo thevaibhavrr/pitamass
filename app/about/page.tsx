@@ -24,7 +24,79 @@ export default function AboutPage() {
   }, [])
 
   return (
-    <div className="has-smooth" id="has_smooth">
+    <>
+      {/* Override template CSS for navigation */}
+      <style jsx global>{`
+        /* Ensure navigation maintains rounded corners */
+        nav[aria-label="Primary"] button {
+          border-radius: 9999px !important;
+        }
+        
+        /* Override any template button styles that affect navigation */
+        nav[aria-label="Primary"] .rounded-full {
+          border-radius: 9999px !important;
+        }
+        
+        /* Ensure navigation backdrop blur works */
+        nav[aria-label="Primary"] .backdrop-blur {
+          backdrop-filter: blur(8px) !important;
+        }
+        
+        /* Fix text styling to match other pages */
+        nav[aria-label="Primary"] button {
+          font-size: 0.75rem !important; /* text-xs */
+          font-weight: 600 !important; /* font-semibold */
+          line-height: 1rem !important;
+          padding: 0.375rem 0.75rem !important; /* py-1.5 px-3 */
+        }
+        
+        /* Responsive text size and padding */
+        @media (min-width: 640px) {
+          nav[aria-label="Primary"] button {
+            font-size: 0.875rem !important; /* sm:text-sm */
+            line-height: 1.25rem !important;
+            padding: 0.5rem 1.25rem !important; /* sm:py-2 sm:px-5 */
+          }
+        }
+        
+        /* Override any template font-weight overrides */
+        nav[aria-label="Primary"] button * {
+          font-weight: inherit !important;
+        }
+        
+        /* Fix navigation container padding and gaps */
+        nav[aria-label="Primary"] > div {
+          padding: 0.25rem !important; /* py-1 px-1 */
+          gap: 0.25rem !important; /* gap-1 */
+        }
+        
+        @media (min-width: 640px) {
+          nav[aria-label="Primary"] > div {
+            padding: 0.5rem !important; /* sm:py-2 sm:px-2 */
+            gap: 0.5rem !important; /* sm:gap-2 */
+          }
+        }
+        
+        /* Fix header "Let's Talk" button styling */
+        header button[aria-label="Let's Talk"] {
+          border-radius: 9999px !important;
+          font-size: 0.75rem !important; /* text-xs */
+          font-weight: 600 !important; /* font-semibold */
+          line-height: 1rem !important;
+          padding: 0.375rem 0.75rem !important; /* py-1.5 px-3 */
+        }
+        
+        /* Responsive header button styling */
+        @media (min-width: 640px) {
+          header button[aria-label="Let's Talk"] {
+            font-size: 0.875rem !important; /* sm:text-sm */
+            line-height: 1.25rem !important;
+            padding: 0.5rem 1.25rem !important; /* sm:py-2 sm:px-5 */
+          }
+        }
+      `}</style>
+      
+      <div className="has-smooth" id="has_smooth">
       <div id="smooth-wrapper">
         <div id="smooth-content">
           <div className="body-wrapper pt-30">
@@ -857,9 +929,10 @@ export default function AboutPage() {
                 </div>
               </div>
             </div>
-            </div>
+          </div>
         </div>
       </div>
     </div>
+    </>
   )
 }
