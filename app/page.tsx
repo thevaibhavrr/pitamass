@@ -457,7 +457,6 @@ export default function Page() {
             width: CELL_SIZE,
             height: CELL_SIZE,
             willChange: "transform, opacity",
-            padding: 8,
             boxSizing: "border-box",
           }}
         >
@@ -548,7 +547,6 @@ export default function Page() {
                       top,
                       width: CELL_SIZE,
                       height: CELL_SIZE,
-                      padding: 8,
                       boxSizing: "border-box",
                     }}
                   >
