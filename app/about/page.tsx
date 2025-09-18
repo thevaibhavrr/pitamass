@@ -1005,6 +1005,38 @@ export default function AboutPage() {
                         </div>
                       </div>
                     </div>
+                    <div className="col-lg-4 col-md-6">
+                      <div className="zq_service-item mb-30">
+                        <div className="zq_service-item-icon">
+                          <i className="fas fa-video"></i>
+                        </div>
+                        <h4 className="zq_service-item-title">
+                          <Link href="#">Video Ads</Link>
+                        </h4>
+                        <p>Engaging video advertisements that capture attention and drive conversions across all digital platforms.</p>
+                        <div className="zq_service-btn">
+                          <Link href="#" className="zq_service-item-btn">
+                            Learn More<i className="fa-regular fa-angle-right"></i>
+                          </Link>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="col-lg-4 col-md-6">
+                      <div className="zq_service-item mb-30">
+                        <div className="zq_service-item-icon">
+                          <i className="fas fa-camera"></i>
+                        </div>
+                        <h4 className="zq_service-item-title">
+                          <Link href="#">Photography</Link>
+                        </h4>
+                        <p>Professional photography services for products, events, and marketing materials that capture your brand's essence.</p>
+                        <div className="zq_service-btn">
+                          <Link href="#" className="zq_service-item-btn">
+                            Learn More<i className="fa-regular fa-angle-right"></i>
+                          </Link>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </section>
