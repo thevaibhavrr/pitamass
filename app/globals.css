@@ -155,3 +155,65 @@ html, body {
     @apply bg-background text-foreground;
   }
 }
+
+/* Custom hero section styles */
+.custom-hero-black {
+  background-color: black !important;
+}
+
+/* Override any parent background colors for the hero section */
+.has-smooth .smooth-wrapper .smooth-content .body-wrapper .custom-hero-black {
+  background-color: black !important;
+}
+
+/* Ensure no green background from theme colors */
+.custom-hero-black,
+.custom-hero-black * {
+  background-color: black !important;
+  background: black !important;
+}
+
+/* Override any green theme colors specifically */
+.has-smooth,
+.smooth-wrapper,
+.smooth-content,
+.body-wrapper {
+  background-color: transparent !important;
+  background: transparent !important;
+}
+
+/* Force black background on hero section and all its children */
+.zq_hero-area.custom-hero-black,
+.zq_hero-area.custom-hero-black *,
+.zq_hero-area.custom-hero-black::before,
+.zq_hero-area.custom-hero-black::after {
+  background-color: black !important;
+  background: black !important;
+}
+
+.custom-hero-title {
+  color: white !important;
+  -webkit-text-fill-color: white !important;
+  -webkit-text-stroke: none !important;
+}
+
+.custom-hero-title span {
+  color: white !important;
+  -webkit-text-fill-color: white !important;
+  -webkit-text-stroke: none !important;
+  display: inline !important;
+}
+
+.custom-hero-solution {
+  border: 2px solid white !important;
+  padding: 4px 8px !important;
+  border-radius: 4px !important;
+  color: white !important;
+  -webkit-text-fill-color: white !important;
+  -webkit-text-stroke: none !important;
+  display: inline !important;
+}
+
+.custom-hero-text {
+  color: white !important;
+}
