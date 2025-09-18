@@ -103,7 +103,7 @@ const AccordionItem: React.FC<AccordionItemProps> = ({ id, title, content, isOpe
 }
 
 export default function AboutPage() {
-  const [openAccordion, setOpenAccordion] = useState<string>('One') // First item open by default
+  const [openAccordion, setOpenAccordion] = useState<string>('') // First item open by default
 
   const accordionData = [
     {
@@ -580,7 +580,7 @@ export default function AboutPage() {
                       </div>
                       <div className="zq_hero-circle-btn">
                         <Image
-                          // src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
+                          src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
                           alt="Circle"
                           width={100}
                           height={100}
@@ -637,8 +637,8 @@ export default function AboutPage() {
                           src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2071&q=80"
                           alt="Team Collaboration and Services"
                           width={600}
-                          height={400}
-                          className="w-100"
+                          height={1000}
+                          style={{ width: '100%', height: '470px', objectFit: 'cover' }}
                         />
                       </div>
                     </div>
@@ -699,13 +699,13 @@ export default function AboutPage() {
                             <div className="zq_project-content">
                               <div className="zq_project-content-head">
                                 <h3 className="zq_project-content-title">
-                                  <Link href="/details">TechVantage Solutions</Link>
+                                  <Link href="/details">Packaging Design</Link>
                                 </h3>
                                 <Link href="/details" className="zq_project-content-btn">
                                   <i className="fa-light fa-arrow-up-right"></i>
                                 </Link>
                               </div>
-                              <p>Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi. Aliquam in hendrerit urna pellentesque sitame.</p>
+                              <p>Creative packaging solutions that make your products stand out on shelves and create memorable brand experiences.</p>
                             </div>
                           </div>
                           <div className="zq_project-item">
@@ -723,13 +723,13 @@ export default function AboutPage() {
                             <div className="zq_project-content">
                               <div className="zq_project-content-head">
                                 <h3 className="zq_project-content-title">
-                                  <Link href="/details">DigitalNest Solutions</Link>
+                                  <Link href="/details">Logo Design</Link>
                                 </h3>
                                 <Link href="/details" className="zq_project-content-btn">
                                   <i className="fa-light fa-arrow-up-right"></i>
                                 </Link>
                               </div>
-                              <p>Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi. Aliquam in hendrerit urna pellentesque sitame.</p>
+                              <p>Professional logo design that captures your brand essence and creates lasting visual identity for your business.</p>
                             </div>
                           </div>
                         </div>
@@ -760,13 +760,13 @@ export default function AboutPage() {
                             <div className="zq_project-content">
                               <div className="zq_project-content-head">
                                 <h3 className="zq_project-content-title">
-                                  <Link href="/details">LogicLeap Technologies</Link>
+                                  <Link href="/details">Digital Marketing</Link>
                                 </h3>
                                 <Link href="/details" className="zq_project-content-btn">
                                   <i className="fa-light fa-arrow-up-right"></i>
                                 </Link>
                               </div>
-                              <p>Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi. Aliquam in hendrerit urna pellentesque sitame.</p>
+                              <p>Comprehensive digital marketing strategies that drive engagement, increase visibility, and grow your online presence.</p>
                             </div>
                           </div>
                           <div className="zq_project-item">
@@ -784,13 +784,13 @@ export default function AboutPage() {
                             <div className="zq_project-content">
                               <div className="zq_project-content-head">
                                 <h3 className="zq_project-content-title">
-                                  <Link href="/details">DataDynamo Innovations</Link>
+                                  <Link href="/details">Website Development</Link>
                                 </h3>
                                 <Link href="/details" className="zq_project-content-btn">
                                   <i className="fa-light fa-arrow-up-right"></i>
                                 </Link>
                               </div>
-                              <p>Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi. Aliquam in hendrerit urna pellentesque sitame.</p>
+                              <p>Modern, responsive websites that deliver exceptional user experiences and drive business growth.</p>
                             </div>
                           </div>
                         </div>
@@ -944,92 +944,60 @@ export default function AboutPage() {
                     <div className="col-lg-4 col-md-6">
                       <div className="zq_service-item mb-30">
                         <div className="zq_service-item-icon">
+                          <i className="fas fa-box"></i>
+                        </div>
+                        <h4 className="zq_service-item-title">
+                          <Link href="#">Packaging Design</Link>
+                        </h4>
+                        <p>Creative packaging solutions that make your products stand out on shelves and create memorable brand experiences.</p>
+                        <div className="zq_service-btn">
+                          <Link href="#" className="zq_service-item-btn">
+                            Learn More<i className="fa-regular fa-angle-right"></i>
+                          </Link>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="col-lg-4 col-md-6">
+                      <div className="zq_service-item mb-30">
+                        <div className="zq_service-item-icon">
+                          <i className="fas fa-pen-fancy"></i>
+                        </div>
+                        <h4 className="zq_service-item-title">
+                          <Link href="#">Logo Design</Link>
+                        </h4>
+                        <p>Professional logo design that captures your brand essence and creates lasting visual identity for your business.</p>
+                        <div className="zq_service-btn">
+                          <Link href="#" className="zq_service-item-btn">
+                            Learn More<i className="fa-regular fa-angle-right"></i>
+                          </Link>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="col-lg-4 col-md-6">
+                      <div className="zq_service-item mb-30">
+                        <div className="zq_service-item-icon">
+                          <i className="fas fa-bullhorn"></i>
+                        </div>
+                        <h4 className="zq_service-item-title">
+                          <Link href="#">Digital Marketing</Link>
+                        </h4>
+                        <p>Comprehensive digital marketing strategies that drive engagement, increase visibility, and grow your online presence.</p>
+                        <div className="zq_service-btn">
+                          <Link href="#" className="zq_service-item-btn">
+                            Learn More<i className="fa-regular fa-angle-right"></i>
+                          </Link>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="col-lg-4 col-md-6">
+                      <div className="zq_service-item mb-30">
+                        <div className="zq_service-item-icon">
                           <i className="fas fa-code"></i>
                         </div>
                         <h4 className="zq_service-item-title">
-                          <Link href="#">Web Development</Link>
+                          <Link href="#">Website Development</Link>
                         </h4>
-                        <p>Custom web applications built with modern technologies. From simple websites to complex enterprise solutions.</p>
-                        <div className="zq_service-btn">
-                          <Link href="#" className="zq_service-item-btn">
-                            Learn More<i className="fa-regular fa-angle-right"></i>
-                          </Link>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="col-lg-4 col-md-6">
-                      <div className="zq_service-item mb-30">
-                        <div className="zq_service-item-icon">
-                          <i className="fas fa-palette"></i>
-                        </div>
-                        <h4 className="zq_service-item-title">
-                          <Link href="#">UI/UX Design</Link>
-                        </h4>
-                        <p>User-centered design that creates intuitive and engaging experiences across all digital platforms.</p>
-                        <div className="zq_service-btn">
-                          <Link href="#" className="zq_service-item-btn">
-                            Learn More<i className="fa-regular fa-angle-right"></i>
-                          </Link>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="col-lg-4 col-md-6">
-                      <div className="zq_service-item mb-30">
-                        <div className="zq_service-item-icon">
-                          <i className="fas fa-mobile-alt"></i>
-                        </div>
-                        <h4 className="zq_service-item-title">
-                          <Link href="#">Mobile Development</Link>
-                        </h4>
-                        <p>Native and cross-platform mobile applications that deliver exceptional user experiences on all devices.</p>
-                        <div className="zq_service-btn">
-                          <Link href="#" className="zq_service-item-btn">
-                            Learn More<i className="fa-regular fa-angle-right"></i>
-                          </Link>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="col-lg-4 col-md-6">
-                      <div className="zq_service-item mb-30">
-                        <div className="zq_service-item-icon">
-                          <i className="fas fa-cube"></i>
-                        </div>
-                        <h4 className="zq_service-item-title">
-                          <Link href="#">3D & Motion Graphics</Link>
-                        </h4>
-                        <p>Immersive 3D experiences and stunning motion graphics that bring your brand to life.</p>
-                        <div className="zq_service-btn">
-                          <Link href="#" className="zq_service-item-btn">
-                            Learn More<i className="fa-regular fa-angle-right"></i>
-                          </Link>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="col-lg-4 col-md-6">
-                      <div className="zq_service-item mb-30">
-                        <div className="zq_service-item-icon">
-                          <i className="fas fa-shopping-cart"></i>
-                        </div>
-                        <h4 className="zq_service-item-title">
-                          <Link href="#">E-commerce Solutions</Link>
-                        </h4>
-                        <p>Complete e-commerce platforms with advanced features, payment integration, and inventory management.</p>
-                        <div className="zq_service-btn">
-                          <Link href="#" className="zq_service-item-btn">
-                            Learn More<i className="fa-regular fa-angle-right"></i>
-                          </Link>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="col-lg-4 col-md-6">
-                      <div className="zq_service-item mb-30">
-                        <div className="zq_service-item-icon">
-                          <i className="fas fa-cloud"></i>
-                        </div>
-                        <h4 className="zq_service-item-title">
-                          <Link href="#">Cloud Solutions</Link>
-                        </h4>
-                        <p>Scalable cloud infrastructure and deployment solutions for modern applications and businesses.</p>
+                        <p>Modern, responsive websites that deliver exceptional user experiences and drive business growth.</p>
                         <div className="zq_service-btn">
                           <Link href="#" className="zq_service-item-btn">
                             Learn More<i className="fa-regular fa-angle-right"></i>
