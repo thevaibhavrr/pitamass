@@ -142,6 +142,38 @@ export default function AboutPage() {
     <>
       {/* Override template CSS for navigation */}
       <style jsx global>{`
+        /* Font Size Standardization - Only Two Font Sizes (Excluding Hero Section) */
+        .zq_section-title,
+        .zq_project-content-title,
+        .zq_team-item-content-title,
+        .zq_service-item-title,
+        .zq_testimonial-form-title,
+        .zq_process-item-title,
+        .zq_cta-title,
+        .zq_choose-item-title,
+        .zq_stats-item-number,
+        .zq_project-client-info h3 {
+          font-size: 2rem !important;
+          font-weight: 700 !important;
+        }
+        
+        .zq_section-subtitle,
+        .zq_team-item-content-designation,
+        .zq_testimonial-admin-info span,
+        .zq_stats-item-text,
+        .zq_cta-action span,
+        .zq_project-client-info p,
+        .accordion-button,
+        .brand-text,
+        .zq_project-content p,
+        .zq_team-item-content p,
+        .zq_service-item p,
+        .zq_testimonial-item p,
+        .zq_process-item p,
+        .accordion-body p {
+          font-size: 1rem !important;
+          font-weight: 400 !important;
+        }
         /* Ensure navigation maintains rounded corners */
         nav[aria-label="Primary"] button {
           border-radius: 9999px !important;
@@ -224,8 +256,6 @@ export default function AboutPage() {
           border-radius: 0.75rem !important;
           background: rgba(255, 255, 255, 0.1) !important;
           color: white !important;
-          font-size: 1.1rem !important;
-          font-weight: 600 !important;
           position: relative !important;
           overflow: hidden !important;
         }
@@ -416,8 +446,6 @@ export default function AboutPage() {
         
         .brand-text {
           color: #ffffff !important;
-          font-weight: 700 !important;
-          font-size: 1.2rem !important;
           letter-spacing: 1px !important;
         }
         
@@ -462,6 +490,65 @@ export default function AboutPage() {
           background-color: transparent !important;
           background: transparent !important;
         }
+        
+        /* Services Section Black & White Styling */
+        .zq_service-area {
+          background-color: #000000 !important;
+        }
+        
+        .zq_service-area * {
+          background-color: transparent !important;
+        }
+        
+        .zq_service-item {
+          background-color: transparent !important;
+          border: 1px solid rgba(255, 255, 255, 0.1) !important;
+          border-radius: 0.75rem !important;
+          padding: 2rem !important;
+          transition: all 0.3s ease !important;
+        }
+        
+        .zq_service-item:hover {
+          background-color: rgba(255, 255, 255, 0.05) !important;
+          border-color: rgba(255, 255, 255, 0.3) !important;
+          transform: translateY(-5px) !important;
+          box-shadow: 0 10px 30px rgba(255, 255, 255, 0.1) !important;
+        }
+        
+        .zq_service-item-icon {
+          color: #ffffff !important;
+          font-size: 2.5rem !important;
+          margin-bottom: 1.5rem !important;
+        }
+        
+        .zq_service-item-title a {
+          color: #ffffff !important;
+        }
+        
+        .zq_service-item-title a:hover {
+          color: #ffffff !important;
+          opacity: 0.8 !important;
+        }
+        
+        .zq_service-item p {
+          color: rgba(255, 255, 255, 0.8) !important;
+        }
+        
+        .zq_service-item-btn {
+          color: #ffffff !important;
+          border: 1px solid rgba(255, 255, 255, 0.3) !important;
+          background: rgba(255, 255, 255, 0.1) !important;
+          padding: 0.75rem 1.5rem !important;
+          border-radius: 0.5rem !important;
+          transition: all 0.3s ease !important;
+        }
+        
+        .zq_service-item-btn:hover {
+          background: rgba(255, 255, 255, 0.2) !important;
+          border-color: rgba(255, 255, 255, 0.5) !important;
+          color: #ffffff !important;
+          transform: translateX(5px) !important;
+        }
       `}</style>
 
       <div className="has-smooth" id="has_smooth">
@@ -484,8 +571,8 @@ export default function AboutPage() {
                       </div>
                       <div className="zq_hero-img">
                         <Image
-                          src="/placeholder.jpg"
-                          alt="Hero Image"
+                          src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+                          alt="Digital Technology Hero Image"
                           width={600}
                           height={400}
                           className="w-full h-auto"
@@ -493,7 +580,7 @@ export default function AboutPage() {
                       </div>
                       <div className="zq_hero-circle-btn">
                         <Image
-                          src="/placeholder.svg"
+                          // src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
                           alt="Circle"
                           width={100}
                           height={100}
@@ -547,8 +634,8 @@ export default function AboutPage() {
                     <div className="col-lg-6">
                       <div className="zq_faq-img mb-40">
                         <Image
-                          src="/placeholder.jpg"
-                          alt="FAQ Image"
+                          src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2071&q=80"
+                          alt="Team Collaboration and Services"
                           width={600}
                           height={400}
                           className="w-100"
@@ -601,8 +688,8 @@ export default function AboutPage() {
                             <div className="zq_project-img">
                               <Link href="/details">
                                 <Image
-                                  src="/placeholder.jpg"
-                                  alt="Project 1"
+                                  src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2015&q=80"
+                                  alt="TechVantage Solutions Project"
                                   width={400}
                                   height={300}
                                   className="w-full h-auto"
@@ -625,8 +712,8 @@ export default function AboutPage() {
                             <div className="zq_project-img">
                               <Link href="/details">
                                 <Image
-                                  src="/placeholder.jpg"
-                                  alt="Project 2"
+                                  src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+                                  alt="DigitalNest Solutions Project"
                                   width={400}
                                   height={300}
                                   className="w-full h-auto"
@@ -649,9 +736,9 @@ export default function AboutPage() {
                         <div className="zq_project-single pl-40">
                           <div className="zq_project-client">
                             <div className="zq_project-client-img">
-                              <Image src="/placeholder-user.jpg" alt="Client 1" width={60} height={60} className="rounded-full" />
-                              <Image src="/placeholder-user.jpg" alt="Client 2" width={60} height={60} className="rounded-full" />
-                              <Image src="/placeholder-user.jpg" alt="Client 3" width={60} height={60} className="rounded-full" />
+                              <Image src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Client 1" width={60} height={60} className="rounded-full" />
+                              <Image src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Client 2" width={60} height={60} className="rounded-full" />
+                              <Image src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Client 3" width={60} height={60} className="rounded-full" />
                             </div>
                             <div className="zq_project-client-info">
                               <h3>10K+</h3>
@@ -662,8 +749,8 @@ export default function AboutPage() {
                             <div className="zq_project-img">
                               <Link href="/details">
                                 <Image
-                                  src="/placeholder.jpg"
-                                  alt="Project 3"
+                                  src="https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2074&q=80"
+                                  alt="LogicLeap Technologies Project"
                                   width={400}
                                   height={300}
                                   className="w-full h-auto"
@@ -686,8 +773,8 @@ export default function AboutPage() {
                             <div className="zq_project-img">
                               <Link href="/details">
                                 <Image
-                                  src="/placeholder.jpg"
-                                  alt="Project 4"
+                                  src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+                                  alt="DataDynamo Innovations Project"
                                   width={400}
                                   height={300}
                                   className="w-full h-auto"
@@ -761,7 +848,7 @@ export default function AboutPage() {
                       <div className="col-xl-5">
                         <div className="zq_choose-img mb-30">
                           <Image
-                            src="/placeholder.jpg"
+                            src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
                             alt="Choose Image"
                             width={500}
                             height={400}
@@ -789,7 +876,7 @@ export default function AboutPage() {
                     <div className="col-lg-3 col-md-6">
                       <div className="zq_team-item mb-30">
                         <div className="zq_team-item-img">
-                          <Image src="/placeholder-user.jpg" alt="Team Member" width={300} height={350} className="w-100" />
+                          <Image src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Team Member" width={300} height={350} className="w-100" />
                         
                         </div>
                         <div className="zq_team-item-content">
@@ -802,7 +889,7 @@ export default function AboutPage() {
                     <div className="col-lg-3 col-md-6">
                       <div className="zq_team-item mb-30">
                         <div className="zq_team-item-img">
-                          <Image src="/placeholder-user.jpg" alt="Team Member" width={300} height={350} className="w-100" />
+                          <Image src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Team Member" width={300} height={350} className="w-100" />
                           
                         </div>
                         <div className="zq_team-item-content">
@@ -815,7 +902,7 @@ export default function AboutPage() {
                     <div className="col-lg-3 col-md-6">
                       <div className="zq_team-item mb-30">
                         <div className="zq_team-item-img">
-                          <Image src="/placeholder-user.jpg" alt="Team Member" width={300} height={350} className="w-100" />
+                          <Image src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Team Member" width={300} height={350} className="w-100" />
                         
                         </div>
                         <div className="zq_team-item-content">
@@ -828,7 +915,7 @@ export default function AboutPage() {
                     <div className="col-lg-3 col-md-6">
                       <div className="zq_team-item mb-30">
                         <div className="zq_team-item-img">
-                          <Image src="/placeholder-user.jpg" alt="Team Member" width={300} height={350} className="w-100" />
+                          <Image src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Team Member" width={300} height={350} className="w-100" />
                         
                         </div>
                         <div className="zq_team-item-content">
@@ -1017,7 +1104,7 @@ export default function AboutPage() {
                                 <p>"Pitamaas transformed our digital presence completely. Their attention to detail and innovative approach exceeded our expectations. The team delivered a stunning website that perfectly represents our brand."</p>
                                 <div className="zq_testimonial-admin">
                                   <div className="zq_testimonial-admin-img">
-                                    <Image src="/placeholder-user.jpg" alt="Client" width={60} height={60} className="zq_testimonial-admin-img-inner" />
+                                    <Image src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Client" width={60} height={60} className="zq_testimonial-admin-img-inner" />
                                   </div>
                                   <div className="zq_testimonial-admin-info">
                                     <h3>Sarah Johnson</h3>
@@ -1038,7 +1125,7 @@ export default function AboutPage() {
                                 <p>"Working with Pitamaas was a game-changer for our business. Their 3D animations and motion graphics brought our product to life in ways we never imagined possible."</p>
                                 <div className="zq_testimonial-admin">
                                   <div className="zq_testimonial-admin-img">
-                                    <Image src="/placeholder-user.jpg" alt="Client" width={60} height={60} className="zq_testimonial-admin-img-inner" />
+                                    <Image src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Client" width={60} height={60} className="zq_testimonial-admin-img-inner" />
                                   </div>
                                   <div className="zq_testimonial-admin-info">
                                     <h3>Michael Chen</h3>
@@ -1059,7 +1146,7 @@ export default function AboutPage() {
                                 <p>"The team at Pitamaas understood our vision from day one. Their expertise in modern web technologies and user experience design is unmatched. Highly recommended!"</p>
                                 <div className="zq_testimonial-admin">
                                   <div className="zq_testimonial-admin-img">
-                                    <Image src="/placeholder-user.jpg" alt="Client" width={60} height={60} className="zq_testimonial-admin-img-inner" />
+                                    <Image src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Client" width={60} height={60} className="zq_testimonial-admin-img-inner" />
                                   </div>
                                   <div className="zq_testimonial-admin-info">
                                     <h3>Emily Rodriguez</h3>
@@ -1184,7 +1271,7 @@ export default function AboutPage() {
                       Ready to Start Your Project? <br />Let's Get Started!
                     </h2>
                     <div className="zq_cta-action">
-                      <Image src="/placeholder.svg" alt="Call" width={60} height={60} />
+                      <Image src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Call" width={60} height={60} />
                       <div className="zq_cta-action-info">
                         <span>Get in Touch</span>
                         <a href="tel:+704-555-0127">(+704) 555-0127</a>
