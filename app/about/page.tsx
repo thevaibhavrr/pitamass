@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { motion, AnimatePresence } from 'framer-motion'
+import Marquee from 'react-fast-marquee'
 
 //i set all css in styles folder
 import '../../styles/globals.css'
@@ -381,6 +382,46 @@ export default function AboutPage() {
           color: #ffffff !important;
         }
         
+        /* Brand Marquee Styling */
+        .brand-marquee-container {
+          width: 100% !important;
+          overflow: hidden !important;
+        }
+        
+        .brand-marquee-container .marquee {
+          display: flex !important;
+        }
+        
+        .brand-marquee-container .marquee-content {
+          display: flex !important;
+        }
+        
+        .brand-box {
+          flex-shrink: 0 !important;
+          padding: 1.5rem 2.5rem !important;
+          border: 2px solid rgba(255, 255, 255, 0.8) !important;
+          border-radius: 0.75rem !important;
+          background: rgba(255, 255, 255, 0.1) !important;
+          white-space: nowrap !important;
+          transition: all 0.3s ease !important;
+          min-width: 120px !important;
+          margin-right: 4rem !important;
+        }
+        
+        .brand-box:hover {
+          border-color: #ffffff !important;
+          background: rgba(255, 255, 255, 0.2) !important;
+          box-shadow: 0 8px 20px rgba(255, 255, 255, 0.2) !important;
+        }
+        
+        .brand-text {
+          color: #ffffff !important;
+          font-weight: 700 !important;
+          font-size: 1.2rem !important;
+          letter-spacing: 1px !important;
+        }
+        
+        
         /* Force black background for all project section elements */
         section.zq_project-area,
         section.zq_project-area > div,
@@ -473,31 +514,28 @@ export default function AboutPage() {
               </section>
 
               {/* Brand Section */}
-              <div className="zq_brand-area pt-95 pb-100">
+              <div className="zq_brand-area pt-95 pb-100" style={{ backgroundColor: '#000000' }}>
                 <div className="container">
                   <div className="row">
                     <div className="col-12">
                       <div className="zq_section-area mb-45 text-center">
-                        <span className="zq_section-subtitle">MEET OUR TRUSTED CLIENTS</span>
+                        <span className="zq_section-subtitle" style={{ color: '#ffffff' }}>MEET OUR TRUSTED CLIENTS</span>
                       </div>
                     </div>
                   </div>
-                  <div className="swiper h1_brand-active">
-                    <div className="swiper-wrapper">
-                      {[1, 2, 3, 4, 5, 6].map((item) => (
-                        <div key={item} className="swiper-slide">
-                          <div className="zq_brand-item">
-                            <Image
-                              src="/placeholder-logo.svg"
-                              alt={`Brand ${item}`}
-                              width={150}
-                              height={80}
-                              className="w-full h-auto"
-                            />
-                          </div>
+                  <div className="brand-marquee-container">
+                    <Marquee
+                      speed={50}
+                      gradient={false}
+                      pauseOnHover={true}
+                      direction="left"
+                    >
+                      {["Canva", "Figma", "Adobe", "Sketch", "Invision", "Proto.io", "Canva", "Figma", "Adobe", "Sketch", "Invision", "Proto.io"].map((item, index) => (
+                        <div key={`${item}-${index}`} className="brand-box">
+                          <span className="brand-text ">{item}</span>
                         </div>
                       ))}
-                    </div>
+                    </Marquee>
                   </div>
                 </div>
               </div>
