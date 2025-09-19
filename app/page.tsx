@@ -8,6 +8,7 @@ import { motion, useMotionValue, useAnimation } from "framer-motion"
 import { FloatingUI } from "@/components/floating-ui"
 import { ProjectCard } from "@/components/project-card"
 import { Loader } from "@/components/loader"
+import { Navigation } from "@/components/navigation"
 import { cn } from "@/lib/utils"
 
 type Project = { id: number; title: string; categories: string[]; imgSrc: string; isVideo?: boolean }
@@ -293,6 +294,9 @@ export default function Page() {
 
         {/* bottom separator */}
         <div className="pointer-events-none fixed inset-x-0 bottom-[60px] sm:bottom-[84px] z-30 h-px bg-neutral-800/60" />
+        
+        {/* Navigation */}
+        <Navigation />
       </motion.main>
     </>
   )

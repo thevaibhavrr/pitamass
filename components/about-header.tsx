@@ -20,8 +20,8 @@ export function AboutHeader() {
               <div className="zq_header-logo">
                 <Link href="/">
                   <Image 
-                    src="https://themephi.net/template/zeniqsh/zeniqs/assets/images/logo/logo.png" 
-                    alt="Logo" 
+                    src="https://www.pitamaas.com/logo-dark-mobile.png" 
+                    alt="Pitamaas Logo" 
                     width={120} 
                     height={40}
                   />
@@ -30,82 +30,23 @@ export function AboutHeader() {
               <div className="zq_header-menu">
                 <nav id="mobile-menu">
                   <ul>
-                    <li className="menu-has-child">
-                      <Link href="#">Home</Link>
-                      {/* <ul className="submenu">
-                        <li>
-                          <Link href="/">Home 1</Link>
-                        </li>
-                        <li>
-                          <Link href="/">Home 2</Link>
-                        </li>
-                        <li>
-                          <Link href="/">Home 3</Link>
-                        </li>
-                        <li>
-                          <Link href="/">Home 4</Link>
-                        </li>
-                        <li>
-                          <Link href="/">Home 5</Link>
-                        </li>
-                      </ul> */}
-                    </li>
-                    <li className="menu-has-child">
-                      <Link href="#">Work</Link>
-                      {/* <ul className="submenu">
-                        <li>
-                          <Link href="/about">About</Link>
-                        </li>
-                        <li>
-                          <Link href="/service">Service</Link>
-                        </li>
-                        <li>
-                          <Link href="/service-details">Service Details</Link>
-                        </li>
-                        <li>
-                          <Link href="/team">Team</Link>
-                        </li>
-                        <li>
-                          <Link href="/team-details">Team Details</Link>
-                        </li>
-                        <li>
-                          <Link href="/faq">FAQ</Link>
-                        </li>
-                        <li>
-                          <Link href="/404">404</Link>
-                        </li>
-                      </ul> */}
-                    </li>
-                    <li className="menu-has-child">
-                      <Link href="#">Pitmans Lab</Link>
-                      {/* <ul className="submenu">
-                        <li>
-                          <Link href="/portfolio">Portfolio</Link>
-                        </li>
-                        <li>
-                          <Link href="/portfolio-details">Portfolio Details</Link>
-                        </li>
-                      </ul> */}
+                    <li>
+                      <Link href="/">Work</Link>
                     </li>
                     <li>
-                      <Link href="#">About</Link>
-                    </li>
-                    <li className="menu-has-child">
-                      <Link href="#">Careers</Link>
-                      {/* <ul className="submenu">
-                        <li>
-                          <Link href="/blog">Blog Grid</Link>
-                        </li>
-                        <li>
-                          <Link href="/blog-2">Blog Classic</Link>
-                        </li>
-                        <li>
-                          <Link href="/blog-details">Blog Details</Link>
-                        </li>
-                      </ul> */}
+                      <Link href="/services">Services</Link>
                     </li>
                     <li>
-                      <Link href="#">Contact</Link>
+                      <Link href="/pitmans-lab">Pitmans Lab</Link>
+                    </li>
+                    <li>
+                      <Link href="/about">About</Link>
+                    </li>
+                    <li>
+                      <Link href="/careers">Careers</Link>
+                    </li>
+                    <li>
+                      <Link href="/contact">Contact</Link>
                     </li>
                   </ul>
                 </nav>
