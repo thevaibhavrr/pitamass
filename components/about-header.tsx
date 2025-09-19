@@ -32,7 +32,7 @@ export function AboutHeader() {
                   <ul>
                     <li className="menu-has-child">
                       <Link href="#">Home</Link>
-                      <ul className="submenu">
+                      {/* <ul className="submenu">
                         <li>
                           <Link href="/">Home 1</Link>
                         </li>
@@ -48,11 +48,11 @@ export function AboutHeader() {
                         <li>
                           <Link href="/">Home 5</Link>
                         </li>
-                      </ul>
+                      </ul> */}
                     </li>
                     <li className="menu-has-child">
-                      <Link href="#">Pages</Link>
-                      <ul className="submenu">
+                      <Link href="#">Work</Link>
+                      {/* <ul className="submenu">
                         <li>
                           <Link href="/about">About</Link>
                         </li>
@@ -74,25 +74,25 @@ export function AboutHeader() {
                         <li>
                           <Link href="/404">404</Link>
                         </li>
-                      </ul>
+                      </ul> */}
                     </li>
                     <li className="menu-has-child">
-                      <Link href="#">Portfolio</Link>
-                      <ul className="submenu">
+                      <Link href="#">Pitmans Lab</Link>
+                      {/* <ul className="submenu">
                         <li>
                           <Link href="/portfolio">Portfolio</Link>
                         </li>
                         <li>
                           <Link href="/portfolio-details">Portfolio Details</Link>
                         </li>
-                      </ul>
+                      </ul> */}
                     </li>
                     <li>
-                      <Link href="/price">Pricing</Link>
+                      <Link href="#">About</Link>
                     </li>
                     <li className="menu-has-child">
-                      <Link href="#">Blog</Link>
-                      <ul className="submenu">
+                      <Link href="#">Careers</Link>
+                      {/* <ul className="submenu">
                         <li>
                           <Link href="/blog">Blog Grid</Link>
                         </li>
@@ -102,10 +102,10 @@ export function AboutHeader() {
                         <li>
                           <Link href="/blog-details">Blog Details</Link>
                         </li>
-                      </ul>
+                      </ul> */}
                     </li>
                     <li>
-                      <Link href="/contact">Contact</Link>
+                      <Link href="#">Contact</Link>
                     </li>
                   </ul>
                 </nav>

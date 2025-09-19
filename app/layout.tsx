@@ -30,7 +30,7 @@ export default function RootLayout({
       <body className={`font-sans ${GeistSans.variable} ${GeistMono.variable}`}>
         <ConditionalHeader />
         {children}
-        <Navigation />
+        {/* <Navigation /> */}
         <Analytics />
       </body>
     </html>
