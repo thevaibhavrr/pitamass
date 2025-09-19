@@ -20,7 +20,7 @@ export function AboutHeader() {
               <div className="zq_header-logo">
                 <Link href="/">
                   <Image 
-                    src="/Pitamaas Logo.png"
+                    src="/Pitamaas Logo White.png"
                     alt="Pitamaas Logo"
                     width={60}
                     height={60}
