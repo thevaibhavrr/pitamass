@@ -673,60 +673,33 @@ export default function AboutPage() {
                             <section className="zq_service-area pt-95 pb-70">
                                 <div className="container">
                                     <div className="row justify-content-center">
-                                        <div className="col-xl-6 col-lg-8">
-                                            <motion.div 
-                                                className="zq_section-area text-center"
-                                                initial={{ opacity: 0, y: 30 }}
-                                                whileInView={{ opacity: 1, y: 0 }}
-                                                transition={{ duration: 0.6 }}
-                                                viewport={{ once: true }}
-                                            >
+                                        <div className="col-xl-5 col-lg-6">
+                                            <div className="zq_section-area text-center">
                                                 <span className="zq_section-subtitle mb-20">Our Services</span>
                                                 <h2 className="zq_section-title mb-40">Complete Creative Solutions</h2>
-                                                <p className="services-section-description">
-                                                    From branding to digital marketing, we provide comprehensive creative services 
-                                                    that help your business stand out and grow in today's competitive market.
-                                                </p>
-                                            </motion.div>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div className="row justify-content-center">
+                                    <div className="row">
                                         {servicesData.map((service, index) => {
                                             const IconComponent = service.icon;
                                             
                                             return (
-                                                <div key={service.id} className="col-lg-4 col-md-6 col-sm-6">
-                                                    <motion.div 
-                                                        className="modern-service-item mb-30"
-                                                        initial={{ opacity: 0, y: 50 }}
-                                                        whileInView={{ opacity: 1, y: 0 }}
-                                                        transition={{ duration: 0.6, delay: index * 0.1 }}
-                                                        viewport={{ once: true }}
-                                                        whileHover={{ y: -10 }}
-                                                    >
-                                                        <div className="service-card">
-                                                            <div className="service-icon-container">
-                                                                <IconComponent className="service-icon" size={32} />
-                                                            </div>
-                                                            <div className="service-content">
-                                                                <h3 className="service-title">{service.title}</h3>
-                                                                <p className="service-description">{service.description}</p>
-                                                                <div className="service-features">
-                                                                    {service.features.map((feature, featureIndex) => (
-                                                                        <span key={featureIndex} className="service-feature">
-                                                                            {feature}
-                                                                        </span>
-                                                                    ))}
-                                                                </div>
-                                                            </div>
-                                                            <div className="service-footer">
-                                                                <Link href="#" className="service-link">
-                                                                    Learn More
-                                                                    <i className="fa-regular fa-angle-right"></i>
-                                                                </Link>
-                                                            </div>
+                                                <div key={service.id} className="col-lg-4 col-md-6">
+                                                    <div className="zq_service-item mb-30">
+                                                        <div className="zq_service-item-icon">
+                                                            <IconComponent size={24} />
                                                         </div>
-                                                    </motion.div>
+                                                        <h4 className="zq_service-item-title">
+                                                            <Link href="#">{service.title}</Link>
+                                                        </h4>
+                                                        <p>{service.description}</p>
+                                                        <div className="zq_service-btn">
+                                                            <Link href="#" className="zq_service-item-btn">
+                                                                Learn More<i className="fa-regular fa-angle-right"></i>
+                                                            </Link>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             );
                                         })}
