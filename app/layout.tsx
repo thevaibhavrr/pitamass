@@ -4,6 +4,7 @@ import { GeistMono } from 'geist/font/mono'
 import { Analytics } from '@vercel/analytics/next'
 import { Header } from '@/components/header'
 import { Navigation } from '@/components/navigation'
+import { ConditionalHeader } from '@/components/conditional-header'
 import './globals.css'
 
 export const metadata: Metadata = {
@@ -27,7 +28,7 @@ export default function RootLayout({
         />
       </head>
       <body className={`font-sans ${GeistSans.variable} ${GeistMono.variable}`}>
-        <Header />
+        <ConditionalHeader />
         {children}
         <Navigation />
         <Analytics />
