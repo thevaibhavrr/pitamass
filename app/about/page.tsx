@@ -7,7 +7,7 @@ import Image from 'next/image'
 import { AboutHeader } from "@/components/about-header"
 import Marquee from "react-fast-marquee"
 import { motion, AnimatePresence } from 'framer-motion'
-import { ChevronDown, Zap, Smartphone, Plug, Cpu, Shield, Users, Award, Globe, Heart } from 'lucide-react'
+import { ChevronDown, Zap, Smartphone, Plug, Cpu, Shield, Users, Award, Globe, Heart, Linkedin, Twitter, Instagram, Github, Package, Palette, Megaphone, Video, Monitor, Camera } from 'lucide-react'
 import '../../styles/globals.css'
 import '../../styles/bootstrap.min.css'
 import '../../styles/nice-select.css'
@@ -51,6 +51,102 @@ export default function AboutPage() {
     const toggleAccordion = (index: number) => {
         setOpenAccordion(openAccordion === index ? -1 : index);
     };
+
+    const teamData = [
+        {
+            id: 1,
+            name: "Sachin",
+            position: "CEO & Founder",
+            description: "Visionary leader with 12+ years in digital innovation. Former Apple Design Award winner.",
+            image: "https://avatars.githubusercontent.com/u/148872093?s=48&v=4",
+            social: {
+                linkedin: "https://linkedin.com/in/alexrivera",
+                twitter: "https://twitter.com/alexrivera",
+                instagram: "https://instagram.com/alexrivera"
+            }
+        },
+        {
+            id: 2,
+            name: "Vaibhav Rathore",
+            position: "Head of Design",
+            description: "Design systems expert with a passion for human-centered experiences and innovation.",
+            image: "https://avatars.githubusercontent.com/u/93912910?v=4",
+            social: {
+                linkedin: "https://linkedin.com/in/mayachen",
+                twitter: "https://twitter.com/mayachen",
+                instagram: "https://instagram.com/mayachen"
+            }
+        },
+        {
+            id: 3,
+            name: "Jonas Patel",
+            position: "Lead Developer",
+            description: "Full-stack architect specializing in performance, scalability, and cutting-edge technologies.",
+            image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=500&fit=crop&crop=face",
+            social: {
+                linkedin: "https://linkedin.com/in/jonaspatel",
+                github: "https://github.com/jonaspatel",
+                twitter: "https://twitter.com/jonaspatel"
+            }
+        },
+        {
+            id: 4,
+            name: "Sofia Lee",
+            position: "Project Manager",
+            description: "Operations specialist ensuring seamless delivery and exceptional client satisfaction.",
+            image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=500&fit=crop&crop=face",
+            social: {
+                linkedin: "https://linkedin.com/in/sofialee",
+                twitter: "https://twitter.com/sofialee",
+                instagram: "https://instagram.com/sofialee"
+            }
+        }
+    ];
+
+    const servicesData = [
+        {
+            id: 1,
+            title: "Packaging Design",
+            icon: Package,
+            description: "Create stunning, functional packaging that captures attention and drives sales. From concept to production, we design packaging that tells your brand story and stands out on shelves.",
+            features: ["Brand-aligned design", "Print-ready files", "3D mockups", "Material selection"]
+        },
+        {
+            id: 2,
+            title: "Logo Design",
+            icon: Palette,
+            description: "Memorable logos that represent your brand identity. We create timeless designs that work across all platforms and mediums, from business cards to billboards.",
+            features: ["Multiple concepts", "Vector formats", "Brand guidelines", "Logo variations"]
+        },
+        {
+            id: 3,
+            title: "Digital Marketing",
+            icon: Megaphone,
+            description: "Comprehensive digital marketing strategies that drive growth. From social media campaigns to SEO optimization, we help you reach and engage your target audience effectively.",
+            features: ["Social media strategy", "SEO optimization", "Content marketing", "Analytics tracking"]
+        },
+        {
+            id: 4,
+            title: "Video Ads",
+            icon: Video,
+            description: "Compelling video advertisements that convert viewers into customers. We create engaging video content for social media, YouTube, and TV that drives results.",
+            features: ["Script writing", "Professional production", "Motion graphics", "Multi-platform optimization"]
+        },
+        {
+            id: 5,
+            title: "Website Development",
+            icon: Monitor,
+            description: "Modern, responsive websites that deliver exceptional user experiences. From simple landing pages to complex e-commerce platforms, we build sites that perform.",
+            features: ["Responsive design", "SEO optimized", "Fast loading", "Mobile-first approach"]
+        },
+        {
+            id: 6,
+            title: "Photography",
+            icon: Camera,
+            description: "Professional photography services for products, events, and lifestyle. High-quality images that showcase your brand and products in the best light.",
+            features: ["Product photography", "Event coverage", "Lifestyle shoots", "Post-production editing"]
+        }
+    ];
 
     return (
         <>
@@ -498,94 +594,77 @@ export default function AboutPage() {
                             <section className="zq_team-area pt-95 pb-70">
                                 <div className="container">
                                     <div className="row justify-content-center">
-                                        <div className="col-xl-5 col-lg-6">
-                                            <div className="zq_section-area text-center">
+                                        <div className="col-xl-6 col-lg-8">
+                                            <motion.div 
+                                                className="zq_section-area text-center"
+                                                initial={{ opacity: 0, y: 30 }}
+                                                whileInView={{ opacity: 1, y: 0 }}
+                                                transition={{ duration: 0.6 }}
+                                                viewport={{ once: true }}
+                                            >
                                                 <span className="zq_section-subtitle mb-20">Our Team</span>
                                                 <h2 className="zq_section-title mb-40">Meet the Experts Behind Our Success</h2>
-                                            </div>
+                                                <p className="team-section-description">
+                                                    Our diverse team of creative professionals brings together years of experience 
+                                                    in design, development, and strategy to deliver exceptional results.
+                                                </p>
+                                            </motion.div>
                                         </div>
                                     </div>
-                                    <div className="row">
-                                        <div className="col-lg-3 col-md-6">
-                                            <div className="zq_team-item mb-30">
-                                                <div className="zq_team-item-img">
-                                                    <Image src="/placeholder-user.jpg" alt="Team Member" width={300} height={350} className="w-100" />
-                                                    <div className="zq_team-item-social">
-                                                        <ul>
-                                                            <li><a href="#"><i className="fab fa-facebook-f"></i></a></li>
-                                                            <li><a href="#"><i className="fab fa-twitter"></i></a></li>
-                                                            <li><a href="#"><i className="fab fa-linkedin-in"></i></a></li>
-                                                            <li><a href="#"><i className="fab fa-instagram"></i></a></li>
-                                                        </ul>
+                                    <div className="row justify-content-center">
+                                        {teamData.map((member, index) => (
+                                            <div key={member.id} className="col-lg-3 col-md-6 col-sm-6">
+                                                <motion.div 
+                                                    className="modern-team-item mb-30"
+                                                    initial={{ opacity: 0, y: 50 }}
+                                                    whileInView={{ opacity: 1, y: 0 }}
+                                                    transition={{ duration: 0.6, delay: index * 0.1 }}
+                                                    viewport={{ once: true }}
+                                                    whileHover={{ y: -10 }}
+                                                >
+                                                    <div className="team-card">
+                                                        <div className="team-image-container">
+                                                            <Image 
+                                                                src={member.image} 
+                                                                alt={member.name} 
+                                                                width={300} 
+                                                                height={400} 
+                                                                className="team-image"
+                                                            />
+                                                            <div className="team-overlay">
+                                                                <div className="team-social-links">
+                                                                    {member.social.linkedin && (
+                                                                        <a href={member.social.linkedin} target="_blank" rel="noopener noreferrer" className="social-link">
+                                                                            <Linkedin size={18} />
+                                                                        </a>
+                                                                    )}
+                                                                    {member.social.twitter && (
+                                                                        <a href={member.social.twitter} target="_blank" rel="noopener noreferrer" className="social-link">
+                                                                            <Twitter size={18} />
+                                                                        </a>
+                                                                    )}
+                                                                    {member.social.github && (
+                                                                        <a href={member.social.github} target="_blank" rel="noopener noreferrer" className="social-link">
+                                                                            <Github size={18} />
+                                                                        </a>
+                                                                    )}
+                                                                    {member.social.instagram && (
+                                                                        <a href={member.social.instagram} target="_blank" rel="noopener noreferrer" className="social-link">
+                                                                            <Instagram size={18} />
+                                                                        </a>
+                                                                    )}
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div className="team-content">
+                                                            <h3 className="team-name">{member.name}</h3>
+                                                            <span className="team-position">{member.position}</span>
+                                                            <p className="team-description">{member.description}</p>
+                                                        </div>
                                                     </div>
-                                                </div>
-                                                <div className="zq_team-item-content">
-                                                    <h3 className="zq_team-item-content-title">Alex Rivera</h3>
-                                                    <span className="zq_team-item-content-designation">CEO & Founder</span>
-                                                    <p>Visionary leader with 12+ years in digital innovation. Former Apple Design Award winner.</p>
-                                                </div>
+                                                </motion.div>
                                             </div>
-                                        </div>
-                                        <div className="col-lg-3 col-md-6">
-                                            <div className="zq_team-item mb-30">
-                                                <div className="zq_team-item-img">
-                                                    <Image src="/placeholder-user.jpg" alt="Team Member" width={300} height={350} className="w-100" />
-                                                    <div className="zq_team-item-social">
-                                                        <ul>
-                                                            <li><a href="#"><i className="fab fa-facebook-f"></i></a></li>
-                                                            <li><a href="#"><i className="fab fa-twitter"></i></a></li>
-                                                            <li><a href="#"><i className="fab fa-linkedin-in"></i></a></li>
-                                                            <li><a href="#"><i className="fab fa-instagram"></i></a></li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                                <div className="zq_team-item-content">
-                                                    <h3 className="zq_team-item-content-title">Maya Chen</h3>
-                                                    <span className="zq_team-item-content-designation">Head of Design</span>
-                                                    <p>Design systems expert with a passion for human-centered experiences and innovation.</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div className="col-lg-3 col-md-6">
-                                            <div className="zq_team-item mb-30">
-                                                <div className="zq_team-item-img">
-                                                    <Image src="/placeholder-user.jpg" alt="Team Member" width={300} height={350} className="w-100" />
-                                                    <div className="zq_team-item-social">
-                                                        <ul>
-                                                            <li><a href="#"><i className="fab fa-facebook-f"></i></a></li>
-                                                            <li><a href="#"><i className="fab fa-twitter"></i></a></li>
-                                                            <li><a href="#"><i className="fab fa-linkedin-in"></i></a></li>
-                                                            <li><a href="#"><i className="fab fa-instagram"></i></a></li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                                <div className="zq_team-item-content">
-                                                    <h3 className="zq_team-item-content-title">Jonas Patel</h3>
-                                                    <span className="zq_team-item-content-designation">Lead Developer</span>
-                                                    <p>Full-stack architect specializing in performance, scalability, and cutting-edge technologies.</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div className="col-lg-3 col-md-6">
-                                            <div className="zq_team-item mb-30">
-                                                <div className="zq_team-item-img">
-                                                    <Image src="/placeholder-user.jpg" alt="Team Member" width={300} height={350} className="w-100" />
-                                                    <div className="zq_team-item-social">
-                                                        <ul>
-                                                            <li><a href="#"><i className="fab fa-facebook-f"></i></a></li>
-                                                            <li><a href="#"><i className="fab fa-twitter"></i></a></li>
-                                                            <li><a href="#"><i className="fab fa-linkedin-in"></i></a></li>
-                                                            <li><a href="#"><i className="fab fa-instagram"></i></a></li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                                <div className="zq_team-item-content">
-                                                    <h3 className="zq_team-item-content-title">Sofia Lee</h3>
-                                                    <span className="zq_team-item-content-designation">Project Manager</span>
-                                                    <p>Operations specialist ensuring seamless delivery and exceptional client satisfaction.</p>
-                                                </div>
-                                            </div>
-                                        </div>
+                                        ))}
                                     </div>
                                 </div>
                             </section>
@@ -594,110 +673,63 @@ export default function AboutPage() {
                             <section className="zq_service-area pt-95 pb-70">
                                 <div className="container">
                                     <div className="row justify-content-center">
-                                        <div className="col-xl-5 col-lg-6">
-                                            <div className="zq_section-area text-center">
+                                        <div className="col-xl-6 col-lg-8">
+                                            <motion.div 
+                                                className="zq_section-area text-center"
+                                                initial={{ opacity: 0, y: 30 }}
+                                                whileInView={{ opacity: 1, y: 0 }}
+                                                transition={{ duration: 0.6 }}
+                                                viewport={{ once: true }}
+                                            >
                                                 <span className="zq_section-subtitle mb-20">Our Services</span>
-                                                <h2 className="zq_section-title mb-40">Comprehensive Digital Solutions</h2>
-                                            </div>
+                                                <h2 className="zq_section-title mb-40">Complete Creative Solutions</h2>
+                                                <p className="services-section-description">
+                                                    From branding to digital marketing, we provide comprehensive creative services 
+                                                    that help your business stand out and grow in today's competitive market.
+                                                </p>
+                                            </motion.div>
                                         </div>
                                     </div>
-                                    <div className="row">
-                                        <div className="col-lg-4 col-md-6">
-                                            <div className="zq_service-item mb-30">
-                                                <div className="zq_service-item-icon">
-                                                    <i className="fas fa-code"></i>
+                                    <div className="row justify-content-center">
+                                        {servicesData.map((service, index) => {
+                                            const IconComponent = service.icon;
+                                            
+                                            return (
+                                                <div key={service.id} className="col-lg-4 col-md-6 col-sm-6">
+                                                    <motion.div 
+                                                        className="modern-service-item mb-30"
+                                                        initial={{ opacity: 0, y: 50 }}
+                                                        whileInView={{ opacity: 1, y: 0 }}
+                                                        transition={{ duration: 0.6, delay: index * 0.1 }}
+                                                        viewport={{ once: true }}
+                                                        whileHover={{ y: -10 }}
+                                                    >
+                                                        <div className="service-card">
+                                                            <div className="service-icon-container">
+                                                                <IconComponent className="service-icon" size={32} />
+                                                            </div>
+                                                            <div className="service-content">
+                                                                <h3 className="service-title">{service.title}</h3>
+                                                                <p className="service-description">{service.description}</p>
+                                                                <div className="service-features">
+                                                                    {service.features.map((feature, featureIndex) => (
+                                                                        <span key={featureIndex} className="service-feature">
+                                                                            {feature}
+                                                                        </span>
+                                                                    ))}
+                                                                </div>
+                                                            </div>
+                                                            <div className="service-footer">
+                                                                <Link href="#" className="service-link">
+                                                                    Learn More
+                                                                    <i className="fa-regular fa-angle-right"></i>
+                                                                </Link>
+                                                            </div>
+                                                        </div>
+                                                    </motion.div>
                                                 </div>
-                                                <h4 className="zq_service-item-title">
-                                                    <Link href="#">Web Development</Link>
-                                                </h4>
-                                                <p>Custom web applications built with modern technologies. From simple websites to complex enterprise solutions.</p>
-                                                <div className="zq_service-btn">
-                                                    <Link href="#" className="zq_service-item-btn">
-                                                        Learn More<i className="fa-regular fa-angle-right"></i>
-                                                    </Link>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div className="col-lg-4 col-md-6">
-                                            <div className="zq_service-item mb-30">
-                                                <div className="zq_service-item-icon">
-                                                    <i className="fas fa-palette"></i>
-                                                </div>
-                                                <h4 className="zq_service-item-title">
-                                                    <Link href="#">UI/UX Design</Link>
-                                                </h4>
-                                                <p>User-centered design that creates intuitive and engaging experiences across all digital platforms.</p>
-                                                <div className="zq_service-btn">
-                                                    <Link href="#" className="zq_service-item-btn">
-                                                        Learn More<i className="fa-regular fa-angle-right"></i>
-                                                    </Link>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div className="col-lg-4 col-md-6">
-                                            <div className="zq_service-item mb-30">
-                                                <div className="zq_service-item-icon">
-                                                    <i className="fas fa-mobile-alt"></i>
-                                                </div>
-                                                <h4 className="zq_service-item-title">
-                                                    <Link href="#">Mobile Development</Link>
-                                                </h4>
-                                                <p>Native and cross-platform mobile applications that deliver exceptional user experiences on all devices.</p>
-                                                <div className="zq_service-btn">
-                                                    <Link href="#" className="zq_service-item-btn">
-                                                        Learn More<i className="fa-regular fa-angle-right"></i>
-                                                    </Link>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div className="col-lg-4 col-md-6">
-                                            <div className="zq_service-item mb-30">
-                                                <div className="zq_service-item-icon">
-                                                    <i className="fas fa-cube"></i>
-                                                </div>
-                                                <h4 className="zq_service-item-title">
-                                                    <Link href="#">3D & Motion Graphics</Link>
-                                                </h4>
-                                                <p>Immersive 3D experiences and stunning motion graphics that bring your brand to life.</p>
-                                                <div className="zq_service-btn">
-                                                    <Link href="#" className="zq_service-item-btn">
-                                                        Learn More<i className="fa-regular fa-angle-right"></i>
-                                                    </Link>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div className="col-lg-4 col-md-6">
-                                            <div className="zq_service-item mb-30">
-                                                <div className="zq_service-item-icon">
-                                                    <i className="fas fa-shopping-cart"></i>
-                                                </div>
-                                                <h4 className="zq_service-item-title">
-                                                    <Link href="#">E-commerce Solutions</Link>
-                                                </h4>
-                                                <p>Complete e-commerce platforms with advanced features, payment integration, and inventory management.</p>
-                                                <div className="zq_service-btn">
-                                                    <Link href="#" className="zq_service-item-btn">
-                                                        Learn More<i className="fa-regular fa-angle-right"></i>
-                                                    </Link>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div className="col-lg-4 col-md-6">
-                                            <div className="zq_service-item mb-30">
-                                                <div className="zq_service-item-icon">
-                                                    <i className="fas fa-cloud"></i>
-                                                </div>
-                                                <h4 className="zq_service-item-title">
-                                                    <Link href="#">Cloud Solutions</Link>
-                                                </h4>
-                                                <p>Scalable cloud infrastructure and deployment solutions for modern applications and businesses.</p>
-                                                <div className="zq_service-btn">
-                                                    <Link href="#" className="zq_service-item-btn">
-                                                        Learn More<i className="fa-regular fa-angle-right"></i>
-                                                    </Link>
-                                                </div>
-                                            </div>
-                                        </div>
+                                            );
+                                        })}
                                     </div>
                                 </div>
                             </section>
