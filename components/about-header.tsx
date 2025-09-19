@@ -19,12 +19,31 @@ export function AboutHeader() {
             <div className="zq_header-left">
               <div className="zq_header-logo">
                 <Link href="/">
-                  <Image 
-                    src="https://www.pitamaas.com/logo-dark-mobile.png" 
-                    alt="Pitamaas Logo" 
-                    width={120} 
-                    height={40}
-                  />
+                  <div 
+                    style={{
+                      fontSize: '3.5rem',
+                      fontWeight: '900',
+                      color: '#8AF135',
+                      textShadow: '0 0 3px #8AF135',
+                      fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
+                      letterSpacing: '-3px',
+                      lineHeight: '1',
+                      cursor: 'pointer',
+                      transition: 'all 0.3s ease',
+                      display: 'inline-block',
+                      marginLeft: '15px'
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.textShadow = '0 0 5px #8AF135';
+                      e.currentTarget.style.transform = 'scale(1.05)';
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.textShadow = '0 0 3px #8AF135';
+                      e.currentTarget.style.transform = 'scale(1)';
+                    }}
+                  >
+                    P
+                  </div>
                 </Link>
               </div>
               <div className="zq_header-menu">
@@ -45,9 +64,7 @@ export function AboutHeader() {
                     <li>
                       <Link href="/careers">Careers</Link>
                     </li>
-                    <li>
-                      <Link href="/contact">Contact</Link>
-                    </li>
+                    
                   </ul>
                 </nav>
               </div>
