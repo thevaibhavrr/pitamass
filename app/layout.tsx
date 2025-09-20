@@ -8,9 +8,9 @@ import { ConditionalHeader } from '@/components/conditional-header'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'v0 App',
-  description: 'Created with v0',
-  generator: 'v0.app',
+  title: 'Pitamaas',
+  description: 'Pitamaas',
+  generator: 'Pitamaas',
 }
 
 export default function RootLayout({
