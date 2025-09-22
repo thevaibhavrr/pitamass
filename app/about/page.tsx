@@ -226,29 +226,64 @@ export default function AboutPage() {
           <div id="smooth-content">
                         <div className="body-wrapper">
               {/* Hero Section */}
-                            <section className="zq_hero-area">
+              <section className="zq_hero-area">
                 <div className="container container-custom-1">
                   <div className="zq_hero-container">
                     <div className="zq_hero-wrap">
-                      <div className="zq_hero-content">
-                                                <h1 className="zq_hero-content-title">
-                                                    Digital <span>Solution</span> Zone
-                        </h1>
-                                                <p>
+                      <motion.div 
+                        className="zq_hero-content"
+                        initial={{ opacity: 0, x: -50 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.8, ease: "easeOut" }}
+                      >
+                        <motion.h1 
+                          className="zq_hero-content-title"
+                          initial={{ opacity: 0, y: 30 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ duration: 0.8, delay: 0.2 }}
+                        >
+                          Digital <motion.span
+                            initial={{ opacity: 0, scale: 0.8 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            transition={{ duration: 0.6, delay: 0.4 }}
+                          >Solution</motion.span> Zone
+                        </motion.h1>
+                        <motion.p
+                          initial={{ opacity: 0, y: 20 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ duration: 0.8, delay: 0.3 }}
+                        >
                           Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi Aliquam <br />
                           in hendrerit urna. Pellentesque sit amet sapien fringilla.
-                        </p>
-                      </div>
-                      <div className="zq_hero-img">
-                        <Image
-                                                    src="https://themephi.net/template/zeniqsh/zeniqs/assets/images/hero/h1_1.png"
-                          alt="Hero Image"
-                          width={600}
-                          height={400}
-                          className="w-full h-auto"
-                        />
-                      </div>
-                      <div className="zq_hero-circle-btn">
+                        </motion.p>
+                      </motion.div>
+                      <motion.div 
+                        className="zq_hero-img"
+                        initial={{ opacity: 0, x: 50, scale: 0.8 }}
+                        animate={{ opacity: 1, x: 0, scale: 1 }}
+                        transition={{ duration: 1, delay: 0.4, ease: "easeOut" }}
+                      >
+                        <motion.div
+                          whileHover={{ scale: 1.05, rotate: 2 }}
+                          transition={{ duration: 0.3 }}
+                        >
+                          <Image
+                            src="https://themephi.net/template/zeniqsh/zeniqs/assets/images/hero/h1_1.png"
+                            alt="Hero Image"
+                            width={600}
+                            height={400}
+                            className="w-full h-auto"
+                          />
+                        </motion.div>
+                      </motion.div>
+                      <motion.div 
+                        className="zq_hero-circle-btn"
+                        initial={{ opacity: 0, scale: 0 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ duration: 0.6, delay: 0.8, type: "spring", stiffness: 200 }}
+                        whileHover={{ scale: 1.1, rotate: 10 }}
+                        whileTap={{ scale: 0.95 }}
+                      >
                         <Image
                           src="/placeholder.svg"
                           alt="Circle"
@@ -256,146 +291,256 @@ export default function AboutPage() {
                           height={100}
                           className="w-full h-auto"
                         />
-                        <a href="#">
+                        <motion.a 
+                          href="#"
+                          whileHover={{ scale: 1.2 }}
+                          whileTap={{ scale: 0.9 }}
+                        >
                           <svg width="28" height="30" viewBox="0 0 28 30" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <g clipPath="url(#clip0_129_42)">
                               <path d="M13.8922 10.568C17.1308 7.32937 20.2842 4.17596 23.4376 1.02255C24.1195 0.34073 24.8013 -0.170634 25.824 0.0850478C27.6138 0.425957 28.2956 2.55664 27.0172 3.92028C25.3979 5.62482 23.7786 7.15891 22.1592 8.77823C20.0286 10.9089 17.9831 13.0396 15.8524 15.085C14.4888 16.4487 13.3808 16.4487 12.0172 15.085C8.35242 11.4203 4.60242 7.7555 0.937644 4.0055C-0.17031 2.89755 -0.255538 1.53391 0.76719 0.596411C1.78992 -0.341089 3.06833 -0.341089 4.17628 0.852093C7.07401 3.83505 10.057 6.818 13.0399 9.80096C13.2104 10.0566 13.5513 10.2271 13.8922 10.568Z" fill="currentColor" />
                               <path d="M13.7217 24.5454C16.9603 21.3068 20.0285 18.2386 23.0115 15.1704C23.3524 14.8295 23.608 14.5738 23.949 14.3181C24.8865 13.6363 26.0796 13.7215 26.8467 14.5738C27.699 15.4261 27.7842 16.534 27.1024 17.4715C26.9319 17.7272 26.6762 17.9829 26.4205 18.1534C22.841 21.7329 19.2615 25.3124 15.7671 28.8068C14.3183 30.2556 13.2103 30.2556 11.7615 28.8068C8.18191 25.2272 4.51714 21.5624 0.937591 17.9829C0.255773 17.3011 -0.255591 16.534 0.0853179 15.5113C0.596682 13.7215 2.64214 13.2954 4.00577 14.659C6.98873 17.5568 9.88645 20.5397 12.8694 23.5227C13.2103 23.7784 13.3808 24.1193 13.7217 24.5454Z" fill="currentColor" />
                             </g>
                           </svg>
-                        </a>
-                      </div>
+                        </motion.a>
+                      </motion.div>
                     </div>
                   </div>
                 </div>
               </section>
 
               {/* Brand Section */}
-              <div className="zq_brand-area pt-95 pb-100">
+              <motion.div 
+                className="zq_brand-area pt-95 pb-100"
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8 }}
+                viewport={{ once: true }}
+              >
                 <div className="container">
                   <div className="row">
                     <div className="col-12">
-                      <div className="zq_section-area mb-45 text-center">
-                        <span className="zq_section-subtitle">MEET OUR TRUSTED CLIENTS</span>
-                      </div>
+                      <motion.div 
+                        className="zq_section-area mb-45 text-center"
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6, delay: 0.2 }}
+                        viewport={{ once: true }}
+                      >
+                        <motion.span 
+                          className="zq_section-subtitle"
+                          initial={{ opacity: 0, scale: 0.8 }}
+                          whileInView={{ opacity: 1, scale: 1 }}
+                          transition={{ duration: 0.5, delay: 0.3 }}
+                          viewport={{ once: true }}
+                        >
+                          MEET OUR TRUSTED CLIENTS
+                        </motion.span>
+                      </motion.div>
                     </div>
                   </div>
-                                    <div className="marquee-container">
-                                        <Marquee 
-                                            speed={50} 
-                                            direction="left" 
-                                            gradient={false}
-                                            pauseOnHover={true}
-                                            className="marquee-wrapper"
-                                        >
-                                            {[
-                                                "Canteen", "Cyber Solutions", "E-Trade", "Eventz", "K11", "Klubber",
-                                                "TechCorp", "DigitalFlow", "InnovateLab", "CloudBase", "DataSync", "WebCraft",
-                                                "AppMaster", "CodeForge", "PixelPerfect", "DevStudio", "NextGen", "FutureTech",
-                                                "SmartSys", "ByteWorks", "LogicLabs", "ProDev", "TechFlow", "DigitalEdge"
-                                            ].map((client, index) => (
-                                                <div key={index} className="marquee-item">
+                  <motion.div 
+                    className="marquee-container"
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, delay: 0.4 }}
+                    viewport={{ once: true }}
+                  >
+                    <Marquee 
+                      speed={50} 
+                      direction="left" 
+                      gradient={false}
+                      pauseOnHover={true}
+                      className="marquee-wrapper"
+                    >
+                      {[
+                        "Canteen", "Cyber Solutions", "E-Trade", "Eventz", "K11", "Klubber",
+                        "TechCorp", "DigitalFlow", "InnovateLab", "CloudBase", "DataSync", "WebCraft",
+                        "AppMaster", "CodeForge", "PixelPerfect", "DevStudio", "NextGen", "FutureTech",
+                        "SmartSys", "ByteWorks", "LogicLabs", "ProDev", "TechFlow", "DigitalEdge"
+                      ].map((client, index) => (
+                        <motion.div 
+                          key={index} 
+                          className="marquee-item"
+                          whileHover={{ scale: 1.05, y: -5 }}
+                          transition={{ duration: 0.2 }}
+                        >
                           <div className="zq_brand-item">
-                                                        <div className="client-name-box">
-                                                            <span className="client-name">{client}</span>
-                                                        </div>
+                            <div className="client-name-box">
+                              <span className="client-name">{client}</span>
+                            </div>
                           </div>
-                        </div>
+                        </motion.div>
                       ))}
-                                        </Marquee>
-                  </div>
+                    </Marquee>
+                  </motion.div>
                 </div>
-              </div>
+              </motion.div>
 
               {/* FAQ Section */}
-              <div className="zq_faq-area pb-60">
+              <motion.div 
+                className="zq_faq-area pb-60"
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                transition={{ duration: 0.8 }}
+                viewport={{ once: true }}
+              >
                 <div className="container">
                   <div className="row">
-                    <div className="col-lg-6">
-                      <div className="zq_faq-img mb-40">
+                    <motion.div 
+                      className="col-lg-6"
+                      initial={{ opacity: 0, x: -50 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.8, delay: 0.2 }}
+                      viewport={{ once: true }}
+                    >
+                      <motion.div 
+                        className="zq_faq-img mb-40"
+                        whileHover={{ scale: 1.02, rotate: 1 }}
+                        transition={{ duration: 0.3 }}
+                      >
                         <Image
-                                                    src="https://themephi.net/template/zeniqsh/zeniqs/assets/images/faq/1.png"
+                          src="https://themephi.net/template/zeniqsh/zeniqs/assets/images/faq/1.png"
                           alt="FAQ Image"
                           width={600}
                           height={400}
                           className="w-100"
                         />
-                      </div>
-                    </div>
-                    <div className="col-lg-6">
+                      </motion.div>
+                    </motion.div>
+                    <motion.div 
+                      className="col-lg-6"
+                      initial={{ opacity: 0, x: 50 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.8, delay: 0.4 }}
+                      viewport={{ once: true }}
+                    >
                       <div className="zq_faq-wrapper ml-50 mr-30 mb-40">
-                        <div className="zq_section-area">
-                          <span className="zq_section-subtitle mb-20">day-to-day operations</span>
-                          <h2 className="zq_section-title mb-35">Empowering Excellence: Our IT Solutions Story</h2>
-                        </div>
-                        <div className="zq_faq-content">
-                                                    <div className="modern-accordion">
-                                                        {accordionData.map((item, index) => {
-                                                            const IconComponent = item.icon;
-                                                            const isOpen = openAccordion === index;
-                                                            
-                                                            return (
-                                                                <motion.div 
-                                                                    key={item.id}
-                                                                    className={`accordion-item ${index < accordionData.length - 1 ? 'mb-20' : ''}`}
-                                                                    initial={{ opacity: 0, y: 20 }}
-                                                                    animate={{ opacity: 1, y: 0 }}
-                                                                    transition={{ delay: index * 0.1 }}
-                                                                >
-                                                                    <h2 className="accordion-header">
-                                                                        <motion.button
-                                                                            className={`accordion-button ${isOpen ? '' : 'collapsed'}`}
-                                  type="button"
-                                                                            onClick={() => toggleAccordion(index)}
-                                                                            whileHover={{ scale: 1.02 }}
-                                                                            whileTap={{ scale: 0.98 }}
-                                                                        >
+                        <motion.div 
+                          className="zq_section-area"
+                          initial={{ opacity: 0, y: 30 }}
+                          whileInView={{ opacity: 1, y: 0 }}
+                          transition={{ duration: 0.6, delay: 0.6 }}
+                          viewport={{ once: true }}
+                        >
+                          <motion.span 
+                            className="zq_section-subtitle mb-20"
+                            initial={{ opacity: 0, scale: 0.8 }}
+                            whileInView={{ opacity: 1, scale: 1 }}
+                            transition={{ duration: 0.5, delay: 0.7 }}
+                            viewport={{ once: true }}
+                          >
+                            day-to-day operations
+                          </motion.span>
+                          <motion.h2 
+                            className="zq_section-title mb-35"
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.6, delay: 0.8 }}
+                            viewport={{ once: true }}
+                          >
+                            Empowering Excellence: Our IT Solutions Story
+                          </motion.h2>
+                        </motion.div>
+                        <motion.div 
+                          className="zq_faq-content"
+                          initial={{ opacity: 0, y: 30 }}
+                          whileInView={{ opacity: 1, y: 0 }}
+                          transition={{ duration: 0.6, delay: 0.9 }}
+                          viewport={{ once: true }}
+                        >
+                          <div className="modern-accordion">
+                            {accordionData.map((item, index) => {
+                              const IconComponent = item.icon;
+                              const isOpen = openAccordion === index;
+                              
+                              return (
+                                <motion.div 
+                                  key={item.id}
+                                  className={`accordion-item ${index < accordionData.length - 1 ? 'mb-20' : ''}`}
+                                  initial={{ opacity: 0, y: 30, scale: 0.95 }}
+                                  whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                                  transition={{ 
+                                    duration: 0.5, 
+                                    delay: index * 0.15,
+                                    type: "spring",
+                                    stiffness: 100
+                                  }}
+                                  viewport={{ once: true }}
+                                  whileHover={{ scale: 1.02, y: -2 }}
+                                >
+                                  <h2 className="accordion-header">
+                                    <motion.button
+                                      className={`accordion-button ${isOpen ? '' : 'collapsed'}`}
+                                      type="button"
+                                      onClick={() => toggleAccordion(index)}
+                                      whileHover={{ scale: 1.02, y: -2 }}
+                                      whileTap={{ scale: 0.98 }}
+                                      transition={{ duration: 0.2 }}
+                                    >
                                                                             <div className="accordion-header-content">
                                                                                 <div className="accordion-title-section">
                                                                                     <span className="accordion-number">{String(index + 1).padStart(2, '0')}.</span>
                                                                                     <span className="accordion-title">{item.title}</span>
                                 </div>
-                                                                                <motion.div
-                                                                                    animate={{ rotate: isOpen ? 180 : 0 }}
-                                                                                    transition={{ duration: 0.3, ease: "easeInOut" }}
-                                                                                >
-                                                                                    <ChevronDown className="accordion-chevron" size={20} />
-                                                                                </motion.div>
+                                      <motion.div
+                                        animate={{ 
+                                          rotate: isOpen ? 180 : 0,
+                                          scale: isOpen ? 1.1 : 1
+                                        }}
+                                        transition={{ 
+                                          duration: 0.4, 
+                                          ease: "easeInOut",
+                                          type: "spring",
+                                          stiffness: 200
+                                        }}
+                                      >
+                                        <ChevronDown className="accordion-chevron" size={20} />
+                                      </motion.div>
                                 </div>
                                                                         </motion.button>
                               </h2>
-                                                                    <AnimatePresence>
-                                                                        {isOpen && (
-                                                                            <motion.div
-                                                                                className="accordion-collapse"
-                                                                                initial={{ height: 0, opacity: 0 }}
-                                                                                animate={{ height: "auto", opacity: 1 }}
-                                                                                exit={{ height: 0, opacity: 0 }}
-                                                                                transition={{ duration: 0.3, ease: "easeInOut" }}
-                                                                                style={{ overflow: "hidden" }}
-                                                                            >
-                                                                                <motion.div 
-                                                                                    className="accordion-body"
-                                                                                    initial={{ y: -10, opacity: 0 }}
-                                                                                    animate={{ y: 0, opacity: 1 }}
-                                                                                    exit={{ y: -10, opacity: 0 }}
-                                                                                    transition={{ delay: 0.1, duration: 0.2 }}
-                                                                                >
-                                                                                    <p>{item.content}</p>
-                                                                                </motion.div>
-                                                                            </motion.div>
-                                                                        )}
-                                                                    </AnimatePresence>
-                                                                </motion.div>
-                                                            );
-                                                        })}
+                                  <AnimatePresence>
+                                    {isOpen && (
+                                      <motion.div
+                                        className="accordion-collapse"
+                                        initial={{ height: 0, opacity: 0, y: -10 }}
+                                        animate={{ height: "auto", opacity: 1, y: 0 }}
+                                        exit={{ height: 0, opacity: 0, y: -10 }}
+                                        transition={{ 
+                                          duration: 0.4, 
+                                          ease: "easeInOut",
+                                          type: "spring",
+                                          stiffness: 100
+                                        }}
+                                        style={{ overflow: "hidden" }}
+                                      >
+                                        <motion.div 
+                                          className="accordion-body"
+                                          initial={{ y: -20, opacity: 0 }}
+                                          animate={{ y: 0, opacity: 1 }}
+                                          exit={{ y: -20, opacity: 0 }}
+                                          transition={{ 
+                                            delay: 0.1, 
+                                            duration: 0.3,
+                                            ease: "easeOut"
+                                          }}
+                                        >
+                                          <p>{item.content}</p>
+                                        </motion.div>
+                                      </motion.div>
+                                    )}
+                                  </AnimatePresence>
+                                </motion.div>
+                              );
+                            })}
                           </div>
-                        </div>
+                        </motion.div>
                       </div>
-                    </div>
+                    </motion.div>
                   </div>
                 </div>
-              </div>
+              </motion.div>
 
               {/* Project Section */}
               <section className="zq_project-area">
@@ -591,83 +736,168 @@ export default function AboutPage() {
               </section>
 
               {/* Team Section */}
-              <section className="zq_team-area pt-95 pb-70">
+              <motion.section 
+                className="zq_team-area pt-95 pb-70"
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                transition={{ duration: 0.8 }}
+                viewport={{ once: true }}
+              >
                 <div className="container">
                   <div className="row justify-content-center">
-                                        <div className="col-xl-6 col-lg-8">
-                                            <motion.div 
-                                                className="zq_section-area text-center"
-                                                initial={{ opacity: 0, y: 30 }}
-                                                whileInView={{ opacity: 1, y: 0 }}
-                                                transition={{ duration: 0.6 }}
-                                                viewport={{ once: true }}
-                                            >
-                        <span className="zq_section-subtitle mb-20">Our Team</span>
-                        <h2 className="zq_section-title mb-40">Meet the Experts Behind Our Success</h2>
-                                                <p className="team-section-description">
-                                                    Our diverse team of creative professionals brings together years of experience 
-                                                    in design, development, and strategy to deliver exceptional results.
-                                                </p>
-                                            </motion.div>
-                      </div>
+                    <div className="col-xl-6 col-lg-8">
+                      <motion.div 
+                        className="zq_section-area text-center"
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6, delay: 0.2 }}
+                        viewport={{ once: true }}
+                      >
+                        <motion.span 
+                          className="zq_section-subtitle mb-20"
+                          initial={{ opacity: 0, scale: 0.8 }}
+                          whileInView={{ opacity: 1, scale: 1 }}
+                          transition={{ duration: 0.5, delay: 0.3 }}
+                          viewport={{ once: true }}
+                        >
+                          Our Team
+                        </motion.span>
+                        <motion.h2 
+                          className="zq_section-title mb-40"
+                          initial={{ opacity: 0, y: 20 }}
+                          whileInView={{ opacity: 1, y: 0 }}
+                          transition={{ duration: 0.6, delay: 0.4 }}
+                          viewport={{ once: true }}
+                        >
+                          Meet the Experts Behind Our Success
+                        </motion.h2>
+                        <motion.p 
+                          className="team-section-description"
+                          initial={{ opacity: 0, y: 20 }}
+                          whileInView={{ opacity: 1, y: 0 }}
+                          transition={{ duration: 0.6, delay: 0.5 }}
+                          viewport={{ once: true }}
+                        >
+                          Our diverse team of creative professionals brings together years of experience 
+                          in design, development, and strategy to deliver exceptional results.
+                        </motion.p>
+                      </motion.div>
                     </div>
-                                    <div className="row justify-content-center">
-                                        {teamData.map((member, index) => (
-                                            <div key={member.id} className="col-lg-3 col-md-6 col-sm-6">
-                                                <motion.div 
-                                                    className="modern-team-item mb-30"
-                                                    initial={{ opacity: 0, y: 50 }}
-                                                    whileInView={{ opacity: 1, y: 0 }}
-                                                    transition={{ duration: 0.6, delay: index * 0.1 }}
-                                                    viewport={{ once: true }}
-                                                    whileHover={{ y: -10 }}
-                                                >
-                                                    <div className="team-card">
-                                                        <div className="team-image-container">
-                                                            <Image 
-                                                                src={member.image} 
-                                                                alt={member.name} 
-                                                                width={300} 
-                                                                height={400} 
-                                                                className="team-image"
-                                                            />
-                                                            <div className="team-overlay">
-                                                                <div className="team-social-links">
-                                                                    {member.social.linkedin && (
-                                                                        <a href={member.social.linkedin} target="_blank" rel="noopener noreferrer" className="social-link">
-                                                                            <Linkedin size={18} />
-                                                                        </a>
-                                                                    )}
-                                                                    {member.social.twitter && (
-                                                                        <a href={member.social.twitter} target="_blank" rel="noopener noreferrer" className="social-link">
-                                                                            <Twitter size={18} />
-                                                                        </a>
-                                                                    )}
-                                                                    {member.social.github && (
-                                                                        <a href={member.social.github} target="_blank" rel="noopener noreferrer" className="social-link">
-                                                                            <Github size={18} />
-                                                                        </a>
-                                                                    )}
-                                                                    {member.social.instagram && (
-                                                                        <a href={member.social.instagram} target="_blank" rel="noopener noreferrer" className="social-link">
-                                                                            <Instagram size={18} />
-                                                                        </a>
-                                                                    )}
                   </div>
+                  <div className="row justify-content-center">
+                    {teamData.map((member, index) => (
+                      <div key={member.id} className="col-lg-3 col-md-6 col-sm-6">
+                        <motion.div 
+                          className="modern-team-item mb-30"
+                          initial={{ opacity: 0, y: 50, scale: 0.9 }}
+                          whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                          transition={{ 
+                            duration: 0.6, 
+                            delay: index * 0.15,
+                            type: "spring",
+                            stiffness: 100
+                          }}
+                          viewport={{ once: true }}
+                          whileHover={{ 
+                            y: -15, 
+                            scale: 1.02,
+                            transition: { duration: 0.3 }
+                          }}
+                        >
+                          <div className="team-card">
+                            <motion.div 
+                              className="team-image-container"
+                              whileHover={{ scale: 1.05 }}
+                              transition={{ duration: 0.3 }}
+                            >
+                              <Image 
+                                src={member.image} 
+                                alt={member.name} 
+                                width={300} 
+                                height={400} 
+                                className="team-image"
+                              />
+                              <motion.div 
+                                className="team-overlay"
+                                initial={{ opacity: 0 }}
+                                whileHover={{ opacity: 1 }}
+                                transition={{ duration: 0.3 }}
+                              >
+                                <motion.div 
+                                  className="team-social-links"
+                                  initial={{ y: 20, opacity: 0 }}
+                                  whileHover={{ y: 0, opacity: 1 }}
+                                  transition={{ duration: 0.3, delay: 0.1 }}
+                                >
+                                  {member.social.linkedin && (
+                                    <motion.a 
+                                      href={member.social.linkedin} 
+                                      target="_blank" 
+                                      rel="noopener noreferrer" 
+                                      className="social-link"
+                                      whileHover={{ scale: 1.2, rotate: 5 }}
+                                      whileTap={{ scale: 0.9 }}
+                                    >
+                                      <Linkedin size={18} />
+                                    </motion.a>
+                                  )}
+                                  {member.social.twitter && (
+                                    <motion.a 
+                                      href={member.social.twitter} 
+                                      target="_blank" 
+                                      rel="noopener noreferrer" 
+                                      className="social-link"
+                                      whileHover={{ scale: 1.2, rotate: 5 }}
+                                      whileTap={{ scale: 0.9 }}
+                                    >
+                                      <Twitter size={18} />
+                                    </motion.a>
+                                  )}
+                                  {member.social.github && (
+                                    <motion.a 
+                                      href={member.social.github} 
+                                      target="_blank" 
+                                      rel="noopener noreferrer" 
+                                      className="social-link"
+                                      whileHover={{ scale: 1.2, rotate: 5 }}
+                                      whileTap={{ scale: 0.9 }}
+                                    >
+                                      <Github size={18} />
+                                    </motion.a>
+                                  )}
+                                  {member.social.instagram && (
+                                    <motion.a 
+                                      href={member.social.instagram} 
+                                      target="_blank" 
+                                      rel="noopener noreferrer" 
+                                      className="social-link"
+                                      whileHover={{ scale: 1.2, rotate: 5 }}
+                                      whileTap={{ scale: 0.9 }}
+                                    >
+                                      <Instagram size={18} />
+                                    </motion.a>
+                                  )}
+                                </motion.div>
+                              </motion.div>
+                            </motion.div>
+                            <motion.div 
+                              className="team-content"
+                              initial={{ opacity: 0, y: 20 }}
+                              whileInView={{ opacity: 1, y: 0 }}
+                              transition={{ duration: 0.5, delay: 0.2 }}
+                              viewport={{ once: true }}
+                            >
+                              <h3 className="team-name">{member.name}</h3>
+                              <span className="team-position">{member.position}</span>
+                              <p className="team-description">{member.description}</p>
+                            </motion.div>
                           </div>
-                        </div>
-                                                        <div className="team-content">
-                                                            <h3 className="team-name">{member.name}</h3>
-                                                            <span className="team-position">{member.position}</span>
-                                                            <p className="team-description">{member.description}</p>
-                        </div>
+                        </motion.div>
                       </div>
-                                                </motion.div>
-                    </div>
-                                        ))}
+                    ))}
                   </div>
                 </div>
-              </section>
+              </motion.section>
 
               {/* Services Section */}
               <section className="zq_service-area pt-95 pb-70">

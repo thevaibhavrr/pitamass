@@ -547,19 +547,28 @@ export default function ServicesPage() {
                 <div className="container container-custom-1">
                   <div className="zq_hero-container">
                     <div className="zq_hero-wrap">
-                      <div className="zq_hero-content">
+                      <motion.div 
+                        className="zq_hero-content"
+                        initial={{ opacity: 0, x: -50 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.8, ease: "easeOut" }}
+                      >
                         <motion.h1 
                           className="zq_hero-content-title"
                           initial={{ opacity: 0, y: 30 }}
                           animate={{ opacity: 1, y: 0 }}
-                          transition={{ duration: 0.8 }}
+                          transition={{ duration: 0.8, delay: 0.2 }}
                         >
-                          Creative <span>Services</span> That Drive Results
+                          Creative <motion.span
+                            initial={{ opacity: 0, scale: 0.8 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            transition={{ duration: 0.6, delay: 0.4 }}
+                          >Services</motion.span> That Drive Results
                         </motion.h1>
                         <motion.p
                           initial={{ opacity: 0, y: 20 }}
                           animate={{ opacity: 1, y: 0 }}
-                          transition={{ duration: 0.8, delay: 0.2 }}
+                          transition={{ duration: 0.8, delay: 0.3 }}
                         >
                           From stunning designs to powerful digital solutions, we offer comprehensive <br />
                           services that help your business stand out and succeed in today's competitive market.
@@ -570,20 +579,34 @@ export default function ServicesPage() {
                           animate={{ opacity: 1, y: 0 }}
                           transition={{ duration: 0.8, delay: 0.4 }}
                         >
-                          <Link href="#services" className="zq_theme-btn mr-20">
-                            Explore Services
-                            <ArrowRight size={16} className="ml-2" />
-                          </Link>
-                          <Link href="#contact" className="zq_theme-btn zq_theme-btn-outline">
-                            Get Quote
-                          </Link>
+                          <motion.div
+                            whileHover={{ scale: 1.05, y: -2 }}
+                            whileTap={{ scale: 0.95 }}
+                          >
+                            <Link href="#services" className="zq_theme-btn mr-20">
+                              Explore Services
+                              <ArrowRight size={16} className="ml-2" />
+                            </Link>
+                          </motion.div>
+                          <motion.div
+                            whileHover={{ scale: 1.05, y: -2 }}
+                            whileTap={{ scale: 0.95 }}
+                          >
+                            <Link href="#contact" className="zq_theme-btn zq_theme-btn-outline">
+                              Get Quote
+                            </Link>
+                          </motion.div>
                         </motion.div>
-                      </div>
-                      <div className="zq_hero-img">
+                      </motion.div>
+                      <motion.div 
+                        className="zq_hero-img"
+                        initial={{ opacity: 0, x: 50, scale: 0.8 }}
+                        animate={{ opacity: 1, x: 0, scale: 1 }}
+                        transition={{ duration: 1, delay: 0.4, ease: "easeOut" }}
+                      >
                         <motion.div
-                          initial={{ opacity: 0, scale: 0.8 }}
-                          animate={{ opacity: 1, scale: 1 }}
-                          transition={{ duration: 1, delay: 0.3 }}
+                          whileHover={{ scale: 1.05, rotate: 2 }}
+                          transition={{ duration: 0.3 }}
                         >
                           <Image
                             src="https://images.unsplash.com/photo-1551650975-87deedd944c3?w=600&h=400&fit=crop"
@@ -593,7 +616,7 @@ export default function ServicesPage() {
                             className="w-full h-auto rounded-lg"
                           />
                         </motion.div>
-                      </div>
+                      </motion.div>
                     </div>
                   </div>
                 </div>
@@ -631,23 +654,59 @@ export default function ServicesPage() {
                         <div key={service.id} className="col-lg-4 col-md-6 mb-30">
                           <motion.div 
                             className="service-card-compact"
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.5, delay: index * 0.1 }}
+                            initial={{ opacity: 0, y: 50, scale: 0.9 }}
+                            whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                            transition={{ 
+                              duration: 0.6, 
+                              delay: index * 0.15,
+                              type: "spring",
+                              stiffness: 100
+                            }}
                             viewport={{ once: true }}
                             onHoverStart={() => setHoveredService(service.id)}
                             onHoverEnd={() => setHoveredService(null)}
+                            whileHover={{ 
+                              y: -10, 
+                              scale: 1.02,
+                              transition: { duration: 0.3 }
+                            }}
                           >
-                            <div className="service-card-header">
-                              <div className="service-icon-wrapper">
+                            <motion.div 
+                              className="service-card-header"
+                              initial={{ opacity: 0, y: 20 }}
+                              whileInView={{ opacity: 1, y: 0 }}
+                              transition={{ duration: 0.5, delay: 0.2 }}
+                              viewport={{ once: true }}
+                            >
+                              <motion.div 
+                                className="service-icon-wrapper"
+                                whileHover={{ 
+                                  scale: 1.1, 
+                                  rotate: 5,
+                                  transition: { duration: 0.3 }
+                                }}
+                              >
                                 <IconComponent size={24} />
-                              </div>
-                              <div className="service-price-tag">
+                              </motion.div>
+                              <motion.div 
+                                className="service-price-tag"
+                                initial={{ opacity: 0, scale: 0.8 }}
+                                whileInView={{ opacity: 1, scale: 1 }}
+                                transition={{ duration: 0.4, delay: 0.3 }}
+                                viewport={{ once: true }}
+                              >
                                 <span className="price">{service.price}</span>
-                              </div>
-                            </div>
+                              </motion.div>
+                            </motion.div>
 
-                            <div className="service-image-compact">
+                            <motion.div 
+                              className="service-image-compact"
+                              initial={{ opacity: 0, scale: 0.9 }}
+                              whileInView={{ opacity: 1, scale: 1 }}
+                              transition={{ duration: 0.5, delay: 0.4 }}
+                              viewport={{ once: true }}
+                              whileHover={{ scale: 1.05 }}
+                            >
                               <Image
                                 src={service.image}
                                 alt={service.title}
@@ -655,34 +714,104 @@ export default function ServicesPage() {
                                 height={180}
                                 className="service-img"
                               />
-                              <div className="service-overlay-compact">
-                                <div className="service-duration-badge">
+                              <motion.div 
+                                className="service-overlay-compact"
+                                initial={{ opacity: 0 }}
+                                whileHover={{ opacity: 1 }}
+                                transition={{ duration: 0.3 }}
+                              >
+                                <motion.div 
+                                  className="service-duration-badge"
+                                  initial={{ y: 20, opacity: 0 }}
+                                  whileHover={{ y: 0, opacity: 1 }}
+                                  transition={{ duration: 0.3, delay: 0.1 }}
+                                >
                                   <Clock size={14} />
                                   <span>{service.duration}</span>
-                                </div>
-                              </div>
-                            </div>
+                                </motion.div>
+                              </motion.div>
+                            </motion.div>
 
-                            <div className="service-content-compact">
-                              <h4 className="service-title-compact">{service.title}</h4>
-                              <p className="service-desc-compact">{service.description}</p>
+                            <motion.div 
+                              className="service-content-compact"
+                              initial={{ opacity: 0, y: 20 }}
+                              whileInView={{ opacity: 1, y: 0 }}
+                              transition={{ duration: 0.5, delay: 0.5 }}
+                              viewport={{ once: true }}
+                            >
+                              <motion.h4 
+                                className="service-title-compact"
+                                initial={{ opacity: 0, y: 10 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.4, delay: 0.6 }}
+                                viewport={{ once: true }}
+                              >
+                                {service.title}
+                              </motion.h4>
+                              <motion.p 
+                                className="service-desc-compact"
+                                initial={{ opacity: 0, y: 10 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.4, delay: 0.7 }}
+                                viewport={{ once: true }}
+                              >
+                                {service.description}
+                              </motion.p>
                               
-                              <div className="service-features-compact">
+                              <motion.div 
+                                className="service-features-compact"
+                                initial={{ opacity: 0, y: 10 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.4, delay: 0.8 }}
+                                viewport={{ once: true }}
+                              >
                                 {service.features.slice(0, 3).map((feature, featureIndex) => (
-                                  <div key={featureIndex} className="feature-compact">
-                                    <CheckCircle size={14} />
+                                  <motion.div 
+                                    key={featureIndex} 
+                                    className="feature-compact"
+                                    initial={{ opacity: 0, x: -20 }}
+                                    whileInView={{ opacity: 1, x: 0 }}
+                                    transition={{ 
+                                      duration: 0.3, 
+                                      delay: 0.9 + (featureIndex * 0.1)
+                                    }}
+                                    viewport={{ once: true }}
+                                    whileHover={{ x: 5, scale: 1.05 }}
+                                  >
+                                    <motion.div
+                                      whileHover={{ scale: 1.2, rotate: 5 }}
+                                      transition={{ duration: 0.2 }}
+                                    >
+                                      <CheckCircle size={14} />
+                                    </motion.div>
                                     <span>{feature}</span>
-                                  </div>
+                                  </motion.div>
                                 ))}
-                              </div>
+                              </motion.div>
 
-                              <div className="service-action-compact">
-                                <Link href="#" className="service-link-compact">
-                                  Learn More
-                                  <ArrowRight size={14} />
-                                </Link>
-                              </div>
-                            </div>
+                              <motion.div 
+                                className="service-action-compact"
+                                initial={{ opacity: 0, y: 10 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.4, delay: 1.0 }}
+                                viewport={{ once: true }}
+                              >
+                                <motion.div
+                                  whileHover={{ scale: 1.05, x: 5 }}
+                                  whileTap={{ scale: 0.95 }}
+                                >
+                                  <Link href="#" className="service-link-compact">
+                                    Learn More
+                                    <motion.div
+                                      whileHover={{ x: 3 }}
+                                      transition={{ duration: 0.2 }}
+                                    >
+                                      <ArrowRight size={14} />
+                                    </motion.div>
+                                  </Link>
+                                </motion.div>
+                              </motion.div>
+                            </motion.div>
                           </motion.div>
                         </div>
                       );
@@ -692,17 +821,51 @@ export default function ServicesPage() {
                   {/* Bottom CTA */}
                   <motion.div 
                     className="services-cta-compact text-center mt-60"
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6 }}
+                    initial={{ opacity: 0, y: 50, scale: 0.95 }}
+                    whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                    transition={{ 
+                      duration: 0.8, 
+                      type: "spring",
+                      stiffness: 100
+                    }}
                     viewport={{ once: true }}
                   >
-                    <h3 className="cta-title-compact">Need Something Custom?</h3>
-                    <p className="cta-desc-compact">We love tackling unique challenges and creating bespoke solutions.</p>
-                    <Link href="#contact" className="zq_theme-btn">
-                      Let's Discuss Your Project
-                      <ArrowRight size={16} className="ml-2" />
-                    </Link>
+                    <motion.h3 
+                      className="cta-title-compact"
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.6, delay: 0.2 }}
+                      viewport={{ once: true }}
+                    >
+                      Need Something Custom?
+                    </motion.h3>
+                    <motion.p 
+                      className="cta-desc-compact"
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.6, delay: 0.3 }}
+                      viewport={{ once: true }}
+                    >
+                      We love tackling unique challenges and creating bespoke solutions.
+                    </motion.p>
+                    <motion.div
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.6, delay: 0.4 }}
+                      viewport={{ once: true }}
+                      whileHover={{ scale: 1.05, y: -2 }}
+                      whileTap={{ scale: 0.95 }}
+                    >
+                      <Link href="#contact" className="zq_theme-btn">
+                        Let's Discuss Your Project
+                        <motion.div
+                          whileHover={{ x: 3 }}
+                          transition={{ duration: 0.2 }}
+                        >
+                          <ArrowRight size={16} className="ml-2" />
+                        </motion.div>
+                      </Link>
+                    </motion.div>
                   </motion.div>
                 </div>
               </section>

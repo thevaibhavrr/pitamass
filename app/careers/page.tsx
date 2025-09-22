@@ -641,19 +641,28 @@ export default function CareersPage() {
                 <div className="container container-custom-1">
                   <div className="zq_hero-container">
                     <div className="zq_hero-wrap">
-                      <div className="zq_hero-content">
+                      <motion.div 
+                        className="zq_hero-content"
+                        initial={{ opacity: 0, x: -50 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.8, ease: "easeOut" }}
+                      >
                         <motion.h1 
                           className="zq_hero-content-title"
                           initial={{ opacity: 0, y: 30 }}
                           animate={{ opacity: 1, y: 0 }}
-                          transition={{ duration: 0.8 }}
+                          transition={{ duration: 0.8, delay: 0.2 }}
                         >
-We're Looking For???
+                          Are You The <motion.span
+                            initial={{ opacity: 0, scale: 0.8 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            transition={{ duration: 0.6, delay: 0.4 }}
+                          >Smartest One</motion.span> We're Looking For???
                         </motion.h1>
                         <motion.p
                           initial={{ opacity: 0, y: 20 }}
                           animate={{ opacity: 1, y: 0 }}
-                          transition={{ duration: 0.8, delay: 0.2 }}
+                          transition={{ duration: 0.8, delay: 0.3 }}
                         >
                           Join our dynamic team of creative professionals and help us build amazing digital experiences. <br />
                           We're always looking for talented individuals who share our passion for innovation.
@@ -664,20 +673,34 @@ We're Looking For???
                           animate={{ opacity: 1, y: 0 }}
                           transition={{ duration: 0.8, delay: 0.4 }}
                         >
-                          <a href="#openings" className="zq_theme-btn mr-20">
-                            View Openings
-                            <ArrowRight size={16} className="ml-2" />
-                          </a>
-                          <a href="#culture" className="zq_theme-btn zq_theme-btn-outline">
-                            Our Culture
-                          </a>
+                          <motion.div
+                            whileHover={{ scale: 1.05, y: -2 }}
+                            whileTap={{ scale: 0.95 }}
+                          >
+                            <a href="#openings" className="zq_theme-btn mr-20">
+                              View Openings
+                              <ArrowRight size={16} className="ml-2" />
+                            </a>
+                          </motion.div>
+                          <motion.div
+                            whileHover={{ scale: 1.05, y: -2 }}
+                            whileTap={{ scale: 0.95 }}
+                          >
+                            <a href="#culture" className="zq_theme-btn zq_theme-btn-outline">
+                              Our Culture
+                            </a>
+                          </motion.div>
                         </motion.div>
-                      </div>
-                      <div className="zq_hero-img">
+                      </motion.div>
+                      <motion.div 
+                        className="zq_hero-img"
+                        initial={{ opacity: 0, x: 50, scale: 0.8 }}
+                        animate={{ opacity: 1, x: 0, scale: 1 }}
+                        transition={{ duration: 1, delay: 0.4, ease: "easeOut" }}
+                      >
                         <motion.div
-                          initial={{ opacity: 0, scale: 0.8 }}
-                          animate={{ opacity: 1, scale: 1 }}
-                          transition={{ duration: 1, delay: 0.3 }}
+                          whileHover={{ scale: 1.05, rotate: 2 }}
+                          transition={{ duration: 0.3 }}
                         >
                           <Image
                             src="https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&h=400&fit=crop"
@@ -687,7 +710,7 @@ We're Looking For???
                             className="w-full h-auto rounded-lg"
                           />
                         </motion.div>
-                      </div>
+                      </motion.div>
                     </div>
                   </div>
                 </div>
@@ -740,38 +763,114 @@ We're Looking For???
                       <div key={job.id} className="col-lg-6 mb-30">
                         <motion.div 
                           className={`job-card ${selectedJob === job.id ? 'selected' : ''}`}
-                          initial={{ opacity: 0, y: 30 }}
-                          whileInView={{ opacity: 1, y: 0 }}
-                          transition={{ duration: 0.5, delay: index * 0.1 }}
+                          initial={{ opacity: 0, y: 50, scale: 0.9 }}
+                          whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                          transition={{ 
+                            duration: 0.6, 
+                            delay: index * 0.15,
+                            type: "spring",
+                            stiffness: 100
+                          }}
                           viewport={{ once: true }}
                           onClick={() => setSelectedJob(selectedJob === job.id ? null : job.id)}
+                          whileHover={{ 
+                            y: -8, 
+                            scale: 1.02,
+                            transition: { duration: 0.3 }
+                          }}
+                          whileTap={{ scale: 0.98 }}
                         >
-                          <div className="job-header">
+                          <motion.div 
+                            className="job-header"
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.5, delay: 0.2 }}
+                            viewport={{ once: true }}
+                          >
                             <div>
-                              <h3 className="job-title">{job.title}</h3>
-                              <div className="job-meta">
-                                <div className="job-meta-item">
+                              <motion.h3 
+                                className="job-title"
+                                initial={{ opacity: 0, y: 10 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.4, delay: 0.3 }}
+                                viewport={{ once: true }}
+                              >
+                                {job.title}
+                              </motion.h3>
+                              <motion.div 
+                                className="job-meta"
+                                initial={{ opacity: 0, y: 10 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.4, delay: 0.4 }}
+                                viewport={{ once: true }}
+                              >
+                                <motion.div 
+                                  className="job-meta-item"
+                                  whileHover={{ scale: 1.05, x: 5 }}
+                                >
                                   <MapPin size={14} />
                                   <span>{job.location}</span>
-                                </div>
-                                <div className="job-meta-item">
+                                </motion.div>
+                                <motion.div 
+                                  className="job-meta-item"
+                                  whileHover={{ scale: 1.05, x: 5 }}
+                                >
                                   <Clock size={14} />
                                   <span>{job.experience}</span>
-                                </div>
-                                <div className="job-meta-item">
+                                </motion.div>
+                                <motion.div 
+                                  className="job-meta-item"
+                                  whileHover={{ scale: 1.05, x: 5 }}
+                                >
                                   <Briefcase size={14} />
                                   <span>{job.type}</span>
-                                </div>
-                              </div>
+                                </motion.div>
+                              </motion.div>
                             </div>
-                            <div className="job-type-badge">{job.type}</div>
-                          </div>
-                          <p className="job-description">{job.description}</p>
-                          <div className="job-skills">
+                            <motion.div 
+                              className="job-type-badge"
+                              initial={{ opacity: 0, scale: 0.8 }}
+                              whileInView={{ opacity: 1, scale: 1 }}
+                              transition={{ duration: 0.4, delay: 0.5 }}
+                              viewport={{ once: true }}
+                              whileHover={{ scale: 1.1, rotate: 5 }}
+                            >
+                              {job.type}
+                            </motion.div>
+                          </motion.div>
+                          <motion.p 
+                            className="job-description"
+                            initial={{ opacity: 0, y: 10 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.4, delay: 0.6 }}
+                            viewport={{ once: true }}
+                          >
+                            {job.description}
+                          </motion.p>
+                          <motion.div 
+                            className="job-skills"
+                            initial={{ opacity: 0, y: 10 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.4, delay: 0.7 }}
+                            viewport={{ once: true }}
+                          >
                             {job.skills.map((skill, skillIndex) => (
-                              <span key={skillIndex} className="skill-tag">{skill}</span>
+                              <motion.span 
+                                key={skillIndex} 
+                                className="skill-tag"
+                                initial={{ opacity: 0, scale: 0.8 }}
+                                whileInView={{ opacity: 1, scale: 1 }}
+                                transition={{ 
+                                  duration: 0.3, 
+                                  delay: 0.8 + (skillIndex * 0.1)
+                                }}
+                                viewport={{ once: true }}
+                                whileHover={{ scale: 1.1, y: -2 }}
+                              >
+                                {skill}
+                              </motion.span>
                             ))}
-                          </div>
+                          </motion.div>
                           
                         </motion.div>
                       </div>
@@ -886,16 +985,49 @@ We're Looking For???
                         <div key={index} className="col-lg-4 col-md-6 mb-30">
                           <motion.div 
                             className="benefit-card"
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.5, delay: index * 0.1 }}
+                            initial={{ opacity: 0, y: 50, scale: 0.9 }}
+                            whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                            transition={{ 
+                              duration: 0.6, 
+                              delay: index * 0.15,
+                              type: "spring",
+                              stiffness: 100
+                            }}
                             viewport={{ once: true }}
+                            whileHover={{ 
+                              y: -10, 
+                              scale: 1.02,
+                              transition: { duration: 0.3 }
+                            }}
                           >
-                            <div className="benefit-icon">
+                            <motion.div 
+                              className="benefit-icon"
+                              whileHover={{ 
+                                scale: 1.1, 
+                                rotate: 5,
+                                transition: { duration: 0.3 }
+                              }}
+                            >
                               <IconComponent size={24} />
-                            </div>
-                            <h4 className="benefit-title">{benefit.title}</h4>
-                            <p className="benefit-description">{benefit.description}</p>
+                            </motion.div>
+                            <motion.h4 
+                              className="benefit-title"
+                              initial={{ opacity: 0, y: 10 }}
+                              whileInView={{ opacity: 1, y: 0 }}
+                              transition={{ duration: 0.4, delay: 0.2 }}
+                              viewport={{ once: true }}
+                            >
+                              {benefit.title}
+                            </motion.h4>
+                            <motion.p 
+                              className="benefit-description"
+                              initial={{ opacity: 0, y: 10 }}
+                              whileInView={{ opacity: 1, y: 0 }}
+                              transition={{ duration: 0.4, delay: 0.3 }}
+                              viewport={{ once: true }}
+                            >
+                              {benefit.description}
+                            </motion.p>
                           </motion.div>
                         </div>
                       );
