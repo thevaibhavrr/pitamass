@@ -232,6 +232,49 @@ export default function ServicesPage() {
             padding: 0.5rem 1.25rem !important; /* sm:py-2 sm:px-5 */
           }
         }
+        
+        /* Adjust hero section title font size */
+        .zq_hero-content-title {
+          font-size: 3.5rem !important; /* Increased more */
+          line-height: 1.2 !important;
+        }
+        
+        /* Responsive hero title font size */
+        @media (min-width: 640px) {
+          .zq_hero-content-title {
+            font-size: 4rem !important; /* Increased more */
+          }
+        }
+        
+        @media (min-width: 768px) {
+          .zq_hero-content-title {
+            font-size: 4.5rem !important; /* Increased more */
+          }
+        }
+        
+        @media (min-width: 1024px) {
+          .zq_hero-content-title {
+            font-size: 5rem !important; /* Increased more */
+          }
+        }
+        
+        /* Reduce hero section height on desktop */
+        @media (min-width: 1024px) {
+          .zq_hero-area {
+            min-height: 60vh !important; /* Reduced from default */
+            padding: 60px 0 !important; /* Reduced padding */
+          }
+          
+          .zq_hero-container {
+            min-height: 60vh !important; /* Reduced container height */
+          }
+          
+          .zq_hero-wrap {
+            min-height: 60vh !important; /* Reduced wrap height */
+            display: flex !important;
+            align-items: center !important;
+          }
+        }
 
         /* Service card hover effects */
         .service-card {
@@ -563,40 +606,8 @@ export default function ServicesPage() {
                             initial={{ opacity: 0, scale: 0.8 }}
                             animate={{ opacity: 1, scale: 1 }}
                             transition={{ duration: 0.6, delay: 0.4 }}
-                          >Services</motion.span> That Drive Results
+                          >Services</motion.span> Drive Results
                         </motion.h1>
-                        <motion.p
-                          initial={{ opacity: 0, y: 20 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          transition={{ duration: 0.8, delay: 0.3 }}
-                        >
-                          From stunning designs to powerful digital solutions, we offer comprehensive <br />
-                          services that help your business stand out and succeed in today's competitive market.
-                        </motion.p>
-                        <motion.div 
-                          className="zq_hero-buttons mt-40"
-                          initial={{ opacity: 0, y: 20 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          transition={{ duration: 0.8, delay: 0.4 }}
-                        >
-                          <motion.div
-                            whileHover={{ scale: 1.05, y: -2 }}
-                            whileTap={{ scale: 0.95 }}
-                          >
-                            <Link href="#services" className="zq_theme-btn mr-20">
-                              Explore Services
-                              <ArrowRight size={16} className="ml-2" />
-                            </Link>
-                          </motion.div>
-                          <motion.div
-                            whileHover={{ scale: 1.05, y: -2 }}
-                            whileTap={{ scale: 0.95 }}
-                          >
-                            <Link href="#contact" className="zq_theme-btn zq_theme-btn-outline">
-                              Get Quote
-                            </Link>
-                          </motion.div>
-                        </motion.div>
                       </motion.div>
                       <motion.div 
                         className="zq_hero-img"

@@ -219,6 +219,49 @@ export default function AboutPage() {
             padding: 0.5rem 1.25rem !important; /* sm:py-2 sm:px-5 */
           }
         }
+        
+        /* Adjust hero section title font size */
+        .zq_hero-content-title {
+          font-size: 3.5rem !important; /* Increased more */
+          line-height: 1.2 !important;
+        }
+        
+        /* Responsive hero title font size */
+        @media (min-width: 640px) {
+          .zq_hero-content-title {
+            font-size: 4rem !important; /* Increased more */
+          }
+        }
+        
+        @media (min-width: 768px) {
+          .zq_hero-content-title {
+            font-size: 4.5rem !important; /* Increased more */
+          }
+        }
+        
+        @media (min-width: 1024px) {
+          .zq_hero-content-title {
+            font-size: 5rem !important; /* Increased more */
+          }
+        }
+        
+        /* Reduce hero section height on desktop */
+        @media (min-width: 1024px) {
+          .zq_hero-area {
+            min-height: 60vh !important; /* Reduced from default */
+            padding: 60px 0 !important; /* Reduced padding */
+          }
+          
+          .zq_hero-container {
+            min-height: 60vh !important; /* Reduced container height */
+          }
+          
+          .zq_hero-wrap {
+            min-height: 60vh !important; /* Reduced wrap height */
+            display: flex !important;
+            align-items: center !important;
+          }
+        }
       `}</style>
 
       <div className="has-smooth" id="has_smooth">
@@ -248,14 +291,6 @@ export default function AboutPage() {
                             transition={{ duration: 0.6, delay: 0.4 }}
                           >Solution</motion.span> Zone
                         </motion.h1>
-                        <motion.p
-                          initial={{ opacity: 0, y: 20 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          transition={{ duration: 0.8, delay: 0.3 }}
-                        >
-                          Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi Aliquam <br />
-                          in hendrerit urna. Pellentesque sit amet sapien fringilla.
-                        </motion.p>
                       </motion.div>
                       <motion.div 
                         className="zq_hero-img"
