@@ -338,294 +338,23 @@ export default function CareersPage() {
           }
         }
 
-        /* New Careers Hero Styles */
-        .careers-hero-new {
+        /* Careers Page Styles */
+        .careers-hero {
           background: linear-gradient(135deg, var(--clr-common-black) 0%, var(--clr-common-lightBlack) 100%);
           position: relative;
           overflow: hidden;
-          min-height: 100vh;
-          display: flex;
-          align-items: center;
         }
 
-        .careers-hero-new::before {
+        .careers-hero::before {
           content: '';
           position: absolute;
           top: 0;
           left: 0;
           right: 0;
           bottom: 0;
-          background: 
-            radial-gradient(circle at 20% 80%, rgba(138, 241, 53, 0.15) 0%, transparent 50%),
-            radial-gradient(circle at 80% 20%, rgba(161, 238, 255, 0.15) 0%, transparent 50%),
-            radial-gradient(circle at 40% 40%, rgba(255, 189, 140, 0.1) 0%, transparent 50%);
+          background: radial-gradient(circle at 30% 70%, rgba(138, 241, 53, 0.1) 0%, transparent 50%),
+                      radial-gradient(circle at 70% 30%, rgba(161, 238, 255, 0.1) 0%, transparent 50%);
           pointer-events: none;
-        }
-
-        .hero-content-new {
-          position: relative;
-          z-index: 2;
-          padding: 60px 0;
-        }
-
-        .hero-badge {
-          display: inline-block;
-          background: linear-gradient(135deg, var(--clr-theme-primary), var(--clr-color-skyBlue));
-          color: var(--clr-common-black);
-          padding: 12px 24px;
-          border-radius: 50px;
-          font-size: 14px;
-          font-weight: 600;
-          margin-bottom: 30px;
-          text-transform: uppercase;
-          letter-spacing: 1px;
-          box-shadow: 0 8px 25px rgba(138, 241, 53, 0.3);
-        }
-
-        .hero-title-new {
-          font-size: 4rem;
-          font-weight: 800;
-          color: var(--clr-body-heading);
-          margin-bottom: 25px;
-          line-height: 1.2;
-        }
-
-        .gradient-text {
-          background: linear-gradient(135deg, var(--clr-theme-primary), var(--clr-color-skyBlue));
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-          background-clip: text;
-        }
-
-        .hero-description-new {
-          font-size: 1.3rem;
-          color: var(--clr-body-text);
-          opacity: 0.9;
-          line-height: 1.6;
-          margin-bottom: 40px;
-          max-width: 500px;
-        }
-
-        .hero-stats {
-          display: flex;
-          gap: 40px;
-          margin-bottom: 50px;
-          flex-wrap: wrap;
-        }
-
-        .stat-item {
-          text-align: center;
-        }
-
-        .stat-number {
-          font-size: 2.5rem;
-          font-weight: 800;
-          color: var(--clr-theme-primary);
-          line-height: 1;
-          margin-bottom: 8px;
-        }
-
-        .stat-label {
-          color: var(--clr-body-text);
-          opacity: 0.8;
-          font-size: 14px;
-          font-weight: 500;
-        }
-
-        .hero-actions {
-          display: flex;
-          gap: 20px;
-          flex-wrap: wrap;
-        }
-
-        .btn-primary-new {
-          display: inline-flex;
-          align-items: center;
-          gap: 10px;
-          background: linear-gradient(135deg, var(--clr-theme-primary), var(--clr-color-skyBlue));
-          color: var(--clr-common-black);
-          padding: 16px 32px;
-          border-radius: 16px;
-          text-decoration: none;
-          font-weight: 700;
-          font-size: 16px;
-          transition: all 0.3s ease;
-          box-shadow: 0 8px 25px rgba(138, 241, 53, 0.3);
-        }
-
-        .btn-primary-new:hover {
-          transform: translateY(-3px);
-          box-shadow: 0 12px 35px rgba(138, 241, 53, 0.4);
-          color: var(--clr-common-black);
-        }
-
-        .btn-secondary-new {
-          display: inline-flex;
-          align-items: center;
-          gap: 10px;
-          background: transparent;
-          color: var(--clr-body-text);
-          padding: 16px 32px;
-          border: 2px solid rgba(255, 255, 255, 0.2);
-          border-radius: 16px;
-          text-decoration: none;
-          font-weight: 600;
-          font-size: 16px;
-          transition: all 0.3s ease;
-        }
-
-        .btn-secondary-new:hover {
-          background: rgba(255, 255, 255, 0.1);
-          border-color: var(--clr-theme-primary);
-          color: var(--clr-body-heading);
-          transform: translateY(-2px);
-        }
-
-        .hero-visual-new {
-          position: relative;
-          z-index: 2;
-          padding: 60px 0;
-        }
-
-        .hero-image-container {
-          position: relative;
-          max-width: 500px;
-          margin: 0 auto;
-        }
-
-        .hero-image-main {
-          position: relative;
-          border-radius: 20px;
-          overflow: hidden;
-          box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-        }
-
-        .hero-image {
-          width: 100%;
-          height: 400px;
-          object-fit: cover;
-          transition: transform 0.4s ease;
-        }
-
-        .floating-card {
-          position: absolute;
-          background: rgba(255, 255, 255, 0.95);
-          backdrop-filter: blur(20px);
-          border-radius: 16px;
-          padding: 20px;
-          display: flex;
-          align-items: center;
-          gap: 15px;
-          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-          border: 1px solid rgba(255, 255, 255, 0.3);
-          animation: float 3s ease-in-out infinite;
-        }
-
-        .floating-card:nth-child(2) {
-          animation-delay: 0s;
-        }
-
-        .floating-card:nth-child(3) {
-          animation-delay: 1s;
-        }
-
-        .floating-card:nth-child(4) {
-          animation-delay: 2s;
-        }
-
-        @keyframes float {
-          0%, 100% { transform: translateY(0px); }
-          50% { transform: translateY(-10px); }
-        }
-
-        .card-1 {
-          top: 20px;
-          right: -20px;
-          max-width: 200px;
-        }
-
-        .card-2 {
-          bottom: 80px;
-          left: -30px;
-          max-width: 180px;
-        }
-
-        .card-3 {
-          top: 50%;
-          right: -40px;
-          max-width: 190px;
-        }
-
-        .card-icon {
-          width: 40px;
-          height: 40px;
-          background: linear-gradient(135deg, var(--clr-theme-primary), var(--clr-color-skyBlue));
-          border-radius: 12px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          color: var(--clr-common-black);
-          flex-shrink: 0;
-        }
-
-        .card-content {
-          flex: 1;
-        }
-
-        .card-title {
-          font-size: 14px;
-          font-weight: 700;
-          color: var(--clr-common-black);
-          margin-bottom: 4px;
-        }
-
-        .card-desc {
-          font-size: 12px;
-          color: var(--clr-common-gray);
-          opacity: 0.8;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-          .hero-title-new {
-            font-size: 2.5rem;
-          }
-
-          .hero-description-new {
-            font-size: 1.1rem;
-          }
-
-          .hero-stats {
-            gap: 20px;
-          }
-
-          .stat-number {
-            font-size: 2rem;
-          }
-
-          .hero-actions {
-            flex-direction: column;
-            align-items: flex-start;
-          }
-
-          .floating-card {
-            position: relative;
-            margin: 10px 0;
-            max-width: 100%;
-          }
-
-          .card-1, .card-2, .card-3 {
-            position: relative;
-            top: auto;
-            right: auto;
-            left: auto;
-            bottom: auto;
-            margin: 10px 0;
-          }
-
-          .hero-image-container {
-            margin-top: 40px;
-          }
         }
 
         .job-card {
@@ -907,150 +636,58 @@ export default function CareersPage() {
         <div id="smooth-wrapper">
           <div id="smooth-content">
             <div className="body-wrapper">
-              {/* Hero Section - Redesigned */}
-              <section className="careers-hero-new">
-                <div className="container">
-                  <div className="row align-items-center min-vh-100">
-                    <div className="col-lg-6">
-                      <motion.div 
-                        className="hero-content-new"
-                        initial={{ opacity: 0, x: -50 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.8 }}
-                      >
-                        <motion.div 
-                          className="hero-badge"
-                          initial={{ opacity: 0, scale: 0.8 }}
-                          animate={{ opacity: 1, scale: 1 }}
-                          transition={{ duration: 0.6, delay: 0.2 }}
-                        >
-                          <span>🚀 Join Our Team</span>
-                        </motion.div>
-                        
+              {/* Hero Section */}
+              <section className="careers-hero zq_hero-area">
+                <div className="container container-custom-1">
+                  <div className="zq_hero-container">
+                    <div className="zq_hero-wrap">
+                      <div className="zq_hero-content">
                         <motion.h1 
-                          className="hero-title-new"
+                          className="zq_hero-content-title"
                           initial={{ opacity: 0, y: 30 }}
                           animate={{ opacity: 1, y: 0 }}
-                          transition={{ duration: 0.8, delay: 0.3 }}
+                          transition={{ duration: 0.8 }}
                         >
-                          We're Looking For <span className="gradient-text">Exceptional Talent</span>
+We're Looking For???
                         </motion.h1>
-                        
-                        <motion.p 
-                          className="hero-description-new"
+                        <motion.p
+                          initial={{ opacity: 0, y: 20 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ duration: 0.8, delay: 0.2 }}
+                        >
+                          Join our dynamic team of creative professionals and help us build amazing digital experiences. <br />
+                          We're always looking for talented individuals who share our passion for innovation.
+                        </motion.p>
+                        <motion.div 
+                          className="zq_hero-buttons mt-40"
                           initial={{ opacity: 0, y: 20 }}
                           animate={{ opacity: 1, y: 0 }}
                           transition={{ duration: 0.8, delay: 0.4 }}
                         >
-                          Be part of a creative team that's building the future of digital experiences. 
-                          We're seeking passionate individuals who want to make a real impact.
-                        </motion.p>
-                        
-                        <motion.div 
-                          className="hero-stats"
-                          initial={{ opacity: 0, y: 20 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          transition={{ duration: 0.8, delay: 0.5 }}
-                        >
-                          <div className="stat-item">
-                            <div className="stat-number">50+</div>
-                            <div className="stat-label">Team Members</div>
-                          </div>
-                          <div className="stat-item">
-                            <div className="stat-number">15+</div>
-                            <div className="stat-label">Countries</div>
-                          </div>
-                          <div className="stat-item">
-                            <div className="stat-number">200+</div>
-                            <div className="stat-label">Projects</div>
-                          </div>
-                        </motion.div>
-                        
-                        <motion.div 
-                          className="hero-actions"
-                          initial={{ opacity: 0, y: 20 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          transition={{ duration: 0.8, delay: 0.6 }}
-                        >
-                          <a href="#openings" className="btn-primary-new">
-                            <span>Explore Opportunities</span>
-                            <ArrowRight size={18} />
+                          <a href="#openings" className="zq_theme-btn mr-20">
+                            View Openings
+                            <ArrowRight size={16} className="ml-2" />
                           </a>
-                          <a href="#culture" className="btn-secondary-new">
-                            <span>Learn About Us</span>
+                          <a href="#culture" className="zq_theme-btn zq_theme-btn-outline">
+                            Our Culture
                           </a>
                         </motion.div>
-                      </motion.div>
-                    </div>
-                    
-                    <div className="col-lg-6">
-                      <motion.div 
-                        className="hero-visual-new"
-                        initial={{ opacity: 0, x: 50 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.8, delay: 0.4 }}
-                      >
-                        <div className="hero-image-container">
-                          <motion.div
-                            className="hero-image-main"
-                            whileHover={{ scale: 1.05 }}
-                            transition={{ duration: 0.3 }}
-                          >
-                            <Image
-                              src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=600&h=400&fit=crop"
-                              alt="Team Collaboration"
-                              width={500}
-                              height={400}
-                              className="hero-image"
-                            />
-                          </motion.div>
-                          
-                          <motion.div 
-                            className="floating-card card-1"
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.6, delay: 0.8 }}
-                          >
-                            <div className="card-icon">
-                              <Users size={20} />
-                            </div>
-                            <div className="card-content">
-                              <div className="card-title">Great Team</div>
-                              <div className="card-desc">Work with amazing people</div>
-                            </div>
-                          </motion.div>
-                          
-                          <motion.div 
-                            className="floating-card card-2"
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.6, delay: 1.0 }}
-                          >
-                            <div className="card-icon">
-                              <Rocket size={20} />
-                            </div>
-                            <div className="card-content">
-                              <div className="card-title">Fast Growth</div>
-                              <div className="card-desc">Accelerate your career</div>
-                            </div>
-                          </motion.div>
-                          
-                          <motion.div 
-                            className="floating-card card-3"
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.6, delay: 1.2 }}
-                          >
-                            <div className="card-icon">
-                              <Heart size={20} />
-                            </div>
-                            <div className="card-content">
-                              <div className="card-title">Great Benefits</div>
-                              <div className="card-desc">Health, wellness & more</div>
-                            </div>
-                          </motion.div>
-                        </div>
-                      </motion.div>
+                      </div>
+                      <div className="zq_hero-img">
+                        <motion.div
+                          initial={{ opacity: 0, scale: 0.8 }}
+                          animate={{ opacity: 1, scale: 1 }}
+                          transition={{ duration: 1, delay: 0.3 }}
+                        >
+                          <Image
+                            src="https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&h=400&fit=crop"
+                            alt="Careers Hero"
+                            width={600}
+                            height={400}
+                            className="w-full h-auto rounded-lg"
+                          />
+                        </motion.div>
+                      </div>
                     </div>
                   </div>
                 </div>
