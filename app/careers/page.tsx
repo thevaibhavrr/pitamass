@@ -653,44 +653,13 @@ export default function CareersPage() {
                           animate={{ opacity: 1, y: 0 }}
                           transition={{ duration: 0.8, delay: 0.2 }}
                         >
-                          Are You The <motion.span
+<motion.span
                             initial={{ opacity: 0, scale: 0.8 }}
                             animate={{ opacity: 1, scale: 1 }}
                             transition={{ duration: 0.6, delay: 0.4 }}
-                          >Smartest One</motion.span> We're Looking For???
+                          ></motion.span> We're Looking For???
                         </motion.h1>
-                        <motion.p
-                          initial={{ opacity: 0, y: 20 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          transition={{ duration: 0.8, delay: 0.3 }}
-                        >
-                          Join our dynamic team of creative professionals and help us build amazing digital experiences. <br />
-                          We're always looking for talented individuals who share our passion for innovation.
-                        </motion.p>
-                        <motion.div 
-                          className="zq_hero-buttons mt-40"
-                          initial={{ opacity: 0, y: 20 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          transition={{ duration: 0.8, delay: 0.4 }}
-                        >
-                          <motion.div
-                            whileHover={{ scale: 1.05, y: -2 }}
-                            whileTap={{ scale: 0.95 }}
-                          >
-                            <a href="#openings" className="zq_theme-btn mr-20">
-                              View Openings
-                              <ArrowRight size={16} className="ml-2" />
-                            </a>
-                          </motion.div>
-                          <motion.div
-                            whileHover={{ scale: 1.05, y: -2 }}
-                            whileTap={{ scale: 0.95 }}
-                          >
-                            <a href="#culture" className="zq_theme-btn zq_theme-btn-outline">
-                              Our Culture
-                            </a>
-                          </motion.div>
-                        </motion.div>
+                        
                       </motion.div>
                       <motion.div 
                         className="zq_hero-img"
