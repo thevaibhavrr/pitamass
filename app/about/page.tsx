@@ -24,27 +24,27 @@ export default function AboutPage() {
     const accordionData = [
         {
             id: 1,
-            title: "Instant Entry",
+            title: "Social Media Marketing",
             icon: Zap,
-            content: "Get started immediately with our streamlined onboarding process. No lengthy setup procedures or complex configurations required. Our platform is designed for instant access and immediate productivity."
+            content: "Build a strong presence across Facebook, Instagram, Twitter, LinkedIn, and other platforms. Our strategic approach helps you engage with your audience and drive meaningful conversations that convert into business results."
         },
         {
             id: 2,
-            title: "Multi-Platform",
+            title: "SEO Optimization",
             icon: Smartphone,
-            content: "Access your workspace seamlessly across all devices - desktop, tablet, and mobile. Our responsive design ensures consistent performance and user experience regardless of your preferred device or operating system."
+            content: "Improve your search engine rankings and drive organic traffic to your website. Our comprehensive SEO strategies include keyword research, content optimization, and technical improvements that boost your online visibility."
         },
         {
             id: 3,
-            title: "Handy Integration",
+            title: "Content Marketing",
             icon: Plug,
-            content: "Connect with your favorite tools and services effortlessly. Our extensive integration library supports over 100+ popular applications, making workflow automation and data synchronization a breeze."
+            content: "Create compelling content that resonates with your target audience. From blog posts to video content, we develop engaging materials that establish your brand as an industry authority and drive customer engagement."
         },
         {
             id: 4,
-            title: "Latest Technology",
+            title: "Analytics & Reporting",
             icon: Cpu,
-            content: "Built with cutting-edge technology and modern frameworks. We continuously update our platform with the latest innovations in AI, cloud computing, and security to provide you with the most advanced features available."
+            content: "Track and measure your digital marketing performance with detailed analytics and comprehensive reports. We provide actionable insights that help you optimize campaigns and maximize your return on investment."
         }
     ];
 
@@ -285,12 +285,32 @@ export default function AboutPage() {
                           animate={{ opacity: 1, y: 0 }}
                           transition={{ duration: 0.8, delay: 0.2 }}
                         >
-                          Digital <motion.span
+                          LET YOUR BRAND <motion.span
                             initial={{ opacity: 0, scale: 0.8 }}
                             animate={{ opacity: 1, scale: 1 }}
                             transition={{ duration: 0.6, delay: 0.4 }}
-                          >Solution</motion.span> Zone
+                          >SPEAK LOUDER</motion.span> – SILENTLY
                         </motion.h1>
+                        <motion.p 
+                          className="hero-description"
+                          initial={{ opacity: 0, y: 20 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ duration: 0.8, delay: 0.5 }}
+                          style={{ 
+                            fontSize: '1.2rem', 
+                            color: 'var(--clr-body-text)', 
+                            opacity: 0.9, 
+                            lineHeight: 1.6, 
+                            marginTop: '20px',
+                            maxWidth: '600px'
+                          }}
+                        >
+                          Make your brand impossible to ignore with powerful digital marketing strategies.
+                          In today's world, a strong online presence on platforms like Facebook, Twitter, LinkedIn, and
+                          Google+ is essential for growth.
+                          Recognized as one of the leading digital marketing agencies in India, we specialize in innovative
+                          solutions that drive measurable results and business success.
+                        </motion.p>
                       </motion.div>
                       <motion.div 
                         className="zq_hero-img"
@@ -303,10 +323,10 @@ export default function AboutPage() {
                           transition={{ duration: 0.3 }}
                         >
                           <Image
-                            src="https://themephi.net/template/zeniqsh/zeniqs/assets/images/hero/h1_1.png"
+                            src="/aboutimage.png"
                             alt="Hero Image"
-                            width={600}
-                            height={400}
+                            width={400}
+                            height={300}
                             className="w-full h-auto"
                           />
                         </motion.div>
@@ -474,7 +494,7 @@ export default function AboutPage() {
                             transition={{ duration: 0.6, delay: 0.8 }}
                             viewport={{ once: true }}
                           >
-                            Empowering Excellence: Our IT Solutions Story
+                            Digital Marketing Excellence: Driving Your Business Forward
                           </motion.h2>
                         </motion.div>
                         <motion.div 

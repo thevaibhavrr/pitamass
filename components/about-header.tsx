@@ -48,7 +48,7 @@ export function AboutHeader() {
                       <Link href="/services">Services</Link>
                     </li>
                     <li>
-                      <Link href="/pitmans-lab">Pitmans Lab</Link>
+                      <Link href="/lab">Pitamaas Lab</Link>
                     </li>
                     <li>
                       <Link href="/about">About</Link>

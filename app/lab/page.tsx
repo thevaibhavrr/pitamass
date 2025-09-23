@@ -297,7 +297,7 @@ export default function LabPage() {
   }
 
   const filteredContent = () => {
-    let content = []
+    let content: any[] = []
     if (activeTab === 'music') content = musicData
     else if (activeTab === 'videos') content = videoData
     else if (activeTab === 'images') content = imageData
@@ -1906,8 +1906,8 @@ export default function LabPage() {
                           animate={{ opacity: 1, scale: 1 }}
                           transition={{ duration: 0.6, delay: 0.2 }}
                         >
-                          <Sparkles size={16} className="me-2" />
-                          <span>Creative Laboratory</span>
+                          <Camera size={16} className="me-2" />
+                          <span>Product Photography</span>
                         </motion.div>
                         
                         <motion.h1 
@@ -1916,7 +1916,7 @@ export default function LabPage() {
                           animate={{ opacity: 1, y: 0 }}
                           transition={{ duration: 0.8, delay: 0.3 }}
                         >
-                          Pitamaas <span className="gradient-text-lab">Lab</span>
+                          WE MAKE YOUR <span className="gradient-text-lab">PRODUCT SHINE</span>
                         </motion.h1>
                         
                         <motion.p 
@@ -1925,8 +1925,11 @@ export default function LabPage() {
                           animate={{ opacity: 1, y: 0 }}
                           transition={{ duration: 0.8, delay: 0.4 }}
                         >
-                          Explore our creative universe of music, mini movies, and digital art. 
-                          Experience the future of creative content through interactive media and innovative storytelling.
+                          High-quality photography is key to showcasing your product in the online marketplace.
+                          Recognized as one of the leading product photography agencies in India, we capture stunning
+                          images that enhance brand appeal and drive sales conversions.
+                          Our expertise in lighting, composition, and digital enhancement ensures every shot reflects
+                          exceptional quality and leaves a lasting impression.
                         </motion.p>
                       </motion.div>
                     </div>
@@ -1949,10 +1952,10 @@ export default function LabPage() {
                             }}
                           >
                             <Image
-                              src="https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=500&h=500&fit=crop"
+                              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtDSLAHn8qkWzjth6bpdyl1AIu1BhMCikotA&s"
                               alt="Creative Lab"
-                              width={500}
-                              height={500}
+                              width={800}
+                              height={800}
                               className="w-100 rounded-4"
                               style={{ boxShadow: '0 20px 60px rgba(138, 241, 53, 0.2)' }}
                               priority
@@ -1966,46 +1969,6 @@ export default function LabPage() {
                 </div>
               </section>
 
-              {/* Theme Selector Section */}
-              <section className="py-3" style={{ background: 'rgba(255, 255, 255, 0.01)' }}>
-                <div className="container">
-                  <div className="row justify-content-center">
-                    <div className="col-lg-6 text-center">
-                      <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6 }}
-                        className="theme-selector-hero"
-                      >
-                        <h5 className="theme-selector-title mb-3">Choose Your Theme</h5>
-                        <div className="theme-options d-flex justify-content-center gap-3">
-                          <button 
-                            className={`theme-option ${theme === 'current' ? 'active' : ''}`}
-                            onClick={() => setTheme('current')}
-                          >
-                            <span className="theme-icon">🎨</span>
-                            <span className="theme-name">Creative</span>
-                          </button>
-                          <button 
-                            className={`theme-option ${theme === 'dark' ? 'active' : ''}`}
-                            onClick={() => setTheme('dark')}
-                          >
-                            <span className="theme-icon">🌙</span>
-                            <span className="theme-name">Dark</span>
-                          </button>
-                          <button 
-                            className={`theme-option ${theme === 'light' ? 'active' : ''}`}
-                            onClick={() => setTheme('light')}
-                          >
-                            <span className="theme-icon">☀️</span>
-                            <span className="theme-name">Light</span>
-                          </button>
-                        </div>
-                      </motion.div>
-                    </div>
-                  </div>
-                </div>
-              </section>
 
               {/* Stats Section */}
               <section className="py-5" style={{ background: 'rgba(255, 255, 255, 0.02)' }}>
@@ -2210,29 +2173,29 @@ export default function LabPage() {
                         transition={{ duration: 0.6 }}
                         viewport={{ once: true }}
                       >
-                        <h2 className="section-title">About Pitamaas Lab</h2>
+                        <h2 className="section-title">About Our Photography Studio</h2>
                         <p className="section-description">
-                          Pitamaas Lab is our creative playground where we experiment with sound, 
-                          visual storytelling, and digital art. We believe in pushing boundaries 
-                          and creating content that inspires and entertains.
+                          Our state-of-the-art photography studio is equipped with professional lighting, 
+                          high-end cameras, and advanced post-production capabilities. We specialize in 
+                          product photography that transforms ordinary products into extraordinary visual stories.
                         </p>
                         <div className="lab-features">
                           <div className="feature-item">
                             <div className="feature-icon">
-                              <Sparkles size={24} />
+                              <Camera size={24} />
                             </div>
                             <div>
-                              <h5>Innovation First</h5>
-                              <p>We constantly explore new creative techniques and technologies</p>
+                              <h5>Professional Equipment</h5>
+                              <p>State-of-the-art cameras, lighting, and studio equipment for perfect shots</p>
                             </div>
                           </div>
                           <div className="feature-item">
                             <div className="feature-icon">
-                              <Globe size={24} />
+                              <Palette size={24} />
                             </div>
                             <div>
-                              <h5>Global Community</h5>
-                              <p>Connecting creators and audiences worldwide through our content</p>
+                              <h5>Creative Excellence</h5>
+                              <p>Expert composition and lighting techniques that make products stand out</p>
                             </div>
                           </div>
                           <div className="feature-item">
@@ -2240,8 +2203,8 @@ export default function LabPage() {
                               <Zap size={24} />
                             </div>
                             <div>
-                              <h5>Quality Focus</h5>
-                              <p>Every piece of content is crafted with attention to detail</p>
+                              <h5>Fast Turnaround</h5>
+                              <p>Quick delivery without compromising on quality and attention to detail</p>
                             </div>
                           </div>
                         </div>
@@ -2430,177 +2393,7 @@ export default function LabPage() {
                 </div>
               </section>
 
-              {/* Featured Artists Section */}
-              <section className="py-5" style={{ background: 'rgba(255, 255, 255, 0.02)' }}>
-                <div className="container">
-                  <motion.div 
-                    className="text-center mb-5"
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6 }}
-                    viewport={{ once: true }}
-                  >
-                    <h2 className="section-title">Featured Artists</h2>
-                    <p className="section-subtitle">Meet the creative minds behind our content</p>
-                  </motion.div>
-                  
-                  <div className="row">
-                    {[
-                      {
-                        name: "Alex Rivera",
-                        role: "Music Producer",
-                        image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=300&h=300&fit=crop&crop=face",
-                        bio: "Electronic music pioneer with 10+ years of experience",
-                        tracks: 25,
-                        followers: "50K"
-                      },
-                      {
-                        name: "Maya Chen",
-                        role: "Visual Artist",
-                        image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=300&h=300&fit=crop&crop=face",
-                        bio: "Digital art specialist creating immersive experiences",
-                        tracks: 40,
-                        followers: "35K"
-                      },
-                      {
-                        name: "Jordan Kim",
-                        role: "Video Director",
-                        image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=300&fit=crop&crop=face",
-                        bio: "Award-winning filmmaker and motion graphics expert",
-                        tracks: 18,
-                        followers: "28K"
-                      },
-                      {
-                        name: "Sofia Martinez",
-                        role: "Sound Designer",
-                        image: "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=300&h=300&fit=crop&crop=face",
-                        bio: "Creating unique soundscapes for digital experiences",
-                        tracks: 32,
-                        followers: "42K"
-                      }
-                    ].map((artist, index) => (
-                      <div key={index} className="col-lg-3 col-md-6 mb-4">
-                        <motion.div
-                          className="artist-card"
-                          initial={{ opacity: 0, y: 30 }}
-                          whileInView={{ opacity: 1, y: 0 }}
-                          transition={{ duration: 0.6, delay: index * 0.1 }}
-                          viewport={{ once: true }}
-                          whileHover={{ y: -10, scale: 1.02 }}
-                        >
-                          <div className="artist-image">
-                            <Image
-                              src={artist.image}
-                              alt={artist.name}
-                              width={300}
-                              height={300}
-                              className="w-100"
-                            />
-                            <div className="artist-overlay">
-                              <div className="artist-social">
-                                <button className="social-btn">
-                                  <Heart size={16} />
-                                </button>
-                                <button className="social-btn">
-                                  <Share2 size={16} />
-                                </button>
-                                <button className="social-btn">
-                                  <MessageCircle size={16} />
-                                </button>
-                              </div>
-                            </div>
-                          </div>
-                          <div className="artist-info">
-                            <h4 className="artist-name">{artist.name}</h4>
-                            <p className="artist-role">{artist.role}</p>
-                            <p className="artist-bio">{artist.bio}</p>
-                            <div className="artist-stats">
-                              <div className="stat">
-                                <span className="stat-number">{artist.tracks}</span>
-                                <span className="stat-label">Tracks</span>
-                              </div>
-                              <div className="stat">
-                                <span className="stat-number">{artist.followers}</span>
-                                <span className="stat-label">Followers</span>
-                              </div>
-                            </div>
-                          </div>
-                        </motion.div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </section>
 
-              {/* Creative Process Section */}
-              <section className="py-5">
-                <div className="container">
-                  <motion.div 
-                    className="text-center mb-5"
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6 }}
-                    viewport={{ once: true }}
-                  >
-                    <h2 className="section-title">Our Creative Process</h2>
-                    <p className="section-subtitle">From concept to creation - how we bring ideas to life</p>
-                  </motion.div>
-                  
-                  <div className="row">
-                    {[
-                      {
-                        step: "01",
-                        title: "Ideation & Research",
-                        description: "We start by exploring concepts, trends, and gathering inspiration from various sources.",
-                        icon: Lightbulb,
-                        color: "from-yellow-400 to-orange-500"
-                      },
-                      {
-                        step: "02",
-                        title: "Concept Development",
-                        description: "Transforming ideas into concrete concepts with detailed planning and storyboarding.",
-                        icon: Palette,
-                        color: "from-pink-400 to-rose-500"
-                      },
-                      {
-                        step: "03",
-                        title: "Creation & Production",
-                        description: "Bringing concepts to life through music production, video creation, and digital art.",
-                        icon: Zap,
-                        color: "from-blue-400 to-cyan-500"
-                      },
-                      {
-                        step: "04",
-                        title: "Refinement & Polish",
-                        description: "Fine-tuning every detail to ensure the highest quality and impact.",
-                        icon: Star,
-                        color: "from-purple-400 to-indigo-500"
-                      }
-                    ].map((process, index) => {
-                      const IconComponent = process.icon;
-                      return (
-                        <div key={index} className="col-lg-3 col-md-6 mb-4">
-                          <motion.div
-                            className="process-card"
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.6, delay: index * 0.1 }}
-                            viewport={{ once: true }}
-                            whileHover={{ y: -10, scale: 1.02 }}
-                          >
-                            <div className="process-number">{process.step}</div>
-                            <div className={`process-icon bg-gradient-to-r ${process.color}`}>
-                              <IconComponent size={32} />
-                            </div>
-                            <h4 className="process-title">{process.title}</h4>
-                            <p className="process-description">{process.description}</p>
-                          </motion.div>
-                        </div>
-                      );
-                    })}
-                  </div>
-                </div>
-              </section>
 
               {/* Testimonials Section */}
               <section className="py-5" style={{ background: 'rgba(255, 255, 255, 0.02)' }}>

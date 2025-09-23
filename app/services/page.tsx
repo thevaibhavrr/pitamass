@@ -109,8 +109,8 @@ export default function ServicesPage() {
       id: 5,
       title: "Website Development",
       icon: Monitor,
-      description: "Modern, responsive websites that deliver exceptional user experiences. From simple landing pages to complex e-commerce platforms, we build sites that perform.",
-      features: ["Responsive design", "SEO optimized", "Fast loading", "Mobile-first approach", "CMS integration"],
+      description: "Your website is the gateway where people discover and connect with your business. We create user-focused websites that increase online engagement and strengthen your brand presence.",
+      features: ["User-focused design", "Mobile responsive", "SEO optimized", "Fast performance", "Brand strengthening"],
       image: "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=600&h=400&fit=crop",
       price: "Starting at $999",
       duration: "4-6 weeks",
@@ -602,12 +602,31 @@ export default function ServicesPage() {
                           animate={{ opacity: 1, y: 0 }}
                           transition={{ duration: 0.8, delay: 0.2 }}
                         >
-                          Creative <motion.span
+                          BUILDING A BUSINESS <motion.span
                             initial={{ opacity: 0, scale: 0.8 }}
                             animate={{ opacity: 1, scale: 1 }}
                             transition={{ duration: 0.6, delay: 0.4 }}
-                          >Services</motion.span> Drive Results
+                          >WEBSITE</motion.span> FOR THE MODERN ERA
                         </motion.h1>
+                        <motion.p 
+                          className="hero-description"
+                          initial={{ opacity: 0, y: 20 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ duration: 0.8, delay: 0.5 }}
+                          style={{ 
+                            fontSize: '1.2rem', 
+                            color: 'var(--clr-body-text)', 
+                            opacity: 0.9, 
+                            lineHeight: 1.6, 
+                            marginTop: '20px',
+                            maxWidth: '600px'
+                          }}
+                        >
+                          Your website is the gateway where people discover and connect with your business, helping you
+                          reach new heights in today's digital age.
+                          Pitamaas is recognized as one of the top website development agencies in India, specializing in
+                          designing user-focused websites that increase online engagement, strengthen brands.
+                        </motion.p>
                       </motion.div>
                       <motion.div 
                         className="zq_hero-img"
@@ -648,9 +667,10 @@ export default function ServicesPage() {
                         viewport={{ once: true }}
                       >
                         <span className="zq_section-subtitle mb-20">Our Services</span>
-                        <h2 className="zq_section-title mb-30">Creative Solutions That Drive Success</h2>
+                        <h2 className="zq_section-title mb-30">Website Development Solutions</h2>
                         <p className="services-intro-text">
-                          From concept to completion, we deliver exceptional creative services that transform your vision into reality.
+                          We create modern, responsive websites that serve as powerful digital gateways for your business, 
+                          designed to engage users and drive conversions in today's competitive online landscape.
                         </p>
                       </motion.div>
                     </div>
