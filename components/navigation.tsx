@@ -51,7 +51,7 @@ export function Navigation() {
           {[
             { label: "Work", path: "work" },
             { label: "Services", path: "services" },
-            { label: "Lab", path: "lab" },
+            { label: "Pitmans Lab", path: "pitmans-lab" },
             { label: "About", path: "about" },
             { label: "Careers", path: "careers" }
           ].map(({ label, path }) => (

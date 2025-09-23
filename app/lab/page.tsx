@@ -1,10 +1,908 @@
+// "use client"
+
+// import React, { useState, useRef, useEffect } from 'react'
+// import Link from 'next/link'
+// import Image from 'next/image'
+// import { AboutHeader } from "@/components/about-header"
+// import { Footer } from "@/components/footer"
+// import { motion, AnimatePresence } from 'framer-motion'
+// import { 
+//   Play, 
+//   Pause, 
+//   Volume2, 
+//   VolumeX, 
+//   SkipBack, 
+//   SkipForward,
+//   Heart,
+//   Share2,
+//   Download,
+//   Maximize,
+//   Minimize,
+//   RotateCcw,
+//   Shuffle,
+//   Repeat,
+//   Music,
+//   Video,
+//   Image as ImageIcon,
+//   Sparkles,
+//   Zap,
+//   Palette,
+//   Camera,
+//   Mic,
+//   Headphones,
+//   Film,
+//   Layers,
+//   Globe,
+//   Star,
+//   ArrowRight,
+//   ChevronLeft,
+//   ChevronRight,
+//   Grid,
+//   List,
+//   Search,
+//   Filter,
+//   Clock,
+//   Eye,
+//   ThumbsUp,
+//   MessageCircle,
+//   Users,
+//   Lightbulb,
+//   X,
+//   MapPin,
+//   Phone,
+//   Mail,
+//   Clock as ClockIcon,
+//   Plus,
+//   Minus
+// } from 'lucide-react'
+// import '../../styles/globals.css'
+// import '../../styles/bootstrap.min.css'
+// import '../../styles/nice-select.css'
+// import '../../styles/meanmenu.css'
+// import '../../styles/swiper-bundle.min.css'
+// import '../../styles/animate.min.css'
+// import '../../styles/magnific-popup.css'
+// import '../../styles/main.css'
+
+// export default function LabPage() {
+//   const [activeTab, setActiveTab] = useState('all')
+//   const [currentSong, setCurrentSong] = useState(0)
+//   const [isPlaying, setIsPlaying] = useState(false)
+//   const [currentTime, setCurrentTime] = useState(0)
+//   const [duration, setDuration] = useState(0)
+//   const [volume, setVolume] = useState(1)
+//   const [isMuted, setIsMuted] = useState(false)
+//   const [selectedVideo, setSelectedVideo] = useState<number | null>(null)
+//   const [selectedImage, setSelectedImage] = useState<number | null>(null)
+//   const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid')
+//   const [searchQuery, setSearchQuery] = useState('')
+//   const [theme, setTheme] = useState<'dark' | 'light' | 'current'>('current')
+//   const [mediaPlayerActive, setMediaPlayerActive] = useState(false)
+//   const [currentMedia, setCurrentMedia] = useState<any>(null)
+//   const [activeTestimonial, setActiveTestimonial] = useState(0)
+//   const [openFaq, setOpenFaq] = useState<number | null>(null)
+
+//   const audioRef = useRef<HTMLAudioElement>(null)
+//   const videoRef = useRef<HTMLVideoElement>(null)
+
+//   const servicesData = [
+//     {
+//       id: 1,
+//       title: "Video Production",
+//       icon: Video,
+//       description: "From concept to final edit, we create stunning videos that tell your story and engage your audience.",
+//       image: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=600&h=400&fit=crop"
+//     },
+//     {
+//       id: 2,
+//       title: "Music Production",
+//       icon: Music,
+//       description: "Original compositions, sound design, and audio post-production to elevate your projects.",
+//       image: "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=600&h=400&fit=crop"
+//     },
+//     {
+//       id: 3,
+//       title: "Photography",
+//       icon: Camera,
+//       description: "Captivating images that communicate your brand's essence and leave a lasting impression.",
+//       image: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=600&h=400&fit=crop"
+//     },
+//     {
+//       id: 4,
+//       title: "Visual Effects",
+//       icon: Film,
+//       description: "Stunning visual effects that bring your vision to life with cutting-edge technology.",
+//       image: "https://images.unsplash.com/photo-1558603666-13c2d9c2c6e7?w=600&h=400&fit=crop"
+//     },
+//     {
+//       id: 5,
+//       title: "Audio Post-Production",
+//       icon: Headphones,
+//       description: "Professional audio editing, mixing, and mastering for your videos and music projects.",
+//       image: "https://images.unsplash.com/photo-1511379938547-c1f69419868d?w=600&h=400&fit=crop"
+//     },
+//     {
+//       id: 6,
+//       title: "Motion Graphics",
+//       icon: Layers,
+//       description: "Dynamic animations and graphics that enhance your visual storytelling.",
+//       image: "https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=600&h=400&fit=crop"
+//     }
+//   ]
+
+//   const testimonialsData = [
+//     {
+//       id: 1,
+//       name: "Sarah Johnson",
+//       role: "Creative Director",
+//       company: "Tech Innovations",
+//       content: "Pitamaas Lab transformed our brand story into a visual masterpiece. Their attention to detail and creative vision exceeded all our expectations.",
+//       avatar: "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=100&h=100&fit=crop&crop=face",
+//       rating: 5
+//     },
+//     {
+//       id: 2,
+//       name: "Michael Chen",
+//       role: "Marketing Manager",
+//       company: "Digital Solutions",
+//       content: "The video production quality is outstanding. They delivered exactly what we envisioned and more. Highly recommended for any creative project.",
+//       avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face",
+//       rating: 5
+//     },
+//     {
+//       id: 3,
+//       name: "Emily Rodriguez",
+//       role: "Brand Manager",
+//       company: "Creative Agency",
+//       content: "Working with Pitamaas Lab was a game-changer. Their innovative approach and technical expertise brought our ideas to life beautifully.",
+//       avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&crop=face",
+//       rating: 5
+//     }
+//   ]
+
+//   const faqData = [
+//     {
+//       id: 1,
+//       question: "What services does Pitamaas Lab offer?",
+//       answer: "We offer comprehensive creative production services including video production, music composition, photography, visual effects, audio post-production, and motion graphics. Our team specializes in bringing your creative vision to life with cutting-edge technology and artistic expertise."
+//     },
+//     {
+//       id: 2,
+//       question: "How long does a typical project take?",
+//       answer: "Project timelines vary depending on complexity and scope. A simple video might take 1-2 weeks, while a comprehensive campaign could take 4-8 weeks. We provide detailed timelines during our initial consultation and keep you updated throughout the process."
+//     },
+//     {
+//       id: 3,
+//       question: "Do you work with clients remotely?",
+//       answer: "Yes! We work with clients worldwide and have streamlined our process to accommodate remote collaboration. We use advanced communication tools and project management systems to ensure seamless collaboration regardless of location."
+//     },
+//     {
+//       id: 4,
+//       question: "What file formats do you deliver?",
+//       answer: "We deliver projects in all standard formats including MP4, MOV, WAV, MP3, and high-resolution images. We can also provide source files and multiple format options based on your specific needs and distribution channels."
+//     },
+//     {
+//       id: 5,
+//       question: "Can you help with concept development?",
+//       answer: "Absolutely! Our creative team excels at taking initial ideas and developing them into fully realized concepts. We offer comprehensive pre-production services including storyboarding, script writing, and creative direction to ensure your project starts on the right foot."
+//     }
+//   ]
+
+//   const handlePlayPause = () => {
+//     if (audioRef.current) {
+//       if (isPlaying) {
+//         audioRef.current.pause()
+//       } else {
+//         audioRef.current.play().catch(error => {
+//           console.error('Error playing audio:', error)
+//         })
+//       }
+//       setIsPlaying(!isPlaying)
+//     }
+//   }
+
+//   const handleTimeUpdate = () => {
+//     if (audioRef.current) {
+//       setCurrentTime(audioRef.current.currentTime)
+//     }
+//   }
+
+//   const handleLoadedMetadata = () => {
+//     if (audioRef.current) {
+//       setDuration(audioRef.current.duration)
+//     }
+//   }
+
+//   const handleProgressClick = (e: React.MouseEvent<HTMLDivElement>) => {
+//     if (audioRef.current) {
+//       const rect = e.currentTarget.getBoundingClientRect()
+//       const clickX = e.clientX - rect.left
+//       const width = rect.width
+//       const newTime = (clickX / width) * duration
+//       audioRef.current.currentTime = newTime
+//       setCurrentTime(newTime)
+//     }
+//   }
+
+//   const handleVolumeChange = (e: React.MouseEvent<HTMLDivElement>) => {
+//     if (audioRef.current) {
+//       const rect = e.currentTarget.getBoundingClientRect()
+//       const clickX = e.clientX - rect.left
+//       const width = rect.width
+//       const newVolume = clickX / width
+//       audioRef.current.volume = newVolume
+//       setVolume(newVolume)
+//     }
+//   }
+
+//   const formatTime = (time: number) => {
+//     const minutes = Math.floor(time / 60)
+//     const seconds = Math.floor(time % 60)
+//     return `${minutes}:${seconds.toString().padStart(2, '0')}`
+//   }
+
+//   const toggleFaq = (id: number) => {
+//     setOpenFaq(openFaq === id ? null : id)
+//   }
+
+//   useEffect(() => {
+//     const interval = setInterval(() => {
+//       setActiveTestimonial((prev) => (prev + 1) % testimonialsData.length)
+//     }, 5000)
+//     return () => clearInterval(interval)
+//   }, [])
+
+//   return (
+//     <>
+//       <AboutHeader />
+//       <style jsx global>{`
+//         /* Lab Page Styles */
+//         .lab-hero {
+//           background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #0a0a0a 100%);
+//           min-height: 100vh;
+//           display: flex;
+//           align-items: center;
+//           position: relative;
+//           overflow: hidden;
+//         }
+
+//         .lab-hero::before {
+//           content: '';
+//           position: absolute;
+//           top: 0;
+//           left: 0;
+//           right: 0;
+//           bottom: 0;
+//           background: radial-gradient(circle at 30% 20%, rgba(163, 235, 23, 0.1) 0%, transparent 50%),
+//                       radial-gradient(circle at 70% 80%, rgba(255, 0, 160, 0.1) 0%, transparent 50%);
+//           pointer-events: none;
+//         }
+
+//         .hero-title-lab {
+//           font-size: 4rem;
+//           font-weight: 800;
+//           color: white;
+//           margin-bottom: 1.5rem;
+//           line-height: 1.1;
+//         }
+
+//         .gradient-text-lab {
+//           background: linear-gradient(135deg, #A3EB17 0%, #FF00A0 100%);
+//           -webkit-background-clip: text;
+//           -webkit-text-fill-color: transparent;
+//           background-clip: text;
+//         }
+
+//         .hero-description-lab {
+//           font-size: 1.3rem;
+//           color: rgba(255, 255, 255, 0.8);
+//           margin-bottom: 2rem;
+//           line-height: 1.6;
+//           max-width: 600px;
+//         }
+
+//         .hero-badge-lab {
+//           display: inline-flex;
+//           align-items: center;
+//           background: rgba(163, 235, 23, 0.1);
+//           border: 1px solid rgba(163, 235, 23, 0.3);
+//           padding: 0.5rem 1rem;
+//           border-radius: 50px;
+//           color: #A3EB17;
+//           font-size: 0.9rem;
+//           font-weight: 600;
+//           margin-bottom: 2rem;
+//         }
+
+//         .services-grid {
+//           display: grid;
+//           grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+//           gap: 2rem;
+//           margin-top: 3rem;
+//         }
+
+//         .service-card {
+//           background: rgba(0, 0, 0, 0.4);
+//           border-radius: 15px;
+//           overflow: hidden;
+//           transition: all 0.3s ease;
+//           border: 1px solid rgba(255, 255, 255, 0.1);
+//           backdrop-filter: blur(10px);
+//         }
+
+//         .service-card:hover {
+//           transform: translateY(-5px);
+//           box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+//           border-color: rgba(163, 235, 23, 0.3);
+//         }
+
+//         .service-image {
+//           width: 100%;
+//           height: 200px;
+//           object-fit: cover;
+//         }
+
+//         .service-content {
+//           padding: 1.5rem;
+//         }
+
+//         .service-icon {
+//           width: 50px;
+//           height: 50px;
+//           border-radius: 12px;
+//           background: linear-gradient(135deg, #A3EB17 0%, #FF00A0 100%);
+//           display: flex;
+//           align-items: center;
+//           justify-content: center;
+//           color: white;
+//           margin-bottom: 1rem;
+//         }
+
+//         .service-title {
+//           font-size: 1.3rem;
+//           font-weight: 700;
+//           color: white;
+//           margin-bottom: 0.5rem;
+//         }
+
+//         .service-description {
+//           color: rgba(255, 255, 255, 0.8);
+//           line-height: 1.6;
+//         }
+
+//         .testimonial-card {
+//           background: rgba(0, 0, 0, 0.4);
+//           border-radius: 15px;
+//           padding: 2rem;
+//           border: 1px solid rgba(255, 255, 255, 0.1);
+//           backdrop-filter: blur(10px);
+//           text-align: center;
+//         }
+
+//         .testimonial-avatar {
+//           width: 80px;
+//           height: 80px;
+//           border-radius: 50%;
+//           object-fit: cover;
+//           margin: 0 auto 1rem;
+//           border: 3px solid rgba(163, 235, 23, 0.3);
+//         }
+
+//         .testimonial-content {
+//           color: rgba(255, 255, 255, 0.9);
+//           font-style: italic;
+//           margin-bottom: 1.5rem;
+//           line-height: 1.6;
+//         }
+
+//         .testimonial-name {
+//           color: white;
+//           font-weight: 700;
+//           margin-bottom: 0.25rem;
+//         }
+
+//         .testimonial-role {
+//           color: rgba(255, 255, 255, 0.7);
+//           font-size: 0.9rem;
+//         }
+
+//         .faq-item {
+//           background: rgba(0, 0, 0, 0.4);
+//           border-radius: 15px;
+//           margin-bottom: 1rem;
+//           border: 1px solid rgba(255, 255, 255, 0.1);
+//           backdrop-filter: blur(10px);
+//           overflow: hidden;
+//         }
+
+//         .faq-question {
+//           padding: 1.5rem;
+//           background: transparent;
+//           border: none;
+//           color: white;
+//           font-size: 1.1rem;
+//           font-weight: 600;
+//           width: 100%;
+//           text-align: left;
+//           cursor: pointer;
+//           display: flex;
+//           justify-content: space-between;
+//           align-items: center;
+//           transition: all 0.3s ease;
+//         }
+
+//         .faq-question:hover {
+//           background: rgba(255, 255, 255, 0.05);
+//         }
+
+//         .faq-answer {
+//           padding: 0 1.5rem 1.5rem;
+//           color: rgba(255, 255, 255, 0.8);
+//           line-height: 1.6;
+//         }
+
+//         .section-title {
+//           font-size: 2.5rem;
+//           font-weight: 800;
+//           color: white;
+//           text-align: center;
+//           margin-bottom: 1rem;
+//         }
+
+//         .section-description {
+//           font-size: 1.1rem;
+//           color: rgba(255, 255, 255, 0.8);
+//           text-align: center;
+//           max-width: 600px;
+//           margin: 0 auto 3rem;
+//           line-height: 1.6;
+//         }
+
+//         .contact-info {
+//           display: grid;
+//           grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+//           gap: 2rem;
+//           margin-top: 3rem;
+//         }
+
+//         .contact-item {
+//           display: flex;
+//           align-items: center;
+//           gap: 1rem;
+//           padding: 1.5rem;
+//           background: rgba(0, 0, 0, 0.4);
+//           border-radius: 15px;
+//           border: 1px solid rgba(255, 255, 255, 0.1);
+//           backdrop-filter: blur(10px);
+//         }
+
+//         .contact-icon {
+//           width: 50px;
+//           height: 50px;
+//           border-radius: 12px;
+//           background: linear-gradient(135deg, #A3EB17 0%, #FF00A0 100%);
+//           display: flex;
+//           align-items: center;
+//           justify-content: center;
+//           color: white;
+//           flex-shrink: 0;
+//         }
+
+//         .contact-details h4 {
+//           color: white;
+//           font-size: 1.1rem;
+//           font-weight: 700;
+//           margin-bottom: 0.25rem;
+//         }
+
+//         .contact-details p {
+//           color: rgba(255, 255, 255, 0.8);
+//           margin: 0;
+//         }
+
+//         .floating-elements {
+//           position: relative;
+//           width: 100%;
+//           height: 400px;
+//         }
+
+//         .floating-element {
+//           position: absolute;
+//           width: 80px;
+//           height: 80px;
+//           border-radius: 20px;
+//           background: linear-gradient(135deg, rgba(163, 235, 23, 0.2) 0%, rgba(255, 0, 160, 0.2) 100%);
+//           display: flex;
+//           align-items: center;
+//           justify-content: center;
+//           color: #A3EB17;
+//           backdrop-filter: blur(10px);
+//           border: 1px solid rgba(163, 235, 23, 0.3);
+//         }
+
+//         .element-1 {
+//           top: 20%;
+//           left: 10%;
+//         }
+
+//         .element-2 {
+//           top: 60%;
+//           right: 20%;
+//         }
+
+//         .element-3 {
+//           bottom: 20%;
+//           left: 30%;
+//         }
+
+//         @media (max-width: 768px) {
+//           .hero-title-lab {
+//             font-size: 2.5rem;
+//           }
+          
+//           .hero-description-lab {
+//             font-size: 1.1rem;
+//           }
+          
+//           .services-grid {
+//             grid-template-columns: 1fr;
+//           }
+          
+//           .contact-info {
+//             grid-template-columns: 1fr;
+//           }
+//         }
+//       `}</style>
+
+//       <div className={`has-smooth theme-${theme}`} id="has_smooth">
+//         <div id="smooth-wrapper">
+//           <div id="smooth-content">
+//             <div className="body-wrapper">
+//               {/* Hero Section */}
+//               <section className="lab-hero">
+//                 <div className="container">
+//                   <div className="row align-items-center min-vh-100">
+//                     <div className="col-lg-8">
+//                       <motion.div 
+//                         className="hero-content-lab"
+//                         initial={{ opacity: 0, x: -50 }}
+//                         animate={{ opacity: 1, x: 0 }}
+//                         transition={{ duration: 0.8 }}
+//                       >
+//                         <motion.div 
+//                           className="hero-badge-lab"
+//                           initial={{ opacity: 0, scale: 0.8 }}
+//                           animate={{ opacity: 1, scale: 1 }}
+//                           transition={{ duration: 0.6, delay: 0.2 }}
+//                         >
+//                           <Film size={16} className="me-2" />
+//                           <span>Creative Production Studio</span>
+//                         </motion.div>
+                        
+//                         <motion.h1 
+//                           className="hero-title-lab"
+//                           initial={{ opacity: 0, y: 30 }}
+//                           animate={{ opacity: 1, y: 0 }}
+//                           transition={{ duration: 0.8, delay: 0.3 }}
+//                         >
+//                           PITAMAAS <span className="gradient-text-lab">LAB</span>
+//                         </motion.h1>
+                        
+//                         <motion.p 
+//                           className="hero-description-lab"
+//                           initial={{ opacity: 0, y: 20 }}
+//                           animate={{ opacity: 1, y: 0 }}
+//                           transition={{ duration: 0.8, delay: 0.4 }}
+//                         >
+//                           Where creativity meets technology. We're a full-service creative production studio 
+//                           specializing in video production, music composition, photography, and visual effects. 
+//                           Our state-of-the-art facilities and talented team bring your vision to life with 
+//                           cutting-edge technology and artistic excellence.
+//                         </motion.p>
+                        
+//                         <motion.div 
+//                           className="hero-actions"
+//                           initial={{ opacity: 0, y: 20 }}
+//                           animate={{ opacity: 1, y: 0 }}
+//                           transition={{ duration: 0.8, delay: 0.5 }}
+//                         >
+//                           <Link href="/contact" className="btn btn-primary me-3">
+//                             Start Your Project
+//                             <ArrowRight size={16} className="ms-2" />
+//                           </Link>
+//                           <Link href="/portfolio" className="btn btn-outline-light">
+//                             View Our Work
+//                           </Link>
+//                         </motion.div>
+//                       </motion.div>
+//                     </div>
+                    
+//                     <div className="col-lg-4">
+//                       <motion.div 
+//                         className="hero-image-lab"
+//                         initial={{ opacity: 0, x: 50 }}
+//                         animate={{ opacity: 1, x: 0 }}
+//                         transition={{ duration: 0.8, delay: 0.3 }}
+//                       >
+//                         <div className="floating-elements">
+//                           <motion.div 
+//                             className="floating-element element-1"
+//                             animate={{ 
+//                               y: [0, -20, 0],
+//                               rotate: [0, 5, 0]
+//                             }}
+//                             transition={{ 
+//                               duration: 4,
+//                               repeat: Infinity,
+//                               ease: "easeInOut"
+//                             }}
+//                           >
+//                             <Video size={40} />
+//                           </motion.div>
+//                           <motion.div 
+//                             className="floating-element element-2"
+//                             animate={{ 
+//                               y: [0, 15, 0],
+//                               rotate: [0, -3, 0]
+//                             }}
+//                             transition={{ 
+//                               duration: 3,
+//                               repeat: Infinity,
+//                               ease: "easeInOut",
+//                               delay: 1
+//                             }}
+//                           >
+//                             <Music size={35} />
+//                           </motion.div>
+//                           <motion.div 
+//                             className="floating-element element-3"
+//                             animate={{ 
+//                               y: [0, -10, 0],
+//                               rotate: [0, 4, 0]
+//                             }}
+//                             transition={{ 
+//                               duration: 5,
+//                               repeat: Infinity,
+//                               ease: "easeInOut",
+//                               delay: 2
+//                             }}
+//                           >
+//                             <Camera size={30} />
+//                           </motion.div>
+//                         </div>
+//                       </motion.div>
+//                     </div>
+//                   </div>
+//                 </div>
+//               </section>
+
+//               {/* Services Section */}
+//               <section className="py-5" style={{ background: 'linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%)' }}>
+//                 <div className="container">
+//                   <motion.div
+//                     initial={{ opacity: 0, y: 30 }}
+//                     whileInView={{ opacity: 1, y: 0 }}
+//                     transition={{ duration: 0.8 }}
+//                     viewport={{ once: true }}
+//                   >
+//                     <h2 className="section-title">Our Services</h2>
+//                     <p className="section-description">
+//                       Comprehensive creative production services to bring your vision to life
+//                     </p>
+//                   </motion.div>
+                  
+//                   <div className="services-grid">
+//                     {servicesData.map((service, index) => (
+//                       <motion.div
+//                         key={service.id}
+//                         className="service-card"
+//                         initial={{ opacity: 0, y: 30 }}
+//                         whileInView={{ opacity: 1, y: 0 }}
+//                         transition={{ duration: 0.6, delay: index * 0.1 }}
+//                         viewport={{ once: true }}
+//                       >
+//                         <Image
+//                           src={service.image}
+//                           alt={service.title}
+//                           width={600}
+//                           height={400}
+//                           className="service-image"
+//                         />
+//                         <div className="service-content">
+//                           <div className="service-icon">
+//                             <service.icon size={24} />
+//                           </div>
+//                           <h3 className="service-title">{service.title}</h3>
+//                           <p className="service-description">{service.description}</p>
+//                         </div>
+//                       </motion.div>
+//                     ))}
+//                   </div>
+//                 </div>
+//               </section>
+
+//               {/* Testimonials Section */}
+//               <section className="py-5" style={{ background: 'linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%)' }}>
+//                 <div className="container">
+//                   <motion.div
+//                     initial={{ opacity: 0, y: 30 }}
+//                     whileInView={{ opacity: 1, y: 0 }}
+//                     transition={{ duration: 0.8 }}
+//                     viewport={{ once: true }}
+//                   >
+//                     <h2 className="section-title">What Our Clients Say</h2>
+//                     <p className="section-description">
+//                       Hear from the brands we've helped transform through creative excellence
+//                     </p>
+//                   </motion.div>
+                  
+//                   <div className="row justify-content-center">
+//                     <div className="col-lg-8">
+//                       <motion.div
+//                         className="testimonial-card"
+//                         key={activeTestimonial}
+//                         initial={{ opacity: 0, x: 50 }}
+//                         animate={{ opacity: 1, x: 0 }}
+//                         exit={{ opacity: 0, x: -50 }}
+//                         transition={{ duration: 0.5 }}
+//                       >
+//                         <Image
+//                           src={testimonialsData[activeTestimonial].avatar}
+//                           alt={testimonialsData[activeTestimonial].name}
+//                           width={80}
+//                           height={80}
+//                           className="testimonial-avatar"
+//                         />
+//                         <p className="testimonial-content">
+//                           "{testimonialsData[activeTestimonial].content}"
+//                         </p>
+//                         <h4 className="testimonial-name">
+//                           {testimonialsData[activeTestimonial].name}
+//                         </h4>
+//                         <p className="testimonial-role">
+//                           {testimonialsData[activeTestimonial].role} at {testimonialsData[activeTestimonial].company}
+//                         </p>
+//                       </motion.div>
+//                     </div>
+//                   </div>
+//                 </div>
+//               </section>
+
+//               {/* FAQ Section */}
+//               <section className="py-5" style={{ background: 'linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%)' }}>
+//                 <div className="container">
+//                   <motion.div
+//                     initial={{ opacity: 0, y: 30 }}
+//                     whileInView={{ opacity: 1, y: 0 }}
+//                     transition={{ duration: 0.8 }}
+//                     viewport={{ once: true }}
+//                   >
+//                     <h2 className="section-title">Frequently Asked Questions</h2>
+//                     <p className="section-description">
+//                       Everything you need to know about working with Pitamaas Lab
+//                     </p>
+//                   </motion.div>
+                  
+//                   <div className="row justify-content-center">
+//                     <div className="col-lg-8">
+//                       {faqData.map((faq, index) => (
+//                         <motion.div
+//                           key={faq.id}
+//                           className="faq-item"
+//                           initial={{ opacity: 0, y: 20 }}
+//                           whileInView={{ opacity: 1, y: 0 }}
+//                           transition={{ duration: 0.5, delay: index * 0.1 }}
+//                           viewport={{ once: true }}
+//                         >
+//                           <button
+//                             className="faq-question"
+//                             onClick={() => toggleFaq(faq.id)}
+//                           >
+//                             {faq.question}
+//                             {openFaq === faq.id ? <Minus size={20} /> : <Plus size={20} />}
+//                           </button>
+//                           <AnimatePresence>
+//                             {openFaq === faq.id && (
+//                               <motion.div
+//                                 className="faq-answer"
+//                                 initial={{ opacity: 0, height: 0 }}
+//                                 animate={{ opacity: 1, height: 'auto' }}
+//                                 exit={{ opacity: 0, height: 0 }}
+//                                 transition={{ duration: 0.3 }}
+//                               >
+//                                 {faq.answer}
+//                               </motion.div>
+//                             )}
+//                           </AnimatePresence>
+//                         </motion.div>
+//                       ))}
+//                     </div>
+//                   </div>
+//                 </div>
+//               </section>
+
+//               {/* Contact Section */}
+//               <section className="py-5" style={{ background: 'linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%)' }}>
+//                 <div className="container">
+//                   <motion.div
+//                     initial={{ opacity: 0, y: 30 }}
+//                     whileInView={{ opacity: 1, y: 0 }}
+//                     transition={{ duration: 0.8 }}
+//                     viewport={{ once: true }}
+//                   >
+//                     <h2 className="section-title">Get In Touch</h2>
+//                     <p className="section-description">
+//                       Ready to bring your creative vision to life? Let's start the conversation.
+//                     </p>
+//                   </motion.div>
+                  
+//                   <div className="contact-info">
+//                     <motion.div
+//                       className="contact-item"
+//                       initial={{ opacity: 0, y: 20 }}
+//                       whileInView={{ opacity: 1, y: 0 }}
+//                       transition={{ duration: 0.5, delay: 0.1 }}
+//                       viewport={{ once: true }}
+//                     >
+//                       <div className="contact-icon">
+//                         <Mail size={24} />
+//                       </div>
+//                       <div className="contact-details">
+//                         <h4>Email Us</h4>
+//                         <p>hello@pitamaas.com</p>
+//                       </div>
+//                     </motion.div>
+                    
+//                     <motion.div
+//                       className="contact-item"
+//                       initial={{ opacity: 0, y: 20 }}
+//                       whileInView={{ opacity: 1, y: 0 }}
+//                       transition={{ duration: 0.5, delay: 0.2 }}
+//                       viewport={{ once: true }}
+//                     >
+//                       <div className="contact-icon">
+//                         <Phone size={24} />
+//                       </div>
+//                       <div className="contact-details">
+//                         <h4>Call Us</h4>
+//                         <p>+91 98765 43210</p>
+//                       </div>
+//                     </motion.div>
+                    
+//                     <motion.div
+//                       className="contact-item"
+//                       initial={{ opacity: 0, y: 20 }}
+//                       whileInView={{ opacity: 1, y: 0 }}
+//                       transition={{ duration: 0.5, delay: 0.3 }}
+//                       viewport={{ once: true }}
+//                     >
+//                       <div className="contact-icon">
+//                         <MapPin size={24} />
+//                       </div>
+//                       <div className="contact-details">
+//                         <h4>Visit Us</h4>
+//                         <p>Mumbai, India</p>
+//                       </div>
+//                     </motion.div>
+//                   </div>
+//                 </div>
+//               </section>
+
+//               <Footer />
+//             </div>
+//           </div>
+//         </div>
+//       </div>
+//     </>
+//   )
+// }
 
 'use client';
 
 import type { NextPage } from 'next';
 import Head from 'next/head';
 import { useEffect } from 'react';
-import { Navigation } from "@/components/navigation";
+import { AboutHeader } from "@/components/about-header";
 import { Footer } from "@/components/footer";
 import '../../styles/globals.css';
 import '../../styles/bootstrap.min.css';
@@ -131,7 +1029,7 @@ const Home: NextPage = () => {
               const src = (element as HTMLIFrameElement).src;
               (element as HTMLIFrameElement).src = '';
               (element as HTMLIFrameElement).src = src;
-      } else {
+            } else {
               (element as HTMLMediaElement).pause();
             }
           });
@@ -174,7 +1072,7 @@ const Home: NextPage = () => {
           if (current >= target) {
             stat.textContent = target.toString();
             clearInterval(timer);
-    } else {
+          } else {
             stat.textContent = Math.round(current).toString();
           }
         }, 16);
@@ -277,9 +1175,10 @@ const Home: NextPage = () => {
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&family=Poppins:wght@300;500;700&display=swap" rel="stylesheet" />
       </Head>
+      <AboutHeader showIcon={false} />
       <div className="particles" id="particles"></div>
       <div className="layout-1">
-      <style jsx global>{`
+        <style jsx global>{`
           * {
             margin: 0;
             padding: 0;
@@ -311,11 +1210,19 @@ const Home: NextPage = () => {
             transition: background-color 0.5s ease, color 0.5s ease;
           }
 
-          /* Footer Styles */
+          /* Header and Footer Styles */
+          .zq_header-area {
+            position: relative;
+            z-index: 9999;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+          }
+
           .zq_footer-area {
             background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
             color: white;
-          position: relative;
+            position: relative;
             z-index: 9999;
           }
 
@@ -334,7 +1241,7 @@ const Home: NextPage = () => {
 
           .zq_footer-widget-text {
             color: rgba(255, 255, 255, 0.8);
-          line-height: 1.6;
+            line-height: 1.6;
             margin-bottom: 1rem;
           }
 
@@ -347,53 +1254,46 @@ const Home: NextPage = () => {
             color: var(--secondary);
           }
 
-          /* Navigation Styles - Ensure proper styling and prevent conflicts */
-          nav[aria-label="Primary"] {
-            /* Ensure navigation positioning is not affected */
+          /* Header Navigation Styles */
+          .zq_header-logo img {
+            max-height: 50px;
+            width: auto;
           }
 
-          /* Override any global button styles for navigation buttons */
-          nav[aria-label="Primary"] button {
-            display: inline-flex !important;
-            align-items: center !important;
-            justify-content: center !important;
-            padding: 0.5rem 1rem !important;
-            font-size: 0.75rem !important;
-            font-weight: 600 !important;
-            border-radius: 9999px !important;
-            border: none !important;
-            background: transparent !important;
-            color: rgb(255 255 255 / 0.9) !important;
-            transition: colors 0.15s ease-in-out !important;
-            cursor: pointer !important;
-            outline: none !important;
-            margin: 0 !important;
-            text-align: center !important;
+          .zq_header-menu ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+          display: flex;
+          align-items: center;
+            gap: 2rem;
           }
 
-          @media (min-width: 640px) {
-            nav[aria-label="Primary"] button {
-              padding: 0.75rem 1.5rem !important;
-              font-size: 0.875rem !important;
-            }
+          .zq_header-menu ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
           }
 
-          /* Active state */
-          nav[aria-label="Primary"] button.bg-white {
-            background: white !important;
-            color: black !important;
+          .zq_header-menu ul li a:hover {
+            color: var(--primary);
           }
 
-          /* Hover state */
-          nav[aria-label="Primary"] button:hover:not(.bg-white) {
-            background: rgb(31 41 55) !important;
-            color: white !important;
+          .zq_header-btn .btn {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 25px;
+            text-decoration: none;
+          font-weight: 600;
+            transition: all 0.3s ease;
           }
 
-          /* Focus state */
-          nav[aria-label="Primary"] button:focus-visible {
-            outline: 2px solid white !important;
-            outline-offset: 2px !important;
+          .zq_header-btn .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(163, 235, 23, 0.3);
           }
 
           h1, h2, h3, h4 {
@@ -415,7 +1315,7 @@ const Home: NextPage = () => {
             text-decoration: none;
           font-weight: 600;
             border-radius: 30px;
-          transition: all 0.3s ease;
+            transition: all 0.3s ease;
             border: 2px solid var(--primary);
           }
 
@@ -449,7 +1349,7 @@ const Home: NextPage = () => {
             content: '';
             position: absolute;
             top: 0;
-          left: 0;
+            left: 0;
             width: 100%;
             height: 100%;
             background: var(--gradient);
@@ -498,18 +1398,18 @@ const Home: NextPage = () => {
             height: 70px;
             border-radius: 50%;
             background: var(--primary);
-          display: flex;
-          justify-content: center;
+            display: flex;
+            justify-content: center;
             align-items: center;
-          cursor: pointer;
+            cursor: pointer;
             z-index: 10;
             animation: pulse 2s infinite;
           }
 
           .hero-play-btn i {
             color: var(--dark);
-          font-size: 24px;
-        }
+            font-size: 24px;
+          }
 
           .services {
             padding: 100px 0;
@@ -517,7 +1417,7 @@ const Home: NextPage = () => {
           }
 
           .section-title {
-          text-align: center;
+            text-align: center;
             margin-bottom: 60px;
             position: relative;
           }
@@ -535,7 +1435,7 @@ const Home: NextPage = () => {
             left: 50%;
             transform: translateX(-50%);
             width: 80px;
-          height: 4px;
+            height: 4px;
             background: var(--primary);
           }
 
@@ -562,7 +1462,7 @@ const Home: NextPage = () => {
             position: absolute;
             top: 0;
             left: -100%;
-          width: 100%;
+            width: 100%;
           height: 100%;
             background: linear-gradient(90deg, transparent, rgba(163, 235, 23, 0.2), transparent);
             transition: 0.5s;
@@ -614,8 +1514,8 @@ const Home: NextPage = () => {
             border-radius: 30px;
           cursor: pointer;
           transition: all 0.3s ease;
-          font-weight: 500;
-        }
+            font-weight: 500;
+          }
 
           .filter-btn.active, .filter-btn:hover {
             background: var(--primary);
@@ -631,7 +1531,7 @@ const Home: NextPage = () => {
           .portfolio-item {
             height: 250px;
             border-radius: 10px;
-          overflow: hidden;
+            overflow: hidden;
             position: relative;
             cursor: pointer;
             opacity: 0;
@@ -645,40 +1545,40 @@ const Home: NextPage = () => {
           }
 
           .portfolio-img {
-          width: 100%;
+            width: 100%;
             height: 100%;
-          object-fit: cover;
+            object-fit: cover;
             transition: transform 0.5s ease;
-        }
+          }
 
           .portfolio-item:hover .portfolio-img {
             transform: scale(1.1);
-        }
+          }
 
           .portfolio-overlay {
-          position: absolute;
-          top: 0;
-          left: 0;
+            position: absolute;
+            top: 0;
+            left: 0;
             width: 100%;
             height: 100%;
             background: rgba(0, 0, 0, 0.7);
-          display: flex;
+            display: flex;
             flex-direction: column;
-          justify-content: center;
+            justify-content: center;
             align-items: center;
-          opacity: 0;
-          transition: opacity 0.3s ease;
-        }
+            opacity: 0;
+            transition: opacity 0.3s ease;
+          }
 
           .portfolio-item:hover .portfolio-overlay {
-          opacity: 1;
-        }
+            opacity: 1;
+          }
 
           .portfolio-overlay h3 {
             color: var(--primary);
             font-size: 1.5rem;
-          margin-bottom: 10px;
-        }
+            margin-bottom: 10px;
+          }
 
           .portfolio-overlay p {
           text-align: center;
@@ -804,7 +1704,7 @@ const Home: NextPage = () => {
 
           .about-img {
             border-radius: 10px;
-          overflow: hidden;
+            overflow: hidden;
             position: relative;
             opacity: 0;
             transform: translateX(-50px);
@@ -817,18 +1717,18 @@ const Home: NextPage = () => {
           }
 
           .about-img img {
-          width: 100%;
+            width: 100%;
             display: block;
           }
 
           .about-text {
-          opacity: 0;
+            opacity: 0;
             transform: translateX(50px);
             transition: all 0.8s ease;
-        }
+          }
 
           .about-text.show {
-          opacity: 1;
+            opacity: 1;
             transform: translateX(0);
           }
 
@@ -890,8 +1790,8 @@ const Home: NextPage = () => {
 
           .process-step {
             width: 22%;
-          text-align: center;
-          position: relative;
+            text-align: center;
+            position: relative;
             opacity: 0;
             transform: translateY(50px);
             transition: all 0.5s ease;
@@ -904,7 +1804,7 @@ const Home: NextPage = () => {
 
           .process-step:not(:last-child):after {
             content: '';
-          position: absolute;
+            position: absolute;
             top: 40px;
             right: -40%;
             width: 80%;
@@ -913,8 +1813,8 @@ const Home: NextPage = () => {
           }
 
           .step-number {
-          width: 80px;
-          height: 80px;
+            width: 80px;
+            height: 80px;
             border-radius: 50%;
             background: var(--primary);
             color: var(--dark);
@@ -928,7 +1828,7 @@ const Home: NextPage = () => {
 
           .step-title {
             font-size: 1.5rem;
-          margin-bottom: 15px;
+            margin-bottom: 15px;
             color: var(--primary);
           }
 
@@ -946,7 +1846,7 @@ const Home: NextPage = () => {
           }
 
           .client-logo {
-          opacity: 0.7;
+            opacity: 0.7;
             transition: all 0.3s ease;
             filter: grayscale(100%);
             max-width: 150px;
@@ -1031,7 +1931,7 @@ const Home: NextPage = () => {
             height: 80px;
             border-radius: 50%;
             overflow: hidden;
-          margin-bottom: 20px;
+            margin-bottom: 20px;
             border: 3px solid var(--primary);
           }
 
@@ -1114,7 +2014,7 @@ const Home: NextPage = () => {
 
           .faq-question {
             padding: 20px;
-          cursor: pointer;
+            cursor: pointer;
           display: flex;
             justify-content: space-between;
           align-items: center;
@@ -1164,14 +2064,14 @@ const Home: NextPage = () => {
           }
 
           .blog-img img {
-          width: 100%;
+            width: 100%;
             height: 100%;
-          object-fit: cover;
+            object-fit: cover;
             transition: transform 0.5s ease;
           }
 
           .blog-post:hover .blog-img img {
-          transform: scale(1.1);
+            transform: scale(1.1);
           }
 
           .blog-content {
@@ -1286,7 +2186,7 @@ const Home: NextPage = () => {
             }
           }
 
-        @media (max-width: 768px) {
+          @media (max-width: 768px) {
             .hero h1 {
               font-size: 2.5rem;
             }
@@ -1315,7 +2215,7 @@ const Home: NextPage = () => {
             }
             
             .process-step {
-            width: 100%;
+              width: 100%;
           }
         }
       `}</style>
@@ -1784,9 +2684,6 @@ const Home: NextPage = () => {
         </section>
           </div>
       <Footer />
-      
-      {/* Navigation */}
-      <Navigation />
     </>
   );
 };

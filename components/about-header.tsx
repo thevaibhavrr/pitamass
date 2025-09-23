@@ -4,7 +4,11 @@ import Link from "next/link"
 import Image from "next/image"
 import { useState } from "react"
 
-export function AboutHeader() {
+interface AboutHeaderProps {
+  showIcon?: boolean;
+}
+
+export function AboutHeader({ showIcon = true }: AboutHeaderProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   const toggleMenu = () => {
@@ -73,11 +77,13 @@ export function AboutHeader() {
               <span className="zq_header-menuIcon zq_menuIcon" onClick={toggleMenu}>
                 <i className="fa-light fa-grid-2"></i>
               </span>
-              <span className="zq_header-action-shape">
-                <svg viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-11 h-11">
-                  <path d="M11 1.54972e-06L0 0L2.38419e-07 11C1.65973e-07 4.92487 4.92487 1.62217e-06 11 1.54972e-06Z" fill="currentColor"></path>
-                </svg>
-              </span>
+              {showIcon && (
+                <span className="zq_header-action-shape">
+                  <svg viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-11 h-11">
+                    <path d="M11 1.54972e-06L0 0L2.38419e-07 11C1.65973e-07 4.92487 4.92487 1.62217e-06 11 1.54972e-06Z" fill="currentColor"></path>
+                  </svg>
+                </span>
+              )}
             </div>
           </div>
         </div>

@@ -270,7 +270,7 @@ export default function CareersPage() {
 
   return (
     <>
-      <AboutHeader />
+      <AboutHeader showIcon={false} />
       <style jsx global>{`
         /* Ensure navigation maintains rounded corners */
         nav[aria-label="Primary"] button {
