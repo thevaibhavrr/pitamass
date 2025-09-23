@@ -263,7 +263,7 @@ export default function ServicesPage() {
         @media (min-width: 1024px) {
           .zq_hero-area {
             min-height: 60vh !important; /* Reduced from default */
-            padding: 60px 0 !important; /* Reduced padding */
+            padding-bottom: 60px !important; /* Reduced padding */
           }
           
           .zq_hero-container {
