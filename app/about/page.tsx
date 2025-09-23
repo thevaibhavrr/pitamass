@@ -5,6 +5,7 @@ import React, { useEffect, useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { AboutHeader } from "@/components/about-header"
+import { Footer } from "@/components/footer"
 import Marquee from "react-fast-marquee"
 import { motion, AnimatePresence } from 'framer-motion'
 import { ChevronDown, Zap, Smartphone, Plug, Cpu, Shield, Users, Award, Globe, Heart, Linkedin, Twitter, Instagram, Github, Package, Palette, Megaphone, Video, Monitor, Camera } from 'lucide-react'
@@ -1225,7 +1226,7 @@ export default function AboutPage() {
                       <Image src="/placeholder.svg" alt="Call" width={60} height={60} />
                       <div className="zq_cta-action-info">
                         <span>Get in Touch</span>
-                        <a href="tel:+704-555-0127">(+704) 555-0127</a>
+                        <a href="tel:+704-555-0127">+91 70877-24552</a>
                       </div>
                     </div>
                     <div className="zq_cta-buttons">
@@ -1241,86 +1242,7 @@ export default function AboutPage() {
       </div>
 
             {/* Footer Section */}
-            <footer className="zq_footer-area">
-                <div className="zq_footer-top pt-205">
-                    <div className="container">
-                        <div className="row justify-content-between">
-                            <div className="col-lg-4 col-md-6">
-                                <div className="zq_footer-widget mr-85 mb-40">
-                                    <h4 className="zq_footer-widget-title">Newsletter</h4>
-                                    <p className="zq_footer-widget-text">Our team comprises professionals with extensive experience in creative design and digital solutions.</p>
-                                    <div className="zq_footer-widget-mail">
-                                        <i className="fa-sharp fa-light fa-envelope"></i>
-                                        <a href="mailto:hello@pitamaas.com">hello@pitamaas.com</a>
-                                    </div>
-                                    <form action="#">
-                                        <input type="email" placeholder="Email Address" />
-                                        <button type="submit"><i className="fa-sharp fa-solid fa-paper-plane"></i></button>
-                                    </form>
-                                </div>
-                            </div>
-                            <div className="col-lg-3 col-md-4">
-                                <div className="zq_footer-widget ml-25 mb-35">
-                                    <h4 className="zq_footer-widget-title">Services</h4>
-                                    <ul>
-                                        <li><Link href="#">Packaging Design</Link></li>
-                                        <li><Link href="#">Logo Design</Link></li>
-                                        <li><Link href="#">Digital Marketing</Link></li>
-                                        <li><Link href="#">Video Ads</Link></li>
-                                        <li><Link href="#">Website Development</Link></li>
-                                        <li><Link href="#">Photography</Link></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div className="col-lg-2 col-md-4 order-lg-3 order-md-4 order-3">
-                                <div className="zq_footer-widget ml-15 mb-35">
-                                    <h4 className="zq_footer-widget-title">Quick Links</h4>
-                                    <ul>
-                                        <li><Link href="/about">About Us</Link></li>
-                                        <li><Link href="#">Portfolio</Link></li>
-                                        <li><Link href="#">Services</Link></li>
-                                        <li><Link href="#">Blog</Link></li>
-                                        <li><Link href="#">Contact</Link></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div className="col-lg-3 col-md-6 order-lg-4 order-md-3 order-4">
-                                <div className="zq_footer-widget ml-45 mb-40">
-                                    <h4 className="zq_footer-widget-title">Our Office</h4>
-                                    <div className="zq_footer-widget-post">
-                                        <span>Head Office</span>
-                                        <h5><a href="#">New Delhi, India 🇮🇳</a></h5>
-                                    </div>
-                                    <div className="zq_footer-widget-post">
-                                        <span>Contact</span>
-                                        <h5><a href="tel:+919876543210">+91 98765 43210</a></h5>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div className="zq_footer-bottom">
-                    <div className="container">
-                        <div className="zq_footer-bottom-wrap">
-                            <div className="zq_footer-logo">
-                                <Link href="/"><Image src="https://www.pitamaas.com/logo-dark-mobile.png" alt="Pitamaas" width={120} height={40} /></Link>
-                            </div>
-                            <div className="zq_footer-copyright">
-                                <p>Copyright © 2024 <Link href="#">Pitamaas</Link> All Rights Reserved</p>
-                            </div>
-                            <div className="zq_footer-social">
-                                <ul>
-                                    <li><a href="#" target="_blank" rel="noopener noreferrer"><i className="fa-brands fa-facebook-f"></i></a></li>
-                                    <li><a href="#" target="_blank" rel="noopener noreferrer"><i className="fa-brands fa-twitter"></i></a></li>
-                                    <li><a href="#" target="_blank" rel="noopener noreferrer"><i className="fa-brands fa-linkedin-in"></i></a></li>
-                                    <li><a href="#" target="_blank" rel="noopener noreferrer"><i className="fa-brands fa-instagram"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </footer>
+            <Footer />
     </>
   )
 }
