@@ -317,20 +317,6 @@ const Home: NextPage = () => {
 
   return (
     <>
-      <Head>
-        <title>Pitamaas Lab | Product Photography Studio - We Make Your Product Shine</title>
-        <meta name="description" content="High-quality product photography services in India. We capture stunning images that enhance brand appeal and drive sales conversions. Expert lighting, composition, and digital enhancement." />
-        <meta name="keywords" content="product photography, photography studio, product photos, e-commerce photography, brand photography, India photography, product shots, commercial photography" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta property="og:title" content="Pitamaas Lab | Product Photography Studio - We Make Your Product Shine" />
-        <meta property="og:description" content="High-quality product photography services in India. We capture stunning images that enhance brand appeal and drive sales conversions." />
-        <meta property="og:type" content="website" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Pitamaas Lab | Product Photography Studio" />
-        <meta name="twitter:description" content="High-quality product photography services in India. We capture stunning images that enhance brand appeal and drive sales conversions." />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&family=Poppins:wght@300;500;700&display=swap" rel="stylesheet" />
-      </Head>
       <AboutHeader showIcon={false} />
       <div className="particles" id="particles"></div>
       <div className="layout-1">
@@ -458,7 +444,7 @@ const Home: NextPage = () => {
           }
 
           .container {
-            width: 90%;
+            width: 100%;
             max-width: 1200px;
             margin: 0 auto;
           }
