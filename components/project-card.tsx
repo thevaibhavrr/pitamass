@@ -3,6 +3,7 @@
 
 import { motion } from "framer-motion"
 import { useState, useRef, useEffect } from "react"
+import { useRouter } from "next/navigation"
 import { cn } from "@/lib/utils"
 
 type ProjectCardProps = {
@@ -16,6 +17,7 @@ type ProjectCardProps = {
 export function ProjectCard({ title, categories, imgSrc, isVideo, className }: ProjectCardProps) {
   const [hoverGradient, setHoverGradient] = useState("")
   const videoRef = useRef<HTMLVideoElement>(null)
+  const router = useRouter()
 
   // Generate random gradient colors
   const generateRandomGradient = () => {
@@ -35,6 +37,10 @@ export function ProjectCard({ title, categories, imgSrc, isVideo, className }: P
 
   const handleHoverStart = () => {
     setHoverGradient(generateRandomGradient())
+  }
+
+  const handleClick = () => {
+    router.push('/details')
   }
 
   // Ensure video plays when component mounts
@@ -62,6 +68,7 @@ export function ProjectCard({ title, categories, imgSrc, isVideo, className }: P
         className,
       )}
       onHoverStart={handleHoverStart}
+      onClick={handleClick}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.3 }}
