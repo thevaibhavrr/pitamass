@@ -3,6 +3,7 @@
 import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
+import { Mail } from 'lucide-react'
 
 export function Footer() {
   return (
@@ -15,8 +16,10 @@ export function Footer() {
                 <h4 className="zq_footer-widget-title">Newsletter</h4>
                 <p className="zq_footer-widget-text">Our team comprises professionals with extensive experience in creative design and digital solutions.</p>
                 <div className="zq_footer-widget-mail">
-                  <i className="fa-sharp fa-light fa-envelope"></i>
-                  <a href="mailto:hello@pitamaas.com">hello@pitamaas.com</a>
+                  {/* email icon */}
+                  <Mail />
+                  <a href="mailto:sales@pitamaas.com">sales@pitamaas.com</a> 
+
                 </div>
                 <form action="#">
                   <input type="email" placeholder="Email Address" />

@@ -64,68 +64,68 @@ export default function ServicesPage() {
   const servicesData = [
     {
       id: 1,
-      title: "Packaging Design",
-      icon: Package,
-      description: "Create stunning, functional packaging that captures attention and drives sales. From concept to production, we design packaging that tells your brand story and stands out on shelves.",
-      features: ["Brand-aligned design", "Print-ready files", "3D mockups", "Material selection", "Sustainability focus"],
-      image: "https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=600&h=400&fit=crop",
-      price: "Starting at $299",
-      duration: "2-3 weeks",
+      title: "Brand Strategy & Architecture",
+      icon: Target,
+      description: "Comprehensive brand strategy development that defines your unique value proposition, market positioning, and brand architecture to create a strong foundation for business growth.",
+      features: ["Brand positioning", "Market analysis", "Competitive research", "Brand architecture", "Strategic planning"],
+      image: "https://www.adobe.com/express/learn/blog/media_180ca7b3671c056beb10c30316a084ac6180f4b79.jpg?width=750&format=jpg&optimize=medium",
+      price: "Starting at ₹25,000",
+      duration: "3-4 weeks",
       color: "from-blue-500 to-purple-600"
     },
     {
       id: 2,
-      title: "Logo Design",
-      icon: Palette,
-      description: "Memorable logos that represent your brand identity. We create timeless designs that work across all platforms and mediums, from business cards to billboards.",
-      features: ["Multiple concepts", "Vector formats", "Brand guidelines", "Logo variations", "Style guide"],
-      image: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=600&h=400&fit=crop",
-      price: "Starting at $199",
-      duration: "1-2 weeks",
-      color: "from-pink-500 to-red-600"
-    },
-    {
-      id: 3,
-      title: "Digital Marketing",
+      title: "Integrated Marketing Solutions",
       icon: Megaphone,
-      description: "Comprehensive digital marketing strategies that drive growth. From social media campaigns to SEO optimization, we help you reach and engage your target audience effectively.",
-      features: ["Social media strategy", "SEO optimization", "Content marketing", "Analytics tracking", "Campaign management"],
-      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop",
-      price: "Starting at $499/month",
+      description: "End-to-end marketing solutions including social media marketing and SEO optimization to boost your online presence and drive qualified leads to your business.",
+      features: ["Social Media Marketing", "Search Engine Optimization", "Content Strategy", "Analytics & Reporting", "Campaign Management"],
+      image: "https://www.podssolutions.com/wp-content/uploads/2020/12/Four-Advantages-of-Using-an-Integrated-Marketing-Agency.jpg",
+      price: "Starting at ₹15,000/month",
       duration: "Ongoing",
       color: "from-green-500 to-teal-600"
     },
     {
+      id: 3,
+      title: "IT Solutions",
+      icon: Code,
+      description: "Complete IT solutions including website development (corporate & e-commerce), ERP systems, and mobile app development to digitize and streamline your business operations.",
+      features: ["Website Development", "E-commerce Solutions", "ERP Systems", "Mobile Apps", "System Integration"],
+      image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=600&h=400&fit=crop",
+      price: "Starting at ₹50,000",
+      duration: "6-12 weeks",
+      color: "from-orange-500 to-yellow-600"
+    },
+    {
       id: 4,
-      title: "Video Ads",
-      icon: Video,
-      description: "Compelling video advertisements that convert viewers into customers. We create engaging video content for social media, YouTube, and TV that drives results.",
-      features: ["Script writing", "Professional production", "Motion graphics", "Multi-platform optimization", "Performance tracking"],
-      image: "https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=600&h=400&fit=crop",
-      price: "Starting at $799",
-      duration: "3-4 weeks",
+      title: "Content Creation",
+      icon: PenTool,
+      description: "Professional content creation services including visual content and content strategy to engage your audience and build brand awareness across all digital platforms.",
+      features: ["Visual Content", "Content Strategy", "Video Production", "Photography", "Copywriting"],
+      image: "https://imageio.forbes.com/specials-images/imageserve/626b70d70a3dae74c91617f9/How-To-Become-a-Successful-Video-Content-Creator---Insights-From-KallmeKris/960x0.jpg?height=473&width=711&fit=bounds",
+      price: "Starting at ₹20,000",
+      duration: "2-3 weeks",
       color: "from-purple-500 to-indigo-600"
     },
     {
       id: 5,
-      title: "Website Development",
-      icon: Monitor,
-      description: "Your website is the gateway where people discover and connect with your business. We create user-focused websites that increase online engagement and strengthen your brand presence.",
-      features: ["User-focused design", "Mobile responsive", "SEO optimized", "Fast performance", "Brand strengthening"],
-      image: "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=600&h=400&fit=crop",
-      price: "Starting at $999",
-      duration: "4-6 weeks",
-      color: "from-orange-500 to-yellow-600"
+      title: "Graphic Design",
+      icon: Palette,
+      description: "Complete graphic design services including logo & brand elements, packaging design, and marketing collateral to create a cohesive visual identity for your brand.",
+      features: ["Logo & Brand Elements", "Packaging Design", "Marketing Collateral", "Brand Guidelines", "Print Design"],
+      image: "https://facts.net/wp-content/uploads/2023/09/13-enigmatic-facts-about-graphic-design-1695793822.jpg",
+      price: "Starting at ₹12,000",
+      duration: "2-4 weeks",
+      color: "from-pink-500 to-red-600"
     },
     {
       id: 6,
-      title: "Photography",
-      icon: Camera,
-      description: "Professional photography services for products, events, and lifestyle. High-quality images that showcase your brand and products in the best light.",
-      features: ["Product photography", "Event coverage", "Lifestyle shoots", "Post-production editing", "Stock photo access"],
-      image: "https://images.unsplash.com/photo-1606983340126-99ab4feaa64a?w=600&h=400&fit=crop",
-      price: "Starting at $399",
-      duration: "1-2 days",
+      title: "TVC & Jingles (Traditional Media)",
+      icon: Video,
+      description: "Professional television commercials and jingles for traditional media campaigns that reach mass audiences and create memorable brand experiences.",
+      features: ["Television Commercials", "Jingles & Audio", "Script Writing", "Production", "Post-Production"],
+      image: "https://img.freepik.com/premium-photo/man-typing-laptop-with-icons-background_252214-4674.jpg",
+      price: "Starting at ₹1,00,000",
+      duration: "4-8 weeks",
       color: "from-cyan-500 to-blue-600"
     }
   ];
@@ -603,11 +603,11 @@ export default function ServicesPage() {
                           animate={{ opacity: 1, y: 0 }}
                           transition={{ duration: 0.8, delay: 0.2 }}
                         >
-                          BUILDING A BUSINESS <motion.span
+                          COMPREHENSIVE <motion.span
                             initial={{ opacity: 0, scale: 0.8 }}
                             animate={{ opacity: 1, scale: 1 }}
                             transition={{ duration: 0.6, delay: 0.4 }}
-                          >WEBSITE</motion.span> FOR THE MODERN ERA
+                          >DIGITAL SOLUTIONS</motion.span> FOR YOUR BUSINESS
                         </motion.h1>
                         <motion.p 
                           className="hero-description"
@@ -623,10 +623,9 @@ export default function ServicesPage() {
                             maxWidth: '600px'
                           }}
                         >
-                          Your website is the gateway where people discover and connect with your business, helping you
-                          reach new heights in today's digital age.
-                          Pitamaas is recognized as one of the top website development agencies in India, specializing in
-                          designing user-focused websites that increase online engagement, strengthen brands.
+                          From brand strategy to IT solutions, we provide end-to-end digital services that transform your business.
+                          Our comprehensive approach covers everything from brand architecture and marketing to website development,
+                          content creation, and traditional media production.
                         </motion.p>
                       </motion.div>
                       <motion.div 
@@ -640,8 +639,8 @@ export default function ServicesPage() {
                           transition={{ duration: 0.3 }}
                         >
                           <Image
-                            src="https://images.unsplash.com/photo-1551650975-87deedd944c3?w=600&h=400&fit=crop"
-                            alt="Services Hero"
+                            src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=600&h=400&fit=crop"
+                            alt="Digital Services Hero"
                             width={600}
                             height={400}
                             className="w-full h-auto rounded-lg"
@@ -668,10 +667,10 @@ export default function ServicesPage() {
                         viewport={{ once: true }}
                       >
                         <span className="zq_section-subtitle mb-20">Our Services</span>
-                        <h2 className="zq_section-title mb-30">Website Development Solutions</h2>
+                        <h2 className="zq_section-title mb-30">Complete Digital Solutions</h2>
                         <p className="services-intro-text">
-                          We create modern, responsive websites that serve as powerful digital gateways for your business, 
-                          designed to engage users and drive conversions in today's competitive online landscape.
+                          From brand strategy to IT solutions, we provide comprehensive digital services that transform your business.
+                          Our integrated approach covers brand architecture, marketing, development, content creation, and traditional media.
                         </p>
                       </motion.div>
                     </div>
@@ -703,33 +702,6 @@ export default function ServicesPage() {
                               transition: { duration: 0.3 }
                             }}
                           >
-                            <motion.div 
-                              className="service-card-header"
-                              initial={{ opacity: 0, y: 20 }}
-                              whileInView={{ opacity: 1, y: 0 }}
-                              transition={{ duration: 0.5, delay: 0.2 }}
-                              viewport={{ once: true }}
-                            >
-                              <motion.div 
-                                className="service-icon-wrapper"
-                                whileHover={{ 
-                                  scale: 1.1, 
-                                  rotate: 5,
-                                  transition: { duration: 0.3 }
-                                }}
-                              >
-                                <IconComponent size={24} />
-                              </motion.div>
-                              <motion.div 
-                                className="service-price-tag"
-                                initial={{ opacity: 0, scale: 0.8 }}
-                                whileInView={{ opacity: 1, scale: 1 }}
-                                transition={{ duration: 0.4, delay: 0.3 }}
-                                viewport={{ once: true }}
-                              >
-                                <span className="price">{service.price}</span>
-                              </motion.div>
-                            </motion.div>
 
                             <motion.div 
                               className="service-image-compact"
@@ -821,28 +793,6 @@ export default function ServicesPage() {
                                 ))}
                               </motion.div>
 
-                              <motion.div 
-                                className="service-action-compact"
-                                initial={{ opacity: 0, y: 10 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 0.4, delay: 1.0 }}
-                                viewport={{ once: true }}
-                              >
-                                <motion.div
-                                  whileHover={{ scale: 1.05, x: 5 }}
-                                  whileTap={{ scale: 0.95 }}
-                                >
-                                  <Link href="#" className="service-link-compact">
-                                    Learn More
-                                    <motion.div
-                                      whileHover={{ x: 3 }}
-                                      transition={{ duration: 0.2 }}
-                                    >
-                                      <ArrowRight size={14} />
-                                    </motion.div>
-                                  </Link>
-                                </motion.div>
-                              </motion.div>
                             </motion.div>
                           </motion.div>
                         </div>
@@ -917,7 +867,7 @@ export default function ServicesPage() {
                     viewport={{ once: true }}
                   >
                     <h2 className="zq_cta-title">
-                      Ready to Transform Your Business? <br />Let's Create Something Amazing Together!
+                      Ready to Transform Your Business? <br />Let's Build Your Complete Digital Ecosystem!
                     </h2>
                     <div className="zq_cta-action">
                       <Image src="/placeholder.svg" alt="Call" width={60} height={60} />

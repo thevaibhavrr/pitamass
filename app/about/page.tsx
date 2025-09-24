@@ -263,6 +263,98 @@ export default function AboutPage() {
             align-items: center !important;
           }
         }
+
+        /* Introduction & Vision Section Styles */
+        .zq_intro-vision-area {
+          background: var(--clr-common-black);
+          position: relative;
+        }
+
+        .intro-vision-content {
+          position: relative;
+          z-index: 2;
+        }
+
+        .intro-title {
+          background: linear-gradient(135deg, var(--clr-theme-primary), var(--clr-color-skyBlue));
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+          position: relative;
+        }
+
+        .intro-title::after {
+          content: '';
+          position: absolute;
+          bottom: -10px;
+          left: 50%;
+          transform: translateX(-50%);
+          width: 60px;
+          height: 3px;
+          background: linear-gradient(135deg, var(--clr-theme-primary), var(--clr-color-skyBlue));
+          border-radius: 2px;
+        }
+
+        .intro-text {
+          position: relative;
+          padding: 20px 0;
+        }
+
+
+        .vision-section {
+          background: rgba(255, 255, 255, 0.02);
+          border: 1px solid rgba(255, 255, 255, 0.08);
+          border-radius: 20px;
+          padding: 40px 30px;
+          position: relative;
+          overflow: hidden;
+        }
+
+        .vision-section::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background: linear-gradient(135deg, rgba(138, 241, 53, 0.05), rgba(56, 189, 248, 0.05));
+          opacity: 0;
+          transition: opacity 0.3s ease;
+        }
+
+        .vision-section:hover::before {
+          opacity: 1;
+        }
+
+        .vision-title {
+          position: relative;
+          z-index: 2;
+        }
+
+        .vision-text {
+          position: relative;
+          z-index: 2;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+          .intro-title {
+            font-size: 2rem !important;
+          }
+          
+          .vision-title {
+            font-size: 1.5rem !important;
+          }
+          
+          .intro-text,
+          .vision-text {
+            font-size: 1rem !important;
+          }
+          
+          .vision-section {
+            padding: 30px 20px;
+          }
+        }
       `}</style>
 
       <div className="has-smooth" id="has_smooth">
@@ -365,6 +457,100 @@ export default function AboutPage() {
                 </div>
               </section>
 
+              {/* Introduction & Vision Section */}
+              <motion.section 
+                className="zq_intro-vision-area pt-95 pb-70"
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8 }}
+                viewport={{ once: true }}
+              >
+                <div className="container">
+                  <div className="row justify-content-center">
+                    <div className="col-xl-8 col-lg-10">
+                      <motion.div 
+                        className="intro-vision-content text-center"
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6, delay: 0.2 }}
+                        viewport={{ once: true }}
+                      >
+                        <motion.h2 
+                          className="intro-title mb-30"
+                          initial={{ opacity: 0, y: 20 }}
+                          whileInView={{ opacity: 1, y: 0 }}
+                          transition={{ duration: 0.6, delay: 0.3 }}
+                          viewport={{ once: true }}
+                          style={{
+                            fontSize: '2.5rem',
+                            fontWeight: '700',
+                            color: 'var(--clr-body-heading)',
+                            lineHeight: '1.3'
+                          }}
+                        >
+                          Introduction
+                        </motion.h2>
+                        <motion.p 
+                          className="intro-text mb-50"
+                          initial={{ opacity: 0, y: 20 }}
+                          whileInView={{ opacity: 1, y: 0 }}
+                          transition={{ duration: 0.6, delay: 0.4 }}
+                          viewport={{ once: true }}
+                          style={{
+                            fontSize: '1.1rem',
+                            color: 'var(--clr-body-text)',
+                            opacity: 0.9,
+                            lineHeight: '1.7',
+                            marginBottom: '3rem'
+                          }}
+                        >
+                          In today's complex and competitive market, business require a partner who understands the intricacies of brand building and sustained growth. Pitamaas offers a comprehensive suite of integrated services, designed to propel your brand from strength to strength. We go beyond traditional marketing, providing strategic guidance and execution across the entire brand lifecycle, from positioning and market analysis to ongoing growth.
+                        </motion.p>
+                        
+                        <motion.div 
+                          className="vision-section"
+                          initial={{ opacity: 0, y: 30 }}
+                          whileInView={{ opacity: 1, y: 0 }}
+                          transition={{ duration: 0.6, delay: 0.5 }}
+                          viewport={{ once: true }}
+                        >
+                          <motion.h3 
+                            className="vision-title mb-25"
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.6, delay: 0.6 }}
+                            viewport={{ once: true }}
+                            style={{
+                              fontSize: '2rem',
+                              fontWeight: '600',
+                              color: 'var(--clr-theme-primary)',
+                              lineHeight: '1.3'
+                            }}
+                          >
+                            Our Vision
+                          </motion.h3>
+                          <motion.p 
+                            className="vision-text"
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.6, delay: 0.7 }}
+                            viewport={{ once: true }}
+                            style={{
+                              fontSize: '1.1rem',
+                              color: 'var(--clr-body-text)',
+                              opacity: 0.9,
+                              lineHeight: '1.7'
+                            }}
+                          >
+                            To be a leading creative and digital agency, renowned for delivering innovative and impactful branding and marketing solutions that fuel sustainable growth for our clients. We strive to be a trusted partner, offering a comprehensive suite of services and embracing cutting edge technologies to empower businesses in achieving their ambitious goals.
+                          </motion.p>
+                        </motion.div>
+                      </motion.div>
+                    </div>
+                  </div>
+                </div>
+              </motion.section>
+
               {/* Brand Section */}
               <motion.div 
                 className="zq_brand-area pt-95 pb-100"
@@ -418,7 +604,6 @@ export default function AboutPage() {
                         <motion.div 
                           key={index} 
                           className="marquee-item"
-                          whileHover={{ scale: 1.05, y: -5 }}
                           transition={{ duration: 0.2 }}
                         >
                           <div className="zq_brand-item">
