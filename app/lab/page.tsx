@@ -51,7 +51,7 @@ const Home: NextPage = () => {
         filterButtons.forEach(btn => btn.classList.remove('active'));
         button.classList.add('active');
         const filterValue = button.getAttribute('data-filter');
-        
+
         // Filter portfolio items
         portfolioItems.forEach(item => {
           const category = item.getAttribute('data-category');
@@ -177,11 +177,11 @@ const Home: NextPage = () => {
 
     const statNumbers = document.querySelectorAll('.stat-number');
     let statsAnimated = false;
-    
+
     function animateStats() {
       if (statsAnimated) return; // Prevent multiple animations
       statsAnimated = true;
-      
+
       statNumbers.forEach(stat => {
         const target = parseInt(stat.getAttribute('data-count') || '0');
         const duration = 2000;
@@ -206,7 +206,7 @@ const Home: NextPage = () => {
     let teamMembersAnimated = false;
     let processStepsAnimated = false;
     let blogPostsAnimated = false;
-    
+
     function checkScroll() {
       const serviceCards = document.querySelectorAll('.service-card');
       const portfolioItems = document.querySelectorAll('.portfolio-item');
@@ -226,7 +226,7 @@ const Home: NextPage = () => {
           }
         });
       }
-      
+
       if (!portfolioItemsAnimated) {
         portfolioItems.forEach(item => {
           const itemTop = item.getBoundingClientRect().top;
@@ -236,7 +236,7 @@ const Home: NextPage = () => {
           }
         });
       }
-      
+
       if (!aboutSectionAnimated && aboutImg) {
         const aboutImgTop = aboutImg.getBoundingClientRect().top;
         if (aboutImgTop < triggerBottom) {
@@ -245,7 +245,7 @@ const Home: NextPage = () => {
           aboutSectionAnimated = true;
         }
       }
-      
+
       if (!teamMembersAnimated) {
         teamMembers.forEach(member => {
           const memberTop = member.getBoundingClientRect().top;
@@ -255,14 +255,14 @@ const Home: NextPage = () => {
           }
         });
       }
-      
+
       statItems.forEach(stat => {
         const statTop = stat.getBoundingClientRect().top;
         if (statTop < triggerBottom) {
           stat.classList.add('show');
         }
       });
-      
+
       if (!processStepsAnimated) {
         processSteps.forEach(step => {
           const stepTop = step.getBoundingClientRect().top;
@@ -272,7 +272,7 @@ const Home: NextPage = () => {
           }
         });
       }
-      
+
       if (!blogPostsAnimated) {
         blogPosts.forEach(post => {
           const postTop = post.getBoundingClientRect().top;
@@ -290,7 +290,7 @@ const Home: NextPage = () => {
         }
       }
     }
-    
+
     // Throttle scroll events to improve performance
     let scrollTimeout: NodeJS.Timeout;
     function throttledCheckScroll() {
@@ -299,7 +299,7 @@ const Home: NextPage = () => {
       }
       scrollTimeout = setTimeout(checkScroll, 16); // ~60fps
     }
-    
+
     window.addEventListener('scroll', throttledCheckScroll, { passive: true });
     checkScroll();
 
@@ -329,7 +329,10 @@ const Home: NextPage = () => {
 
   return (
     <>
-      <AboutHeader showIcon={false} />
+    <div className='py-2 ps-4' >
+    <AboutHeader showIcon={false} hideContactButton={true} useLabLogo={true} />
+
+    </div>
       <div className="particles" id="particles"></div>
       <div className="layout-1">
         <style jsx global>{`
@@ -410,7 +413,7 @@ const Home: NextPage = () => {
 
           /* Header Navigation Styles */
           .zq_header-logo img {
-            max-height: 50px;
+            max-height: 80px;
             width: auto;
           }
 
@@ -448,6 +451,12 @@ const Home: NextPage = () => {
           .zq_header-btn .btn:hover {
             transform: translateY(-2px);
             box-shadow: 0 5px 15px rgba(163, 235, 23, 0.3);
+          }
+
+          .zq_header-right-no-contact {
+            background-color: #000000;
+            padding: 10px 15px;
+            border-radius: 8px;
           }
 
           h1, h2, h3, h4 {
@@ -1376,82 +1385,82 @@ const Home: NextPage = () => {
 
         <section className="hero" id="home">
           <div className="hero-bg"></div>
-                <div className="container">
+          <div className="container">
             <div className="hero-content">
               <h1>WE MAKE YOUR <span>PRODUCT</span> <span>SHINE</span></h1>
               <p>High-quality photography is key to showcasing your product in the online marketplace. Recognized as one of the leading product photography agencies in India, we capture stunning images that enhance brand appeal and drive sales conversions. Our expertise in lighting, composition, and digital enhancement ensures every shot reflects exceptional quality and leaves a lasting impression.</p>
               <a href="#portfolio" className="btn btn-outline">View Our Work</a>
-                    </div>
-                        </div>
+            </div>
+          </div>
           <div className="hero-play-btn pulse" id="heroPlayBtn">
             <i className="fas fa-play"></i>
-                </div>
-              </section>
+          </div>
+        </section>
 
         <section className="services" id="services">
-                <div className="container">
+          <div className="container">
             <div className="section-title">
               <h2>Our Services</h2>
-                        </div>
+            </div>
             <div className="services-grid">
               <div className="service-card">
                 <div className="service-icon">
                   <i className="fas fa-video"></i>
-                    </div>
+                </div>
                 <h3>Video Production</h3>
                 <p>From concept to final edit, we create stunning videos that tell your story and engage your audience.</p>
-                  </div>
+              </div>
               <div className="service-card">
                 <div className="service-icon">
                   <i className="fas fa-music"></i>
                 </div>
                 <h3>Music Production</h3>
                 <p>Original compositions, sound design, and audio post-production to elevate your projects.</p>
-                          </div>
+              </div>
               <div className="service-card">
                 <div className="service-icon">
                   <i className="fas fa-camera"></i>
-                        </div>
+                </div>
                 <h3>Photography</h3>
                 <p>Captivating images that communicate your brand's essence and leave a lasting impression.</p>
-                    </div>
+              </div>
               <div className="service-card">
                 <div className="service-icon">
                   <i className="fas fa-paint-brush"></i>
-                          </div>
+                </div>
                 <h3>Visual Effects</h3>
                 <p>Stunning visual effects that bring your vision to life with cutting-edge technology.</p>
-                        </div>
+              </div>
               <div className="service-card">
                 <div className="service-icon">
                   <i className="fas fa-podcast"></i>
-                    </div>
+                </div>
                 <h3>Audio Post-Production</h3>
                 <p>Professional audio editing, mixing, and mastering for your videos and music projects.</p>
-                          </div>
+              </div>
               <div className="service-card">
                 <div className="service-icon">
                   <i className="fas fa-desktop"></i>
-                        </div>
+                </div>
                 <h3>Motion Graphics</h3>
                 <p>Dynamic animations and graphics that enhance your visual storytelling.</p>
-                    </div>
-                  </div>
-                </div>
-              </section>
+              </div>
+            </div>
+          </div>
+        </section>
 
         <section className="portfolio" id="portfolio">
-                <div className="container">
+          <div className="container">
             <div className="section-title">
               <h2>Our Portfolio</h2>
-                            </div>
+            </div>
             <div className="filter-buttons">
               <button className="filter-btn active" data-filter="all">All</button>
               <button className="filter-btn" data-filter="video">Videos</button>
               <button className="filter-btn" data-filter="music">Music</button>
               <button className="filter-btn" data-filter="image">Images</button>
               <button className="filter-btn" data-filter="vfx">VFX</button>
-                          </div>
+            </div>
             <div className="portfolio-grid">
               <div className="portfolio-item" data-category="video">
                 <img src="https://img.youtube.com/vi/YOJO5pBfEoU/maxresdefault.jpg" alt="Pitamaas Lab Video 1" className="portfolio-img" />
@@ -1459,80 +1468,80 @@ const Home: NextPage = () => {
                   <h3>Pitamaas Lab Showcase</h3>
                   <p>Creative video production showcasing our capabilities</p>
                   <button className="btn play-btn" data-type="video" data-src="https://www.youtube.com/embed/YOJO5pBfEoU">Play Video</button>
-                        </div>
+                </div>
                 <div className="portfolio-play-icon">
                   <i className="fas fa-play"></i>
-                          </div>
-                        </div>
+                </div>
+              </div>
               <div className="portfolio-item" data-category="video">
                 <img src="https://img.youtube.com/vi/rwrFoXBCKCU/maxresdefault.jpg" alt="Pitamaas Lab Video 2" className="portfolio-img" />
                 <div className="portfolio-overlay">
                   <h3>Creative Production</h3>
                   <p>Professional video production and editing</p>
                   <button className="btn play-btn" data-type="video" data-src="https://www.youtube.com/embed/rwrFoXBCKCU">Play Video</button>
-                    </div>
+                </div>
                 <div className="portfolio-play-icon">
                   <i className="fas fa-play"></i>
-                            </div>
-                          </div>
+                </div>
+              </div>
               <div className="portfolio-item" data-category="video">
                 <img src="https://img.youtube.com/vi/ijmz-KSFd-w/maxresdefault.jpg" alt="Pitamaas Lab Video 3" className="portfolio-img" />
                 <div className="portfolio-overlay">
                   <h3>Visual Storytelling</h3>
                   <p>Compelling visual narratives that engage audiences</p>
                   <button className="btn play-btn" data-type="video" data-src="https://www.youtube.com/embed/ijmz-KSFd-w">Play Video</button>
-                        </div>
+                </div>
                 <div className="portfolio-play-icon">
                   <i className="fas fa-play"></i>
-                          </div>
-                          </div>
+                </div>
+              </div>
               <div className="portfolio-item" data-category="video">
                 <img src="https://img.youtube.com/vi/PtwE9osboJM/maxresdefault.jpg" alt="Pitamaas Lab Video 4" className="portfolio-img" />
                 <div className="portfolio-overlay">
                   <h3>Brand Video</h3>
                   <p>Professional brand storytelling and marketing content</p>
                   <button className="btn play-btn" data-type="video" data-src="https://www.youtube.com/embed/PtwE9osboJM">Play Video</button>
-                        </div>
+                </div>
                 <div className="portfolio-play-icon">
                   <i className="fas fa-play"></i>
-                    </div>
-                            </div>
-                  </div>
                 </div>
-              </section>
+              </div>
+            </div>
+          </div>
+        </section>
 
         <div className="media-player" id="mediaPlayer">
           <div className="player-header">
             <h3 id="playerTitle">Now Playing</h3>
             <button className="close-player" id="closePlayer"><i className="fas fa-times"></i></button>
-                            </div>
+          </div>
           <div id="playerContent">
             {/* Content will be added dynamically */}
-                            </div>
+          </div>
           <div className="now-playing" id="nowPlaying"></div>
           <div className="visualizer" id="visualizer">
-            <div className="bar" style={{animationName: 'visualizer', animationDelay: '0s'}}></div>
-            <div className="bar" style={{animationName: 'visualizer', animationDelay: '0.1s'}}></div>
-            <div className="bar" style={{animationName: 'visualizer', animationDelay: '0.2s'}}></div>
-            <div className="bar" style={{animationName: 'visualizer', animationDelay: '0.3s'}}></div>
-            <div className="bar" style={{animationName: 'visualizer', animationDelay: '0.4s'}}></div>
-            <div className="bar" style={{animationName: 'visualizer', animationDelay: '0.5s'}}></div>
-            <div className="bar" style={{animationName: 'visualizer', animationDelay: '0.6s'}}></div>
-            <div className="bar" style={{animationName: 'visualizer', animationDelay: '0.7s'}}></div>
-            <div className="bar" style={{animationName: 'visualizer', animationDelay: '0.8s'}}></div>
-            <div className="bar" style={{animationName: 'visualizer', animationDelay: '0.9s'}}></div>
-                          </div>
-                            </div>
+            <div className="bar" style={{ animationName: 'visualizer', animationDelay: '0s' }}></div>
+            <div className="bar" style={{ animationName: 'visualizer', animationDelay: '0.1s' }}></div>
+            <div className="bar" style={{ animationName: 'visualizer', animationDelay: '0.2s' }}></div>
+            <div className="bar" style={{ animationName: 'visualizer', animationDelay: '0.3s' }}></div>
+            <div className="bar" style={{ animationName: 'visualizer', animationDelay: '0.4s' }}></div>
+            <div className="bar" style={{ animationName: 'visualizer', animationDelay: '0.5s' }}></div>
+            <div className="bar" style={{ animationName: 'visualizer', animationDelay: '0.6s' }}></div>
+            <div className="bar" style={{ animationName: 'visualizer', animationDelay: '0.7s' }}></div>
+            <div className="bar" style={{ animationName: 'visualizer', animationDelay: '0.8s' }}></div>
+            <div className="bar" style={{ animationName: 'visualizer', animationDelay: '0.9s' }}></div>
+          </div>
+        </div>
 
         <section className="about" id="about">
           <div className="container">
             <div className="section-title">
               <h2>About Our Photography Studio</h2>
-                            </div>
+            </div>
             <div className="about-content">
               <div className="about-img">
                 <img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2052&q=80" alt="Pitamaas Lab Photography Studio" />
-                          </div>
+              </div>
               <div className="about-text">
                 <h2>We Make Your Product Shine</h2>
                 <p>High-quality photography is key to showcasing your product in the online marketplace. Recognized as one of the leading product photography agencies in India, we capture stunning images that enhance brand appeal and drive sales conversions.</p>
@@ -1542,83 +1551,83 @@ const Home: NextPage = () => {
                   <div className="stat">
                     <h3>1000+</h3>
                     <p>Products Photographed</p>
-                            </div>
+                  </div>
                   <div className="stat">
                     <h3>150+</h3>
                     <p>E-commerce Brands</p>
-                            </div>
+                  </div>
                   <div className="stat">
                     <h3>95%</h3>
                     <p>Client Satisfaction</p>
-                          </div>
+                  </div>
                   <div className="stat">
                     <h3>5+</h3>
                     <p>Years Experience</p>
-                        </div>
-                    </div>
-                    </div>
                   </div>
                 </div>
-              </section>
+              </div>
+            </div>
+          </div>
+        </section>
 
         <section className="stats">
-                <div className="container">
+          <div className="container">
             <div className="stats-grid">
               <div className="stat-item">
                 <div className="stat-number" data-count="250">0</div>
                 <div className="stat-text">Projects Completed</div>
-                      </div>
+              </div>
               <div className="stat-item">
                 <div className="stat-number" data-count="50">0</div>
                 <div className="stat-text">Happy Clients</div>
-                    </div>
+              </div>
               <div className="stat-item">
                 <div className="stat-number" data-count="15">0</div>
                 <div className="stat-text">Awards Won</div>
-                        </div>
+              </div>
               <div className="stat-item">
                 <div className="stat-number" data-count="10">0</div>
                 <div className="stat-text">Years Experience</div>
-                      </div>
-                    </div>
-                  </div>
+              </div>
+            </div>
+          </div>
         </section>
 
         <section className="process" id="process">
           <div className="container">
             <div className="section-title">
               <h2>Our Process</h2>
-                            </div>
+            </div>
             <div className="process-steps">
               <div className="process-step">
                 <div className="step-number">1</div>
                 <h3 className="step-title">Concept</h3>
                 <p>We brainstorm ideas and develop a creative concept that aligns with your vision.</p>
-                          </div>
+              </div>
               <div className="process-step">
                 <div className="step-number">2</div>
                 <h3 className="step-title">Planning</h3>
                 <p>We create a detailed plan including storyboards, shot lists, and production schedules.</p>
-                        </div>
+              </div>
               <div className="process-step">
                 <div className="step-number">3</div>
                 <h3 className="step-title">Production</h3>
                 <p>Our team executes the plan with professional equipment and expert techniques.</p>
-                                </div>
+              </div>
               <div className="process-step">
                 <div className="step-number">4</div>
                 <h3 className="step-title">Delivery</h3>
                 <p>We deliver the final product that exceeds your expectations and achieves your goals.</p>
-                                </div>
-                                </div>
-                                </div>
+              </div>
+            </div>
+          </div>
         </section>
 
         <section className="clients">
           <div className="container">
             <div className="section-title">
               <h2>Our Clients</h2>
-                                </div>
+            </div>
             <div className="clients-grid">
               <img src="https://via.placeholder.com/150x80/333/ffffff?text=Client+1" alt="Client 1" className="client-logo" />
               <img src="https://via.placeholder.com/150x80/333/ffffff?text=Client+2" alt="Client 2" className="client-logo" />
@@ -1626,24 +1635,24 @@ const Home: NextPage = () => {
               <img src="https://via.placeholder.com/150x80/333/ffffff?text=Client+4" alt="Client 4" className="client-logo" />
               <img src="https://via.placeholder.com/150x80/333/ffffff?text=Client+5" alt="Client 5" className="client-logo" />
               <img src="https://via.placeholder.com/150x80/333/ffffff?text=Client+6" alt="Client 6" className="client-logo" />
-                                </div>
-                                </div>
+            </div>
+          </div>
         </section>
 
         <section className="testimonials" id="testimonials">
           <div className="container">
             <div className="section-title">
               <h2>Client Testimonials</h2>
-                                </div>
+            </div>
             <div className="testimonial-slider">
               <div className="testimonial active">
                 <div className="testimonial-avatar">
                   <img src="/placeholder-user.jpg" alt="James Wilson" />
-                          </div>
+                </div>
                 <p className="testimonial-text">Pitamaas Lab transformed our product photography completely. Their attention to lighting and composition made our products look absolutely stunning. Our online sales increased by 40% after using their photos.</p>
                 <p className="testimonial-author">James Wilson</p>
                 <p className="testimonial-role">E-commerce Manager, TechGear India</p>
-                        </div>
+              </div>
               <div className="testimonial">
                 <div className="testimonial-avatar">
                   <img src="/placeholder-user.jpg" alt="Emily Roberts" />
@@ -1651,7 +1660,7 @@ const Home: NextPage = () => {
                 <p className="testimonial-text">The product photography quality was exceptional. They perfectly captured the essence of our brand and created images that truly showcase our products. Our conversion rates improved significantly.</p>
                 <p className="testimonial-author">Emily Roberts</p>
                 <p className="testimonial-role">Founder, StyleHub Fashion</p>
-                        </div>
+              </div>
               <div className="testimonial">
                 <div className="testimonial-avatar">
                   <img src="/placeholder-user.jpg" alt="David Kim" />
@@ -1660,20 +1669,20 @@ const Home: NextPage = () => {
                 <p className="testimonial-author">David Kim</p>
                 <p className="testimonial-role">CEO, HomeDecor Plus</p>
               </div>
-                  </div>
-                </div>
-              </section>
+            </div>
+          </div>
+        </section>
 
         <section className="team" id="team">
-                <div className="container">
+          <div className="container">
             <div className="section-title">
               <h2>Our Creative Team</h2>
-                              </div>
+            </div>
             <div className="team-grid">
               <div className="team-member">
                 <div className="member-img">
                   <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Creative Director" />
-                            </div>
+                </div>
                 <div className="member-info">
                   <h3>Alex Johnson</h3>
                   <p>Creative Director</p>
@@ -1681,13 +1690,13 @@ const Home: NextPage = () => {
                     <a href="#"><i className="fab fa-twitter"></i></a>
                     <a href="#"><i className="fab fa-instagram"></i></a>
                     <a href="#"><i className="fab fa-linkedin"></i></a>
-                          </div>
-                              </div>
-                              </div>
+                  </div>
+                </div>
+              </div>
               <div className="team-member">
                 <div className="member-img">
                   <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=688&q=80" alt="Head of Production" />
-                            </div>
+                </div>
                 <div className="member-info">
                   <h3>Sarah Williams</h3>
                   <p>Head of Production</p>
@@ -1695,9 +1704,9 @@ const Home: NextPage = () => {
                     <a href="#"><i className="fab fa-twitter"></i></a>
                     <a href="#"><i className="fab fa-instagram"></i></a>
                     <a href="#"><i className="fab fa-linkedin"></i></a>
-                          </div>
-                      </div>
                   </div>
+                </div>
+              </div>
               <div className="team-member">
                 <div className="member-img">
                   <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Sound Engineer" />
@@ -1709,9 +1718,9 @@ const Home: NextPage = () => {
                     <a href="#"><i className="fab fa-twitter"></i></a>
                     <a href="#"><i className="fab fa-instagram"></i></a>
                     <a href="#"><i className="fab fa-linkedin"></i></a>
-                            </div>
-                        </div>
                   </div>
+                </div>
+              </div>
               <div className="team-member">
                 <div className="member-img">
                   <img src="https://images.unsplash.com/photo-1567532939604-b6b5b0db1604?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Visual Artist" />
@@ -1723,45 +1732,45 @@ const Home: NextPage = () => {
                     <a href="#"><i className="fab fa-twitter"></i></a>
                     <a href="#"><i className="fab fa-instagram"></i></a>
                     <a href="#"><i className="fab fa-linkedin"></i></a>
-                          </div>
-                            </div>
-                          </div>
                   </div>
                 </div>
-              </section>
+              </div>
+            </div>
+          </div>
+        </section>
 
         <section className="faq">
-                <div className="container">
+          <div className="container">
             <div className="section-title">
               <h2>Frequently Asked Questions</h2>
-                          </div>
+            </div>
             <div className="faq-container">
               <div className="faq-item">
                 <div className="faq-question">
                   <span>How long does a typical project take?</span>
                   <i className="fas fa-chevron-down"></i>
-                          </div>
+                </div>
                 <div className="faq-answer">
                   <p>The timeline varies depending on the scope and complexity of the project. A simple video production might take 2-3 weeks, while a more complex project with visual effects could take 2-3 months. We'll provide a detailed timeline during our initial consultation.</p>
-                          </div>
-                        </div>
+                </div>
+              </div>
               <div className="faq-item">
                 <div className="faq-question">
                   <span>What is your pricing structure?</span>
                   <i className="fas fa-chevron-down"></i>
-                      </div>
+                </div>
                 <div className="faq-answer">
                   <p>We offer customized pricing based on the specific requirements of each project. Factors that influence cost include project complexity, equipment needed, crew size, and post-production requirements. We provide detailed quotes after understanding your needs.</p>
-                            </div>
-                        </div>
+                </div>
+              </div>
               <div className="faq-item">
                 <div className="faq-question">
                   <span>Do you work with remote clients?</span>
                   <i className="fas fa-chevron-down"></i>
-                      </div>
+                </div>
                 <div className="faq-answer">
                   <p>Yes, we frequently work with clients from around the world. We use modern collaboration tools to ensure smooth communication throughout the project, regardless of your location.</p>
-                    </div>
+                </div>
               </div>
               <div className="faq-item">
                 <div className="faq-question">
@@ -1773,14 +1782,14 @@ const Home: NextPage = () => {
                 </div>
               </div>
             </div>
-                </div>
-              </section>
+          </div>
+        </section>
 
         <section className="blog">
-                <div className="container">
+          <div className="container">
             <div className="section-title">
               <h2>Latest from Our Blog</h2>
-                    </div>
+            </div>
             <div className="blog-grid">
               <div className="blog-post">
                 <div className="blog-img">
@@ -1791,34 +1800,34 @@ const Home: NextPage = () => {
                   <h3 className="blog-title">The Future of Video Production in 2023</h3>
                   <p className="blog-excerpt">Explore the latest trends and technologies shaping the video production industry this year.</p>
                   <a href="#" className="btn">Read More</a>
-            </div>
-          </div>
+                </div>
+              </div>
               <div className="blog-post">
                 <div className="blog-img">
                   <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Blog Post" />
-        </div>
+                </div>
                 <div className="blog-content">
                   <div className="blog-date">May 28, 2023</div>
                   <h3 className="blog-title">How Music Enhances Visual Storytelling</h3>
                   <p className="blog-excerpt">Discover the psychological impact of music in video content and how to choose the right soundtrack.</p>
                   <a href="#" className="btn">Read More</a>
-      </div>
-            </div>
+                </div>
+              </div>
               <div className="blog-post">
                 <div className="blog-img">
                   <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Blog Post" />
-          </div>
+                </div>
                 <div className="blog-content">
                   <div className="blog-date">April 12, 2023</div>
                   <h3 className="blog-title">Essential Photography Tips for Beginners</h3>
                   <p className="blog-excerpt">Learn fundamental techniques to improve your photography skills, from composition to lighting.</p>
                   <a href="#" className="btn">Read More</a>
-          </div>
+                </div>
+              </div>
             </div>
           </div>
-            </div>
         </section>
-          </div>
+      </div>
       <Footer />
     </>
   );

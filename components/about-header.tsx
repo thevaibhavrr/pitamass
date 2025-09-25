@@ -6,9 +6,11 @@ import { useState } from "react"
 
 interface AboutHeaderProps {
   showIcon?: boolean;
+  hideContactButton?: boolean;
+  useLabLogo?: boolean;
 }
 
-export function AboutHeader({ showIcon = true }: AboutHeaderProps) {
+export function AboutHeader({ showIcon = true, hideContactButton = false, useLabLogo = false }: AboutHeaderProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   const toggleMenu = () => {
@@ -24,10 +26,10 @@ export function AboutHeader({ showIcon = true }: AboutHeaderProps) {
               <div className="zq_header-logo">
                 <Link href="/">
                   <Image 
-                    src="/Pitamaas_Logo.png"
-                    alt="Pitamaas Logo"
-                    width={60}
-                    height={60}
+                    src={useLabLogo ? "/Pitamaas lab logo.png" : "/Pitamaas_Logo.png"}
+                    alt={useLabLogo ? "Pitamaas Lab Logo" : "Pitamaas Logo"}
+                    width={useLabLogo ? 80 : 60}
+                    height={useLabLogo ? 80 : 60}
                     style={{
                       cursor: 'pointer',
                       transition: 'all 0.3s ease',
@@ -67,13 +69,15 @@ export function AboutHeader({ showIcon = true }: AboutHeaderProps) {
             </div>
           </div>
           <div className="col-xxl-3 col-lg-4 col-sm-6 col-4 d-flex justify-content-end">
-            <div className="zq_header-right">
-              <Link href="/contact" className="zq_header-btn">
-                Contact Now
-                <svg width="11" height="13" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M1.57971 10.1668L9.55073 1.8335M9.55073 1.8335H2.37681M9.55073 1.8335V9.33349" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
-              </Link>
+            <div className={`zq_header-right ${hideContactButton ? 'zq_header-right-no-contact' : ''}`}>
+              {!hideContactButton && (
+                <Link href="/contact" className="zq_header-btn">
+                  Contact Now
+                  <svg width="11" height="13" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M1.57971 10.1668L9.55073 1.8335M9.55073 1.8335H2.37681M9.55073 1.8335V9.33349" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                </Link>
+              )}
               <span className="zq_header-menuIcon zq_menuIcon" onClick={toggleMenu}>
                 <i className="fa-light fa-grid-2"></i>
               </span>
