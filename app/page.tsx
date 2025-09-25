@@ -14,16 +14,16 @@ import { cn } from "@/lib/utils"
 type Project = { id: number; title: string; categories: string[]; imgSrc: string; isVideo?: boolean }
 
 const baseProjects: Project[] = [
-  { id: 1, title: "Phantom Reference", categories: ["Agency", "Grid"], imgSrc: "/images/phantom-reference.png" },
-  { id: 2, title: "Travel Hacker", categories: ["Campaign", "Product"], imgSrc: "/travel-hacker-campaign-tile.png" },
-  { id: 3, title: "Motion Lab", categories: ["3D", "R&D"], imgSrc: "/3d-motion-lab-frame.png" },
-  { id: 4, title: "Retail OS", categories: ["Platform", "Case Study"], imgSrc: "/retail-dashboard-ui.png" },
-  { id: 5, title: "Neural Keys", categories: ["Brand", "Industrial"], imgSrc: "/industrial-product-shot.png" },
-  { id: 6, title: "Drifting", categories: ["Film", "Experimental"], imgSrc: "/film-still-sunset.png" },
-  { id: 7, title: "Cortex Bank", categories: ["Fintech", "App"], imgSrc: "/fintech-app-ui-screen.png" },
-  { id: 8, title: "Sonic Off", categories: ["Interactive", "WebGL"], imgSrc: "/webgl-interactive-tile.png" },
-  { id: 9, title: "Midnight Drop", categories: ["E-commerce", "Launch"], imgSrc: "/ecommerce-campaign-tile.png" },
-  { id: 10, title: "Studio Suite", categories: ["SaaS", "Design"], imgSrc: "/saas-ui-kit-preview.png" },
+  { id: 1, title: "Phantom Reference", categories: ["Agency", "Grid"], imgSrc: "https://www.pitamaas.com/ludh.jpg" },
+  { id: 2, title: "Travel Hacker", categories: ["Campaign", "Product"], imgSrc: "https://www.pitamaas.com/Home/packaging.jpg" },
+  { id: 3, title: "Motion Lab", categories: ["3D", "R&D"], imgSrc: "https://www.pitamaas.com/Home/digital.jpg" },
+  { id: 4, title: "Retail OS", categories: ["Platform", "Case Study"], imgSrc: "https://www.pitamaas.com/Home/product-photography.jpg" },
+  { id: 5, title: "Neural Keys", categories: ["Brand", "Industrial"], imgSrc: "https://www.pitamaas.com/Home/website.jpg" },
+  { id: 6, title: "Drifting", categories: ["Film", "Experimental"], imgSrc: "https://www.pitamaas.com/ludh.jpg" },
+  { id: 7, title: "Cortex Bank", categories: ["Fintech", "App"], imgSrc: "https://www.pitamaas.com/Home/packaging.jpg" },
+  { id: 8, title: "Sonic Off", categories: ["Interactive", "WebGL"], imgSrc: "https://www.pitamaas.com/digital.jpg"   },
+  { id: 9, title: "Midnight Drop", categories: ["E-commerce", "Launch"], imgSrc: "https://www.pitamaas.com/Home/packaging.jpg" },
+  { id: 10, title: "Studio Suite", categories: ["SaaS", "Design"], imgSrc: "https://www.pitamaas.com/ludh.jpg" },
   { id: 11, title: "Sample Video", categories: ["Video", "Demo"], imgSrc: "/sam.mp4", isVideo: true },
 ]
 
