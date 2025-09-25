@@ -59,7 +59,43 @@ import '../../styles/main.css'
 export default function ServicesPage() {
   const [openAccordion, setOpenAccordion] = useState(0);
   const [hoveredService, setHoveredService] = useState<number | null>(null);
+  const [activeFilter, setActiveFilter] = useState('all');
+  const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
+  const [currentVideo, setCurrentVideo] = useState({ src: '', title: '' });
 
+  // Filter functionality
+  const handleFilterClick = (e: React.MouseEvent, filter: string) => {
+    e.preventDefault();
+    setActiveFilter(filter);
+    
+    // Update active button
+    const buttons = document.querySelectorAll('.filter-btn');
+    buttons.forEach(btn => btn.classList.remove('active'));
+    e.currentTarget.classList.add('active');
+    
+    // Filter portfolio items
+    const items = document.querySelectorAll('.portfolio-item');
+    items.forEach(item => {
+      const categories = item.getAttribute('data-category')?.split(' ') || [];
+      const element = item as HTMLElement;
+      if (filter === 'all' || categories.includes(filter)) {
+        element.style.display = 'block';
+      } else {
+        element.style.display = 'none';
+      }
+    });
+  };
+
+  // Video modal functionality
+  const openVideoModal = (src: string, title: string) => {
+    setCurrentVideo({ src, title });
+    setIsVideoModalOpen(true);
+  };
+
+  const closeVideoModal = () => {
+    setIsVideoModalOpen(false);
+    setCurrentVideo({ src: '', title: '' });
+  };
 
   const servicesData = [
     {
@@ -580,6 +616,224 @@ export default function ServicesPage() {
             font-size: 1.5rem;
           }
         }
+
+        /* Portfolio Section Styles */
+        .portfolio-section {
+          background: var(--clr-bg-2);
+          position: relative;
+        }
+
+        .portfolio-filter-buttons {
+          display: flex;
+          justify-content: center;
+          gap: 15px;
+          flex-wrap: wrap;
+        }
+
+        .filter-btn {
+          padding: 12px 24px;
+          background: transparent;
+          border: 2px solid var(--clr-primary);
+          color: var(--clr-primary);
+          border-radius: 30px;
+          font-weight: 600;
+          font-size: 0.9rem;
+          cursor: pointer;
+          transition: all 0.3s ease;
+          text-decoration: none;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+          background: var(--clr-primary);
+          color: var(--clr-bg-1);
+          transform: translateY(-2px);
+          box-shadow: 0 5px 15px rgba(163, 235, 23, 0.3);
+        }
+
+        .portfolio-card {
+          background: var(--clr-bg-1);
+          border-radius: 15px;
+          overflow: hidden;
+          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+          transition: all 0.3s ease;
+          border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .portfolio-card:hover {
+          transform: translateY(-10px);
+          box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .portfolio-img-wrapper {
+          position: relative;
+          overflow: hidden;
+          height: 250px;
+        }
+
+        .portfolio-img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          transition: transform 0.3s ease;
+        }
+
+        .portfolio-card:hover .portfolio-img {
+          transform: scale(1.1);
+        }
+
+        .portfolio-overlay {
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background: linear-gradient(135deg, rgba(163, 235, 23, 0.9) 0%, rgba(0, 0, 0, 0.8) 100%);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          opacity: 0;
+          transition: opacity 0.3s ease;
+        }
+
+        .portfolio-card:hover .portfolio-overlay {
+          opacity: 1;
+        }
+
+        .portfolio-content {
+          text-align: center;
+          color: white;
+          padding: 20px;
+        }
+
+        .portfolio-content h3 {
+          font-size: 1.5rem;
+          font-weight: 700;
+          margin-bottom: 10px;
+          color: white;
+        }
+
+        .portfolio-content p {
+          font-size: 1rem;
+          margin-bottom: 20px;
+          opacity: 0.9;
+        }
+
+        .play-btn {
+          width: 60px;
+          height: 60px;
+          background: var(--clr-bg-1);
+          border: none;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+          transition: all 0.3s ease;
+          color: var(--clr-primary);
+          font-size: 1.2rem;
+        }
+
+        .play-btn:hover {
+          transform: scale(1.1);
+          box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Video Modal Styles */
+        .video-modal-overlay {
+          position: fixed;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background: rgba(0, 0, 0, 0.9);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          z-index: 9999;
+          padding: 20px;
+        }
+
+        .video-modal-content {
+          background: var(--clr-bg-1);
+          border-radius: 15px;
+          max-width: 900px;
+          width: 100%;
+          max-height: 90vh;
+          overflow: hidden;
+          position: relative;
+        }
+
+        .video-modal-close {
+          position: absolute;
+          top: 15px;
+          right: 15px;
+          background: rgba(0, 0, 0, 0.7);
+          border: none;
+          color: white;
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+          z-index: 10;
+          transition: all 0.3s ease;
+        }
+
+        .video-modal-close:hover {
+          background: rgba(0, 0, 0, 0.9);
+          transform: scale(1.1);
+        }
+
+        .video-modal-header {
+          padding: 20px;
+          border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .video-modal-header h3 {
+          color: var(--clr-primary);
+          font-size: 1.5rem;
+          font-weight: 700;
+          margin: 0;
+        }
+
+        .video-modal-body {
+          position: relative;
+          padding-bottom: 56.25%; /* 16:9 aspect ratio */
+          height: 0;
+          overflow: hidden;
+        }
+
+        .video-modal-body iframe {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          border: none;
+        }
+
+        @media (max-width: 768px) {
+          .portfolio-filter-buttons {
+            gap: 10px;
+          }
+          
+          .filter-btn {
+            padding: 10px 20px;
+            font-size: 0.8rem;
+          }
+          
+          .video-modal-content {
+            margin: 10px;
+            max-height: 80vh;
+          }
+          
+          .portfolio-img-wrapper {
+            height: 200px;
+          }
+        }
       `}</style>
 
       <div className="has-smooth" id="has_smooth">
@@ -639,7 +893,7 @@ export default function ServicesPage() {
                           transition={{ duration: 0.3 }}
                         >
                           <Image
-                            src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=600&h=400&fit=crop"
+                            src="https://i.ibb.co/wrsLLJ1t/358-3589403-digital-marketing-services-icon-png-download-digital-service-removebg-preview.png"
                             alt="Digital Services Hero"
                             width={600}
                             height={400}
@@ -856,6 +1110,204 @@ export default function ServicesPage() {
 
 
 
+              {/* Portfolio Section with Video Filter */}
+              <section id="portfolio" className="portfolio-section pt-95 pb-70">
+                <div className="container">
+                  {/* Section Header */}
+                  <div className="row justify-content-center mb-60">
+                    <div className="col-xl-6 col-lg-8">
+                      <motion.div 
+                        className="text-center"
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6 }}
+                        viewport={{ once: true }}
+                      >
+                        <span className="zq_section-subtitle mb-20">Our Portfolio</span>
+                        <h2 className="zq_section-title mb-30">Creative Video Showcase</h2>
+                        <p className="portfolio-intro-text">
+                          Explore our latest video productions and creative work. From brand storytelling to visual effects,
+                          we create compelling content that engages and inspires.
+                        </p>
+                      </motion.div>
+                    </div>
+                  </div>
+
+                  {/* Filter Buttons */}
+                  <div className="row justify-content-center mb-50">
+                    <div className="col-lg-8">
+                      <motion.div 
+                        className="portfolio-filter-buttons text-center"
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6, delay: 0.2 }}
+                        viewport={{ once: true }}
+                      >
+                        <button 
+                          className="filter-btn active" 
+                          data-filter="all"
+                          onClick={(e) => handleFilterClick(e, 'all')}
+                        >
+                          All Work
+                        </button>
+                        <button 
+                          className="filter-btn" 
+                          data-filter="video"
+                          onClick={(e) => handleFilterClick(e, 'video')}
+                        >
+                          Videos
+                        </button>
+                        <button 
+                          className="filter-btn" 
+                          data-filter="brand"
+                          onClick={(e) => handleFilterClick(e, 'brand')}
+                        >
+                          Brand Content
+                        </button>
+                        <button 
+                          className="filter-btn" 
+                          data-filter="creative"
+                          onClick={(e) => handleFilterClick(e, 'creative')}
+                        >
+                          Creative
+                        </button>
+                      </motion.div>
+                    </div>
+                  </div>
+
+                  {/* Portfolio Grid */}
+                  <div className="row portfolio-grid">
+                    {/* Video 1 */}
+                    <div className="col-lg-6 col-md-6 mb-30 portfolio-item" data-category="video brand">
+                      <motion.div 
+                        className="portfolio-card"
+                        initial={{ opacity: 0, y: 50 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6 }}
+                        viewport={{ once: true }}
+                        whileHover={{ y: -10 }}
+                      >
+                        <div className="portfolio-img-wrapper">
+                          <img 
+                            src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" 
+                            alt="Pitamaas Lab Showcase" 
+                            className="portfolio-img"
+                          />
+                          <div className="portfolio-overlay">
+                            <div className="portfolio-content">
+                              <h3>Pitamaas Lab Showcase</h3>
+                              <p>Creative video production showcasing our capabilities</p>
+                              <button 
+                                className="play-btn"
+                                onClick={() => openVideoModal('https://www.youtube.com/embed/YOJO5pBfEoU', 'Pitamaas Lab Showcase')}
+                              >
+                                <i className="fas fa-play"></i>
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </motion.div>
+                    </div>
+
+                    {/* Video 2 */}
+                    <div className="col-lg-6 col-md-6 mb-30 portfolio-item" data-category="video creative">
+                      <motion.div 
+                        className="portfolio-card"
+                        initial={{ opacity: 0, y: 50 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6, delay: 0.1 }}
+                        viewport={{ once: true }}
+                        whileHover={{ y: -10 }}
+                      >
+                        <div className="portfolio-img-wrapper">
+                          <img 
+                            src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" 
+                            alt="Creative Production" 
+                            className="portfolio-img"
+                          />
+                          <div className="portfolio-overlay">
+                            <div className="portfolio-content">
+                              <h3>Creative Production</h3>
+                              <p>Professional video production and editing</p>
+                              <button 
+                                className="play-btn"
+                                onClick={() => openVideoModal('https://www.youtube.com/embed/ijmz-KSFd-w', 'Creative Production')}
+                              >
+                                <i className="fas fa-play"></i>
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </motion.div>
+                    </div>
+
+                    {/* Video 3 */}
+                    <div className="col-lg-6 col-md-6 mb-30 portfolio-item" data-category="video creative">
+                      <motion.div 
+                        className="portfolio-card"
+                        initial={{ opacity: 0, y: 50 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6, delay: 0.2 }}
+                        viewport={{ once: true }}
+                        whileHover={{ y: -10 }}
+                      >
+                        <div className="portfolio-img-wrapper">
+                          <img 
+                            src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" 
+                            alt="Visual Storytelling" 
+                            className="portfolio-img"
+                          />
+                          <div className="portfolio-overlay">
+                            <div className="portfolio-content">
+                              <h3>Visual Storytelling</h3>
+                              <p>Compelling visual narratives that engage audiences</p>
+                              <button 
+                                className="play-btn"
+                                onClick={() => openVideoModal('https://www.youtube.com/embed/rwrFoXBCKCU', 'Visual Storytelling')}
+                              >
+                                <i className="fas fa-play"></i>
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </motion.div>
+                    </div>
+
+                    {/* Video 4 */}
+                    <div className="col-lg-6 col-md-6 mb-30 portfolio-item" data-category="video brand">
+                      <motion.div 
+                        className="portfolio-card"
+                        initial={{ opacity: 0, y: 50 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6, delay: 0.3 }}
+                        viewport={{ once: true }}
+                        whileHover={{ y: -10 }}
+                      >
+                        <div className="portfolio-img-wrapper">
+                          <img 
+                            src="https://images.unsplash.com/photo-1511379938547-c1f69419868d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" 
+                            alt="Brand Video" 
+                            className="portfolio-img"
+                          />
+                          <div className="portfolio-overlay">
+                            <div className="portfolio-content">
+                              <h3>Brand Video</h3>
+                              <p>Professional brand storytelling and marketing content</p>
+                              <button 
+                                className="play-btn"
+                                onClick={() => openVideoModal('https://www.youtube.com/embed/PtwE9osboJM', 'Brand Video')}
+                              >
+                                <i className="fas fa-play"></i>
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </motion.div>
+                    </div>
+                  </div>
+                </div>
+              </section>
+
               {/* CTA Section */}
               <div className="zq_cta-area">
                 <div className="container">
@@ -887,6 +1339,29 @@ export default function ServicesPage() {
           </div>
         </div>
       </div>
+
+      {/* Video Modal */}
+      {isVideoModalOpen && (
+        <div className="video-modal-overlay" onClick={closeVideoModal}>
+          <div className="video-modal-content" onClick={(e) => e.stopPropagation()}>
+            <button className="video-modal-close" onClick={closeVideoModal}>
+              <i className="fas fa-times"></i>
+            </button>
+            <div className="video-modal-header">
+              <h3>{currentVideo.title}</h3>
+            </div>
+            <div className="video-modal-body">
+              <iframe
+                src={currentVideo.src}
+                title={currentVideo.title}
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              ></iframe>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Footer Section */}
       <Footer />

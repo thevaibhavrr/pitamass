@@ -52,6 +52,18 @@ const Home: NextPage = () => {
         button.classList.add('active');
         const filterValue = button.getAttribute('data-filter');
         
+        // Filter portfolio items
+        portfolioItems.forEach(item => {
+          const category = item.getAttribute('data-category');
+          const element = item as HTMLElement;
+          if (filterValue === 'all' || category === filterValue) {
+            element.style.display = 'block';
+            element.classList.add('show');
+          } else {
+            element.style.display = 'none';
+            element.classList.remove('show');
+          }
+        });
       });
     });
 
@@ -71,7 +83,7 @@ const Home: NextPage = () => {
         if (playerContent) {
           playerContent.innerHTML = `
             <div class="video-player">
-              <iframe width="100%" height="100%" src="https://www.youtube.com/embed/jfKfPfyJRdk" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              <iframe width="100%" height="100%" src="https://www.youtube.com/embed/YOJO5pBfEoU" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
           `;
         }
@@ -1442,67 +1454,49 @@ const Home: NextPage = () => {
                           </div>
             <div className="portfolio-grid">
               <div className="portfolio-item" data-category="video">
-                <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Music Video" className="portfolio-img" />
+                <img src="https://img.youtube.com/vi/YOJO5pBfEoU/maxresdefault.jpg" alt="Pitamaas Lab Video 1" className="portfolio-img" />
                 <div className="portfolio-overlay">
-                  <h3>Music Video</h3>
-                  <p>High-energy music video for emerging artist</p>
-                  <button className="btn play-btn" data-type="video" data-src="https://www.youtube.com/embed/jfKfPfyJRdk">Play Video</button>
+                  <h3>Pitamaas Lab Showcase</h3>
+                  <p>Creative video production showcasing our capabilities</p>
+                  <button className="btn play-btn" data-type="video" data-src="https://www.youtube.com/embed/YOJO5pBfEoU">Play Video</button>
                         </div>
                 <div className="portfolio-play-icon">
                   <i className="fas fa-play"></i>
                           </div>
                         </div>
-              <div className="portfolio-item" data-category="music">
-                <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Music Production" className="portfolio-img" />
+              <div className="portfolio-item" data-category="video">
+                <img src="https://img.youtube.com/vi/rwrFoXBCKCU/maxresdefault.jpg" alt="Pitamaas Lab Video 2" className="portfolio-img" />
                 <div className="portfolio-overlay">
-                  <h3>Album Production</h3>
-                  <p>Full album production for indie band</p>
-                  <button className="btn play-btn" data-type="audio" data-src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3">Play Audio</button>
+                  <h3>Creative Production</h3>
+                  <p>Professional video production and editing</p>
+                  <button className="btn play-btn" data-type="video" data-src="https://www.youtube.com/embed/rwrFoXBCKCU">Play Video</button>
                     </div>
                 <div className="portfolio-play-icon">
                   <i className="fas fa-play"></i>
                             </div>
-                          </div>
-              <div className="portfolio-item" data-category="image">
-                <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Event Photography" className="portfolio-img" />
-                <div className="portfolio-overlay">
-                  <h3>Festival Coverage</h3>
-                  <p>Complete visual coverage of major music festival</p>
-                        </div>
                           </div>
               <div className="portfolio-item" data-category="video">
-                <img src="https://images.unsplash.com/photo-1511379938547-c1f69419868d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Commercial Video" className="portfolio-img" />
+                <img src="https://img.youtube.com/vi/ijmz-KSFd-w/maxresdefault.jpg" alt="Pitamaas Lab Video 3" className="portfolio-img" />
                 <div className="portfolio-overlay">
-                  <h3>Commercial Ad</h3>
-                  <p>30-second commercial for lifestyle brand</p>
-                  <button className="btn play-btn" data-type="video" data-src="https://www.youtube.com/embed/jfKfPfyJRdk">Play Video</button>
+                  <h3>Visual Storytelling</h3>
+                  <p>Compelling visual narratives that engage audiences</p>
+                  <button className="btn play-btn" data-type="video" data-src="https://www.youtube.com/embed/ijmz-KSFd-w">Play Video</button>
+                        </div>
+                <div className="portfolio-play-icon">
+                  <i className="fas fa-play"></i>
+                          </div>
+                          </div>
+              <div className="portfolio-item" data-category="video">
+                <img src="https://img.youtube.com/vi/PtwE9osboJM/maxresdefault.jpg" alt="Pitamaas Lab Video 4" className="portfolio-img" />
+                <div className="portfolio-overlay">
+                  <h3>Brand Video</h3>
+                  <p>Professional brand storytelling and marketing content</p>
+                  <button className="btn play-btn" data-type="video" data-src="https://www.youtube.com/embed/PtwE9osboJM">Play Video</button>
                         </div>
                 <div className="portfolio-play-icon">
                   <i className="fas fa-play"></i>
                     </div>
                             </div>
-              <div className="portfolio-item" data-category="music">
-                <img src="https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Music Production" className="portfolio-img" />
-                <div className="portfolio-overlay">
-                  <h3>Soundtrack</h3>
-                  <p>Original soundtrack for independent film</p>
-                  <button className="btn play-btn" data-type="audio" data-src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3">Play Audio</button>
-                          </div>
-                <div className="portfolio-play-icon">
-                  <i className="fas fa-play"></i>
-                        </div>
-                          </div>
-              <div className="portfolio-item" data-category="vfx">
-                <img src="https://images.unsplash.com/photo-1558603666-13c2d9c2c6e7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="VFX Work" className="portfolio-img" />
-                <div className="portfolio-overlay">
-                  <h3>Visual Effects</h3>
-                  <p>CGI and visual effects for sci-fi short film</p>
-                  <button className="btn play-btn" data-type="video" data-src="https://www.youtube.com/embed/jfKfPfyJRdk">Play Video</button>
-                        </div>
-                <div className="portfolio-play-icon">
-                  <i className="fas fa-play"></i>
-                </div>
-                    </div>
                   </div>
                 </div>
               </section>
