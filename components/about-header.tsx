@@ -26,10 +26,10 @@ export function AboutHeader({ showIcon = true, hideContactButton = false, useLab
               <div className="zq_header-logo">
                 <Link href="/">
                   <Image 
-                    src={useLabLogo ? "/Pitamaas lab logo.png" : "/Pitamaas_Logo.png"}
+                    src={useLabLogo ? "/Pitamaas lab logo.png" : "/Pitamaas logo new.png"}
                     alt={useLabLogo ? "Pitamaas Lab Logo" : "Pitamaas Logo"}
-                    width={useLabLogo ? 80 : 60}
-                    height={useLabLogo ? 80 : 60}
+                    width={useLabLogo ? 120 : 100}
+                    height={useLabLogo ? 120 : 100}
                     style={{
                       cursor: 'pointer',
                       transition: 'all 0.3s ease',

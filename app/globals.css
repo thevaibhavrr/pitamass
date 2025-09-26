@@ -25,6 +25,27 @@ html, body {
   user-select: none;
 }
 
+/* Responsive Logo Sizes for Desktop and PC */
+.zq_header-logo img {
+  max-height: 100px;
+  width: auto;
+}
+
+/* Desktop and PC - Larger logos */
+@media (min-width: 1200px) {
+  .zq_header-logo img {
+    max-height: 120px;
+    width: auto;
+  }
+}
+
+@media (min-width: 1400px) {
+  .zq_header-logo img {
+    max-height: 140px;
+    width: auto;
+  }
+}
+
 :root {
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
