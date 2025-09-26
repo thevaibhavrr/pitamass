@@ -28,8 +28,8 @@ export function AboutHeader({ showIcon = true, hideContactButton = false, useLab
                   <Image 
                     src={useLabLogo ? "/Pitamaas lab logo.png" : "/Pitamaas logo new.png"}
                     alt={useLabLogo ? "Pitamaas Lab Logo" : "Pitamaas Logo"}
-                    width={useLabLogo ? 120 : 100}
-                    height={useLabLogo ? 120 : 100}
+                    width={useLabLogo ? 80 : 100}
+                    height={useLabLogo ? 80 : 100}
                     style={{
                       cursor: 'pointer',
                       transition: 'all 0.3s ease',

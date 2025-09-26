@@ -413,21 +413,21 @@ const Home: NextPage = () => {
 
           /* Header Navigation Styles */
           .zq_header-logo img {
-            max-height: 100px;
+            max-height: 80px;
             width: auto;
           }
 
-          /* Desktop and PC - Larger logos */
+          /* Desktop and PC - Smaller logos for lab page */
           @media (min-width: 1200px) {
             .zq_header-logo img {
-              max-height: 120px;
+              max-height: 90px;
               width: auto;
             }
           }
 
           @media (min-width: 1400px) {
             .zq_header-logo img {
-              max-height: 140px;
+              max-height: 100px;
               width: auto;
             }
           }
