@@ -677,22 +677,25 @@ const Home: NextPage = () => {
           }
 
           .filter-buttons {
-          display: flex;
-          justify-content: center;
+            display: flex;
+            justify-content: center;
             margin-bottom: 40px;
             flex-wrap: wrap;
+            gap: 10px;
           }
 
           .filter-btn {
             padding: 10px 20px;
-            margin: 5px 10px;
+            margin: 0;
             background: transparent;
             color: var(--text);
             border: 2px solid var(--primary);
             border-radius: 30px;
-          cursor: pointer;
-          transition: all 0.3s ease;
+            cursor: pointer;
+            transition: all 0.3s ease;
             font-weight: 500;
+            white-space: nowrap;
+            flex: 0 0 auto;
           }
 
           .filter-btn.active, .filter-btn:hover {
@@ -1364,19 +1367,252 @@ const Home: NextPage = () => {
             }
           }
 
-          @media (max-width: 768px) {
+          /* Comprehensive Responsive Design */
+          
+          /* Large Desktop (1600px+) */
+          @media (min-width: 1600px) {
             .hero h1 {
+              font-size: 5rem;
+            }
+            
+            .hero p {
+              font-size: 1.4rem;
+            }
+            
+            .section-title h2 {
+              font-size: 3rem;
+            }
+            
+            .service-card {
+              padding: 40px;
+            }
+            
+            .service-card h3 {
+              font-size: 1.8rem;
+            }
+            
+            .portfolio-item {
+              height: 300px;
+            }
+            
+            .about-text h2 {
+              font-size: 3rem;
+            }
+            
+            .stat-number {
+              font-size: 4rem;
+            }
+            
+            .step-number {
+              width: 100px;
+              height: 100px;
               font-size: 2.5rem;
             }
             
-            .btn {
-              display: block;
-              margin-bottom: 15px;
-              text-align: center;
+            .step-title {
+              font-size: 1.8rem;
+            }
+          }
+          
+          /* Desktop (1200px - 1599px) */
+          @media (min-width: 1200px) and (max-width: 1599px) {
+            .hero h1 {
+              font-size: 4.5rem;
             }
             
-            .btn-outline {
-              margin-left: 0;
+            .hero p {
+              font-size: 1.3rem;
+            }
+            
+            .section-title h2 {
+              font-size: 2.8rem;
+            }
+            
+            .service-card {
+              padding: 35px;
+            }
+            
+            .portfolio-item {
+              height: 280px;
+            }
+            
+            .about-text h2 {
+              font-size: 2.8rem;
+            }
+            
+            .stat-number {
+              font-size: 3.5rem;
+            }
+          }
+          
+          /* Laptop (992px - 1199px) */
+          @media (min-width: 992px) and (max-width: 1199px) {
+            .hero h1 {
+              font-size: 4rem;
+            }
+            
+            .hero p {
+              font-size: 1.2rem;
+            }
+            
+            .section-title h2 {
+              font-size: 2.5rem;
+            }
+            
+            .service-card {
+              padding: 30px;
+            }
+            
+            .portfolio-item {
+              height: 260px;
+            }
+            
+            .about-text h2 {
+              font-size: 2.5rem;
+            }
+            
+            .stat-number {
+              font-size: 3rem;
+            }
+            
+            .process-step {
+              width: 48%;
+              margin-bottom: 40px;
+            }
+          }
+          
+          /* Tablet (768px - 991px) */
+          @media (min-width: 768px) and (max-width: 991px) {
+            .hero h1 {
+              font-size: 3.5rem;
+            }
+            
+            .hero p {
+              font-size: 1.1rem;
+            }
+            
+            .section-title h2 {
+              font-size: 2.2rem;
+            }
+            
+            .service-card {
+              padding: 25px;
+            }
+            
+            .service-card h3 {
+              font-size: 1.3rem;
+            }
+            
+            .portfolio-item {
+              height: 240px;
+            }
+            
+            .about-content {
+              grid-template-columns: 1fr;
+              gap: 30px;
+            }
+            
+            .about-text h2 {
+              font-size: 2.2rem;
+            }
+            
+            .stat-number {
+              font-size: 2.5rem;
+            }
+            
+            .process-step {
+              width: 48%;
+              margin-bottom: 30px;
+            }
+            
+            .process-step:not(:last-child):after {
+              display: none;
+            }
+            
+            .media-player {
+              width: 280px;
+              right: 15px;
+              bottom: 15px;
+            }
+            
+            .team-grid {
+              grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .blog-grid {
+              grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .filter-buttons {
+              gap: 8px;
+            }
+            
+            .filter-btn {
+              padding: 8px 16px;
+              font-size: 0.9rem;
+            }
+          }
+          
+          /* Mobile Large (576px - 767px) */
+          @media (min-width: 576px) and (max-width: 767px) {
+            .hero h1 {
+              font-size: 3rem;
+            }
+            
+            .hero p {
+              font-size: 1rem;
+            }
+            
+            .section-title h2 {
+              font-size: 2rem;
+            }
+            
+            .service-card {
+              padding: 20px;
+            }
+            
+            .service-card h3 {
+              font-size: 1.2rem;
+            }
+            
+            .service-icon {
+              font-size: 2.5rem;
+            }
+            
+            .portfolio-item {
+              height: 220px;
+            }
+            
+            .about-content {
+              grid-template-columns: 1fr;
+              gap: 25px;
+            }
+            
+            .about-text h2 {
+              font-size: 2rem;
+            }
+            
+            .stat-number {
+              font-size: 2.2rem;
+            }
+            
+            .stat-text {
+              font-size: 1rem;
+            }
+            
+            .process-step {
+              width: 100%;
+              margin-bottom: 25px;
+            }
+            
+            .step-number {
+              width: 70px;
+              height: 70px;
+              font-size: 1.8rem;
+            }
+            
+            .step-title {
+              font-size: 1.3rem;
             }
             
             .media-player {
@@ -1392,10 +1628,336 @@ const Home: NextPage = () => {
               transform: translateY(0);
             }
             
+            .team-grid {
+              grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .member-img {
+              width: 150px;
+              height: 150px;
+            }
+            
+            .blog-grid {
+              grid-template-columns: 1fr;
+            }
+            
+            .testimonial-slider {
+              height: 250px;
+            }
+            
+            .testimonial-text {
+              font-size: 1rem;
+            }
+            
+            .filter-buttons {
+              gap: 6px;
+            }
+            
+            .filter-btn {
+              padding: 6px 12px;
+              font-size: 0.85rem;
+            }
+          }
+          
+          /* Mobile Small (320px - 575px) */
+          @media (max-width: 575px) {
+            .hero h1 {
+              font-size: 2.5rem;
+            }
+            
+            .hero p {
+              font-size: 0.9rem;
+            }
+            
+            .section-title h2 {
+              font-size: 1.8rem;
+            }
+            
+            .service-card {
+              padding: 15px;
+            }
+            
+            .service-card h3 {
+              font-size: 1.1rem;
+            }
+            
+            .service-icon {
+              font-size: 2rem;
+            }
+            
+            .portfolio-item {
+              height: 200px;
+            }
+            
+            .about-content {
+              grid-template-columns: 1fr;
+              gap: 20px;
+            }
+            
+            .about-text h2 {
+              font-size: 1.8rem;
+            }
+            
+            .about-text p {
+              font-size: 0.9rem;
+            }
+            
+            .stat-number {
+              font-size: 2rem;
+            }
+            
+            .stat-text {
+              font-size: 0.9rem;
+            }
+            
             .process-step {
               width: 100%;
+              margin-bottom: 20px;
+            }
+            
+            .step-number {
+              width: 60px;
+              height: 60px;
+              font-size: 1.5rem;
+            }
+            
+            .step-title {
+              font-size: 1.2rem;
+            }
+            
+            .media-player {
+              position: fixed;
+              bottom: 0;
+              left: 0;
+              width: 100%;
+              border-radius: 0;
+              transform: translateY(100%);
+            }
+            
+            .media-player.active {
+              transform: translateY(0);
+            }
+            
+            .team-grid {
+              grid-template-columns: 1fr;
+            }
+            
+            .member-img {
+              width: 120px;
+              height: 120px;
+            }
+            
+            .member-info h3 {
+              font-size: 1.2rem;
+            }
+            
+            .blog-grid {
+              grid-template-columns: 1fr;
+            }
+            
+            .blog-img {
+              height: 150px;
+            }
+            
+            .blog-title {
+              font-size: 1.2rem;
+            }
+            
+            .blog-excerpt {
+              font-size: 0.9rem;
+            }
+            
+            .testimonial-slider {
+              height: 200px;
+            }
+            
+            .testimonial-text {
+              font-size: 0.9rem;
+            }
+            
+            .testimonial-avatar {
+              width: 60px;
+              height: 60px;
+            }
+            
+            .faq-question {
+              padding: 15px;
+              font-size: 0.9rem;
+            }
+            
+            .faq-answer {
+              padding: 0 15px;
+            }
+            
+            .faq-answer p {
+              font-size: 0.9rem;
+            }
+            
+            .filter-buttons {
+              display: flex;
+              flex-wrap: wrap;
+              justify-content: center;
+              gap: 8px;
+              margin-bottom: 30px;
+            }
+            
+            .filter-btn {
+              margin: 0;
+              padding: 8px 12px;
+              font-size: 0.85rem;
+              white-space: nowrap;
+              min-width: auto;
+              flex: 0 0 auto;
+            }
+            
+            .clients-grid {
+              grid-template-columns: repeat(2, 1fr);
+              gap: 20px;
+            }
+            
+            .client-logo {
+              max-width: 120px;
+            }
           }
-        }
+          
+          /* Extra Small Mobile (320px and below) */
+          @media (max-width: 320px) {
+            .hero h1 {
+              font-size: 2rem;
+            }
+            
+            .hero p {
+              font-size: 0.8rem;
+            }
+            
+            .section-title h2 {
+              font-size: 1.5rem;
+            }
+            
+            .service-card {
+              padding: 12px;
+            }
+            
+            .service-card h3 {
+              font-size: 1rem;
+            }
+            
+            .service-icon {
+              font-size: 1.8rem;
+            }
+            
+            .portfolio-item {
+              height: 180px;
+            }
+            
+            .about-text h2 {
+              font-size: 1.5rem;
+            }
+            
+            .about-text p {
+              font-size: 0.8rem;
+            }
+            
+            .stat-number {
+              font-size: 1.8rem;
+            }
+            
+            .stat-text {
+              font-size: 0.8rem;
+            }
+            
+            .step-number {
+              width: 50px;
+              height: 50px;
+              font-size: 1.2rem;
+            }
+            
+            .step-title {
+              font-size: 1rem;
+            }
+            
+            .member-img {
+              width: 100px;
+              height: 100px;
+            }
+            
+            .member-info h3 {
+              font-size: 1rem;
+            }
+            
+            .blog-img {
+              height: 120px;
+            }
+            
+            .blog-title {
+              font-size: 1rem;
+            }
+            
+            .blog-excerpt {
+              font-size: 0.8rem;
+            }
+            
+            .testimonial-slider {
+              height: 180px;
+            }
+            
+            .testimonial-text {
+              font-size: 0.8rem;
+            }
+            
+            .testimonial-avatar {
+              width: 50px;
+              height: 50px;
+            }
+            
+            .faq-question {
+              padding: 12px;
+              font-size: 0.8rem;
+            }
+            
+            .faq-answer p {
+              font-size: 0.8rem;
+            }
+            
+            .clients-grid {
+              grid-template-columns: 1fr;
+              gap: 15px;
+            }
+            
+            .client-logo {
+              max-width: 100px;
+            }
+            
+            .filter-buttons {
+              gap: 4px;
+            }
+            
+            .filter-btn {
+              padding: 6px 10px;
+              font-size: 0.8rem;
+            }
+          }
+          
+          /* Container Responsive */
+          @media (max-width: 576px) {
+            .container {
+              padding-left: 15px;
+              padding-right: 15px;
+            }
+          }
+          
+          /* Button Responsive */
+          @media (max-width: 768px) {
+            .btn {
+              display: block;
+              margin-bottom: 15px;
+              text-align: center;
+            }
+            
+            .btn-outline {
+              margin-left: 0;
+            }
+          }
       `}</style>
 
         <section className="hero" id="home">
@@ -1474,7 +2036,6 @@ const Home: NextPage = () => {
               <button className="filter-btn" data-filter="video">Videos</button>
               <button className="filter-btn" data-filter="music">Music</button>
               <button className="filter-btn" data-filter="image">Images</button>
-              <button className="filter-btn" data-filter="vfx">VFX</button>
             </div>
             <div className="portfolio-grid">
               <div className="portfolio-item" data-category="video">
@@ -1484,7 +2045,8 @@ const Home: NextPage = () => {
                   <p>Creative video production showcasing our capabilities</p>
                   <button className="btn play-btn" data-type="video" data-src="https://www.youtube.com/embed/YOJO5pBfEoU">Play Video</button>
                 </div>
-                <div className="portfolio-play-icon">
+                <div className="portfolio-play-icon"
+                >
                   <i className="fas fa-play"></i>
                 </div>
               </div>
@@ -1562,24 +2124,7 @@ const Home: NextPage = () => {
                 <p>High-quality photography is key to showcasing your product in the online marketplace. Recognized as one of the leading product photography agencies in India, we capture stunning images that enhance brand appeal and drive sales conversions.</p>
                 <p>Our expertise in lighting, composition, and digital enhancement ensures every shot reflects exceptional quality and leaves a lasting impression. We understand that product photography is more than just taking pictures - it's about creating visual stories that connect with your customers.</p>
                 <p>Our state-of-the-art studio is equipped with professional lighting, high-end cameras, and advanced post-production capabilities. We've worked with major e-commerce brands, startups, and businesses of all sizes to create compelling product imagery that drives results.</p>
-                <div className="stats">
-                  <div className="stat">
-                    <h3>1000+</h3>
-                    <p>Products Photographed</p>
-                  </div>
-                  <div className="stat">
-                    <h3>150+</h3>
-                    <p>E-commerce Brands</p>
-                  </div>
-                  <div className="stat">
-                    <h3>95%</h3>
-                    <p>Client Satisfaction</p>
-                  </div>
-                  <div className="stat">
-                    <h3>5+</h3>
-                    <p>Years Experience</p>
-                  </div>
-                </div>
+                
               </div>
             </div>
           </div>

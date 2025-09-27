@@ -442,23 +442,223 @@ export default function AboutPage() {
           z-index: 2;
         }
 
-        /* Responsive Design */
-        @media (max-width: 768px) {
-          .intro-title {
-            font-size: 2rem !important;
+        /* Comprehensive Responsive Design */
+        
+        /* Large Desktop (1600px+) */
+        @media (min-width: 1600px) {
+          .zq_hero-content-title {
+            font-size: 6rem !important;
           }
-          
+          .zq_hero-img img {
+            width: 600px !important;
+            height: 450px !important;
+          }
+          .zq_project-img {
+            height: 350px !important;
+          }
+          .zq_project-img img {
+            height: 350px !important;
+          }
+        }
+        
+        /* Desktop (1200px - 1599px) */
+        @media (min-width: 1200px) and (max-width: 1599px) {
+          .zq_hero-content-title {
+            font-size: 5.5rem !important;
+          }
+          .zq_project-img {
+            height: 320px !important;
+          }
+          .zq_project-img img {
+            height: 320px !important;
+          }
+        }
+        
+        /* Laptop (992px - 1199px) */
+        @media (min-width: 992px) and (max-width: 1199px) {
+          .zq_hero-content-title {
+            font-size: 4.5rem !important;
+          }
+          .zq_project-img {
+            height: 280px !important;
+          }
+          .zq_project-img img {
+            height: 280px !important;
+          }
+          .zq_hero-img img {
+            width: 350px !important;
+            height: 260px !important;
+          }
+        }
+        
+        /* Tablet (768px - 991px) */
+        @media (min-width: 768px) and (max-width: 991px) {
+          .zq_hero-content-title {
+            font-size: 3.5rem !important;
+          }
+          .zq_hero-img img {
+            width: 300px !important;
+            height: 225px !important;
+          }
+          .zq_project-img {
+            height: 250px !important;
+          }
+          .zq_project-img img {
+            height: 250px !important;
+          }
+          .intro-title {
+            font-size: 2.2rem !important;
+          }
+          .vision-title {
+            font-size: 1.8rem !important;
+          }
+          .zq_section-title {
+            font-size: 2.5rem !important;
+          }
+          .zq_choose-item-title {
+            font-size: 2.5rem !important;
+          }
+          .zq_stats-item-number {
+            font-size: 2.5rem !important;
+          }
+        }
+        
+        /* Mobile Large (576px - 767px) */
+        @media (min-width: 576px) and (max-width: 767px) {
+          .zq_hero-content-title {
+            font-size: 2.8rem !important;
+            line-height: 1.1 !important;
+          }
+          .zq_hero-img img {
+            width: 250px !important;
+            height: 190px !important;
+          }
+          .zq_project-img {
+            height: 220px !important;
+          }
+          .zq_project-img img {
+            height: 220px !important;
+          }
+          .intro-title {
+            font-size: 1.8rem !important;
+          }
           .vision-title {
             font-size: 1.5rem !important;
           }
-          
-          .intro-text,
-          .vision-text {
+          .zq_section-title {
+            font-size: 2rem !important;
+          }
+          .zq_choose-item-title {
+            font-size: 2rem !important;
+          }
+          .zq_stats-item-number {
+            font-size: 2rem !important;
+          }
+          .hero-description {
             font-size: 1rem !important;
           }
-          
+          .intro-text,
+          .vision-text {
+            font-size: 0.95rem !important;
+          }
           .vision-section {
-            padding: 30px 20px;
+            padding: 25px 15px !important;
+          }
+          .zq_project-single {
+            padding-right: 0 !important;
+            padding-left: 0 !important;
+          }
+        }
+        
+        /* Mobile Small (320px - 575px) */
+        @media (max-width: 575px) {
+          .zq_hero-content-title {
+            font-size: 2.2rem !important;
+            line-height: 1.1 !important;
+          }
+          .zq_hero-img img {
+            width: 200px !important;
+            height: 150px !important;
+          }
+          .zq_project-img {
+            height: 200px !important;
+          }
+          .zq_project-img img {
+            height: 200px !important;
+          }
+          .intro-title {
+            font-size: 1.5rem !important;
+          }
+          .vision-title {
+            font-size: 1.3rem !important;
+          }
+          .zq_section-title {
+            font-size: 1.8rem !important;
+          }
+          .zq_choose-item-title {
+            font-size: 1.8rem !important;
+          }
+          .zq_stats-item-number {
+            font-size: 1.8rem !important;
+          }
+          .hero-description {
+            font-size: 0.9rem !important;
+          }
+          .intro-text,
+          .vision-text {
+            font-size: 0.9rem !important;
+          }
+          .vision-section {
+            padding: 20px 10px !important;
+          }
+          .zq_project-single {
+            padding-right: 0 !important;
+            padding-left: 0 !important;
+          }
+          .zq_hero-circle-btn {
+            width: 80px !important;
+            height: 80px !important;
+          }
+          .zq_hero-circle-btn svg {
+            width: 20px !important;
+            height: 22px !important;
+          }
+          .container {
+            padding-left: 15px !important;
+            padding-right: 15px !important;
+          }
+        }
+        
+        /* Extra Small Mobile (320px and below) */
+        @media (max-width: 320px) {
+          .zq_hero-content-title {
+            font-size: 1.8rem !important;
+          }
+          .zq_hero-img img {
+            width: 150px !important;
+            height: 115px !important;
+          }
+          .zq_project-img {
+            height: 180px !important;
+          }
+          .zq_project-img img {
+            height: 180px !important;
+          }
+          .intro-title {
+            font-size: 1.3rem !important;
+          }
+          .vision-title {
+            font-size: 1.1rem !important;
+          }
+          .zq_section-title {
+            font-size: 1.5rem !important;
+          }
+          .hero-description {
+            font-size: 0.8rem !important;
+          }
+          .intro-text,
+          .vision-text {
+            font-size: 0.8rem !important;
           }
         }
       `}</style>

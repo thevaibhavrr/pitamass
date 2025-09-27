@@ -45,7 +45,8 @@ import {
   MessageSquare,
   Mail,
   Phone,
-  MapPin
+  MapPin,
+  Calendar
 } from 'lucide-react'
 import '../../styles/globals.css'
 import '../../styles/bootstrap.min.css'
@@ -202,6 +203,650 @@ export default function ServicesPage() {
     <>
       <AboutHeader />
       <style jsx global>{`
+        /* Modern Services Section Styles */
+        .services-modern-section {
+          background: var(--clr-common-black);
+          position: relative;
+        }
+
+        .service-card-modern {
+          background: rgba(255, 255, 255, 0.03);
+          border: 1px solid rgba(255, 255, 255, 0.08);
+          border-radius: 20px;
+          padding: 0;
+          overflow: hidden;
+          position: relative;
+          transition: all 0.4s ease;
+          height: 100%;
+        }
+
+        .service-card-modern:hover {
+          border-color: rgba(138, 241, 53, 0.3);
+          box-shadow: 0 20px 40px rgba(138, 241, 53, 0.1);
+          transform: translateY(-15px) scale(1.03);
+        }
+
+        .service-image-modern {
+          position: relative;
+          overflow: hidden;
+          height: 250px;
+          border-radius: 20px 20px 0 0;
+        }
+
+        .service-img-modern {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          transition: transform 0.4s ease;
+        }
+
+        .service-image-modern:hover .service-img-modern {
+          transform: scale(1.1);
+        }
+
+        .service-overlay-modern {
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background: linear-gradient(135deg, rgba(138, 241, 53, 0.8), rgba(56, 189, 248, 0.8));
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          opacity: 0;
+          transition: opacity 0.4s ease;
+        }
+
+        .service-icon-modern {
+          background: rgba(255, 255, 255, 0.2);
+          border-radius: 50%;
+          width: 80px;
+          height: 80px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: white;
+          backdrop-filter: blur(10px);
+        }
+
+        .service-content-modern {
+          padding: 30px;
+          position: relative;
+        }
+
+        .service-title-modern {
+          font-size: 1.5rem;
+          font-weight: 700;
+          color: var(--clr-body-heading);
+          margin-bottom: 15px;
+          line-height: 1.3;
+        }
+
+        .service-desc-modern {
+          color: var(--clr-body-text);
+          opacity: 0.9;
+          line-height: 1.6;
+          margin-bottom: 25px;
+          font-size: 0.95rem;
+        }
+
+        .service-features-modern {
+          margin-bottom: 20px;
+        }
+
+        .feature-modern {
+          display: flex;
+          align-items: center;
+          margin-bottom: 12px;
+          padding: 8px 0;
+          transition: all 0.3s ease;
+        }
+
+        .feature-modern:hover {
+          transform: translateX(8px);
+        }
+
+        .feature-icon-modern {
+          width: 24px;
+          height: 24px;
+          background: linear-gradient(135deg, var(--clr-theme-primary), var(--clr-color-skyBlue));
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin-right: 12px;
+          color: white;
+          transition: all 0.3s ease;
+        }
+
+        .feature-modern span {
+          color: var(--clr-body-text);
+          font-size: 0.9rem;
+          font-weight: 500;
+        }
+
+        .service-duration-modern {
+          display: inline-flex;
+          align-items: center;
+          background: rgba(138, 241, 53, 0.1);
+          border: 1px solid rgba(138, 241, 53, 0.3);
+          border-radius: 25px;
+          padding: 8px 16px;
+          color: var(--clr-theme-primary);
+          font-size: 0.85rem;
+          font-weight: 600;
+          transition: all 0.3s ease;
+        }
+
+        .service-duration-modern:hover {
+          background: rgba(138, 241, 53, 0.2);
+          transform: scale(1.1);
+        }
+
+        .service-duration-modern svg {
+          margin-right: 6px;
+        }
+
+        /* CTA Section Styles */
+        .services-cta-modern {
+          background: rgba(255, 255, 255, 0.02);
+          border: 1px solid rgba(255, 255, 255, 0.08);
+          border-radius: 20px;
+          padding: 60px 40px;
+          position: relative;
+          overflow: hidden;
+        }
+
+        .services-cta-modern::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background: linear-gradient(135deg, rgba(138, 241, 53, 0.05), rgba(56, 189, 248, 0.05));
+          opacity: 0;
+          transition: opacity 0.3s ease;
+        }
+
+        .services-cta-modern:hover::before {
+          opacity: 1;
+        }
+
+        .cta-content-modern {
+          position: relative;
+          z-index: 2;
+        }
+
+        .cta-title-modern {
+          font-size: 2.5rem;
+          font-weight: 700;
+          color: var(--clr-body-heading);
+          margin-bottom: 20px;
+          background: linear-gradient(135deg, var(--clr-theme-primary), var(--clr-color-skyBlue));
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+        }
+
+        .cta-desc-modern {
+          font-size: 1.1rem;
+          color: var(--clr-body-text);
+          opacity: 0.9;
+          margin-bottom: 30px;
+          max-width: 600px;
+          margin-left: auto;
+          margin-right: auto;
+        }
+
+        .cta-button-modern {
+          display: inline-block;
+        }
+
+        /* Comprehensive Responsive Design */
+        
+        /* Large Desktop (1600px+) */
+        @media (min-width: 1600px) {
+          .service-card-modern {
+            margin-bottom: 50px;
+          }
+          
+          .service-image-modern {
+            height: 300px;
+          }
+          
+          .service-content-modern {
+            padding: 40px;
+          }
+          
+          .service-title-modern {
+            font-size: 1.8rem;
+          }
+          
+          .service-desc-modern {
+            font-size: 1.1rem;
+          }
+          
+          .cta-title-modern {
+            font-size: 3rem;
+          }
+          
+          .services-cta-modern {
+            padding: 80px 60px;
+          }
+        }
+        
+        /* Desktop (1200px - 1599px) */
+        @media (min-width: 1200px) and (max-width: 1599px) {
+          .service-image-modern {
+            height: 280px;
+          }
+          
+          .service-content-modern {
+            padding: 35px;
+          }
+          
+          .service-title-modern {
+            font-size: 1.6rem;
+          }
+          
+          .cta-title-modern {
+            font-size: 2.8rem;
+          }
+          
+          .services-cta-modern {
+            padding: 70px 50px;
+          }
+        }
+        
+        /* Laptop (992px - 1199px) */
+        @media (min-width: 992px) and (max-width: 1199px) {
+          .service-image-modern {
+            height: 260px;
+          }
+          
+          .service-content-modern {
+            padding: 30px;
+          }
+          
+          .service-title-modern {
+            font-size: 1.4rem;
+          }
+          
+          .cta-title-modern {
+            font-size: 2.5rem;
+          }
+          
+          .services-cta-modern {
+            padding: 60px 40px;
+          }
+        }
+        
+        /* Tablet (768px - 991px) */
+        @media (min-width: 768px) and (max-width: 991px) {
+          .service-card-modern {
+            margin-bottom: 35px;
+          }
+          
+          .service-image-modern {
+            height: 240px;
+          }
+          
+          .service-content-modern {
+            padding: 25px 20px;
+          }
+          
+          .service-title-modern {
+            font-size: 1.3rem;
+          }
+          
+          .service-desc-modern {
+            font-size: 0.9rem;
+          }
+          
+          .cta-title-modern {
+            font-size: 2.2rem;
+          }
+          
+          .cta-desc-modern {
+            font-size: 1rem;
+          }
+          
+          .services-cta-modern {
+            padding: 50px 30px;
+          }
+        }
+        
+        /* Mobile Large (576px - 767px) */
+        @media (min-width: 576px) and (max-width: 767px) {
+          .service-card-modern {
+            margin-bottom: 30px;
+          }
+          
+          .service-image-modern {
+            height: 220px;
+          }
+          
+          .service-content-modern {
+            padding: 25px 20px;
+          }
+          
+          .service-title-modern {
+            font-size: 1.2rem;
+          }
+          
+          .service-desc-modern {
+            font-size: 0.85rem;
+          }
+          
+          .feature-modern span {
+            font-size: 0.8rem;
+          }
+          
+          .cta-title-modern {
+            font-size: 2rem;
+          }
+          
+          .cta-desc-modern {
+            font-size: 0.95rem;
+          }
+          
+          .services-cta-modern {
+            padding: 40px 25px;
+          }
+        }
+        
+        /* Mobile Small (320px - 575px) */
+        @media (max-width: 575px) {
+          .service-card-modern {
+            margin-bottom: 25px;
+          }
+          
+          .service-image-modern {
+            height: 200px;
+          }
+          
+          .service-content-modern {
+            padding: 20px 15px;
+          }
+          
+          .service-title-modern {
+            font-size: 1.1rem;
+          }
+          
+          .service-desc-modern {
+            font-size: 0.8rem;
+            line-height: 1.5;
+          }
+          
+          .feature-modern {
+            margin-bottom: 8px;
+            padding: 6px 0;
+          }
+          
+          .feature-icon-modern {
+            width: 20px;
+            height: 20px;
+            margin-right: 8px;
+          }
+          
+          .feature-modern span {
+            font-size: 0.75rem;
+          }
+          
+          .cta-title-modern {
+            font-size: 1.8rem;
+          }
+          
+          .cta-desc-modern {
+            font-size: 0.9rem;
+          }
+          
+          .services-cta-modern {
+            padding: 35px 20px;
+          }
+        }
+        
+        /* Extra Small Mobile (320px and below) */
+        @media (max-width: 320px) {
+          .service-image-modern {
+            height: 180px;
+          }
+          
+          .service-content-modern {
+            padding: 15px 10px;
+          }
+          
+          .service-title-modern {
+            font-size: 1rem;
+          }
+          
+          .service-desc-modern {
+            font-size: 0.75rem;
+          }
+          
+          .feature-modern {
+            margin-bottom: 6px;
+            padding: 4px 0;
+          }
+          
+          .feature-icon-modern {
+            width: 18px;
+            height: 18px;
+            margin-right: 6px;
+          }
+          
+          .feature-modern span {
+            font-size: 0.7rem;
+          }
+          
+          .cta-title-modern {
+            font-size: 1.5rem;
+          }
+          
+          .cta-desc-modern {
+            font-size: 0.8rem;
+          }
+          
+          .services-cta-modern {
+            padding: 30px 15px;
+          }
+        }
+        
+        /* Grid Responsive Adjustments */
+        @media (max-width: 991px) {
+          .row .col-lg-4 {
+            margin-bottom: 30px;
+          }
+        }
+        
+        @media (max-width: 767px) {
+          .row .col-md-6 {
+            margin-bottom: 25px;
+          }
+        }
+        
+        /* Container Responsive */
+        @media (max-width: 576px) {
+          .container {
+            padding-left: 15px;
+            padding-right: 15px;
+          }
+        }
+
+        /* Blog Section Styles */
+        .blog-section {
+          background: var(--clr-common-black);
+          position: relative;
+        }
+
+        .blog-card-modern {
+          background: rgba(255, 255, 255, 0.03);
+          border: 1px solid rgba(255, 255, 255, 0.08);
+          border-radius: 20px;
+          padding: 0;
+          overflow: hidden;
+          position: relative;
+          transition: all 0.4s ease;
+          height: 100%;
+        }
+
+        .blog-card-modern:hover {
+          border-color: rgba(138, 241, 53, 0.3);
+          box-shadow: 0 20px 40px rgba(138, 241, 53, 0.1);
+          transform: translateY(-10px) scale(1.02);
+        }
+
+        .blog-image-modern {
+          position: relative;
+          overflow: hidden;
+          height: 250px;
+          border-radius: 20px 20px 0 0;
+        }
+
+        .blog-img-modern {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          transition: transform 0.4s ease;
+        }
+
+        .blog-image-modern:hover .blog-img-modern {
+          transform: scale(1.1);
+        }
+
+        .blog-category-modern {
+          position: absolute;
+          top: 20px;
+          left: 20px;
+          background: linear-gradient(135deg, var(--clr-theme-primary), var(--clr-color-skyBlue));
+          color: white;
+          padding: 8px 16px;
+          border-radius: 20px;
+          font-size: 0.8rem;
+          font-weight: 600;
+          backdrop-filter: blur(10px);
+        }
+
+        .blog-content-modern {
+          padding: 30px;
+          position: relative;
+        }
+
+        .blog-title-modern {
+          font-size: 1.4rem;
+          font-weight: 700;
+          color: var(--clr-body-heading);
+          margin-bottom: 15px;
+          line-height: 1.3;
+          transition: color 0.3s ease;
+        }
+
+        .blog-card-modern:hover .blog-title-modern {
+          color: var(--clr-theme-primary);
+        }
+
+        .blog-excerpt-modern {
+          color: var(--clr-body-text);
+          opacity: 0.9;
+          line-height: 1.6;
+          margin-bottom: 20px;
+          font-size: 0.95rem;
+        }
+
+        .blog-meta-modern {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-bottom: 20px;
+          padding: 15px 0;
+          border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .blog-date-modern,
+        .blog-read-time-modern {
+          display: flex;
+          align-items: center;
+          color: var(--clr-body-text);
+          opacity: 0.8;
+          font-size: 0.85rem;
+          font-weight: 500;
+        }
+
+        .blog-date-modern svg,
+        .blog-read-time-modern svg {
+          margin-right: 6px;
+          color: var(--clr-theme-primary);
+        }
+
+        .blog-read-more-modern {
+          margin-top: 15px;
+        }
+
+        .blog-read-btn-modern {
+          display: inline-flex;
+          align-items: center;
+          color: var(--clr-theme-primary);
+          font-weight: 600;
+          font-size: 0.9rem;
+          text-decoration: none;
+          transition: all 0.3s ease;
+          padding: 10px 0;
+        }
+
+        .blog-read-btn-modern:hover {
+          color: var(--clr-color-skyBlue);
+          transform: translateX(5px);
+        }
+
+        .blog-cta-modern {
+          margin-top: 60px;
+        }
+
+        /* Blog Responsive Design */
+        @media (max-width: 768px) {
+          .blog-card-modern {
+            margin-bottom: 30px;
+          }
+          
+          .blog-content-modern {
+            padding: 25px 20px;
+          }
+          
+          .blog-title-modern {
+            font-size: 1.2rem;
+          }
+          
+          .blog-image-modern {
+            height: 220px;
+          }
+        }
+
+        @media (max-width: 576px) {
+          .blog-image-modern {
+            height: 200px;
+          }
+          
+          .blog-content-modern {
+            padding: 20px 15px;
+          }
+          
+          .blog-title-modern {
+            font-size: 1.1rem;
+          }
+          
+          .blog-excerpt-modern {
+            font-size: 0.85rem;
+          }
+          
+          .blog-meta-modern {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 10px;
+          }
+        }
+
         /* Ensure navigation maintains rounded corners */
         nav[aria-label="Primary"] button {
           border-radius: 9999px !important;
@@ -908,11 +1553,11 @@ export default function ServicesPage() {
 
 
               {/* Services Showcase Section - Compact Design */}
-              <section id="services" className="services-compact-section pt-95 pb-70">
+              <section id="services" className="services-modern-section pt-95 pb-70">
                 <div className="container">
                   {/* Section Header */}
                   <div className="row justify-content-center mb-60">
-                    <div className="col-xl-6 col-lg-8">
+                    <div className="col-xl-8 col-lg-10">
                       <motion.div 
                         className="text-center"
                         initial={{ opacity: 0, y: 30 }}
@@ -920,127 +1565,152 @@ export default function ServicesPage() {
                         transition={{ duration: 0.6 }}
                         viewport={{ once: true }}
                       >
-                        <span className="zq_section-subtitle mb-20">Our Services</span>
-                        <h2 className="zq_section-title mb-30">Complete Digital Solutions</h2>
-                        <p className="services-intro-text">
+                        <motion.span 
+                          className="zq_section-subtitle mb-20"
+                          initial={{ opacity: 0, scale: 0.8 }}
+                          whileInView={{ opacity: 1, scale: 1 }}
+                          transition={{ duration: 0.5, delay: 0.2 }}
+                          viewport={{ once: true }}
+                        >
+                          Our Services
+                        </motion.span>
+                        <motion.h2 
+                          className="zq_section-title mb-30"
+                          initial={{ opacity: 0, y: 20 }}
+                          whileInView={{ opacity: 1, y: 0 }}
+                          transition={{ duration: 0.6, delay: 0.3 }}
+                          viewport={{ once: true }}
+                        >
+                          Complete Digital Solutions
+                        </motion.h2>
+                        <motion.p 
+                          className="services-intro-text"
+                          initial={{ opacity: 0, y: 20 }}
+                          whileInView={{ opacity: 1, y: 0 }}
+                          transition={{ duration: 0.6, delay: 0.4 }}
+                          viewport={{ once: true }}
+                        >
                           From brand strategy to IT solutions, we provide comprehensive digital services that transform your business.
                           Our integrated approach covers brand architecture, marketing, development, content creation, and traditional media.
-                        </p>
+                        </motion.p>
                       </motion.div>
                     </div>
                   </div>
 
-                  {/* Services Grid - Compact Cards */}
+                  {/* Services Grid - Modern Cards */}
                   <div className="row">
                     {servicesData.map((service, index) => {
                       const IconComponent = service.icon;
                       
                       return (
-                        <div key={service.id} className="col-lg-4 col-md-6 mb-30">
+                        <div key={service.id} className="col-lg-4 col-md-6 mb-40">
                           <motion.div 
-                            className="service-card-compact"
-                            initial={{ opacity: 0, y: 50, scale: 0.9 }}
+                            className="service-card-modern"
+                            initial={{ opacity: 0, y: 60, scale: 0.8 }}
                             whileInView={{ opacity: 1, y: 0, scale: 1 }}
                             transition={{ 
-                              duration: 0.6, 
-                              delay: index * 0.15,
+                              duration: 0.8, 
+                              delay: index * 0.2,
                               type: "spring",
-                              stiffness: 100
+                              stiffness: 80
                             }}
                             viewport={{ once: true }}
-                            onHoverStart={() => setHoveredService(service.id)}
-                            onHoverEnd={() => setHoveredService(null)}
                             whileHover={{ 
-                              y: -10, 
-                              scale: 1.02,
-                              transition: { duration: 0.3 }
+                              y: -15, 
+                              scale: 1.03,
+                              transition: { duration: 0.4, ease: "easeOut" }
                             }}
                           >
-
+                            {/* Service Image */}
                             <motion.div 
-                              className="service-image-compact"
+                              className="service-image-modern"
                               initial={{ opacity: 0, scale: 0.9 }}
                               whileInView={{ opacity: 1, scale: 1 }}
-                              transition={{ duration: 0.5, delay: 0.4 }}
+                              transition={{ duration: 0.6, delay: 0.5 }}
                               viewport={{ once: true }}
-                              whileHover={{ scale: 1.05 }}
+                              whileHover={{ scale: 1.1 }}
                             >
                               <Image
                                 src={service.image}
                                 alt={service.title}
-                                width={300}
-                                height={180}
-                                className="service-img"
+                                width={400}
+                                height={250}
+                                className="service-img-modern"
                               />
+                              
+                              {/* Gradient Overlay */}
                               <motion.div 
-                                className="service-overlay-compact"
+                                className="service-overlay-modern"
                                 initial={{ opacity: 0 }}
                                 whileHover={{ opacity: 1 }}
-                                transition={{ duration: 0.3 }}
+                                transition={{ duration: 0.4 }}
                               >
                                 <motion.div 
-                                  className="service-duration-badge"
-                                  initial={{ y: 20, opacity: 0 }}
-                                  whileHover={{ y: 0, opacity: 1 }}
-                                  transition={{ duration: 0.3, delay: 0.1 }}
+                                  className="service-icon-modern"
+                                  initial={{ scale: 0, rotate: -180 }}
+                                  whileHover={{ scale: 1, rotate: 0 }}
+                                  transition={{ duration: 0.5, type: "spring", stiffness: 200 }}
                                 >
-                                  <Clock size={14} />
-                                  <span>{service.duration}</span>
+                                  <IconComponent size={32} />
                                 </motion.div>
                               </motion.div>
                             </motion.div>
 
+                            {/* Service Content */}
                             <motion.div 
-                              className="service-content-compact"
-                              initial={{ opacity: 0, y: 20 }}
+                              className="service-content-modern"
+                              initial={{ opacity: 0, y: 30 }}
                               whileInView={{ opacity: 1, y: 0 }}
-                              transition={{ duration: 0.5, delay: 0.5 }}
+                              transition={{ duration: 0.6, delay: 0.7 }}
                               viewport={{ once: true }}
                             >
                               <motion.h4 
-                                className="service-title-compact"
-                                initial={{ opacity: 0, y: 10 }}
+                                className="service-title-modern"
+                                initial={{ opacity: 0, y: 15 }}
                                 whileInView={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 0.4, delay: 0.6 }}
+                                transition={{ duration: 0.5, delay: 0.8 }}
                                 viewport={{ once: true }}
                               >
                                 {service.title}
                               </motion.h4>
+                              
                               <motion.p 
-                                className="service-desc-compact"
-                                initial={{ opacity: 0, y: 10 }}
+                                className="service-desc-modern"
+                                initial={{ opacity: 0, y: 15 }}
                                 whileInView={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 0.4, delay: 0.7 }}
+                                transition={{ duration: 0.5, delay: 0.9 }}
                                 viewport={{ once: true }}
                               >
                                 {service.description}
                               </motion.p>
                               
+                              {/* Features List */}
                               <motion.div 
-                                className="service-features-compact"
-                                initial={{ opacity: 0, y: 10 }}
+                                className="service-features-modern"
+                                initial={{ opacity: 0, y: 20 }}
                                 whileInView={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 0.4, delay: 0.8 }}
+                                transition={{ duration: 0.5, delay: 1.0 }}
                                 viewport={{ once: true }}
                               >
                                 {service.features.slice(0, 3).map((feature, featureIndex) => (
                                   <motion.div 
                                     key={featureIndex} 
-                                    className="feature-compact"
-                                    initial={{ opacity: 0, x: -20 }}
+                                    className="feature-modern"
+                                    initial={{ opacity: 0, x: -30 }}
                                     whileInView={{ opacity: 1, x: 0 }}
                                     transition={{ 
-                                      duration: 0.3, 
-                                      delay: 0.9 + (featureIndex * 0.1)
+                                      duration: 0.4, 
+                                      delay: 1.1 + (featureIndex * 0.1)
                                     }}
                                     viewport={{ once: true }}
-                                    whileHover={{ x: 5, scale: 1.05 }}
+                                    whileHover={{ x: 8, scale: 1.05 }}
                                   >
                                     <motion.div
-                                      whileHover={{ scale: 1.2, rotate: 5 }}
-                                      transition={{ duration: 0.2 }}
+                                      className="feature-icon-modern"
+                                      whileHover={{ scale: 1.3, rotate: 10 }}
+                                      transition={{ duration: 0.3 }}
                                     >
-                                      <CheckCircle size={14} />
+                                      <CheckCircle size={16} />
                                     </motion.div>
                                     <span>{feature}</span>
                                   </motion.div>
@@ -1056,8 +1726,8 @@ export default function ServicesPage() {
 
                   {/* Bottom CTA */}
                   <motion.div 
-                    className="services-cta-compact text-center mt-60"
-                    initial={{ opacity: 0, y: 50, scale: 0.95 }}
+                    className="services-cta-modern text-center mt-80"
+                    initial={{ opacity: 0, y: 60, scale: 0.9 }}
                     whileInView={{ opacity: 1, y: 0, scale: 1 }}
                     transition={{ 
                       duration: 0.8, 
@@ -1066,41 +1736,50 @@ export default function ServicesPage() {
                     }}
                     viewport={{ once: true }}
                   >
-                    <motion.h3 
-                      className="cta-title-compact"
-                      initial={{ opacity: 0, y: 20 }}
+                    <motion.div 
+                      className="cta-content-modern"
+                      initial={{ opacity: 0, y: 30 }}
                       whileInView={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.6, delay: 0.2 }}
                       viewport={{ once: true }}
                     >
-                      Need Something Custom?
-                    </motion.h3>
-                    <motion.p 
-                      className="cta-desc-compact"
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.6, delay: 0.3 }}
-                      viewport={{ once: true }}
-                    >
-                      We love tackling unique challenges and creating bespoke solutions.
-                    </motion.p>
-                    <motion.div
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.6, delay: 0.4 }}
-                      viewport={{ once: true }}
-                      whileHover={{ scale: 1.05, y: -2 }}
-                      whileTap={{ scale: 0.95 }}
-                    >
-                      <Link href="#contact" className="zq_theme-btn">
-                        Let's Discuss Your Project
-                        <motion.div
-                          whileHover={{ x: 3 }}
-                          transition={{ duration: 0.2 }}
-                        >
-                          <ArrowRight size={16} className="ml-2" />
-                        </motion.div>
-                      </Link>
+                      <motion.h3 
+                        className="cta-title-modern"
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6, delay: 0.3 }}
+                        viewport={{ once: true }}
+                      >
+                        Need Something Custom?
+                      </motion.h3>
+                      <motion.p 
+                        className="cta-desc-modern"
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6, delay: 0.4 }}
+                        viewport={{ once: true }}
+                      >
+                        We love tackling unique challenges and creating bespoke solutions.
+                      </motion.p>
+                      <motion.div
+                        className="cta-button-modern"
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6, delay: 0.5 }}
+                        viewport={{ once: true }}
+                        whileHover={{ scale: 1.05, y: -3 }}
+                        whileTap={{ scale: 0.95 }}
+                      >
+                        <Link href="#contact" className="zq_theme-btn">
+                          Let's Discuss Your Project
+                          <motion.div
+                            whileHover={{ x: 5 }}
+                            transition={{ duration: 0.3 }}
+                          >
+                            <ArrowRight size={18} className="ml-2" />
+                          </motion.div>
+                        </Link>
+                      </motion.div>
                     </motion.div>
                   </motion.div>
                 </div>
@@ -1363,8 +2042,232 @@ export default function ServicesPage() {
         </div>
       )}
 
+      {/* Latest from our blog Section */}
+      <section className="blog-section pt-95 pb-70">
+        <div className="container">
+          {/* Section Header */}
+          <div className="row justify-content-center mb-60">
+            <div className="col-xl-6 col-lg-8">
+              <motion.div 
+                className="text-center"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
+                viewport={{ once: true }}
+              >
+                <motion.span 
+                  className="zq_section-subtitle mb-20"
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.5, delay: 0.2 }}
+                  viewport={{ once: true }}
+                >
+                  Latest from our blog
+                </motion.span>
+                <motion.h2 
+                  className="zq_section-title mb-30"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.3 }}
+                  viewport={{ once: true }}
+                >
+                  Insights & Updates
+                </motion.h2>
+                <motion.p 
+                  className="blog-intro-text"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.4 }}
+                  viewport={{ once: true }}
+                >
+                  Stay updated with the latest trends, insights, and tips from our team of experts.
+                </motion.p>
+              </motion.div>
+            </div>
+          </div>
+
+          {/* Blog Posts Grid */}
+          <div className="row">
+            {[
+              {
+                id: 1,
+                title: "The Future of Digital Marketing in 2024",
+                excerpt: "Explore the emerging trends and technologies that will shape digital marketing in the coming year.",
+                image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                category: "Digital Marketing",
+                date: "Dec 15, 2024",
+                readTime: "5 min read"
+              },
+              {
+                id: 2,
+                title: "Brand Identity Design: Creating Memorable Logos",
+                excerpt: "Learn the essential principles of logo design and how to create a brand identity that resonates with your audience.",
+                image: "https://images.unsplash.com/photo-1558655146-9f40138edfeb?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                category: "Design",
+                date: "Dec 12, 2024",
+                readTime: "7 min read"
+              },
+              {
+                id: 3,
+                title: "Web Development Best Practices for 2024",
+                excerpt: "Discover the latest web development techniques and best practices for building modern, responsive websites.",
+                image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                category: "Development",
+                date: "Dec 10, 2024",
+                readTime: "6 min read"
+              }
+            ].map((post, index) => (
+              <div key={post.id} className="col-lg-4 col-md-6 mb-40">
+                <motion.article 
+                  className="blog-card-modern"
+                  initial={{ opacity: 0, y: 60, scale: 0.8 }}
+                  whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                  transition={{ 
+                    duration: 0.8, 
+                    delay: index * 0.2,
+                    type: "spring",
+                    stiffness: 80
+                  }}
+                  viewport={{ once: true }}
+                  whileHover={{ 
+                    y: -10, 
+                    scale: 1.02,
+                    transition: { duration: 0.4, ease: "easeOut" }
+                  }}
+                >
+                  {/* Blog Image */}
+                  <motion.div 
+                    className="blog-image-modern"
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.6, delay: 0.5 }}
+                    viewport={{ once: true }}
+                    whileHover={{ scale: 1.05 }}
+                  >
+                    <Image
+                      src={post.image}
+                      alt={post.title}
+                      width={400}
+                      height={250}
+                      className="blog-img-modern"
+                    />
+                    
+                    {/* Category Badge */}
+                    <motion.div 
+                      className="blog-category-modern"
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.4, delay: 0.6 }}
+                      viewport={{ once: true }}
+                    >
+                      {post.category}
+                    </motion.div>
+                  </motion.div>
+
+                  {/* Blog Content */}
+                  <motion.div 
+                    className="blog-content-modern"
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: 0.7 }}
+                    viewport={{ once: true }}
+                  >
+                    <motion.h4 
+                      className="blog-title-modern"
+                      initial={{ opacity: 0, y: 15 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.5, delay: 0.8 }}
+                      viewport={{ once: true }}
+                    >
+                      {post.title}
+                    </motion.h4>
+                    
+                    <motion.p 
+                      className="blog-excerpt-modern"
+                      initial={{ opacity: 0, y: 15 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.5, delay: 0.9 }}
+                      viewport={{ once: true }}
+                    >
+                      {post.excerpt}
+                    </motion.p>
+                    
+                    {/* Blog Meta */}
+                    <motion.div 
+                      className="blog-meta-modern"
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.5, delay: 1.0 }}
+                      viewport={{ once: true }}
+                    >
+                      <div className="blog-date-modern">
+                        <Calendar size={14} />
+                        <span>{post.date}</span>
+                      </div>
+                      <div className="blog-read-time-modern">
+                        <Clock size={14} />
+                        <span>{post.readTime}</span>
+                      </div>
+                    </motion.div>
+
+                    {/* Read More Button */}
+                    <motion.div
+                      className="blog-read-more-modern"
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.5, delay: 1.1 }}
+                      viewport={{ once: true }}
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                    >
+                      <Link href="#" className="blog-read-btn-modern">
+                        Read More
+                        <ArrowRight size={14} className="ml-1" />
+                      </Link>
+                    </motion.div>
+                  </motion.div>
+                </motion.article>
+              </div>
+            ))}
+          </div>
+
+          {/* View All Blog Posts Button */}
+          <motion.div 
+            className="blog-cta-modern text-center mt-60"
+            initial={{ opacity: 0, y: 50, scale: 0.9 }}
+            whileInView={{ opacity: 1, y: 0, scale: 1 }}
+            transition={{ 
+              duration: 0.8, 
+              type: "spring",
+              stiffness: 100
+            }}
+            viewport={{ once: true }}
+          >
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              viewport={{ once: true }}
+              whileHover={{ scale: 1.05, y: -3 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <Link href="#" className="zq_theme-btn">
+                View All Blog Posts
+                <motion.div
+                  whileHover={{ x: 5 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <ArrowRight size={18} className="ml-2" />
+                </motion.div>
+              </Link>
+            </motion.div>
+          </motion.div>
+        </div>
+      </section>
+
       {/* Footer Section */}
       <Footer />
     </>
   )
 }
+
