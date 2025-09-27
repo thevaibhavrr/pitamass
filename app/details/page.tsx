@@ -1,11 +1,11 @@
-
 'use client';
 
-import type { NextPage } from 'next';
-import Head from 'next/head';
-import { useEffect } from 'react';
+import { useSearchParams } from 'next/navigation';
+import { motion } from 'framer-motion';
 import { AboutHeader } from "@/components/about-header";
 import { Footer } from "@/components/footer";
+import { ProjectCard } from "@/components/project-card";
+import { cn } from "@/lib/utils";
 import '../../styles/globals.css';
 import '../../styles/bootstrap.min.css';
 import '../../styles/nice-select.css';
@@ -15,394 +15,258 @@ import '../../styles/animate.min.css';
 import '../../styles/magnific-popup.css';
 import '../../styles/main.css';
 
-const ProductDetails: NextPage = () => {
-  useEffect(() => {
-    // Any client-side scripts if needed, but for this page, perhaps none
-    window.addEventListener('scroll', () => {
-      // Simple scroll effect if needed
-    });
-  }, []);
+// Sample projects for the bottom grid
+const sampleProjects = [
+  { id: 1, title: "Phantom Reference", categories: ["Agency", "Grid"], imgSrc: "https://www.pitamaas.com/ludh.jpg" },
+  { id: 2, title: "Travel Hacker", categories: ["Campaign", "Product"], imgSrc: "https://www.pitamaas.com/Home/packaging.jpg" },
+  { id: 3, title: "Motion Lab", categories: ["3D", "R&D"], imgSrc: "https://www.pitamaas.com/Home/digital.jpg" },
+  { id: 4, title: "Retail OS", categories: ["Platform", "Case Study"], imgSrc: "https://www.pitamaas.com/Home/product-photography.jpg" },
+  { id: 5, title: "Neural Keys", categories: ["Brand", "Industrial"], imgSrc: "https://www.pitamaas.com/Home/website.jpg" },
+  { id: 6, title: "Drifting", categories: ["Film", "Experimental"], imgSrc: "https://www.pitamaas.com/ludh.jpg" },
+  { id: 7, title: "Cortex Bank", categories: ["Fintech", "App"], imgSrc: "https://www.pitamaas.com/Home/packaging.jpg" },
+  { id: 8, title: "Sonic Off", categories: ["Interactive", "WebGL"], imgSrc: "https://www.pitamaas.com/digital.jpg" },
+  { id: 9, title: "Midnight Drop", categories: ["E-commerce", "Launch"], imgSrc: "https://www.pitamaas.com/Home/packaging.jpg" },
+  { id: 10, title: "Studio Suite", categories: ["SaaS", "Design"], imgSrc: "https://www.pitamaas.com/ludh.jpg" },
+  { id: 11, title: "Sample Video", categories: ["Video", "Demo"], imgSrc: "/sam.mp4", isVideo: true },
+  { id: 12, title: "Creative Works", categories: ["Design", "Brand"], imgSrc: "https://www.pitamaas.com/Home/digital.jpg" },
+];
+
+export default function DetailsPage() {
+  const searchParams = useSearchParams();
+  
+  // Get data from URL params
+  const title = searchParams.get('title') || 'Project Title';
+  const categories = searchParams.get('categories')?.split(',') || ['Category'];
+  const imgSrc = searchParams.get('imgSrc') || '/placeholder.svg';
+  const isVideo = searchParams.get('isVideo') === 'true';
 
   return (
     <>
       <AboutHeader showIcon={false} />
-      <Head>
-        <title>Product Details | Pitamaas Lab</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&family=Poppins:wght@300;500;700&display=swap" rel="stylesheet" />
-      </Head>
-      <div>
-        <style jsx global>{`
-          * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-          }
-
-          :root {
-            --primary: #8AF135;
-            --secondary: #2A4741;
-            --dark: #000;
-            --light: #fff;
-            --background: var(--secondary);
-            --text: var(--light);
-            --card-bg: rgba(42, 71, 65, 0.8);
-            --gradient: linear-gradient(135deg, rgba(138, 241, 53, 0.1) 0%, rgba(42, 71, 65, 0.9) 100%);
-          }
-
-          body {
-            font-family: 'Poppins', sans-serif;
-            background-color: var(--background);
-            color: var(--text);
-            overflow-x: hidden;
-            line-height: 1.6;
-          }
-
-          h1, h2, h3, h4 {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 800;
-          }
-
-          .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-          }
-
-          .btn {
-            display: inline-block;
-            padding: 12px 30px;
-            background: var(--primary);
-            color: var(--secondary);
-            text-decoration: none;
-            font-weight: 600;
-            border-radius: 30px;
-            transition: all 0.3s ease;
-            border: 2px solid var(--primary);
-          }
-
-          .btn:hover {
-            background: transparent;
-            color: var(--primary);
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px var(--primary);
-          }
-
-          .product-hero {
-            height: 60vh;
-            display: flex;
-            align-items: center;
-            position: relative;
-            overflow: hidden;
-            background: var(--gradient);
-          }
-
-          .product-hero-bg {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -2;
-            background: url('https://images.unsplash.com/photo-1511379938547-c1f69419868d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80') no-repeat center center/cover;
-            opacity: 0.5;
-          }
-
-          .product-content {
-            max-width: 800px;
-          }
-
-          .product-content h1 {
-            font-size: 3rem;
-            margin-bottom: 20px;
-            color: var(--primary);
-          }
-
-          .product-content p {
-            font-size: 1.2rem;
-            margin-bottom: 30px;
-          }
-
-          .product-details {
-            padding: 80px 0;
-            background: var(--background);
-          }
-
-          .details-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-          }
-
-          .product-image {
-            border-radius: 10px;
-            overflow: hidden;
-          }
-
-          .product-image img {
-            width: 100%;
-            display: block;
-          }
-
-          .product-info h2 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-            color: var(--primary);
-          }
-
-          .price {
-            font-size: 2rem;
-            color: var(--primary);
-            margin-bottom: 20px;
-          }
-
-          .features {
-            list-style: none;
-            margin-bottom: 30px;
-          }
-
-          .features li {
-            margin-bottom: 10px;
-            display: flex;
-            align-items: center;
-          }
-
-          .features i {
-            color: var(--primary);
-            margin-right: 10px;
-          }
-
-          .product-description {
-            padding: 80px 0;
-            background: var(--card-bg);
-          }
-
-          .product-process {
-            padding: 80px 0;
-            background: var(--background);
-          }
-
-          .process-steps {
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-          }
-
-          .process-step {
-            width: 30%;
-            text-align: center;
-            margin-bottom: 30px;
-          }
-
-          .step-number {
-            font-size: 2rem;
-            color: var(--primary);
-            margin-bottom: 10px;
-          }
-
-          .product-why-choose {
-            padding: 80px 0;
-            background: var(--card-bg);
-          }
-
-          .why-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-          }
-
-          .why-item {
-            text-align: center;
-          }
-
-          .why-item i {
-            font-size: 3rem;
-            color: var(--primary);
-            margin-bottom: 20px;
-          }
-
-          .product-case-studies {
-            padding: 80px 0;
-            background: var(--background);
-          }
-
-          .case-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-          }
-
-          .case-card {
-            background: var(--card-bg);
-            border-radius: 10px;
-            padding: 20px;
-          }
-
-          .case-card img {
-            width: 100%;
-            border-radius: 10px;
-            margin-bottom: 20px;
-          }
-
-          .product-testimonials {
-            padding: 80px 0;
-            background: var(--card-bg);
-          }
-
-          .testimonial-card {
-            background: var(--background);
-            border-radius: 10px;
-            padding: 30px;
-            margin-bottom: 30px;
-          }
-
-          .testimonial-text {
-            font-style: italic;
-            margin-bottom: 20px;
-          }
-
-          .testimonial-author {
-            font-weight: bold;
-            color: var(--primary);
-          }
-
-          .product-faq {
-            padding: 80px 0;
-            background: var(--background);
-          }
-
-          .faq-item {
-            margin-bottom: 20px;
-          }
-
-          .faq-question {
-            cursor: pointer;
-            font-weight: bold;
-            margin-bottom: 10px;
-          }
-
-          .faq-answer {
-            display: none;
-          }
-
-          .faq-item.active .faq-answer {
-            display: block;
-          }
-
-          .product-related {
-            padding: 80px 0;
-            background: var(--card-bg);
-          }
-
-          .related-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-          }
-
-          .related-card {
-            background: var(--background);
-            border-radius: 10px;
-            padding: 20px;
-            text-align: center;
-          }
-
-          .related-card img {
-            width: 100%;
-            border-radius: 10px;
-            margin-bottom: 20px;
-          }
-
-          @media (max-width: 768px) {
-            .details-grid {
-              grid-template-columns: 1fr;
-            }
-
-            .product-content h1 {
-              font-size: 2rem;
-            }
-
-            .process-step {
-              width: 100%;
-            }
-
-            .why-grid, .case-grid, .related-grid {
-              grid-template-columns: 1fr;
-            }
-          }
-        `}</style>
-
-        <section className="product-hero">
-          <div className="product-hero-bg"></div>
-          <div className="container product-content">
-            <h1>Video Production Service</h1>
-            <p>Professional video production tailored to your needs, from concept to final delivery.</p>
-            <a href="#contact" className="btn">Get a Quote</a>
-          </div>
-        </section>
-
-        <section className="product-details">
-          <div className="container">
-            <div className="details-grid">
-              <div className="product-image">
-                <img src="https://images.unsplash.com/photo-1511379938547-c1f69419868d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" alt="Video Production" />
-              </div>
-              <div className="product-info">
-                <h2>Video Production</h2>
-                <p>Create stunning videos that captivate your audience and tell your story effectively.</p>
-                <ul className="features">
-                  <li><i className="fas fa-check"></i>Full HD/4K Resolution</li>
-                  <li><i className="fas fa-check"></i>Professional Editing</li>
-                  <li><i className="fas fa-check"></i>Custom Sound Design</li>
-                  <li><i className="fas fa-check"></i>Motion Graphics</li>
-                  <li><i className="fas fa-check"></i>Unlimited Revisions</li>
-                </ul>
-                <a href="#contact" className="btn">Book Now</a>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section className="product-description">
-          <div className="container">
-            <h2>Detailed Description</h2>
-            <p>Our video production service includes everything from pre-production planning to post-production polishing. We work closely with you to understand your vision and deliver a product that exceeds expectations.</p>
-            <p>Whether it's a corporate video, music video, or promotional content, our team of experts uses state-of-the-art equipment and creative techniques to bring your ideas to life.</p>
-          </div>
-        </section>
-
-
-
-        <section className="product-case-studies">
-          <div className="container">
-            <h2>Case Studies</h2>
-            <div className="case-grid">
-              <div className="case-card">
-                <img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=800" alt="Case Study 1" />
-                <h3>Music Video for Artist X</h3>
-                <p>Increased views by 200% on YouTube.</p>
-              </div>
-              <div className="case-card">
-                <img src="https://images.unsplash.com/photo-1459749411175-04bf5292ceea?auto=format&fit=crop&w=800" alt="Case Study 2" />
-                <h3>Corporate Promo for Company Y</h3>
-                <p>Boosted sales by 150% after launch.</p>
-              </div>
-              <div className="case-card">
-                <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=800" alt="Case Study 3" />
-                <h3>Event Coverage for Festival Z</h3>
-                <p>Reached 1M+ impressions on social media.</p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-      </div>
       
-      {/* Footer Section */}
+      <motion.main 
+        className="min-h-screen"
+        style={{ backgroundColor: 'var(--clr-common-black)', color: 'var(--clr-body-text)' }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5 }}
+      >
+        {/* Hero Section */}
+        <section className="pt-20 pb-16">
+          <div className="container mx-auto px-4 max-w-7xl">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+              
+              {/* Left Side - Image/Video */}
+              <motion.div 
+                className="relative"
+                initial={{ x: -50, opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+              >
+                <div className="relative overflow-hidden rounded-lg border border-gray-500 ">
+                  {isVideo ? (
+                    <video
+                      src={imgSrc}
+                      className="w-full h-auto object-cover"
+                      autoPlay
+                      loop
+                      muted
+                      playsInline
+                      controls
+                    />
+                  ) : (
+                    <img
+                      src={imgSrc}
+                      alt={title}
+                      className="w-full h-auto object-cover"
+                    />
+                  )}
+                  
+                  {/* Gradient overlay on hover */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-cyan-400/20 to-purple-600/20 opacity-0 hover:opacity-100 transition-opacity duration-300" />
+                </div>
+              </motion.div>
+
+              {/* Right Side - Content */}
+              <motion.div 
+                className="space-y-8"
+                initial={{ x: 50, opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                transition={{ duration: 0.6, delay: 0.4 }}
+              >
+                {/* Title and Categories */}
+                <div>
+                  <h1 className="text-4xl lg:text-6xl font-bold mb-4" style={{ 
+                    background: 'linear-gradient(135deg, var(--clr-theme-primary), var(--clr-color-skyBlue))',
+                    WebkitBackgroundClip: 'text',
+                    WebkitTextFillColor: 'transparent',
+                    backgroundClip: 'text'
+                  }}>
+                    {title}
+                  </h1>
+                  <div className="flex flex-wrap gap-2 mb-6">
+                    {categories.map((category, index) => (
+                      <span 
+                        key={index}
+                        className="px-3 py-1 text-sm rounded-full border"
+                        style={{ 
+                          backgroundColor: 'rgba(255, 255, 255, 0.1)', 
+                          color: 'var(--clr-theme-primary)', 
+                          borderColor: 'rgba(255, 255, 255, 0.2)' 
+                        }}
+                      >
+                        {category}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Description */}
+                <div className="space-y-4">
+                  <h2 className="text-2xl font-semibold" style={{ color: 'var(--clr-body-heading)' }}>Project Overview</h2>
+                  <p className="leading-relaxed" style={{ color: 'var(--clr-body-text)', opacity: 0.9 }}>
+                    This project represents a breakthrough in creative design and technical innovation. 
+                    We've combined cutting-edge technology with artistic vision to create something truly remarkable.
+                  </p>
+                  <p className="leading-relaxed" style={{ color: 'var(--clr-body-text)', opacity: 0.9 }}>
+                    Our team worked tirelessly to ensure every detail meets the highest standards of quality and creativity. 
+                    The result is a masterpiece that pushes the boundaries of what's possible.
+                  </p>
+                </div>
+
+
+                {/* Stats */}
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="p-4 rounded-lg border" style={{ 
+                    backgroundColor: 'rgba(255, 255, 255, 0.05)', 
+                    borderColor: 'rgba(255, 255, 255, 0.1)' 
+                  }}>
+                    <div className="text-2xl font-bold" style={{ color: 'var(--clr-theme-primary)' }}>100%</div>
+                    <div className="text-sm" style={{ color: 'var(--clr-body-text)', opacity: 0.8 }}>Client Satisfaction</div>
+          </div>
+                  <div className="p-4 rounded-lg border" style={{ 
+                    backgroundColor: 'rgba(255, 255, 255, 0.05)', 
+                    borderColor: 'rgba(255, 255, 255, 0.1)' 
+                  }}>
+                    <div className="text-2xl font-bold" style={{ color: 'var(--clr-color-skyBlue)' }}>24/7</div>
+                    <div className="text-sm" style={{ color: 'var(--clr-body-text)', opacity: 0.8 }}>Support Available</div>
+              </div>
+              </div>
+
+              </motion.div>
+            </div>
+          </div>
+        </section>
+
+        {/* Related Projects Section */}
+        <section className="py-16" style={{ backgroundColor: 'var(--clr-common-black)' }}>
+          <div className="container mx-auto px-4 max-w-7xl">
+            <motion.div 
+              className="text-center mb-12"
+              initial={{ y: 30, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.6, delay: 0.6 }}
+            >
+              <h2 className="text-3xl lg:text-4xl font-bold mb-4" style={{ color: 'var(--clr-body-heading)' }}>Related Images</h2>
+            </motion.div>
+
+            {/* Related Projects Grid */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
+              {sampleProjects.slice(0, 10).map((project, index) => (
+                <motion.div
+                  key={project.id}
+                  initial={{ y: 30, opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  transition={{ duration: 0.6, delay: 0.8 + index * 0.1 }}
+                  whileHover={{ y: -5 }}
+                  className="group cursor-pointer"
+                >
+                  <div className="relative overflow-hidden rounded-lg border border-gray-500  group-hover:border-opacity-60 transition-all duration-300">
+                    {project.isVideo ? (
+                      <video
+                        src={project.imgSrc}
+                        className="w-full h-48 object-cover opacity-95 group-hover:opacity-100 transition-opacity duration-300"
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
+                      />
+                    ) : (
+                      <img
+                        src={project.imgSrc}
+                        alt={project.title}
+                        className="w-full h-48 object-cover opacity-95 group-hover:opacity-100 transition-opacity duration-300"
+                      />
+                    )}
+                    
+                    {/* Hover overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-cyan-400/20 to-purple-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    
+                    {/* Project info overlay */}
+                    <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <h3 className="text-sm font-semibold text-white mb-1">{project.title}</h3>
+                      <div className="flex flex-wrap gap-1">
+                        {project.categories.slice(0, 2).map((category, catIndex) => (
+                          <span 
+                            key={catIndex}
+                            className="text-xs px-2 py-1 rounded-full"
+                            style={{ 
+                              backgroundColor: 'var(--clr-theme-primary)', 
+                              color: 'var(--clr-common-black)',
+                              fontSize: '0.75rem'
+                            }}
+                          >
+                            {category}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Other Projects Section */}
+        <section className="py-16" style={{ backgroundColor: 'rgba(255, 255, 255, 0.02)' }}>
+          <div className="container mx-auto px-4 max-w-7xl">
+            <motion.div 
+              className="text-center mb-12"
+              initial={{ y: 30, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.6, delay: 0.6 }}
+            >
+              <h2 className="text-3xl lg:text-4xl font-bold mb-4" style={{ color: 'var(--clr-body-heading)' }}>More Projects</h2>
+              <p className="max-w-2xl mx-auto" style={{ color: 'var(--clr-body-text)', opacity: 0.9 }}>
+                Explore our collection of innovative projects that showcase creativity and technical excellence.
+              </p>
+            </motion.div>
+
+            {/* Projects Grid */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+              {sampleProjects.map((project, index) => (
+                <motion.div
+                  key={project.id}
+                  initial={{ y: 30, opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  transition={{ duration: 0.6, delay: 0.8 + index * 0.1 }}
+                >
+                  <ProjectCard
+                    title={project.title}
+                    categories={project.categories}
+                    imgSrc={project.imgSrc}
+                    isVideo={project.isVideo}
+                    className="h-64 p-0"
+                  />
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+      </motion.main>
+      
       <Footer />
     </>
   );
-};
-
-export default ProductDetails;
+}

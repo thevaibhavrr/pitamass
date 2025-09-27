@@ -20,138 +20,138 @@ import '../../styles/main.css'
 
 
 export default function AboutPage() {
-    const [openAccordion, setOpenAccordion] = useState(0);
+  const [openAccordion, setOpenAccordion] = useState(0);
 
-    const accordionData = [
-        {
-            id: 1,
-            title: "Social Media Marketing",
-            icon: Zap,
-            content: "Build a strong presence across Facebook, Instagram, Twitter, LinkedIn, and other platforms. Our strategic approach helps you engage with your audience and drive meaningful conversations that convert into business results."
-        },
-        {
-            id: 2,
-            title: "SEO Optimization",
-            icon: Smartphone,
-            content: "Improve your search engine rankings and drive organic traffic to your website. Our comprehensive SEO strategies include keyword research, content optimization, and technical improvements that boost your online visibility."
-        },
-        {
-            id: 3,
-            title: "Content Marketing",
-            icon: Plug,
-            content: "Create compelling content that resonates with your target audience. From blog posts to video content, we develop engaging materials that establish your brand as an industry authority and drive customer engagement."
-        },
-        {
-            id: 4,
-            title: "Analytics & Reporting",
-            icon: Cpu,
-            content: "Track and measure your digital marketing performance with detailed analytics and comprehensive reports. We provide actionable insights that help you optimize campaigns and maximize your return on investment."
-        }
-    ];
+  const accordionData = [
+    {
+      id: 1,
+      title: "Social Media Marketing",
+      icon: Zap,
+      content: "Build a strong presence across Facebook, Instagram, Twitter, LinkedIn, and other platforms. Our strategic approach helps you engage with your audience and drive meaningful conversations that convert into business results."
+    },
+    {
+      id: 2,
+      title: "SEO Optimization",
+      icon: Smartphone,
+      content: "Improve your search engine rankings and drive organic traffic to your website. Our comprehensive SEO strategies include keyword research, content optimization, and technical improvements that boost your online visibility."
+    },
+    {
+      id: 3,
+      title: "Content Marketing",
+      icon: Plug,
+      content: "Create compelling content that resonates with your target audience. From blog posts to video content, we develop engaging materials that establish your brand as an industry authority and drive customer engagement."
+    },
+    {
+      id: 4,
+      title: "Analytics & Reporting",
+      icon: Cpu,
+      content: "Track and measure your digital marketing performance with detailed analytics and comprehensive reports. We provide actionable insights that help you optimize campaigns and maximize your return on investment."
+    }
+  ];
 
-    const toggleAccordion = (index: number) => {
-        setOpenAccordion(openAccordion === index ? -1 : index);
-    };
+  const toggleAccordion = (index: number) => {
+    setOpenAccordion(openAccordion === index ? -1 : index);
+  };
 
-    const teamData = [
-        {
-            id: 1,
-            name: "Sachin",
-            position: "CEO & Founder",
-            description: "Visionary leader with 12+ years in digital innovation. Former Apple Design Award winner.",
-            image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=500&fit=crop&crop=face",
-            social: {
-                linkedin: "https://linkedin.com/in/alexrivera",
-                twitter: "https://twitter.com/alexrivera",
-                instagram: "https://instagram.com/alexrivera"
-            }
-        },
-        {
-            id: 2,
-            name: "Vaibhav Rathore",
-            position: "Head of Design",
-            description: "Design systems expert with a passion for human-centered experiences and innovation.",
-            image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=500&fit=crop&crop=face",
-            social: {
-                linkedin: "https://linkedin.com/in/mayachen",
-                twitter: "https://twitter.com/mayachen",
-                instagram: "https://instagram.com/mayachen"
-            }
-        },
-        {
-            id: 3,
-            name: "Jonas Patel",
-            position: "Lead Developer",
-            description: "Full-stack architect specializing in performance, scalability, and cutting-edge technologies.",
-            image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=500&fit=crop&crop=face",
-            social: {
-                linkedin: "https://linkedin.com/in/jonaspatel",
-                github: "https://github.com/jonaspatel",
-                twitter: "https://twitter.com/jonaspatel"
-            }
-        },
-        {
-            id: 4,
-            name: "Sofia Lee",
-            position: "Project Manager",
-            description: "Operations specialist ensuring seamless delivery and exceptional client satisfaction.",
-            image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=500&fit=crop&crop=face",
-            social: {
-                linkedin: "https://linkedin.com/in/sofialee",
-                twitter: "https://twitter.com/sofialee",
-                instagram: "https://instagram.com/sofialee"
-            }
-        }
-    ];
+  const teamData = [
+    {
+      id: 1,
+      name: "Sachin",
+      position: "CEO & Founder",
+      description: "Visionary leader with 12+ years in digital innovation. Former Apple Design Award winner.",
+      image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=500&fit=crop&crop=face",
+      social: {
+        linkedin: "https://linkedin.com/in/alexrivera",
+        twitter: "https://twitter.com/alexrivera",
+        instagram: "https://instagram.com/alexrivera"
+      }
+    },
+    {
+      id: 2,
+      name: "Vaibhav Rathore",
+      position: "Head of Design",
+      description: "Design systems expert with a passion for human-centered experiences and innovation.",
+      image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=500&fit=crop&crop=face",
+      social: {
+        linkedin: "https://linkedin.com/in/mayachen",
+        twitter: "https://twitter.com/mayachen",
+        instagram: "https://instagram.com/mayachen"
+      }
+    },
+    {
+      id: 3,
+      name: "Jonas Patel",
+      position: "Lead Developer",
+      description: "Full-stack architect specializing in performance, scalability, and cutting-edge technologies.",
+      image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=500&fit=crop&crop=face",
+      social: {
+        linkedin: "https://linkedin.com/in/jonaspatel",
+        github: "https://github.com/jonaspatel",
+        twitter: "https://twitter.com/jonaspatel"
+      }
+    },
+    {
+      id: 4,
+      name: "Sofia Lee",
+      position: "Project Manager",
+      description: "Operations specialist ensuring seamless delivery and exceptional client satisfaction.",
+      image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=500&fit=crop&crop=face",
+      social: {
+        linkedin: "https://linkedin.com/in/sofialee",
+        twitter: "https://twitter.com/sofialee",
+        instagram: "https://instagram.com/sofialee"
+      }
+    }
+  ];
 
-    const servicesData = [
-        {
-            id: 1,
-            title: "Packaging Design",
-            icon: Package,
-            description: "Create stunning, functional packaging that captures attention and drives sales. From concept to production, we design packaging that tells your brand story and stands out on shelves.",
-            features: ["Brand-aligned design", "Print-ready files", "3D mockups", "Material selection"]
-        },
-        {
-            id: 2,
-            title: "Logo Design",
-            icon: Palette,
-            description: "Memorable logos that represent your brand identity. We create timeless designs that work across all platforms and mediums, from business cards to billboards.",
-            features: ["Multiple concepts", "Vector formats", "Brand guidelines", "Logo variations"]
-        },
-        {
-            id: 3,
-            title: "Digital Marketing",
-            icon: Megaphone,
-            description: "Comprehensive digital marketing strategies that drive growth. From social media campaigns to SEO optimization, we help you reach and engage your target audience effectively.",
-            features: ["Social media strategy", "SEO optimization", "Content marketing", "Analytics tracking"]
-        },
-        {
-            id: 4,
-            title: "Video Ads",
-            icon: Video,
-            description: "Compelling video advertisements that convert viewers into customers. We create engaging video content for social media, YouTube, and TV that drives results.",
-            features: ["Script writing", "Professional production", "Motion graphics", "Multi-platform optimization"]
-        },
-        {
-            id: 5,
-            title: "Website Development",
-            icon: Monitor,
-            description: "Modern, responsive websites that deliver exceptional user experiences. From simple landing pages to complex e-commerce platforms, we build sites that perform.",
-            features: ["Responsive design", "SEO optimized", "Fast loading", "Mobile-first approach"]
-        },
-        {
-            id: 6,
-            title: "Photography",
-            icon: Camera,
-            description: "Professional photography services for products, events, and lifestyle. High-quality images that showcase your brand and products in the best light.",
-            features: ["Product photography", "Event coverage", "Lifestyle shoots", "Post-production editing"]
-        }
-    ];
+  const servicesData = [
+    {
+      id: 1,
+      title: "Packaging Design",
+      icon: Package,
+      description: "Create stunning, functional packaging that captures attention and drives sales. From concept to production, we design packaging that tells your brand story and stands out on shelves.",
+      features: ["Brand-aligned design", "Print-ready files", "3D mockups", "Material selection"]
+    },
+    {
+      id: 2,
+      title: "Logo Design",
+      icon: Palette,
+      description: "Memorable logos that represent your brand identity. We create timeless designs that work across all platforms and mediums, from business cards to billboards.",
+      features: ["Multiple concepts", "Vector formats", "Brand guidelines", "Logo variations"]
+    },
+    {
+      id: 3,
+      title: "Digital Marketing",
+      icon: Megaphone,
+      description: "Comprehensive digital marketing strategies that drive growth. From social media campaigns to SEO optimization, we help you reach and engage your target audience effectively.",
+      features: ["Social media strategy", "SEO optimization", "Content marketing", "Analytics tracking"]
+    },
+    {
+      id: 4,
+      title: "Video Ads",
+      icon: Video,
+      description: "Compelling video advertisements that convert viewers into customers. We create engaging video content for social media, YouTube, and TV that drives results.",
+      features: ["Script writing", "Professional production", "Motion graphics", "Multi-platform optimization"]
+    },
+    {
+      id: 5,
+      title: "Website Development",
+      icon: Monitor,
+      description: "Modern, responsive websites that deliver exceptional user experiences. From simple landing pages to complex e-commerce platforms, we build sites that perform.",
+      features: ["Responsive design", "SEO optimized", "Fast loading", "Mobile-first approach"]
+    },
+    {
+      id: 6,
+      title: "Photography",
+      icon: Camera,
+      description: "Professional photography services for products, events, and lifestyle. High-quality images that showcase your brand and products in the best light.",
+      features: ["Product photography", "Event coverage", "Lifestyle shoots", "Post-production editing"]
+    }
+  ];
 
   return (
     <>
-            <AboutHeader />
+      <AboutHeader />
       <style jsx global>{`
         /* Ensure navigation maintains rounded corners */
         nav[aria-label="Primary"] button {
@@ -243,6 +243,112 @@ export default function AboutPage() {
         @media (min-width: 1024px) {
           .zq_hero-content-title {
             font-size: 5rem !important; /* Increased more */
+          }
+        }
+        
+        /* Increase hero image size for large screens */
+        @media (min-width: 1600px) {
+          .zq_hero-img img {
+            width: 500px !important;
+            height: 375px !important;
+            max-width: none !important;
+          }
+        }
+        
+        /* Project images styling - Fixed dimensions */
+        .zq_project-img {
+          overflow: hidden !important;
+          border-radius: 8px !important;
+          position: relative !important;
+          width: 100% !important;
+          height: 300px !important;
+          background: #f8f9fa !important;
+          display: flex !important;
+          align-items: center !important;
+          justify-content: center !important;
+        }
+        
+        .zq_project-img img {
+          width: 100% !important;
+          height: 100% !important;
+          object-fit: cover !important;
+          object-position: center !important;
+          transition: transform 0.3s ease, filter 0.3s ease !important;
+          border-radius: 8px !important;
+          display: block !important;
+          position: absolute !important;
+          top: 0 !important;
+          left: 0 !important;
+        }
+        
+        .zq_project-img:hover img {
+          transform: scale(1.05) !important;
+          filter: brightness(1.1) !important;
+        }
+        
+        /* Ensure consistent project item spacing */
+        .zq_project-item {
+          margin-bottom: 30px !important;
+        }
+        
+        /* Add subtle shadow to project images */
+        .zq_project-img {
+          box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1) !important;
+        }
+        
+        /* Force all project images to same size */
+        .zq_project-wrapper .zq_project-img {
+          height: 300px !important;
+          min-height: 300px !important;
+          max-height: 300px !important;
+        }
+        
+        .zq_project-wrapper .zq_project-img img {
+          height: 300px !important;
+          min-height: 300px !important;
+          max-height: 300px !important;
+          width: 100% !important;
+          object-fit: cover !important;
+          object-position: center !important;
+          position: absolute !important;
+          top: 0 !important;
+          left: 0 !important;
+        }
+        
+        /* Responsive adjustments for project images */
+        @media (max-width: 768px) {
+          .zq_project-img {
+            height: 250px !important;
+            min-height: 250px !important;
+            max-height: 250px !important;
+          }
+          .zq_project-img img {
+            height: 250px !important;
+            min-height: 250px !important;
+            max-height: 250px !important;
+            object-fit: cover !important;
+            object-position: center !important;
+            position: absolute !important;
+            top: 0 !important;
+            left: 0 !important;
+          }
+        }
+        
+        @media (max-width: 576px) {
+          .zq_project-img {
+            height: 220px !important;
+            min-height: 220px !important;
+            max-height: 220px !important;
+          }
+          .zq_project-img img {
+            height: 220px !important;
+            min-height: 220px !important;
+            max-height: 220px !important;
+            object-fit: cover !important;
+            object-position: center !important;
+            position: absolute !important;
+            top: 0 !important;
+            left: 0 !important;
           }
         }
         
@@ -360,19 +466,19 @@ export default function AboutPage() {
       <div className="has-smooth" id="has_smooth">
         <div id="smooth-wrapper">
           <div id="smooth-content">
-                        <div className="body-wrapper">
+            <div className="body-wrapper">
               {/* Hero Section */}
               <section className="zq_hero-area">
                 <div className="container container-custom-1">
                   <div className="zq_hero-container">
                     <div className="zq_hero-wrap">
-                      <motion.div 
+                      <motion.div
                         className="zq_hero-content"
                         initial={{ opacity: 0, x: -50 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.8, ease: "easeOut" }}
                       >
-                        <motion.h1 
+                        <motion.h1
                           className="zq_hero-content-title"
                           initial={{ opacity: 0, y: 30 }}
                           animate={{ opacity: 1, y: 0 }}
@@ -384,28 +490,24 @@ export default function AboutPage() {
                             transition={{ duration: 0.6, delay: 0.4 }}
                           >SPEAK LOUDER</motion.span> – SILENTLY
                         </motion.h1>
-                        <motion.p 
+                        <motion.p
                           className="hero-description"
                           initial={{ opacity: 0, y: 20 }}
                           animate={{ opacity: 1, y: 0 }}
                           transition={{ duration: 0.8, delay: 0.5 }}
-                          style={{ 
-                            fontSize: '1.2rem', 
-                            color: 'var(--clr-body-text)', 
-                            opacity: 0.9, 
-                            lineHeight: 1.6, 
+                          style={{
+                            fontSize: '1.2rem',
+                            color: 'var(--clr-body-text)',
+                            opacity: 0.9,
+                            lineHeight: 1.6,
                             marginTop: '20px',
                             maxWidth: '600px'
                           }}
-                        >
-                          Make your brand impossible to ignore with powerful digital marketing strategies.
-                          In today's world, a strong online presence on platforms like Facebook, Twitter, LinkedIn, and
-                          Google+ is essential for growth.
-                          Recognized as one of the leading digital marketing agencies in India, we specialize in innovative
-                          solutions that drive measurable results and business success.
+                        >                          In today's complex and competitive market, business require a partner who understands the intricacies of brand building and sustained growth. Pitamaas offers a comprehensive suite of integrated services, designed to propel your brand from strength to strength. We go beyond traditional marketing, providing strategic guidance and execution across the entire brand lifecycle, from positioning and market analysis to ongoing growth.
+
                         </motion.p>
                       </motion.div>
-                      <motion.div 
+                      <motion.div
                         className="zq_hero-img"
                         initial={{ opacity: 0, x: 50, scale: 0.8 }}
                         animate={{ opacity: 1, x: 0, scale: 1 }}
@@ -424,7 +526,7 @@ export default function AboutPage() {
                           />
                         </motion.div>
                       </motion.div>
-                      <motion.div 
+                      <motion.div
                         className="zq_hero-circle-btn"
                         initial={{ opacity: 0, scale: 0 }}
                         animate={{ opacity: 1, scale: 1 }}
@@ -433,16 +535,22 @@ export default function AboutPage() {
                         whileTap={{ scale: 0.95 }}
                       >
                         <Image
-                          src="/placeholder.svg"
+                          src="https://themephi.net/template/zeniqsh/zeniqs/assets/images/bg/h1_circle.png"
                           alt="Circle"
                           width={100}
                           height={100}
                           className="w-full h-auto"
                         />
-                        <motion.a 
-                          href="#"
+                        <motion.a
+                          href="#intro-vision"
                           whileHover={{ scale: 1.2 }}
                           whileTap={{ scale: 0.9 }}
+                          onClick={(e) => {
+                            e.preventDefault();
+                            document.getElementById('intro-vision')?.scrollIntoView({ 
+                              behavior: 'smooth' 
+                            });
+                          }}
                         >
                           <svg width="28" height="30" viewBox="0 0 28 30" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <g clipPath="url(#clip0_129_42)">
@@ -457,102 +565,9 @@ export default function AboutPage() {
                 </div>
               </section>
 
-              {/* Introduction & Vision Section */}
-              <motion.section 
-                className="zq_intro-vision-area pt-95 pb-70"
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8 }}
-                viewport={{ once: true }}
-              >
-                <div className="container">
-                  <div className="row justify-content-center">
-                    <div className="col-xl-8 col-lg-10">
-                      <motion.div 
-                        className="intro-vision-content text-center"
-                        initial={{ opacity: 0, y: 30 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6, delay: 0.2 }}
-                        viewport={{ once: true }}
-                      >
-                        <motion.h2 
-                          className="intro-title mb-30"
-                          initial={{ opacity: 0, y: 20 }}
-                          whileInView={{ opacity: 1, y: 0 }}
-                          transition={{ duration: 0.6, delay: 0.3 }}
-                          viewport={{ once: true }}
-                          style={{
-                            fontSize: '2.5rem',
-                            fontWeight: '700',
-                            color: 'var(--clr-body-heading)',
-                            lineHeight: '1.3'
-                          }}
-                        >
-                          Introduction
-                        </motion.h2>
-                        <motion.p 
-                          className="intro-text mb-50"
-                          initial={{ opacity: 0, y: 20 }}
-                          whileInView={{ opacity: 1, y: 0 }}
-                          transition={{ duration: 0.6, delay: 0.4 }}
-                          viewport={{ once: true }}
-                          style={{
-                            fontSize: '1.1rem',
-                            color: 'var(--clr-body-text)',
-                            opacity: 0.9,
-                            lineHeight: '1.7',
-                            marginBottom: '3rem'
-                          }}
-                        >
-                          In today's complex and competitive market, business require a partner who understands the intricacies of brand building and sustained growth. Pitamaas offers a comprehensive suite of integrated services, designed to propel your brand from strength to strength. We go beyond traditional marketing, providing strategic guidance and execution across the entire brand lifecycle, from positioning and market analysis to ongoing growth.
-                        </motion.p>
-                        
-                        <motion.div 
-                          className="vision-section"
-                          initial={{ opacity: 0, y: 30 }}
-                          whileInView={{ opacity: 1, y: 0 }}
-                          transition={{ duration: 0.6, delay: 0.5 }}
-                          viewport={{ once: true }}
-                        >
-                          <motion.h3 
-                            className="vision-title mb-25"
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.6, delay: 0.6 }}
-                            viewport={{ once: true }}
-                            style={{
-                              fontSize: '2rem',
-                              fontWeight: '600',
-                              color: 'var(--clr-theme-primary)',
-                              lineHeight: '1.3'
-                            }}
-                          >
-                            Our Vision
-                          </motion.h3>
-                          <motion.p 
-                            className="vision-text"
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.6, delay: 0.7 }}
-                            viewport={{ once: true }}
-                            style={{
-                              fontSize: '1.1rem',
-                              color: 'var(--clr-body-text)',
-                              opacity: 0.9,
-                              lineHeight: '1.7'
-                            }}
-                          >
-                            To be a leading creative and digital agency, renowned for delivering innovative and impactful branding and marketing solutions that fuel sustainable growth for our clients. We strive to be a trusted partner, offering a comprehensive suite of services and embracing cutting edge technologies to empower businesses in achieving their ambitious goals.
-                          </motion.p>
-                        </motion.div>
-                      </motion.div>
-                    </div>
-                  </div>
-                </div>
-              </motion.section>
 
               {/* Brand Section */}
-              <motion.div 
+              <motion.div
                 className="zq_brand-area pt-95 pb-100"
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -562,14 +577,14 @@ export default function AboutPage() {
                 <div className="container">
                   <div className="row">
                     <div className="col-12">
-                      <motion.div 
+                      <motion.div
                         className="zq_section-area mb-45 text-center"
                         initial={{ opacity: 0, y: 30 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6, delay: 0.2 }}
                         viewport={{ once: true }}
                       >
-                        <motion.span 
+                        <motion.span
                           className="zq_section-subtitle"
                           initial={{ opacity: 0, scale: 0.8 }}
                           whileInView={{ opacity: 1, scale: 1 }}
@@ -581,16 +596,16 @@ export default function AboutPage() {
                       </motion.div>
                     </div>
                   </div>
-                  <motion.div 
+                  <motion.div
                     className="marquee-container"
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.4 }}
                     viewport={{ once: true }}
                   >
-                    <Marquee 
-                      speed={50} 
-                      direction="left" 
+                    <Marquee
+                      speed={50}
+                      direction="left"
                       gradient={false}
                       pauseOnHover={true}
                       className="marquee-wrapper"
@@ -601,8 +616,8 @@ export default function AboutPage() {
                         "AppMaster", "CodeForge", "PixelPerfect", "DevStudio", "NextGen", "FutureTech",
                         "SmartSys", "ByteWorks", "LogicLabs", "ProDev", "TechFlow", "DigitalEdge"
                       ].map((client, index) => (
-                        <motion.div 
-                          key={index} 
+                        <motion.div
+                          key={index}
                           className="marquee-item"
                           transition={{ duration: 0.2 }}
                         >
@@ -619,7 +634,7 @@ export default function AboutPage() {
               </motion.div>
 
               {/* FAQ Section */}
-              <motion.div 
+              <motion.div
                 className="zq_faq-area pb-60"
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
@@ -628,14 +643,14 @@ export default function AboutPage() {
               >
                 <div className="container">
                   <div className="row">
-                    <motion.div 
+                    <motion.div
                       className="col-lg-6"
                       initial={{ opacity: 0, x: -50 }}
                       whileInView={{ opacity: 1, x: 0 }}
                       transition={{ duration: 0.8, delay: 0.2 }}
                       viewport={{ once: true }}
                     >
-                      <motion.div 
+                      <motion.div
                         className="zq_faq-img mb-40"
                         whileHover={{ scale: 1.02, rotate: 1 }}
                         transition={{ duration: 0.3 }}
@@ -649,7 +664,7 @@ export default function AboutPage() {
                         />
                       </motion.div>
                     </motion.div>
-                    <motion.div 
+                    <motion.div
                       className="col-lg-6"
                       initial={{ opacity: 0, x: 50 }}
                       whileInView={{ opacity: 1, x: 0 }}
@@ -657,14 +672,14 @@ export default function AboutPage() {
                       viewport={{ once: true }}
                     >
                       <div className="zq_faq-wrapper ml-50 mr-30 mb-40">
-                        <motion.div 
+                        <motion.div
                           className="zq_section-area"
                           initial={{ opacity: 0, y: 30 }}
                           whileInView={{ opacity: 1, y: 0 }}
                           transition={{ duration: 0.6, delay: 0.6 }}
                           viewport={{ once: true }}
                         >
-                          <motion.span 
+                          <motion.span
                             className="zq_section-subtitle mb-20"
                             initial={{ opacity: 0, scale: 0.8 }}
                             whileInView={{ opacity: 1, scale: 1 }}
@@ -673,7 +688,7 @@ export default function AboutPage() {
                           >
                             day-to-day operations
                           </motion.span>
-                          <motion.h2 
+                          <motion.h2
                             className="zq_section-title mb-35"
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
@@ -683,7 +698,7 @@ export default function AboutPage() {
                             Digital Marketing Excellence: Driving Your Business Forward
                           </motion.h2>
                         </motion.div>
-                        <motion.div 
+                        <motion.div
                           className="zq_faq-content"
                           initial={{ opacity: 0, y: 30 }}
                           whileInView={{ opacity: 1, y: 0 }}
@@ -694,15 +709,15 @@ export default function AboutPage() {
                             {accordionData.map((item, index) => {
                               const IconComponent = item.icon;
                               const isOpen = openAccordion === index;
-                              
+
                               return (
-                                <motion.div 
+                                <motion.div
                                   key={item.id}
                                   className={`accordion-item ${index < accordionData.length - 1 ? 'mb-20' : ''}`}
                                   initial={{ opacity: 0, y: 30, scale: 0.95 }}
                                   whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                                  transition={{ 
-                                    duration: 0.5, 
+                                  transition={{
+                                    duration: 0.5,
                                     delay: index * 0.15,
                                     type: "spring",
                                     stiffness: 100
@@ -719,28 +734,28 @@ export default function AboutPage() {
                                       whileTap={{ scale: 0.98 }}
                                       transition={{ duration: 0.2 }}
                                     >
-                                                                            <div className="accordion-header-content">
-                                                                                <div className="accordion-title-section">
-                                                                                    <span className="accordion-number">{String(index + 1).padStart(2, '0')}.</span>
-                                                                                    <span className="accordion-title">{item.title}</span>
-                                </div>
-                                      <motion.div
-                                        animate={{ 
-                                          rotate: isOpen ? 180 : 0,
-                                          scale: isOpen ? 1.1 : 1
-                                        }}
-                                        transition={{ 
-                                          duration: 0.4, 
-                                          ease: "easeInOut",
-                                          type: "spring",
-                                          stiffness: 200
-                                        }}
-                                      >
-                                        <ChevronDown className="accordion-chevron" size={20} />
-                                      </motion.div>
-                                </div>
-                                                                        </motion.button>
-                              </h2>
+                                      <div className="accordion-header-content">
+                                        <div className="accordion-title-section">
+                                          <span className="accordion-number">{String(index + 1).padStart(2, '0')}.</span>
+                                          <span className="accordion-title">{item.title}</span>
+                                        </div>
+                                        <motion.div
+                                          animate={{
+                                            rotate: isOpen ? 180 : 0,
+                                            scale: isOpen ? 1.1 : 1
+                                          }}
+                                          transition={{
+                                            duration: 0.4,
+                                            ease: "easeInOut",
+                                            type: "spring",
+                                            stiffness: 200
+                                          }}
+                                        >
+                                          <ChevronDown className="accordion-chevron" size={20} />
+                                        </motion.div>
+                                      </div>
+                                    </motion.button>
+                                  </h2>
                                   <AnimatePresence>
                                     {isOpen && (
                                       <motion.div
@@ -748,21 +763,21 @@ export default function AboutPage() {
                                         initial={{ height: 0, opacity: 0, y: -10 }}
                                         animate={{ height: "auto", opacity: 1, y: 0 }}
                                         exit={{ height: 0, opacity: 0, y: -10 }}
-                                        transition={{ 
-                                          duration: 0.4, 
+                                        transition={{
+                                          duration: 0.4,
                                           ease: "easeInOut",
                                           type: "spring",
                                           stiffness: 100
                                         }}
                                         style={{ overflow: "hidden" }}
                                       >
-                                        <motion.div 
+                                        <motion.div
                                           className="accordion-body"
                                           initial={{ y: -20, opacity: 0 }}
                                           animate={{ y: 0, opacity: 1 }}
                                           exit={{ y: -20, opacity: 0 }}
-                                          transition={{ 
-                                            delay: 0.1, 
+                                          transition={{
+                                            delay: 0.1,
                                             duration: 0.3,
                                             ease: "easeOut"
                                           }}
@@ -802,8 +817,8 @@ export default function AboutPage() {
                             <div className="zq_project-img">
                               <Link href="/details">
                                 <Image
-                                                                    src="https://themephi.net/template/zeniqsh/zeniqs/assets/images/project/h1_1.png"
-                                  alt="Project 1"
+                                  src="https://worldbranddesign.com/wp-content/uploads/2022/08/Mountains-Collection-Coffee-Mockup-0.jpg"
+                                  alt="Packaging Design"
                                   width={400}
                                   height={300}
                                   className="w-full h-auto"
@@ -813,7 +828,7 @@ export default function AboutPage() {
                             <div className="zq_project-content">
                               <div className="zq_project-content-head">
                                 <h3 className="zq_project-content-title">
-                                  <Link href="/details">TechVantage Solutions</Link>
+                                  <Link href="/details">Packaging Design</Link>
                                 </h3>
                                 <Link href="/details" className="zq_project-content-btn">
                                   <i className="fa-light fa-arrow-up-right"></i>
@@ -826,8 +841,8 @@ export default function AboutPage() {
                             <div className="zq_project-img">
                               <Link href="/details">
                                 <Image
-                                                                    src="https://themephi.net/template/zeniqsh/zeniqs/assets/images/project/h1_3.png"
-                                  alt="Project 2"
+                                  src="https://ec4pybo9i4k.exactdn.com/wp-content/uploads/2024/09/how-to-create-a-good-website-layout.jpg?strip=all&lossy=1&ssl=1"
+                                  alt="Website Development"
                                   width={400}
                                   height={300}
                                   className="w-full h-auto"
@@ -837,7 +852,7 @@ export default function AboutPage() {
                             <div className="zq_project-content">
                               <div className="zq_project-content-head">
                                 <h3 className="zq_project-content-title">
-                                  <Link href="/details">DigitalNest Solutions</Link>
+                                  <Link href="/details">Website Development</Link>
                                 </h3>
                                 <Link href="/details" className="zq_project-content-btn">
                                   <i className="fa-light fa-arrow-up-right"></i>
@@ -855,7 +870,7 @@ export default function AboutPage() {
                               <Image src="/placeholder-user.jpg" alt="Client 3" width={60} height={60} className="rounded-full" />
                             </div>
                             <div className="zq_project-client-info">
-                              <h3>10K+</h3>
+                              <h3>300+</h3>
                               <p>Trusted Clients</p>
                             </div>
                           </div>
@@ -863,9 +878,8 @@ export default function AboutPage() {
                             <div className="zq_project-img">
                               <Link href="/details">
                                 <Image
-                                                                    // src="/placeholder.jpg" 
-                                                                    src="https://themephi.net/template/zeniqsh/zeniqs/assets/images/project/h1_2.png"
-                                  alt="Project 3"
+                                  src="https://s44783.pcdn.co/in/wp-content/uploads/sites/3/2022/02/digital-marketing-2.jpg.optimal.jpg"
+                                  alt="Digital Marketing"
                                   width={400}
                                   height={300}
                                   className="w-full h-auto"
@@ -875,7 +889,7 @@ export default function AboutPage() {
                             <div className="zq_project-content">
                               <div className="zq_project-content-head">
                                 <h3 className="zq_project-content-title">
-                                  <Link href="/details">LogicLeap Technologies</Link>
+                                  <Link href="/details">Digital Marketing</Link>
                                 </h3>
                                 <Link href="/details" className="zq_project-content-btn">
                                   <i className="fa-light fa-arrow-up-right"></i>
@@ -888,8 +902,8 @@ export default function AboutPage() {
                             <div className="zq_project-img">
                               <Link href="/details">
                                 <Image
-                                                                    src="https://themephi.net/template/zeniqsh/zeniqs/assets/images/project/h1_4.png"
-                                  alt="Project 4"
+                                  src="https://cdn.fstoppers.com/styles/large-16-9/s3/lead/2022/12/fstoppers-product-guide-lead.jpg"
+                                  alt="Photography"
                                   width={400}
                                   height={300}
                                   className="w-full h-auto"
@@ -899,7 +913,7 @@ export default function AboutPage() {
                             <div className="zq_project-content">
                               <div className="zq_project-content-head">
                                 <h3 className="zq_project-content-title">
-                                  <Link href="/details">DataDynamo Innovations</Link>
+                                  <Link href="/details">Photography</Link>
                                 </h3>
                                 <Link href="/details" className="zq_project-content-btn">
                                   <i className="fa-light fa-arrow-up-right"></i>
@@ -957,13 +971,70 @@ export default function AboutPage() {
                               <p>Successful Projects Lorem ipsum dolor sit amet consectetur our adipiscing of the best conditions.</p>
                             </div>
                           </div>
+                          <div className="col-md-6">
+                            <div className="zq_choose-item mb-30">
+                              <div className="zq_choose-item-top">
+                                <div className="zq_choose-item-icon">
+                                  <svg width="41" height="40" viewBox="0 0 41 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <g clipPath="url(#clip0_199_104)">
+                                      <path d="M3.23684 29.5605C3.45263 28.7912 3.56053 27.5824 3.88421 26.3737C4.1 25.6044 3.88421 25.055 3.34474 24.6154C2.58947 24.066 1.94211 23.4066 1.29474 22.7473C-0.431579 20.989 -0.431579 19.011 1.29474 17.1429C1.94211 16.4835 2.69737 15.8242 3.45263 15.1649C3.99211 14.7253 4.20789 14.1758 3.99211 13.4066C3.77632 12.5275 3.56053 11.6484 3.45263 10.7693C3.02105 8.1319 4.20789 6.48354 7.01316 6.15387C7.76842 6.04398 8.41579 6.04398 9.17105 5.93409C9.92632 5.93409 10.4658 5.60442 10.7895 4.7253C11.1132 3.84618 11.5447 2.85717 11.9763 2.08794C13.1632 -0.109863 14.8895 -0.659314 17.0474 0.439587C17.6947 0.769258 18.3421 1.09893 18.8816 1.53849C19.9605 2.41761 20.9316 2.41761 22.0105 1.53849C22.4421 1.20882 22.8737 0.989038 23.3053 0.769258C26.0026 -0.659314 28.0526 2.67178e-05 29.2395 2.85717C29.5632 3.51651 29.8868 4.28574 30.1026 5.05497C30.3184 5.71431 30.8579 6.04398 31.5053 6.04398C32.3684 6.04398 33.1237 6.15387 33.9868 6.26376C36.9 6.81321 38.0868 8.46157 37.4395 11.4286C37.3316 12.1978 37.1158 12.8572 36.9 13.6264C36.6842 14.2857 36.9 14.8352 37.4395 15.1649C38.0868 15.7143 38.8421 16.2638 39.4895 16.9231C41.4316 18.7912 41.4316 20.8791 39.5974 22.8572C39.0579 23.4066 38.4105 23.9561 37.7632 24.5055C37.0079 25.055 36.7921 25.7143 37.1158 26.5934C37.3316 27.2528 37.4395 27.9121 37.5474 28.4616C38.1947 31.6484 36.7921 33.5165 33.6632 33.7363C33.0158 33.7363 32.2605 33.8462 31.6132 33.9561C30.9658 33.9561 30.5342 34.2857 30.3184 34.9451C29.9947 35.7143 29.6711 36.3736 29.4553 37.1429C28.1605 40.1099 26.1105 40.7693 23.4132 39.1209C22.7658 38.7912 22.2263 38.3517 21.5789 38.022C20.9316 37.5824 20.3921 37.5824 19.7447 38.022C18.9895 38.5714 18.1263 39.011 17.3711 39.4506C15.2132 40.5495 13.3789 40 12.1921 37.8022C11.7605 36.9231 11.4368 36.044 11.0053 35.1649C10.6816 34.2857 10.1421 34.066 9.27895 33.9561C8.30789 33.8462 7.22895 33.8462 6.25789 33.6264C4.31579 33.2967 3.23684 31.8682 3.23684 29.5605ZM6.58158 9.78025C6.90526 10.989 7.12105 12.0879 7.33684 13.0769C7.76842 14.8352 7.33684 16.3737 5.93421 17.5824C5.17895 18.2418 4.53158 18.7912 3.88421 19.4506C3.45263 19.7802 3.45263 20.1099 3.88421 20.4396C4.63947 21.0989 5.39474 21.7583 6.15 22.5275C7.33684 23.6264 7.66053 25.055 7.33684 26.7033C7.12105 27.5824 7.01316 28.5715 6.68947 29.4506C6.47368 30.1099 6.79737 30.3297 7.44474 30.3297C8.2 30.3297 8.84737 30.4396 9.60263 30.5495C11.0053 30.6594 12.4079 30.989 13.1632 32.3077C13.5947 32.9671 13.9184 33.7363 14.2421 34.5055C14.5658 35.1649 14.8895 35.8242 15.2132 36.5934C16.2921 35.9341 17.1553 35.3846 18.1263 34.8352C19.7447 33.8462 21.3632 33.8462 22.8737 34.8352C23.6289 35.2747 24.4921 35.7143 25.2474 36.2638C25.6789 36.4835 25.8947 36.4835 26.1105 35.9341C26.3263 35.2747 26.65 34.6154 26.8658 33.9561C27.7289 31.6484 29.2395 30.5495 31.6132 30.4396C32.4763 30.4396 33.3395 30.2198 34.4184 30.1099C34.2026 28.9011 33.8789 27.9121 33.6632 26.8132C33.2316 24.9451 33.6632 23.4066 35.0658 22.1978C35.7132 21.6484 36.3605 20.989 37.0079 20.4396C37.4395 20 37.4395 19.6704 37.0079 19.3407C36.3605 18.7912 35.6053 18.1319 34.9579 17.5824C33.6632 16.3737 33.2316 14.9451 33.5553 13.1868C33.6632 12.4176 33.8789 11.6484 34.0947 10.7693C34.3105 9.78025 34.2026 9.67036 33.2316 9.56047C32.4763 9.45058 31.6132 9.45058 30.8579 9.34069C29.1316 9.12091 27.9447 8.35167 27.1895 6.70332C26.8658 6.04398 26.5421 5.27475 26.2184 4.50552C26.0026 4.06596 25.7868 3.73629 25.5711 3.29673C24.7079 3.84618 23.8447 4.28574 23.0895 4.83519C21.2553 6.04398 19.4211 6.04398 17.5868 4.83519C17.0474 4.50552 16.5079 4.06596 15.8605 3.73629C15.6447 3.6264 15.3211 3.51651 14.8895 3.29673C14.4579 4.28574 14.1342 5.16486 13.7026 6.04398C12.8395 8.13189 11.3289 9.2308 9.06316 9.34069C8.41579 9.45058 7.55263 9.67036 6.58158 9.78025Z" fill="currentColor" />
+                                      <path d="M18.1263 22.967C19.7447 20.989 21.3632 19.0109 22.9816 17.0329C23.8447 16.0439 24.6 14.945 25.4632 13.956C26.2184 13.0769 27.1895 12.8571 27.9447 13.5164C28.7 14.1758 28.8079 15.1648 28.0526 16.1538C25.2474 19.5604 22.4421 23.0769 19.6368 26.4835C18.7737 27.4725 17.8026 27.5824 16.8316 26.5933C15.429 25.1648 14.0263 23.7362 12.6237 22.3076C11.7605 21.4285 11.7605 20.4395 12.5158 19.6703C13.2711 19.0109 14.2421 19.0109 15.1053 19.8901C16.0763 20.8791 17.0474 21.8681 18.1263 22.967Z" fill="currentColor" />
+                                    </g>
+                                  </svg>
+                                </div>
+                                <a href="#" className="zq_choose-item-btn">
+                                  <i className="fa-light fa-arrow-up-right"></i>
+                                </a>
+                              </div>
+                              <h2 className="zq_choose-item-title">600+</h2>
+                              <p>Successful Projects Lorem ipsum dolor sit amet consectetur our adipiscing of the best conditions.</p>
+                            </div>
+                          </div>
+                          <div className="col-md-6">
+                            <div className="zq_choose-item mb-30">
+                              <div className="zq_choose-item-top">
+                                <div className="zq_choose-item-icon">
+                                  <svg width="41" height="40" viewBox="0 0 41 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <g clipPath="url(#clip0_199_104)">
+                                      <path d="M3.23684 29.5605C3.45263 28.7912 3.56053 27.5824 3.88421 26.3737C4.1 25.6044 3.88421 25.055 3.34474 24.6154C2.58947 24.066 1.94211 23.4066 1.29474 22.7473C-0.431579 20.989 -0.431579 19.011 1.29474 17.1429C1.94211 16.4835 2.69737 15.8242 3.45263 15.1649C3.99211 14.7253 4.20789 14.1758 3.99211 13.4066C3.77632 12.5275 3.56053 11.6484 3.45263 10.7693C3.02105 8.1319 4.20789 6.48354 7.01316 6.15387C7.76842 6.04398 8.41579 6.04398 9.17105 5.93409C9.92632 5.93409 10.4658 5.60442 10.7895 4.7253C11.1132 3.84618 11.5447 2.85717 11.9763 2.08794C13.1632 -0.109863 14.8895 -0.659314 17.0474 0.439587C17.6947 0.769258 18.3421 1.09893 18.8816 1.53849C19.9605 2.41761 20.9316 2.41761 22.0105 1.53849C22.4421 1.20882 22.8737 0.989038 23.3053 0.769258C26.0026 -0.659314 28.0526 2.67178e-05 29.2395 2.85717C29.5632 3.51651 29.8868 4.28574 30.1026 5.05497C30.3184 5.71431 30.8579 6.04398 31.5053 6.04398C32.3684 6.04398 33.1237 6.15387 33.9868 6.26376C36.9 6.81321 38.0868 8.46157 37.4395 11.4286C37.3316 12.1978 37.1158 12.8572 36.9 13.6264C36.6842 14.2857 36.9 14.8352 37.4395 15.1649C38.0868 15.7143 38.8421 16.2638 39.4895 16.9231C41.4316 18.7912 41.4316 20.8791 39.5974 22.8572C39.0579 23.4066 38.4105 23.9561 37.7632 24.5055C37.0079 25.055 36.7921 25.7143 37.1158 26.5934C37.3316 27.2528 37.4395 27.9121 37.5474 28.4616C38.1947 31.6484 36.7921 33.5165 33.6632 33.7363C33.0158 33.7363 32.2605 33.8462 31.6132 33.9561C30.9658 33.9561 30.5342 34.2857 30.3184 34.9451C29.9947 35.7143 29.6711 36.3736 29.4553 37.1429C28.1605 40.1099 26.1105 40.7693 23.4132 39.1209C22.7658 38.7912 22.2263 38.3517 21.5789 38.022C20.9316 37.5824 20.3921 37.5824 19.7447 38.022C18.9895 38.5714 18.1263 39.011 17.3711 39.4506C15.2132 40.5495 13.3789 40 12.1921 37.8022C11.7605 36.9231 11.4368 36.044 11.0053 35.1649C10.6816 34.2857 10.1421 34.066 9.27895 33.9561C8.30789 33.8462 7.22895 33.8462 6.25789 33.6264C4.31579 33.2967 3.23684 31.8682 3.23684 29.5605ZM6.58158 9.78025C6.90526 10.989 7.12105 12.0879 7.33684 13.0769C7.76842 14.8352 7.33684 16.3737 5.93421 17.5824C5.17895 18.2418 4.53158 18.7912 3.88421 19.4506C3.45263 19.7802 3.45263 20.1099 3.88421 20.4396C4.63947 21.0989 5.39474 21.7583 6.15 22.5275C7.33684 23.6264 7.66053 25.055 7.33684 26.7033C7.12105 27.5824 7.01316 28.5715 6.68947 29.4506C6.47368 30.1099 6.79737 30.3297 7.44474 30.3297C8.2 30.3297 8.84737 30.4396 9.60263 30.5495C11.0053 30.6594 12.4079 30.989 13.1632 32.3077C13.5947 32.9671 13.9184 33.7363 14.2421 34.5055C14.5658 35.1649 14.8895 35.8242 15.2132 36.5934C16.2921 35.9341 17.1553 35.3846 18.1263 34.8352C19.7447 33.8462 21.3632 33.8462 22.8737 34.8352C23.6289 35.2747 24.4921 35.7143 25.2474 36.2638C25.6789 36.4835 25.8947 36.4835 26.1105 35.9341C26.3263 35.2747 26.65 34.6154 26.8658 33.9561C27.7289 31.6484 29.2395 30.5495 31.6132 30.4396C32.4763 30.4396 33.3395 30.2198 34.4184 30.1099C34.2026 28.9011 33.8789 27.9121 33.6632 26.8132C33.2316 24.9451 33.6632 23.4066 35.0658 22.1978C35.7132 21.6484 36.3605 20.989 37.0079 20.4396C37.4395 20 37.4395 19.6704 37.0079 19.3407C36.3605 18.7912 35.6053 18.1319 34.9579 17.5824C33.6632 16.3737 33.2316 14.9451 33.5553 13.1868C33.6632 12.4176 33.8789 11.6484 34.0947 10.7693C34.3105 9.78025 34.2026 9.67036 33.2316 9.56047C32.4763 9.45058 31.6132 9.45058 30.8579 9.34069C29.1316 9.12091 27.9447 8.35167 27.1895 6.70332C26.8658 6.04398 26.5421 5.27475 26.2184 4.50552C26.0026 4.06596 25.7868 3.73629 25.5711 3.29673C24.7079 3.84618 23.8447 4.28574 23.0895 4.83519C21.2553 6.04398 19.4211 6.04398 17.5868 4.83519C17.0474 4.50552 16.5079 4.06596 15.8605 3.73629C15.6447 3.6264 15.3211 3.51651 14.8895 3.29673C14.4579 4.28574 14.1342 5.16486 13.7026 6.04398C12.8395 8.13189 11.3289 9.2308 9.06316 9.34069C8.41579 9.45058 7.55263 9.67036 6.58158 9.78025Z" fill="currentColor" />
+                                      <path d="M18.1263 22.967C19.7447 20.989 21.3632 19.0109 22.9816 17.0329C23.8447 16.0439 24.6 14.945 25.4632 13.956C26.2184 13.0769 27.1895 12.8571 27.9447 13.5164C28.7 14.1758 28.8079 15.1648 28.0526 16.1538C25.2474 19.5604 22.4421 23.0769 19.6368 26.4835C18.7737 27.4725 17.8026 27.5824 16.8316 26.5933C15.429 25.1648 14.0263 23.7362 12.6237 22.3076C11.7605 21.4285 11.7605 20.4395 12.5158 19.6703C13.2711 19.0109 14.2421 19.0109 15.1053 19.8901C16.0763 20.8791 17.0474 21.8681 18.1263 22.967Z" fill="currentColor" />
+                                    </g>
+                                  </svg>
+                                </div>
+                                <a href="#" className="zq_choose-item-btn">
+                                  <i className="fa-light fa-arrow-up-right"></i>
+                                </a>
+                              </div>
+                              <h2 className="zq_choose-item-title">600+</h2>
+                              <p>Successful Projects Lorem ipsum dolor sit amet consectetur our adipiscing of the best conditions.</p>
+                            </div>
+                          </div>
+                          <div className="col-md-6">
+                            <div className="zq_choose-item mb-30">
+                              <div className="zq_choose-item-top">
+                                <div className="zq_choose-item-icon">
+                                  <svg width="41" height="40" viewBox="0 0 41 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <g clipPath="url(#clip0_199_104)">
+                                      <path d="M3.23684 29.5605C3.45263 28.7912 3.56053 27.5824 3.88421 26.3737C4.1 25.6044 3.88421 25.055 3.34474 24.6154C2.58947 24.066 1.94211 23.4066 1.29474 22.7473C-0.431579 20.989 -0.431579 19.011 1.29474 17.1429C1.94211 16.4835 2.69737 15.8242 3.45263 15.1649C3.99211 14.7253 4.20789 14.1758 3.99211 13.4066C3.77632 12.5275 3.56053 11.6484 3.45263 10.7693C3.02105 8.1319 4.20789 6.48354 7.01316 6.15387C7.76842 6.04398 8.41579 6.04398 9.17105 5.93409C9.92632 5.93409 10.4658 5.60442 10.7895 4.7253C11.1132 3.84618 11.5447 2.85717 11.9763 2.08794C13.1632 -0.109863 14.8895 -0.659314 17.0474 0.439587C17.6947 0.769258 18.3421 1.09893 18.8816 1.53849C19.9605 2.41761 20.9316 2.41761 22.0105 1.53849C22.4421 1.20882 22.8737 0.989038 23.3053 0.769258C26.0026 -0.659314 28.0526 2.67178e-05 29.2395 2.85717C29.5632 3.51651 29.8868 4.28574 30.1026 5.05497C30.3184 5.71431 30.8579 6.04398 31.5053 6.04398C32.3684 6.04398 33.1237 6.15387 33.9868 6.26376C36.9 6.81321 38.0868 8.46157 37.4395 11.4286C37.3316 12.1978 37.1158 12.8572 36.9 13.6264C36.6842 14.2857 36.9 14.8352 37.4395 15.1649C38.0868 15.7143 38.8421 16.2638 39.4895 16.9231C41.4316 18.7912 41.4316 20.8791 39.5974 22.8572C39.0579 23.4066 38.4105 23.9561 37.7632 24.5055C37.0079 25.055 36.7921 25.7143 37.1158 26.5934C37.3316 27.2528 37.4395 27.9121 37.5474 28.4616C38.1947 31.6484 36.7921 33.5165 33.6632 33.7363C33.0158 33.7363 32.2605 33.8462 31.6132 33.9561C30.9658 33.9561 30.5342 34.2857 30.3184 34.9451C29.9947 35.7143 29.6711 36.3736 29.4553 37.1429C28.1605 40.1099 26.1105 40.7693 23.4132 39.1209C22.7658 38.7912 22.2263 38.3517 21.5789 38.022C20.9316 37.5824 20.3921 37.5824 19.7447 38.022C18.9895 38.5714 18.1263 39.011 17.3711 39.4506C15.2132 40.5495 13.3789 40 12.1921 37.8022C11.7605 36.9231 11.4368 36.044 11.0053 35.1649C10.6816 34.2857 10.1421 34.066 9.27895 33.9561C8.30789 33.8462 7.22895 33.8462 6.25789 33.6264C4.31579 33.2967 3.23684 31.8682 3.23684 29.5605ZM6.58158 9.78025C6.90526 10.989 7.12105 12.0879 7.33684 13.0769C7.76842 14.8352 7.33684 16.3737 5.93421 17.5824C5.17895 18.2418 4.53158 18.7912 3.88421 19.4506C3.45263 19.7802 3.45263 20.1099 3.88421 20.4396C4.63947 21.0989 5.39474 21.7583 6.15 22.5275C7.33684 23.6264 7.66053 25.055 7.33684 26.7033C7.12105 27.5824 7.01316 28.5715 6.68947 29.4506C6.47368 30.1099 6.79737 30.3297 7.44474 30.3297C8.2 30.3297 8.84737 30.4396 9.60263 30.5495C11.0053 30.6594 12.4079 30.989 13.1632 32.3077C13.5947 32.9671 13.9184 33.7363 14.2421 34.5055C14.5658 35.1649 14.8895 35.8242 15.2132 36.5934C16.2921 35.9341 17.1553 35.3846 18.1263 34.8352C19.7447 33.8462 21.3632 33.8462 22.8737 34.8352C23.6289 35.2747 24.4921 35.7143 25.2474 36.2638C25.6789 36.4835 25.8947 36.4835 26.1105 35.9341C26.3263 35.2747 26.65 34.6154 26.8658 33.9561C27.7289 31.6484 29.2395 30.5495 31.6132 30.4396C32.4763 30.4396 33.3395 30.2198 34.4184 30.1099C34.2026 28.9011 33.8789 27.9121 33.6632 26.8132C33.2316 24.9451 33.6632 23.4066 35.0658 22.1978C35.7132 21.6484 36.3605 20.989 37.0079 20.4396C37.4395 20 37.4395 19.6704 37.0079 19.3407C36.3605 18.7912 35.6053 18.1319 34.9579 17.5824C33.6632 16.3737 33.2316 14.9451 33.5553 13.1868C33.6632 12.4176 33.8789 11.6484 34.0947 10.7693C34.3105 9.78025 34.2026 9.67036 33.2316 9.56047C32.4763 9.45058 31.6132 9.45058 30.8579 9.34069C29.1316 9.12091 27.9447 8.35167 27.1895 6.70332C26.8658 6.04398 26.5421 5.27475 26.2184 4.50552C26.0026 4.06596 25.7868 3.73629 25.5711 3.29673C24.7079 3.84618 23.8447 4.28574 23.0895 4.83519C21.2553 6.04398 19.4211 6.04398 17.5868 4.83519C17.0474 4.50552 16.5079 4.06596 15.8605 3.73629C15.6447 3.6264 15.3211 3.51651 14.8895 3.29673C14.4579 4.28574 14.1342 5.16486 13.7026 6.04398C12.8395 8.13189 11.3289 9.2308 9.06316 9.34069C8.41579 9.45058 7.55263 9.67036 6.58158 9.78025Z" fill="currentColor" />
+                                      <path d="M18.1263 22.967C19.7447 20.989 21.3632 19.0109 22.9816 17.0329C23.8447 16.0439 24.6 14.945 25.4632 13.956C26.2184 13.0769 27.1895 12.8571 27.9447 13.5164C28.7 14.1758 28.8079 15.1648 28.0526 16.1538C25.2474 19.5604 22.4421 23.0769 19.6368 26.4835C18.7737 27.4725 17.8026 27.5824 16.8316 26.5933C15.429 25.1648 14.0263 23.7362 12.6237 22.3076C11.7605 21.4285 11.7605 20.4395 12.5158 19.6703C13.2711 19.0109 14.2421 19.0109 15.1053 19.8901C16.0763 20.8791 17.0474 21.8681 18.1263 22.967Z" fill="currentColor" />
+                                    </g>
+                                  </svg>
+                                </div>
+                                <a href="#" className="zq_choose-item-btn">
+                                  <i className="fa-light fa-arrow-up-right"></i>
+                                </a>
+                              </div>
+                              <h2 className="zq_choose-item-title">600+</h2>
+                              <p>Successful Projects Lorem ipsum dolor sit amet consectetur our adipiscing of the best conditions.</p>
+                            </div>
+                          </div>
                           {/* Add more choose items here */}
                         </div>
                       </div>
                       <div className="col-xl-5">
                         <div className="zq_choose-img mb-30">
                           <Image
-                                                        src="https://themephi.net/template/zeniqsh/zeniqs/assets/images/choose/h1_1.png"
+                            src="https://themephi.net/template/zeniqsh/zeniqs/assets/images/choose/h1_1.png"
                             alt="Choose Image"
                             width={500}
                             height={400}
@@ -976,8 +1047,73 @@ export default function AboutPage() {
                 </div>
               </section>
 
-              {/* Team Section */}
+              {/* Introduction & Vision Section */}
               <motion.section 
+                id="intro-vision"
+                className="zq_intro-vision-area pt-95 pb-70"
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8 }}
+                viewport={{ once: true }}
+              >
+                <div className="container">
+                  <div className="row justify-content-center">
+                    <div className="col-xl-8 col-lg-10">
+                      <motion.div
+                        className="intro-vision-content text-center"
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6, delay: 0.2 }}
+                        viewport={{ once: true }}
+                      >
+
+                        <motion.div
+                          className="vision-section"
+                          initial={{ opacity: 0, y: 30 }}
+                          whileInView={{ opacity: 1, y: 0 }}
+                          transition={{ duration: 0.6, delay: 0.5 }}
+                          viewport={{ once: true }}
+                        >
+                          <motion.h3
+                            className="vision-title mb-25"
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.6, delay: 0.6 }}
+                            viewport={{ once: true }}
+                            style={{
+                              fontSize: '2rem',
+                              fontWeight: '600',
+                              color: 'var(--clr-theme-primary)',
+                              lineHeight: '1.3'
+                            }}
+                          >
+                            Our Vision
+                          </motion.h3>
+                          <motion.p
+                            className="vision-text"
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.6, delay: 0.7 }}
+                            viewport={{ once: true }}
+                            style={{
+                              fontSize: '1.1rem',
+                              color: 'var(--clr-body-text)',
+                              opacity: 0.9,
+                              lineHeight: '1.7'
+                            }}
+                          >
+                            To be a leading creative and digital agency, renowned for delivering innovative and impactful branding and marketing solutions that fuel sustainable growth for our clients. We strive to be a trusted partner, offering a comprehensive suite of services and embracing cutting edge technologies to empower businesses in achieving their ambitious goals.
+                          </motion.p>
+                        </motion.div>
+                      </motion.div>
+                    </div>
+                  </div>
+                </div>
+              </motion.section>
+
+
+              {/* Team Section */}
+              <motion.section
                 className="zq_team-area pt-95 pb-70"
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
@@ -987,14 +1123,14 @@ export default function AboutPage() {
                 <div className="container">
                   <div className="row justify-content-center">
                     <div className="col-xl-6 col-lg-8">
-                      <motion.div 
+                      <motion.div
                         className="zq_section-area text-center"
                         initial={{ opacity: 0, y: 30 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6, delay: 0.2 }}
                         viewport={{ once: true }}
                       >
-                        <motion.span 
+                        <motion.span
                           className="zq_section-subtitle mb-20"
                           initial={{ opacity: 0, scale: 0.8 }}
                           whileInView={{ opacity: 1, scale: 1 }}
@@ -1003,7 +1139,7 @@ export default function AboutPage() {
                         >
                           Our Team
                         </motion.span>
-                        <motion.h2 
+                        <motion.h2
                           className="zq_section-title mb-40"
                           initial={{ opacity: 0, y: 20 }}
                           whileInView={{ opacity: 1, y: 0 }}
@@ -1012,69 +1148,60 @@ export default function AboutPage() {
                         >
                           Meet the Experts Behind Our Success
                         </motion.h2>
-                        <motion.p 
-                          className="team-section-description"
-                          initial={{ opacity: 0, y: 20 }}
-                          whileInView={{ opacity: 1, y: 0 }}
-                          transition={{ duration: 0.6, delay: 0.5 }}
-                          viewport={{ once: true }}
-                        >
-                          Our diverse team of creative professionals brings together years of experience 
-                          in design, development, and strategy to deliver exceptional results.
-                        </motion.p>
+
                       </motion.div>
                     </div>
                   </div>
                   <div className="row justify-content-center">
                     {teamData.map((member, index) => (
                       <div key={member.id} className="col-lg-3 col-md-6 col-sm-6">
-                        <motion.div 
+                        <motion.div
                           className="modern-team-item mb-30"
                           initial={{ opacity: 0, y: 50, scale: 0.9 }}
                           whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                          transition={{ 
-                            duration: 0.6, 
+                          transition={{
+                            duration: 0.6,
                             delay: index * 0.15,
                             type: "spring",
                             stiffness: 100
                           }}
                           viewport={{ once: true }}
-                          whileHover={{ 
-                            y: -15, 
+                          whileHover={{
+                            y: -15,
                             scale: 1.02,
                             transition: { duration: 0.3 }
                           }}
                         >
                           <div className="team-card">
-                            <motion.div 
+                            <motion.div
                               className="team-image-container"
                               whileHover={{ scale: 1.05 }}
                               transition={{ duration: 0.3 }}
                             >
-                              <Image 
-                                src={member.image} 
-                                alt={member.name} 
-                                width={300} 
-                                height={400} 
+                              <Image
+                                src={member.image}
+                                alt={member.name}
+                                width={300}
+                                height={400}
                                 className="team-image"
                               />
-                              <motion.div 
+                              <motion.div
                                 className="team-overlay"
                                 initial={{ opacity: 0 }}
                                 whileHover={{ opacity: 1 }}
                                 transition={{ duration: 0.3 }}
                               >
-                                <motion.div 
+                                <motion.div
                                   className="team-social-links"
                                   initial={{ y: 20, opacity: 0 }}
                                   whileHover={{ y: 0, opacity: 1 }}
                                   transition={{ duration: 0.3, delay: 0.1 }}
                                 >
                                   {member.social.linkedin && (
-                                    <motion.a 
-                                      href={member.social.linkedin} 
-                                      target="_blank" 
-                                      rel="noopener noreferrer" 
+                                    <motion.a
+                                      href={member.social.linkedin}
+                                      target="_blank"
+                                      rel="noopener noreferrer"
                                       className="social-link"
                                       whileHover={{ scale: 1.2, rotate: 5 }}
                                       whileTap={{ scale: 0.9 }}
@@ -1083,10 +1210,10 @@ export default function AboutPage() {
                                     </motion.a>
                                   )}
                                   {member.social.twitter && (
-                                    <motion.a 
-                                      href={member.social.twitter} 
-                                      target="_blank" 
-                                      rel="noopener noreferrer" 
+                                    <motion.a
+                                      href={member.social.twitter}
+                                      target="_blank"
+                                      rel="noopener noreferrer"
                                       className="social-link"
                                       whileHover={{ scale: 1.2, rotate: 5 }}
                                       whileTap={{ scale: 0.9 }}
@@ -1095,10 +1222,10 @@ export default function AboutPage() {
                                     </motion.a>
                                   )}
                                   {member.social.github && (
-                                    <motion.a 
-                                      href={member.social.github} 
-                                      target="_blank" 
-                                      rel="noopener noreferrer" 
+                                    <motion.a
+                                      href={member.social.github}
+                                      target="_blank"
+                                      rel="noopener noreferrer"
                                       className="social-link"
                                       whileHover={{ scale: 1.2, rotate: 5 }}
                                       whileTap={{ scale: 0.9 }}
@@ -1107,10 +1234,10 @@ export default function AboutPage() {
                                     </motion.a>
                                   )}
                                   {member.social.instagram && (
-                                    <motion.a 
-                                      href={member.social.instagram} 
-                                      target="_blank" 
-                                      rel="noopener noreferrer" 
+                                    <motion.a
+                                      href={member.social.instagram}
+                                      target="_blank"
+                                      rel="noopener noreferrer"
                                       className="social-link"
                                       whileHover={{ scale: 1.2, rotate: 5 }}
                                       whileTap={{ scale: 0.9 }}
@@ -1121,7 +1248,7 @@ export default function AboutPage() {
                                 </motion.div>
                               </motion.div>
                             </motion.div>
-                            <motion.div 
+                            <motion.div
                               className="team-content"
                               initial={{ opacity: 0, y: 20 }}
                               whileInView={{ opacity: 1, y: 0 }}
@@ -1147,33 +1274,33 @@ export default function AboutPage() {
                     <div className="col-xl-5 col-lg-6">
                       <div className="zq_section-area text-center">
                         <span className="zq_section-subtitle mb-20">Our Services</span>
-                                                <h2 className="zq_section-title mb-40">Complete Creative Solutions</h2>
+                        <h2 className="zq_section-title mb-40">Complete Creative Solutions</h2>
                       </div>
                     </div>
                   </div>
                   <div className="row">
-                                        {servicesData.map((service, index) => {
-                                            const IconComponent = service.icon;
-                                            
-                                            return (
-                                                <div key={service.id} className="col-lg-4 col-md-6">
-                      <div className="zq_service-item mb-30">
-                        <div className="zq_service-item-icon">
-                                                            <IconComponent size={24} />
+                    {servicesData.map((service, index) => {
+                      const IconComponent = service.icon;
+
+                      return (
+                        <div key={service.id} className="col-lg-4 col-md-6">
+                          <div className="zq_service-item mb-30">
+                            <div className="zq_service-item-icon">
+                              <IconComponent size={24} />
+                            </div>
+                            <h4 className="zq_service-item-title">
+                              <Link href="#">{service.title}</Link>
+                            </h4>
+                            <p>{service.description}</p>
+                            <div className="zq_service-btn">
+                              <Link href="#" className="zq_service-item-btn">
+                                Learn More<i className="fa-regular fa-angle-right"></i>
+                              </Link>
+                            </div>
+                          </div>
                         </div>
-                        <h4 className="zq_service-item-title">
-                                                            <Link href="#">{service.title}</Link>
-                        </h4>
-                                                        <p>{service.description}</p>
-                        <div className="zq_service-btn">
-                          <Link href="#" className="zq_service-item-btn">
-                            Learn More<i className="fa-regular fa-angle-right"></i>
-                          </Link>
-                        </div>
-                      </div>
-                    </div>
-                                            );
-                                        })}
+                      );
+                    })}
                   </div>
                 </div>
               </section>
@@ -1300,105 +1427,6 @@ export default function AboutPage() {
                 </div>
               </section>
 
-              {/* Stats Section */}
-              <section className="zq_stats-area pt-95 pb-70">
-                <div className="container">
-                  <div className="row">
-                    <div className="col-lg-3 col-md-6">
-                      <div className="zq_stats-item text-center mb-30">
-                        <div className="zq_stats-item-icon">
-                          <i className="fas fa-project-diagram"></i>
-                        </div>
-                        <h2 className="zq_stats-item-number">150+</h2>
-                        <p className="zq_stats-item-text">Projects Completed</p>
-                      </div>
-                    </div>
-                    <div className="col-lg-3 col-md-6">
-                      <div className="zq_stats-item text-center mb-30">
-                        <div className="zq_stats-item-icon">
-                          <i className="fas fa-users"></i>
-                        </div>
-                        <h2 className="zq_stats-item-number">75+</h2>
-                        <p className="zq_stats-item-text">Happy Clients</p>
-                      </div>
-                    </div>
-                    <div className="col-lg-3 col-md-6">
-                      <div className="zq_stats-item text-center mb-30">
-                        <div className="zq_stats-item-icon">
-                          <i className="fas fa-award"></i>
-                        </div>
-                        <h2 className="zq_stats-item-number">25+</h2>
-                        <p className="zq_stats-item-text">Awards Won</p>
-                      </div>
-                    </div>
-                    <div className="col-lg-3 col-md-6">
-                      <div className="zq_stats-item text-center mb-30">
-                        <div className="zq_stats-item-icon">
-                          <i className="fas fa-clock"></i>
-                        </div>
-                        <h2 className="zq_stats-item-number">5+</h2>
-                        <p className="zq_stats-item-text">Years Experience</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </section>
-
-              {/* Process Section */}
-              <section className="zq_process-area pt-95 pb-70">
-                <div className="container">
-                  <div className="row justify-content-center">
-                    <div className="col-xl-5 col-lg-6">
-                      <div className="zq_section-area text-center">
-                        <span className="zq_section-subtitle mb-20">Our Process</span>
-                        <h2 className="zq_section-title mb-40">How We Work</h2>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="row">
-                    <div className="col-lg-3 col-md-6">
-                      <div className="zq_process-item text-center mb-30">
-                        <div className="zq_process-item-number">01</div>
-                        <div className="zq_process-item-icon">
-                          <i className="fas fa-lightbulb"></i>
-                        </div>
-                        <h3 className="zq_process-item-title">Discovery</h3>
-                        <p>We start by understanding your business goals, target audience, and project requirements through detailed consultation.</p>
-                      </div>
-                    </div>
-                    <div className="col-lg-3 col-md-6">
-                      <div className="zq_process-item text-center mb-30">
-                        <div className="zq_process-item-number">02</div>
-                        <div className="zq_process-item-icon">
-                          <i className="fas fa-drafting-compass"></i>
-                        </div>
-                        <h3 className="zq_process-item-title">Design</h3>
-                        <p>Our design team creates wireframes, mockups, and prototypes to visualize your project before development begins.</p>
-                      </div>
-                    </div>
-                    <div className="col-lg-3 col-md-6">
-                      <div className="zq_process-item text-center mb-30">
-                        <div className="zq_process-item-number">03</div>
-                        <div className="zq_process-item-icon">
-                          <i className="fas fa-code"></i>
-                        </div>
-                        <h3 className="zq_process-item-title">Development</h3>
-                        <p>Our developers bring the design to life using cutting-edge technologies and best practices for optimal performance.</p>
-                      </div>
-                    </div>
-                    <div className="col-lg-3 col-md-6">
-                      <div className="zq_process-item text-center mb-30">
-                        <div className="zq_process-item-number">04</div>
-                        <div className="zq_process-item-icon">
-                          <i className="fas fa-rocket"></i>
-                        </div>
-                        <h3 className="zq_process-item-title">Launch</h3>
-                        <p>We deploy your project with comprehensive testing and provide ongoing support to ensure continued success.</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </section>
 
               {/* CTA Section */}
               <div className="zq_cta-area">
@@ -1426,8 +1454,8 @@ export default function AboutPage() {
         </div>
       </div>
 
-            {/* Footer Section */}
-            <Footer />
+      {/* Footer Section */}
+      <Footer />
     </>
   )
 }

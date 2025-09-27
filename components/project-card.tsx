@@ -25,14 +25,26 @@ export function ProjectCard({ title, categories, imgSrc, isVideo, className }: P
       "#ff6b6b", "#4ecdc4", "#45b7d1", "#96ceb4", "#feca57", "#ff9ff3",
       "#54a0ff", "#5f27cd", "#00d2d3", "#ff9f43", "#10ac84", "#ee5a24",
       "#0984e3", "#6c5ce7", "#a29bfe", "#fd79a8", "#fdcb6e", "#e17055",
+      "#00b894", "#00cec9", "#6c5ce7", "#a29bfe", "#fd79a8", "#fdcb6e",
+      "#ff7675", "#74b9ff", "#a29bfe", "#fd79a8", "#fdcb6e", "#e17055",
       "#00b894", "#00cec9", "#6c5ce7", "#a29bfe", "#fd79a8", "#fdcb6e"
     ]
     
-    const color1 = colors[Math.floor(Math.random() * colors.length)]
-    const color2 = colors[Math.floor(Math.random() * colors.length)]
+    // Generate 2-3 colors for more complex gradients
+    const numColors = Math.random() > 0.5 ? 2 : 3
+    const selectedColors = []
+    
+    for (let i = 0; i < numColors; i++) {
+      selectedColors.push(colors[Math.floor(Math.random() * colors.length)])
+    }
+    
     const angle = Math.floor(Math.random() * 360)
     
-    return `linear-gradient(${angle}deg, ${color1}, ${color2})`
+    if (selectedColors.length === 2) {
+      return `linear-gradient(${angle}deg, ${selectedColors[0]}, ${selectedColors[1]})`
+    } else {
+      return `linear-gradient(${angle}deg, ${selectedColors[0]}, ${selectedColors[1]}, ${selectedColors[2]})`
+    }
   }
 
   const handleHoverStart = () => {
@@ -40,7 +52,14 @@ export function ProjectCard({ title, categories, imgSrc, isVideo, className }: P
   }
 
   const handleClick = () => {
-    router.push('/details')
+    // Pass image data via URL params
+    const params = new URLSearchParams({
+      title: title,
+      categories: categories.join(','),
+      imgSrc: imgSrc,
+      isVideo: isVideo ? 'true' : 'false'
+    })
+    router.push(`/details?${params.toString()}`)
   }
 
   // Ensure video plays when component mounts
@@ -62,8 +81,8 @@ export function ProjectCard({ title, categories, imgSrc, isVideo, className }: P
   return (
     <motion.div
       className={cn(
-        "group relative overflow-hidden rounded-none border border-gray-500 bg-black p-1", // Reduced padding for mobile
-        "sm:p-2 md:p-4", // Increased padding for larger screens
+        "group relative overflow-hidden rounded-none border border-gray-500 bg-black p-3", // Increased padding for mobile
+        "sm:p-4 md:p-6", // Increased padding for larger screens
         "select-none cursor-pointer",
         className,
       )}
@@ -74,11 +93,10 @@ export function ProjectCard({ title, categories, imgSrc, isVideo, className }: P
       transition={{ duration: 0.3 }}
     >
       <motion.div
-        className="absolute inset-0 opacity-0"
+        className="absolute inset-0 opacity-0 z-0"
         whileHover={{ 
-          opacity: 0.8,
-          background: hoverGradient,
-          transition: { duration: 0.3 }
+          opacity: 0.9,
+          transition: { duration: 0.4, ease: "easeOut" }
         }}
         style={{
           background: hoverGradient
@@ -89,7 +107,7 @@ export function ProjectCard({ title, categories, imgSrc, isVideo, className }: P
         <video
           ref={videoRef}
           src={imgSrc}
-          className="relative z-10 w-full h-full object-cover opacity-95 select-none"
+          className="relative z-20 w-full h-full object-cover opacity-95 select-none"
           autoPlay
           loop
           muted
@@ -116,7 +134,7 @@ export function ProjectCard({ title, categories, imgSrc, isVideo, className }: P
         <img
           src={imgSrc || "/placeholder.svg"}
           alt={title}
-          className="relative z-10 w-full h-full object-cover opacity-95 select-none"
+          className="relative z-20 w-full h-full object-cover opacity-95 select-none"
           draggable={false}
           crossOrigin="anonymous"
           style={{ objectFit: "cover" }}
