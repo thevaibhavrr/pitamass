@@ -2,6 +2,7 @@
 
 import { useSearchParams } from 'next/navigation';
 import { motion } from 'framer-motion';
+import { Suspense } from 'react';
 import { AboutHeader } from "@/components/about-header";
 import { Footer } from "@/components/footer";
 import { ProjectCard } from "@/components/project-card";
@@ -31,7 +32,7 @@ const sampleProjects = [
   { id: 12, title: "Creative Works", categories: ["Design", "Brand"], imgSrc: "https://www.pitamaas.com/Home/digital.jpg" },
 ];
 
-export default function DetailsPage() {
+function DetailsContent() {
   const searchParams = useSearchParams();
   
   // Get data from URL params
@@ -41,16 +42,13 @@ export default function DetailsPage() {
   const isVideo = searchParams.get('isVideo') === 'true';
 
   return (
-    <>
-      <AboutHeader showIcon={false} />
-      
-      <motion.main 
-        className="min-h-screen"
-        style={{ backgroundColor: 'var(--clr-common-black)', color: 'var(--clr-body-text)' }}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.5 }}
-      >
+    <motion.main 
+      className="min-h-screen"
+      style={{ backgroundColor: 'var(--clr-common-black)', color: 'var(--clr-body-text)' }}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.5 }}
+    >
         {/* Hero Section */}
         <section className="pt-20 pb-16">
           <div className="container mx-auto px-4 max-w-7xl">
@@ -265,6 +263,24 @@ export default function DetailsPage() {
           </div>
         </section>
       </motion.main>
+    );
+}
+
+export default function DetailsPage() {
+  return (
+    <>
+      <AboutHeader showIcon={false} />
+      
+      <Suspense fallback={
+        <div className="min-h-screen flex items-center justify-center" style={{ backgroundColor: 'var(--clr-common-black)' }}>
+          <div className="text-center">
+            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-white mx-auto mb-4"></div>
+            <p style={{ color: 'var(--clr-body-text)' }}>Loading...</p>
+          </div>
+        </div>
+      }>
+        <DetailsContent />
+      </Suspense>
       
       <Footer />
     </>
