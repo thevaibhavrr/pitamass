@@ -151,7 +151,9 @@ export default function AboutPage() {
 
   return (
     <>
-      <AboutHeader />
+      {/* <AboutHeader useLabLogo={true}  /> */}
+      <AboutHeader showIcon={false} />
+
       <style jsx global>{`
         /* Ensure navigation maintains rounded corners */
         nav[aria-label="Primary"] button {
